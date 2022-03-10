@@ -1,0 +1,15 @@
+/* .example-spacer {
+    flex: 1 1 auto;
+} */
+.mat-toolbar.mat-primary {
+    background: #ffd077;
+    color: black;
+}
+.nearmeLogo {
+    width: 200px;
+}
+.mat-primary {
+    /* TODO AZUL-CLARO: #77afff AZUL-OSCURO: #0054a0 */
+    background: #0054a0;
+    color: white;
+}
