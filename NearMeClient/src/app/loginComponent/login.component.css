@@ -1,0 +1,11 @@
+.cardDiv {
+    padding: 16px;
+}
+.example-card {
+    max-width: 400px;
+    border: 1px solid black;
+    border-radius: 30px 30px 30px 30px;
+}
+.mat-card {
+    text-align: center;
+}

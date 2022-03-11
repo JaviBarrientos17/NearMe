@@ -5,15 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './loginComponent/login.component';
 import { HomeComponent } from './homeComponent/home.component';
-
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
 import { RegisterComponent } from './registerComponent/register.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
 import { ProductosComponent } from './productosComponent/productos.component';
 import { DashboardComponent } from './dashboardComponent/dashboard.component';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,8 @@ import { DashboardComponent } from './dashboardComponent/dashboard.component';
     AppRoutingModule,
     NoopAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
