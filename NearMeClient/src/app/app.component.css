@@ -1,6 +1,10 @@
-/* .example-spacer {
-    flex: 1 1 auto;
-} */
+.spanSpacer {
+    margin: 10px;
+    padding: 10px;
+}
+.drawerImg {
+    width: 25px;
+}
 .mat-toolbar.mat-primary {
     background: #ffd077;
     color: black;
@@ -10,6 +14,6 @@
 }
 .mat-primary {
     /* TODO AZUL-CLARO: #77afff AZUL-OSCURO: #0054a0 */
-    background: #0054a0;
+    background-color: #0054a0;
     color: white;
 }

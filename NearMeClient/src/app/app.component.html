@@ -1,16 +1,15 @@
 <mat-toolbar color="primary">
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-     <mat-icon>menu</mat-icon>
-    </button> -->
-    <img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo">
-    <!-- <span>My App</span> -->
-    <span class="example-spacer"></span>
+    <img src="/assets/drawer.png" alt="drawerImg" class="drawerImg">
+    <a [routerLink]="['']"><img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo"></a>
+    <span class="spanSpacer"></span>
+    <a [routerLink]="['tiendas']"><button mat-flat-button color="primary">Tiendas</button></a>
+    <span class="spanSpacer"></span>
+    <a [routerLink]="['productos']"><button mat-flat-button color="primary">Productos</button></a>
+    <span class="spanSpacer"></span>
+    <a [routerLink]="['dashboard']"><button mat-flat-button color="primary">Dashboard</button></a>
+    <span class="spanSpacer"></span>
     <a [routerLink]="['login']"><button mat-flat-button color="primary">Login</button></a>
-    <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-    </button> -->
+    <span class="spanSpacer"></span>
+    <a [routerLink]="['register']"><button mat-flat-button color="primary">Register</button></a>
 </mat-toolbar>
 <router-outlet></router-outlet>
