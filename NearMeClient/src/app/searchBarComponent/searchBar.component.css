@@ -1,0 +1,14 @@
+* {
+  margin-left: 20px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 50px !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: 50px !important;
+}
+
+.iconFind {
+  color: #fd9f48;
+}

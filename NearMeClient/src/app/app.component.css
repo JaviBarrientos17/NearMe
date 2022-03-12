@@ -1,19 +1,74 @@
-.spanSpacer {
-    margin: 10px;
-    padding: 10px;
+* {
+  font-family: "Spline Sans", sans-serif;
 }
+
 .drawerImg {
-    width: 25px;
+  width: 1.4em;
 }
 .mat-toolbar.mat-primary {
-    background: #ffd077;
-    color: black;
+  background: white;
+  color: black;
 }
+
+.mat-toolbar a button {
+  font-size: 1.8vh;
+}
+.mat-toolbar a button:hover {
+  color: #fd9f48;
+}
+
 .nearmeLogo {
-    width: 200px;
+  width: 10em;
 }
 .mat-primary {
-    /* TODO AZUL-CLARO: #77afff AZUL-OSCURO: #0054a0 */
-    background-color: #0054a0;
-    color: white;
+  /* TODO AZUL-CLARO: #77afff AZUL-OSCURO: #0054a0 */
+  background-color: #0054a0;
+  color: white;
+}
+.snip1175 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1175 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.2em;
+  overflow: hidden;
+}
+.snip1175 a {
+  padding: 0 0.5em 0 0.2em;
+  color: #fd9f48;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+.snip1175 a:before,
+.snip1175 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1175 a:before {
+  right: 100%;
+  display: block;
+  width: 3px;
+  height: 100%;
+  content: "";
+  background-color: #fd9f48;
+}
+.snip1175 a:after {
+  padding: 0 0.5em 0 0.2em;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  content: attr(data-hover);
+  color: fd9f48fd9f48;
+  white-space: nowrap;
+}
+.snip1175 li:hover a,
+.snip1175 .current a {
+  transform: translateX(100%);
 }

@@ -1,15 +1,38 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap");
+</style>
 <mat-toolbar color="primary">
-    <img src="/assets/drawer.png" alt="drawerImg" class="drawerImg">
-    <a [routerLink]="['']"><img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo"></a>
-    <span class="spanSpacer"></span>
-    <a [routerLink]="['tiendas']"><button mat-flat-button color="primary">Tiendas</button></a>
-    <span class="spanSpacer"></span>
-    <a [routerLink]="['productos']"><button mat-flat-button color="primary">Productos</button></a>
-    <span class="spanSpacer"></span>
-    <a [routerLink]="['dashboard']"><button mat-flat-button color="primary">Dashboard</button></a>
-    <span class="spanSpacer"></span>
-    <a [routerLink]="['login']"><button mat-flat-button color="primary">Login</button></a>
-    <span class="spanSpacer"></span>
-    <a [routerLink]="['register']"><button mat-flat-button color="primary">Register</button></a>
+  <img src="/assets/drawer.png" alt="drawerImg" class="drawerImg" />
+  <a [routerLink]="['']"
+    ><img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo"
+  /></a>
+
+  <ul class="snip1175">
+    <li>
+      <a [routerLink]="['tiendas']" data-hover="Tiendas"
+        ><button mat-flat-button>Tiendas</button></a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['productos']" data-hover="Productos"
+        ><button mat-flat-button>Productos</button></a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['dashboard']" data-hover="Dashboard"
+        ><button mat-flat-button>Dashboard</button></a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['login']" data-hover="Login"
+        ><button mat-flat-button>Login</button></a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['register']" data-hover="Register"
+        ><button mat-flat-button></button
+      ></a>
+    </li>
+  </ul>
 </mat-toolbar>
 <router-outlet></router-outlet>
