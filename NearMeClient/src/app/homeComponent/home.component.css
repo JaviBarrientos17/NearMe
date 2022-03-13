@@ -1,0 +1,49 @@
+.card-categoria {
+  border-radius: 20px;
+  width: 200px;
+  height: 250px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.card-img {
+  margin-top: 10%;
+  height: auto;
+  width: 100%;
+}
+
+.cardLong {
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.card-img-long {
+  height: auto;
+  width: 60%;
+  margin-left: 17%;
+}
+
+.img-servicio {
+  width: 40%;
+}
+
+.titulo-mas-vendidos {
+  text-align: center;
+  font-size: 6vh;
+}
+
+.card-producto {
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.btn-comprar {
+  background-color: #fd9f48;
+  padding: 0.6em 2em;
+  border-radius: 20px;
+  border-color: #fd9f48;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}

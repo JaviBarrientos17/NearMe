@@ -1,10 +1,161 @@
-<h1>HomePage</h1>
-<searchBar></searchBar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <searchBar></searchBar>
+    </div>
+  </div>
 
-<mat-card class="example-card">
-  <img
-    mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="Photo of a Shiba Inu"
-  />
-</mat-card>
+  <section class="section-categorias">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card text-white card-categoria">
+          <img
+            src="../../assets/lawn-mower-vectorportal.jpg"
+            class="card-img"
+            alt="..."
+          />
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="card text-white card-categoria">
+          <img
+            src="../../assets/controller-vectorportal.jpg"
+            class="card-img"
+            alt="..."
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white cardLong">
+          <img
+            src="../../assets/chef-hat-vectorportal.jpg"
+            class="card-img-long"
+            alt="..."
+          />
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="card text-white card-categoria">
+          <img
+            src="../../assets/controller-vectorportal.jpg"
+            class="card-img"
+            alt="..."
+          />
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="card text-white card-categoria">
+          <img
+            src="../../assets/controller-vectorportal.jpg"
+            class="card-img"
+            alt="..."
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-servicios">
+    <div class="row servicios">
+      <div class="col-md-2 d-flex justify-content-end">
+        <img class="img-servicio" src="../../assets/assistance.png" alt="" />
+      </div>
+      <div class="col-md-2">
+        <span class="texto-servicios">Soporte Online 24h</span>
+      </div>
+      <div class="col-md-2 d-flex justify-content-end">
+        <img class="img-servicio" src="../../assets/credit-cards.png" alt="" />
+      </div>
+      <div class="col-md-2">
+        <span class="texto-servicios">Soporte Online 24h</span>
+      </div>
+      <div class="col-md-2 d-flex justify-content-end">
+        <img
+          class="img-servicio"
+          src="../../assets/entrega-rapida.png"
+          alt=""
+        />
+      </div>
+      <div class="col-md-2">
+        <span class="texto-servicios">Soporte Online 24h</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-slider-productos">
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="..." class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="..." />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  <section class="section-productos">
+    <h1 class="titulo-mas-vendidos">Productos Más Vendidos</h1>
+    <div class="row">
+      <div class="card card-producto" style="width: 18rem">
+        <img src="../../assets/nike.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-subtitle">Moda</h5>
+          <h2 class="card-title">Nike Jordan High</h2>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary btn-comprar">COMPRAR</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
