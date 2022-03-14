@@ -1,11 +1,8 @@
-.cardDiv {
-    padding: 16px;
+.card {
+    margin: 0.5% auto;
+    float: none;
+    margin-bottom: 90%;
 }
-.example-card {
-    max-width: 400px;
-    border: 1px solid black;
-    border-radius: 30px 30px 30px 30px;
-}
-.mat-card {
+.card h3,div {
     text-align: center;
 }

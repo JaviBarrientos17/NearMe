@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
   title = 'Login';
-  longText = "Lorem ipsum...";
+  username = "";
+  userPass = "";
+
+  ngOnInit(){
+    console.log("Works!");
+  }
+  
+  sendLoginFormData() {
+
+  }
 }
