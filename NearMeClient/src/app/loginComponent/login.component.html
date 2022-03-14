@@ -1,19 +1,28 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h3>Login</h3>
-    <form #loginForm="ngForm" (ngSubmit)="sendLoginFormData(); loginForm.reset()">
-      <div>
-        <label for="username">Username</label>
-        <input class="form-control" type="text" id="username" name="username" pattern="[A-Za-z]{3,10}"
-          #usernameForm="ngModel" [(ngModel)]="username" placeholder="Username" required>
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input class="form-control" type="password" class="form-control" name="password"
-          id="password" [(ngModel)]="userPass" placeholder="Password" required>
-      </div><br>
-      <button type="submit" class="btn btn-primary" id="formBtn" [disabled]="!loginForm.form.valid">Login</button>
-      <br>
-    </form>
-  </div>
+<script src="script.js" defer></script>
+<div class="container" id="container">
+	<div class="form-container sign-in-container">
+		<div class="formDiv">
+			<form action="#">
+				<h1>Log in</h1>
+				<div class="social-container">
+					<a href="#" class="social"><img class="socialNetworkImg" src="../../assets/facebook.png"></a>
+					<a href="#" class="social"><img class="socialNetworkImg" src="../../assets/google.png"></a>
+				</div>
+				<span>or use your account</span>
+				<input type="email" placeholder="Email" />
+				<input type="password" placeholder="Password" />
+				<a href="#">Forgot your password?</a>
+				<button>Log In</button>
+			</form>
+		</div>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo">
+				<!-- <p>Enter your personal details and start journey with us</p> -->
+				<a [routerLink]="['../register']" data-hover="Register"><button>Register</button></a>
+			</div>
+		</div>
+	</div>
 </div>
