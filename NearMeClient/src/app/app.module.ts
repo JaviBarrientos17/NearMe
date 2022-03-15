@@ -19,7 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-
+import { NavbarComponent } from './navbarComponent/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
     ProductosComponent,
     DashboardComponent,
     SearchBar,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { RegisterComponent } from './registerComponent/register.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
 
 const routes: Routes = [
+  // TODO MIRAR DE ELIMINAR NAVBAR DEL LoginComponent
   {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
