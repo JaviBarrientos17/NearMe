@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NearmeApplication<nearme>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.api.nearme.NearmeApplication",
+            "projectName": "nearme",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
