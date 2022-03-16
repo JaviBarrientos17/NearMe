@@ -1,18 +1,32 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h3>Login</h3>
-    <form #loginForm="ngForm" (ngSubmit)="sendLoginFormData(); loginForm.reset()">
-      <div>
-        <label for="username">Username</label>
-        <input class="form-control" type="text" id="username" name="username" pattern="[A-Za-z]{3,10}"
-          #usernameForm="ngModel" [(ngModel)]="username" placeholder="Username" required>
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input class="form-control" type="password" class="form-control" name="password"
-          id="password" [(ngModel)]="userPass" placeholder="Password" required>
-      </div><br>
-      <button type="submit" class="btn btn-primary" id="formBtn" [disabled]="!loginForm.form.valid">Login</button>
-    </form>
-  </div>
+<script src="script.js" defer></script>
+<div class="container" id="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-container sign-in-container">
+				<form action="#" class="formLogin">
+					<h1 class="formTitle">Log in</h1>
+					<span></span>
+					<input type="email" class="inputForm" placeholder="Email"/>
+					<input type="password" class="inputForm" placeholder="Password"/>
+					<div class="social-container">
+						<a href="#" class="social"><img class="socialNetworkImg" src="../../assets/facebook.png"></a>
+						<a href="#" class="social"><img class="socialNetworkImg" src="../../assets/google.png"></a>
+					</div>
+					<div class="checkboxDiv d-flex justify-content-center">
+						<input type="checkbox" class="form-check-input" name="checkboxTerms" id="checkboxTerms"><label class="inputLabel">&nbsp;Accept the terms of use and privacy</label>
+					</div>
+					<a href="#">Forgot your password?</a>
+					<button type="submit">Log In</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo">
+				<a [routerLink]="['../register']" data-hover="Register"><button>Register</button></a>
+			</div>
+		</div>
+	</div>
 </div>
