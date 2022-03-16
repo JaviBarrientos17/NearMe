@@ -1,1 +1,41 @@
-<h1>Register</h1>
+<script src="script.js" defer></script>
+<div class="container" id="container">
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo">
+                <a [routerLink]="['../login']" data-hover="Register"><button>Log in</button></a>
+                <div class="row">
+                    <div class="cold-md-6">
+                        <span><i class="bi bi-arrow-left"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-container sign-in-container">
+                <form action="#" class="formLogin">
+                    <h1 class="formTitle">Register</h1>
+                    <span></span>
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="inputForm" id="inputEmail" placeholder="Email" />
+                    <label for="inputPassword">Contraseña</label>
+                    <input type="password" class="inputForm" id="inputPassword" placeholder="Contraseña" />
+                    <label for="inputPassword">Repetir contraseña</label>
+                    <input type="password" class="inputForm" id="inputPassword" placeholder="Repetir contraseña" />
+                    <div class="social-container">
+                        <a href="#" class="social"><img class="socialNetworkImg" src="../../assets/facebook.png"></a>
+                        <a href="#" class="social"><img class="socialNetworkImg" src="../../assets/google.png"></a>
+                    </div>
+                    <div class="checkboxDiv d-flex justify-content-center">
+                        <input type="checkbox" class="form-check-input" name="checkboxTerms" id="checkboxTerms"><label
+                            class="inputLabel">&nbsp;Accept the terms of use and privacy</label>
+                    </div><br>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
