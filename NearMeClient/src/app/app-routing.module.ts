@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboardComponent/dashboard.component';
 import { HomeComponent } from './homeComponent/home.component';
 import { LoginComponent } from './loginComponent/login.component';
@@ -9,7 +8,6 @@ import { RegisterComponent } from './registerComponent/register.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
 
 const routes: Routes = [
-  // TODO MIRAR DE ELIMINAR NAVBAR DEL LoginComponent
   {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
