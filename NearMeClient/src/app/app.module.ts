@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbarComponent/navbar.component';
+import { FooterComponent } from './footerComponent/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NavbarComponent } from './navbarComponent/navbar.component';
     DashboardComponent,
     SearchBar,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

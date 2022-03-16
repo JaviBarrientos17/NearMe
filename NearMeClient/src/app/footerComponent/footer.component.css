@@ -1,0 +1,46 @@
+.footer-logo {
+  width: 60%;
+}
+
+.row-footer {
+  text-align: center;
+}
+.texto-inicial {
+  text-align: justify;
+}
+
+.redes {
+  width: 40px;
+}
+.row-subfooter {
+  margin-top: 3%;
+  padding: 3%;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+h5 {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+h4 {
+  font-weight: 800;
+  padding: 0;
+  margin-top: 12%;
+}
+.subtitle-footer {
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-links {
+  margin-bottom: 4%;
+  margin-top: 2%;
+}
