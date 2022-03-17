@@ -6,14 +6,16 @@
 				<form action="#" class="formLogin">
 					<h1 class="formTitle">Log in</h1>
 					<span></span>
+					<label class="inputLabel" for="inputEmail">Email</label>
 					<input type="email" class="inputForm" placeholder="Email"/>
+					<label class="inputLabel" for="inputPassword">Password</label>
 					<input type="password" class="inputForm" placeholder="Password"/>
 					<div class="social-container">
 						<a href="#" class="social"><img class="socialNetworkImg" src="../../assets/facebook.png"></a>
 						<a href="#" class="social"><img class="socialNetworkImg" src="../../assets/google.png"></a>
 					</div>
 					<div class="checkboxDiv d-flex justify-content-center">
-						<input type="checkbox" class="form-check-input" name="checkboxTerms" id="checkboxTerms"><label class="inputLabel">&nbsp;Accept the terms of use and privacy</label>
+						<input type="checkbox" class="form-check-input inputLabelCheckbox" name="checkboxTerms" id="checkboxTerms"><label class="inputLabel">&nbsp;Accept the terms of use and privacy</label>
 					</div>
 					<a href="#">Forgot your password?</a>
 					<button type="submit">Log In</button>
@@ -26,6 +28,13 @@
 			<div class="overlay-panel overlay-right">
 				<img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo">
 				<a [routerLink]="['../register']" data-hover="Register"><button>Register</button></a>
+				<div class="row">
+                    <div class="cold-md-6">
+                        <div class="row">
+                            <a [routerLink]="['../']"><span class="spanLinks"><i class="bi bi-arrow-left"></i>&nbsp;Homepage</span></a>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>

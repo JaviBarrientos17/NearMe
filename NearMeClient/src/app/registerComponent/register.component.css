@@ -103,6 +103,17 @@ input {
 	margin-bottom: 5px;
 }
 
+.inputLabelCheckbox {
+	position: relative;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 12px;
+}
+
+.spanLinks {
+	font-size: 15px;
+}
+
 .container {
 	background-color: #fd9f48;
 	border-radius: 30px;
