@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbarComponent/navbar.component';
 import { FooterComponent } from './footerComponent/footer.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +46,7 @@ import { FooterComponent } from './footerComponent/footer.component';
     MatIconModule,
     FormsModule,
     MatInputModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
