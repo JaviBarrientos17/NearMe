@@ -1,12 +1,6 @@
 create database nearme;
 use nearme;
 
-
-
-
-
-
-
 create table nm_fixFeature
 (
     id_fix_feature    int unsigned auto_increment
@@ -81,14 +75,14 @@ create table nm_supplier
 
 );
 
-
 create table nm_product
 (
     id_product                int unsigned auto_increment
         primary key,
     id_supplier               int unsigned                                                                                    null,
-    id_category               int unsigned                                                                   default 0       not null,
-    id_shop_default           int unsigned,
+    id_category               int unsigned       
+    product_name              varchar (50) default 0       not null,
+    product_color             varchar(30)                                                            
     on_sale                   tinyint(1) unsigned                                                            default 0        not null,
     isbn                      varchar(32)                                                                                     null,
     quantity                  smallint                                                                       default 0        not null,
