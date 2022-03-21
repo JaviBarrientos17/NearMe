@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./dashboard.component.css'],
   providers:[UsersService]
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   title = 'Dashboard';
   
   constructor(private usersService:UsersService){}

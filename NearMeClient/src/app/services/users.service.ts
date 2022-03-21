@@ -11,4 +11,13 @@ export class UsersService{
     getAllUsers():Observable<any> {
         return this.conexHttp.get(this.url);
     }
+
+    insertUser(user_id:number, user_email:string, user_password:string,
+        last_password_gen:string, user_type:number):Observable<any>{
+            let formData:FormData = new FormData();
+            formData.append("userEmailInput", user_email);
+            formData.append("userPasswordInput", user_password);
+
+            return this.conexHttp.post("", formData);
+        }
 }
