@@ -37,7 +37,7 @@ public class SwaggerConfig {
 				"Order Service API Description",
 				"1.0",
 				"http://nearme.com/terms",
-				new Contact("Codmind", "https://neamre.com", "apis@nearme.com"),
+				new Contact("Nearme", "https://neamre.com", "apis@nearme.com"),
 				"LICENSE",
 				"LICENSE URL",
 				Collections.emptyList()
