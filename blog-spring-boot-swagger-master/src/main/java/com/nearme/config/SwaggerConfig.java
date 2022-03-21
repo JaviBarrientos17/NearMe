@@ -24,7 +24,7 @@ public class SwaggerConfig {
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.codmind.swaggerapi.controllers"))
+				.apis(RequestHandlerSelectors.basePackage("com.nearme.controllers"))
 				.paths(PathSelectors.any())
 				.build()
 				.apiInfo(getApiInfo())
@@ -36,8 +36,8 @@ public class SwaggerConfig {
 				"Order Service API",
 				"Order Service API Description",
 				"1.0",
-				"http://codmind.com/terms",
-				new Contact("Codmind", "https://codmind.com", "apis@codmind.com"),
+				"http://nearme.com/terms",
+				new Contact("Codmind", "https://neamre.com", "apis@nearme.com"),
 				"LICENSE",
 				"LICENSE URL",
 				Collections.emptyList()
