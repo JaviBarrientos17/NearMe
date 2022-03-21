@@ -86,6 +86,7 @@ button.ghost {
 input {
 	background-color: #eee;
 	border: none;
+	border-radius: 30px;
 	padding: 12px 15px;
 	width: 100%;
 }
@@ -101,6 +102,17 @@ input {
 	position: relative;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.inputLabelCheckbox {
+	position: relative;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 12px;
+}
+
+.spanLinks {
+	font-size: 15px;
 }
 
 .container {
