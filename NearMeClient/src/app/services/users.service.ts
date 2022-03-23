@@ -9,7 +9,7 @@ export class UsersService{
     constructor(private conexHttp:HttpClient){}
 
     getAllUsers():Observable<any> {
-        return this.conexHttp.get(`/api/users/list`, { responseType: 'text' });
+        return this.conexHttp.get("/api/users/list", {responseType: 'text'});
     }
 
     insertUser(user_id:number, user_email:string, user_password:string,
