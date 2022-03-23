@@ -6,6 +6,10 @@ export class ProductsService {
   constructor(private conexHttp: HttpClient) {}
 
   getAllProducts(): Observable<any> {
+    return this.conexHttp.get('api/');
+  }
+
+  getProductByName(productName: String): Observable<any> {
     return this.conexHttp.get('https://fakestoreapi.com/products');
   }
 }
