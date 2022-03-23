@@ -29,7 +29,7 @@ public class ProductController{
 	@GetMapping("/list")
 	public ResponseEntity<String> getUsersList() throws Exception {
 		log.info("Get All podruct List");
-		return new ResponseEntity<String>("Thats all", HttpStatus.OK);
+		return new ResponseEntity<String>("AGUANALOVEU", HttpStatus.OK);
 	}
 
 	
