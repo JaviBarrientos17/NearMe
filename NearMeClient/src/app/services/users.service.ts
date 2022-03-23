@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
@@ -9,7 +9,11 @@ export class UsersService{
     constructor(private conexHttp:HttpClient){}
 
     getAllUsers():Observable<any> {
-        return this.conexHttp.get(this.url);
+        return this.conexHttp.get<any>("/api/users/list",
+            {headers:new HttpHeaders(
+                {'Content-Type':'application/json'})
+            }
+        );
     }
 
     insertUser(user_id:number, user_email:string, user_password:string,
