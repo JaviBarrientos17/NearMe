@@ -19,15 +19,17 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-container sign-in-container">
-                <form action="#" class="formLogin">
+                <form class="formLogin" #insertNewUser="ngForm" name="insertNewUserForm" (ngSubmit)="insertUser(); insertNewUser.reset()">
                     <h1 class="formTitle">Register</h1>
                     <span></span>
+                    <label class="inputLabel" for="inputName">Name</label>
+                    <input type="text" class="inputForm" id="inputName" [(ngModel)]="userName" name="userNameInput" placeholder="Name" />
                     <label class="inputLabel" for="inputEmail">Email</label>
-                    <input type="email" class="inputForm" id="inputEmail" placeholder="Email" />
+                    <input type="email" class="inputForm" id="inputEmail" [(ngModel)]="userEmail" name="userEmailInput" placeholder="Email" />
                     <label class="inputLabel" for="inputPassword">Password</label>
-                    <input type="password" class="inputForm" id="inputPassword" placeholder="Password" />
-                    <label for="inputPassword">Repeat password</label>
-                    <input type="password" class="inputForm" id="inputPassword" placeholder="Repeat password" />
+                    <input type="password" class="inputForm" id="inputPassword" [(ngModel)]="userPass" name="userPassInput" placeholder="Password" />
+                    <label for="inputPassword2">Repeat password</label>
+                    <input type="password" class="inputForm" id="inputPassword2" [(ngModel)]="userPass2" name="userPass2Input" placeholder="Repeat password" />
                     <div class="social-container">
                         <a href="#" class="social"><img class="socialNetworkImg" src="../../assets/facebook.png"></a>
                         <a href="#" class="social"><img class="socialNetworkImg" src="../../assets/google.png"></a>
@@ -36,7 +38,7 @@
                         <input type="checkbox" class="form-check-input" name="checkboxTerms" id="checkboxTerms"><label
                             class="inputLabelCheckbox">&nbsp;Accept the terms of use and privacy</label>
                     </div><br>
-                    <button type="submit">Register</button>
+                    <button type="submit" [disabled]="!insertNewUser.form.valid">Register</button>
                 </form>
             </div>
         </div>
