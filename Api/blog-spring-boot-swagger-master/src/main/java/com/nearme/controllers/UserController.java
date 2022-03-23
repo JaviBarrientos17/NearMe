@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 
+@Api(
+   value = "Users Api Controller",
+   description = "NearMe Users EndPoints"
+)
 
-   
 @Slf4j
 @RestController
 @RequestMapping("/api/users")
@@ -31,9 +35,9 @@ public class UserController {
 	 * @throws Exception
 	 */
 	@GetMapping("/list")
-	public ResponseEntity<String> getUsersList() throws Exception {
+		public ResponseEntity<String>getUsersList() throws Exception {
 		log.info("Listing all users");
-		return new ResponseEntity<String>("TOMATOE", HttpStatus.OK);
+		return new ResponseEntity<>("TOMATOE", HttpStatus.OK);
 	}
 	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
 	// @GetMapping("/list")
