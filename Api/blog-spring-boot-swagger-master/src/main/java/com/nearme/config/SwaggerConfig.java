@@ -33,9 +33,9 @@ public class SwaggerConfig {
 	
 	private ApiInfo getApiInfo() {
 		return new ApiInfo(
-				"Order Service API",
-				"Order Service API Description",
-				"1.0",
+				"NearMe API",
+				"Nearme info api info >",
+				"0.10",
 				"http://nearme.com/terms",
 				new Contact("Nearme", "https://neamre.com", "apis@nearme.com"),
 				"LICENSE",
