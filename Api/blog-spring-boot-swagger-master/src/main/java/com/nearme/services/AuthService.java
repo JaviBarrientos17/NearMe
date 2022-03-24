@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class AuthService {
-
+ 
 	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
 
@@ -67,7 +68,6 @@ public class AuthService {
 			String token = this.createJwtToken(username);
 			Map<String, String> model = new HashMap<String, String>();
 			UserEntity loggedUser = this.usersRepository.findByUsername(username).get();
-			// on correct login reset the number of loggin attempts
 			loggedUser.setLoginAttempts(0);
 			usersRepository.save(loggedUser);
 			model.put("id", loggedUser.getIdUser().toString());
