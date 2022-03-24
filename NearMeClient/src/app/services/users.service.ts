@@ -20,6 +20,11 @@ export class UsersService {
         formData.append("", user_password);
         formData.append("", user_password2);
 
+        console.log("Username: " + user_name);
+        console.log("User email: " + user_email);
+        console.log("User password: " + user_password);
+        console.log("User password 2: " + user_password2);
+
         // TODO FALTA AÑADIR ENDPOINT DE LA API
         return this.conexHttp.post("", formData);
     }

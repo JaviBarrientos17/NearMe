@@ -11,7 +11,9 @@ import { UsersService } from '../services/users.service';
 export class RegisterComponent {
   title = 'Register';
   userName = '';
+  userSurname = '';
   userEmail = '';
+  userPhoneNumber = '';
   userPass = '';
   userPass2 = '';
 

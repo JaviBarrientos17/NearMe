@@ -1,4 +1,4 @@
-<script src="script.js" defer></script>
+<!-- <script src="script.js" defer></script>
 <div class="container" id="container">
     <div class="overlay-container">
         <div class="overlay">
@@ -8,7 +8,6 @@
                 <div class="row">
                     <div class="cold-md-6">
                         <div class="row">
-                            <!-- <a [routerLink]="['../login']"><span><i class="bi bi-arrow-left"></i>&nbsp;Login</span></a> -->
                             <a [routerLink]="['../']"><span class="spanLinks"><i class="bi bi-arrow-left"></i>&nbsp;Homepage</span></a>
                         </div>
                     </div>
@@ -19,28 +18,91 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-container sign-in-container">
-                <form class="formLogin" #insertNewUser="ngForm" name="insertNewUserForm" (ngSubmit)="insertUser(); insertNewUser.reset()">
+                <form ngNativeValidate class="formLogin" #insertNewUser="ngForm" name="insertNewUserForm" (ngSubmit)="insertUser(); insertNewUser.reset()">
                     <h1 class="formTitle">Register</h1>
-                    <span></span>
-                    <label class="inputLabel" for="inputName">Name</label>
-                    <input type="text" class="inputForm" id="inputName" [(ngModel)]="userName" name="userNameInput" placeholder="Name" />
-                    <label class="inputLabel" for="inputEmail">Email</label>
-                    <input type="email" class="inputForm" id="inputEmail" [(ngModel)]="userEmail" name="userEmailInput" placeholder="Email" />
-                    <label class="inputLabel" for="inputPassword">Password</label>
-                    <input type="password" class="inputForm" id="inputPassword" [(ngModel)]="userPass" name="userPassInput" placeholder="Password" />
-                    <label for="inputPassword2">Repeat password</label>
-                    <input type="password" class="inputForm" id="inputPassword2" [(ngModel)]="userPass2" name="userPass2Input" placeholder="Repeat password" />
-                    <div class="social-container">
-                        <a href="#" class="social"><img class="socialNetworkImg" src="../../assets/facebook.png"></a>
-                        <a href="#" class="social"><img class="socialNetworkImg" src="../../assets/google.png"></a>
+                    <div class="col-md-6">
+                        <input type="text" class="inputForm" id="inputName" [(ngModel)]="userName" name="userNameInput" placeholder="Name" required />
                     </div>
-                    <div class="checkboxDiv d-flex justify-content-center">
-                        <input type="checkbox" class="form-check-input" name="checkboxTerms" id="checkboxTerms"><label
-                            class="inputLabelCheckbox">&nbsp;Accept the terms of use and privacy</label>
-                    </div><br>
-                    <button type="submit" [disabled]="!insertNewUser.form.valid">Register</button>
+                    <div class="col-md-6">
+                        <input type="text" class="inputForm" id="inputSurname" [(ngModel)]="userSurname" name="userSurnameInput" placeholder="Surname" required />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="inputForm" id="inputEmail" [(ngModel)]="userEmail" name="userEmailInput" placeholder="Email" required />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="tel" class="inputForm" id="inputPhoneNumber" [(ngModel)]="userPhoneNumber" name="userPhoneNumberInput" placeholder="Phone number" required />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="password" class="inputForm" id="inputPassword" [(ngModel)]="userPass" name="userPassInput" placeholder="Password" required />
+                    </div>
+                    <div class="col-md-6">
+                    <input type="password" class="inputForm" id="inputPassword2" [(ngModel)]="userPass2" name="userPass2Input" placeholder="Repeat password" required />
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<body class="bg-gradient-primary">
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Register</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="inputForm" id="inputName" [(ngModel)]="userName"
+                                            name="userNameInput" placeholder="Name" required />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="inputForm" id="inputSurname" [(ngModel)]="userSurname"
+                                            name="userSurnameInput" placeholder="Surname" required />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="email" class="inputForm" id="inputEmail" [(ngModel)]="userEmail"
+                                            name="userEmailInput" placeholder="Email" required />
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="tel" class="inputForm" id="inputPhoneNumber" [(ngModel)]="userPhoneNumber"
+                                            name="userPhoneNumberInput" placeholder="Phone number" required />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="password" class="inputForm" id="inputPassword" [(ngModel)]="userPass"
+                                            name="userPassInput" placeholder="Password" required />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="inputForm" id="inputPassword2" [(ngModel)]="userPass2"
+                                            name="userPass2Input" placeholder="Repeat password" required />
+                                        
+                                        <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                            Register Account
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr>
+                            </form>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
