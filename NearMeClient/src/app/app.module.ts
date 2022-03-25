@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbarComponent/navbar.component';
 import { FooterComponent } from './footerComponent/footer.component';
+import { ProductComponent } from './productComponent/product.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FooterComponent } from './footerComponent/footer.component';
     SearchBar,
     NavbarComponent,
     FooterComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

@@ -309,3 +309,12 @@ footer a {
 	font-size: 10px;
 	display: flex;
 }
+
+.card {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.form-group row {
+	margin: 0px;
+}
