@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +24,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.nearme.mappers.UserMapper;
 import com.nearme.models.dto.CreateUserRequestDTO;
 import com.nearme.models.dto.ManageRoleDTO;
@@ -317,7 +319,7 @@ public class UserService {
 			userEntity.setRoles(Arrays.asList(RoleType.ROLE_CLIENT.toString()));
 			this.userRepository.save(userEntity);
 			// send a password confirmation
-			log.info("Creating and sending a confirmation token email for user - "+createUserRequestDTO.getEmail());
+			// log.info("Creating and sending a confirmation token email for user - "+createUserRequestDTO.getEmail());
 			PasswordResetTokenEntity token = createPasswordResetTokenForUser(userEntity);
 			// emailSenderService.sendConfirmationEmail(userEntity.getUsername(), token.getToken());
 			UserDTO userCreated = UserMapper.INSTANCE.entityToDto(userEntity);
@@ -325,6 +327,7 @@ public class UserService {
 			return userCreated; 
 		} 
 	}
+
 
 	/**
 	 * Get logged user 
@@ -361,6 +364,10 @@ public class UserService {
 		ByteArrayInputStream bis = new ByteArrayInputStream(fileContent);
 		response.setContentType("image/png");
         IOUtils.copy(bis, response.getOutputStream());
+    }
+
+    public boolean uploadImage(MultipartFile file) {
+        return false;
     }
 
 
