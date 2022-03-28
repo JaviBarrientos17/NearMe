@@ -1,10 +1,77 @@
+.card-producto {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.btn-comprar-producto {
+    background-color: #fd9f48;
+    padding: 0.6em 2em;
+    border-radius: 20px;
+    border-color: #fd9f48;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.mainContainer {
+    border-radius: 30px;
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.card-body {
+    min-height: 300px;
+    min-width: 300px;
+    margin-right: 5px;
+    text-align: justify;
+}
+.imagesContainer {
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.mainImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-radius: 30px;
+    /* TODO PONER BOX-SHADOW */
+}
+.secondaryImages {
+    width: 35%;
+    height: 35%;
+    border: 1px solid black;
+    border-radius: 30px;
+    /* TODO PONER BOX-SHADOW */
+}
+.containerScroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.card-scroll {
+    min-height: 300px;
+    min-width: 300px;
+    margin-right: 5px;
+    text-align: justify;
+}
+
+/* .productDiv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+    grid-auto-rows: minmax(80px);
+    height: 50px;
+    text-align: center;
+    align-items: center;
+}
+.productDiv img {
+    width: 100px;
+    height: 50px;
+}
 .card {
-    margin: 0 auto;
+    margin: 10px auto;
     float: none;
-    margin-bottom: 10px;
-    /* border: 1px solid black; */
 }
 
 .card-text {
     text-align: justify;
-}
+}*/
