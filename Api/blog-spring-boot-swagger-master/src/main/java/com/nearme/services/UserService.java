@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -14,7 +14,6 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -29,7 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.nearme.mappers.UserMapper;
 import com.nearme.models.dto.CreateUserRequestDTO;
 import com.nearme.models.dto.ManageRoleDTO;
-import com.nearme.models.dto.PasswordResetRequestDTO;
+
 import com.nearme.models.dto.UserDTO;
 import com.nearme.models.entities.PasswordResetTokenEntity;
 import com.nearme.models.entities.UserEntity;
@@ -52,13 +51,6 @@ public class UserService {
     @Autowired
     AuthService authService;
 
-
-
-	@Value("${spring.profile-images.documents.path}")
-    private String imagesPath;
-
-    @Value("${spring.profile-images.uploads.max-size}")
-    private Integer maxSize;
 
 
     /**
@@ -243,7 +235,7 @@ public class UserService {
 			userEntity.setPassword(hashedPassword);
 			userEntity.setStatus(UserStatusType.ENABLED);
 			// reset loggin attempts
-			userEntity.setLoginAttempts(0);
+			// userEntity.setLoginAttempts(0);
 			this.userRepository.save(userEntity);
 			passwordToken.setUsed(true);
 			passwordTokenRepository.save(passwordToken);
@@ -320,7 +312,7 @@ public class UserService {
 			this.userRepository.save(userEntity);
 			// send a password confirmation
 			// log.info("Creating and sending a confirmation token email for user - "+createUserRequestDTO.getEmail());
-			PasswordResetTokenEntity token = createPasswordResetTokenForUser(userEntity);
+			// PasswordResetTokenEntity token = createPasswordResetTokenForUser(userEntity);
 			// emailSenderService.sendConfirmationEmail(userEntity.getUsername(), token.getToken());
 			UserDTO userCreated = UserMapper.INSTANCE.entityToDto(userEntity);
 			userCreated.setPassword(null);
@@ -347,28 +339,6 @@ public class UserService {
 			if(e.getMessage()!= null){log.info("An error occurred on getting logged user: ", e.getMessage());} return null;
 		}
 	}
-
-	/**
-     * Gets an image by id user as a resource
-     * @param idUser
-     * @param request
-     * @param response
-     * @throws IOException
-     */
-    public void getImageAsByteArray(Integer idUser, HttpServletRequest request, HttpServletResponse response) throws IOException {
-		Path path = Paths.get(imagesPath + idUser + ".png");
-		if(path.toFile().exists() == false) {
-			path = Paths.get(imagesPath + "default.png");
-		}
-		byte[] fileContent = Files.readAllBytes(path);
-		ByteArrayInputStream bis = new ByteArrayInputStream(fileContent);
-		response.setContentType("image/png");
-        IOUtils.copy(bis, response.getOutputStream());
-    }
-
-    public boolean uploadImage(MultipartFile file) {
-        return false;
-    }
 
 
 }

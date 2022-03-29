@@ -3,7 +3,7 @@ package com.nearme.models.types;
 public enum RoleType {
     ROLE_CLIENT("CLIENT"),
     ROLE_ADMIN("ADMIN"),
-    ROLE_C_ADMIN("C_ADMIN");
+    ROLE_SUP("SUPPLIER");
 
     public final String value;
     private RoleType(String value) {

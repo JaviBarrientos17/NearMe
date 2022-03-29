@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,8 +15,8 @@ import org.springframework.stereotype.Service;
 import com.nearme.models.dto.AuthenticationRequestDTO;
 import com.nearme.models.entities.JwtBlacklistEntity;
 import com.nearme.models.entities.UserEntity;
-import com.nearme.models.types.ActionType;
-import com.nearme.models.types.UserStatusType;
+
+
 import com.nearme.repositories.JwtBlacklistRepository;
 import com.nearme.repositories.UserRepository;
 import com.nearme.security.jwt.JwtTokenProvider;
@@ -68,7 +67,7 @@ public class AuthService {
 			String token = this.createJwtToken(username);
 			Map<String, String> model = new HashMap<String, String>();
 			UserEntity loggedUser = this.usersRepository.findByUsername(username).get();
-			loggedUser.setLoginAttempts(0);
+			// loggedUser.setLoginAttempts(0);
 			usersRepository.save(loggedUser);
 			model.put("id", loggedUser.getIdUser().toString());
 			model.put("username", username);
@@ -93,11 +92,11 @@ public class AuthService {
 	public void authenticationFailed(AuthenticationFailureBadCredentialsEvent event) {
 		String username = (String) event.getAuthentication().getPrincipal();
 		UserEntity user = this.usersRepository.findByUsername(username).get();
-		Integer attempts = user.getLoginAttempts();
-		user.setLoginAttempts(attempts + 1);
-		if (attempts > 5) {
-			user.setStatus(UserStatusType.DISABLED);
-		}
+		// Integer attempts = user.getLoginAttempts();
+		// user.setLoginAttempts(attempts + 1);
+		// if (attempts > 5) {
+		// 	user.setStatus(UserStatusType.DISABLED);
+		// }
 		usersRepository.save(user);
 	}
 

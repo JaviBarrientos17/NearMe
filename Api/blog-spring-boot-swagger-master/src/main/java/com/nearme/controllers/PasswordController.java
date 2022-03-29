@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.nearme.models.dto.PasswordResetDTO;
 import com.nearme.models.dto.PasswordResetLoggedDTO;
-import com.nearme.models.dto.PasswordResetRequestDTO;
 import com.nearme.models.dto.UserDTO;
 import com.nearme.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;

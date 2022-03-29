@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 public class UserEntity implements UserDetails {
 	private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Integer idUser;
 	// the username is the email of the user
@@ -51,7 +51,7 @@ public class UserEntity implements UserDetails {
 	@CollectionTable(name = "user_role")
 	@Builder.Default
 	private List<String> roles = new ArrayList<>();
-	private int loginAttempts;
+	private int loginattempts;
 	private String last_passwd_gen;
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

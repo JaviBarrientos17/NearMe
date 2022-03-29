@@ -2,7 +2,7 @@ package com.nearme.models.dto;
 
 import lombok.*;
 
-import com.sun.istack.NotNull;
+import javax.validation.constraints.NotNull;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
