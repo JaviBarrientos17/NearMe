@@ -22,6 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbarComponent/navbar.component';
 import { FooterComponent } from './footerComponent/footer.component';
+import { SidebarFiltrosComponent } from './sidebarFiltrosComponent/sidebarFiltros.component';
+import { PremiumComponent } from './premiumComponent/premium.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { FooterComponent } from './footerComponent/footer.component';
     SearchBar,
     NavbarComponent,
     FooterComponent,
+    SidebarFiltrosComponent,
+    PremiumComponent,
   ],
   imports: [
     BrowserModule,

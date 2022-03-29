@@ -5,13 +5,13 @@ import { Product } from 'src/model/product';
 import { ProductsService } from '../services/products.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'prodcuctos-component',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
   providers: [ProductsService],
 })
 export class ProductosComponent implements OnInit {
-  productos: Array<Product> = [];
+  products: Array<Product> = [];
   constructor(
     private productsService: ProductsService,
     private _activeRoute: ActivatedRoute,
