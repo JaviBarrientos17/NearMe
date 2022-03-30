@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container bg-light">
   <div class="row">
     <div class="col-md-12">
       <searchBar></searchBar>
@@ -8,7 +8,7 @@
 
   <section class="section-categorias">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
         <div class="card text-white card-categoria">
           <img
             src="../../assets/lawn-mower-vectorportal.jpg"
@@ -17,7 +17,7 @@
           />
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
         <div class="card text-white card-categoria">
           <img
             src="../../assets/controller-vectorportal.jpg"
@@ -26,7 +26,7 @@
           />
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
         <div class="card text-white cardLong">
           <img
             src="../../assets/chef-hat-vectorportal.jpg"
@@ -35,7 +35,7 @@
           />
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
         <div class="card text-white card-categoria">
           <img
             src="../../assets/controller-vectorportal.jpg"
@@ -44,7 +44,7 @@
           />
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
         <div class="card text-white card-categoria">
           <img
             src="../../assets/controller-vectorportal.jpg"
@@ -58,26 +58,32 @@
 
   <section class="section-servicios">
     <div class="row servicios">
-      <div class="col-md-2 d-flex justify-content-end">
+      <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
         <img class="img-servicio" src="../../assets/assistance.png" alt="" />
       </div>
-      <div class="col-md-2 d-flex justify-content-center align-self-center">
+      <div
+        class="col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
+      >
         <span class="texto-servicios">Soporte Online 24h</span>
       </div>
-      <div class="col-md-2 d-flex justify-content-end">
+      <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
         <img class="img-servicio" src="../../assets/credit-cards.png" alt="" />
       </div>
-      <div class="col-md-2 d-flex justify-content-center align-self-center">
+      <div
+        class="col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
+      >
         <span class="texto-servicios">Soporte Online 24h</span>
       </div>
-      <div class="col-md-2 d-flex justify-content-end">
+      <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
         <img
           class="img-servicio"
           src="../../assets/entrega-rapida.png"
           alt=""
         />
       </div>
-      <div class="col-md-2 d-flex justify-content-center align-self-center">
+      <div
+        class="col-2 col-sm-2 col-md-2col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
+      >
         <span class="texto-servicios">Soporte Online 24h</span>
       </div>
     </div>
@@ -147,11 +153,62 @@
   </section>
 
   <section class="section-productos">
-    <h2 class="titulo-mas-vendidos">Productos Más Vendidos</h2>
+    <h2 class="titulo-mas-vendidos">{{ "home.mas_vendidos" | translate }}</h2>
     <div class="row">
-      <div class="col-md-3">
-        <div class="card card-producto" style="width: 18rem">
-          <img src="../../assets/nike.png" class="card-img-top" alt="..." />
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="card card-producto">
+          <img src="../../assets/nike.png" alt="..." />
+          <div class="card-body">
+            <h5 class="card-info">Moda</h5>
+            <h2 class="card-title">Nike Jordan High</h2>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary btn-comprar-producto">COMPRAR</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="card card-producto">
+          <img src="../../assets/nike.png" alt="..." />
+          <div class="card-body">
+            <h5 class="card-info">Moda</h5>
+            <h2 class="card-title">Nike Jordan High</h2>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <div class="row">
+              <div class="col-lg-9">
+                <a href="#" class="btn btn-primary btn-comprar-producto"
+                  >COMPRAR</a
+                >
+              </div>
+            </div>
+            <div class="triangulo">
+              <p>99.00€</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="card card-producto">
+          <img src="../../assets/nike.png" alt="..." />
+          <div class="card-body">
+            <h5 class="card-info">Moda</h5>
+            <h2 class="card-title">Nike Jordan High</h2>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary btn-comprar-producto">COMPRAR</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="card card-producto">
+          <img src="../../assets/nike.png" alt="..." />
           <div class="card-body">
             <h5 class="card-info">Moda</h5>
             <h2 class="card-title">Nike Jordan High</h2>
@@ -232,26 +289,62 @@
   <section class="section-tiendas">
     <h2 class="titulo-mas-vendidos">Tiendas Destacadas</h2>
     <div class="row">
-      <div class="col-md-3">
-        <div class="card card-tienda" style="width: 18rem">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="card card-tienda">
           <img
             src="../../assets/happy_market.png"
             class="card-img-top img-tienda"
             alt="..."
           />
+          <div class="card-body card-body-tiendas">
+            <i class="bi bi-geo-alt"></i>
+            <h5 class="card-info">C/Balmes 29</h5>
+            <h2 class="card-title">Happy Market</h2>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary btn-visitar-tienda">VISITAR</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card-body">
-        <i class="bi bi-geo-alt"></i>
-        <h5 class="card-info">C/Balmes 29</h5>
-        <h2 class="card-title">Happy Market</h2>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-primary btn-visitar-tienda">VISITAR</a>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="card card-tienda">
+          <img
+            src="../../assets/happy_market.png"
+            class="card-img-top img-tienda"
+            alt="..."
+          />
+          <div class="card-body card-body-tiendas">
+            <i class="bi bi-geo-alt"></i>
+            <h5 class="card-info">C/Balmes 29</h5>
+            <h2 class="card-title">Happy Market</h2>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary btn-visitar-tienda">VISITAR</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="card card-tienda">
+          <img
+            src="../../assets/happy_market.png"
+            class="card-img-top img-tienda"
+            alt="..."
+          />
+          <div class="card-body card-body-tiendas">
+            <i class="bi bi-geo-alt"></i>
+            <h5 class="card-info">C/Balmes 29</h5>
+            <h2 class="card-title">Happy Market</h2>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary btn-visitar-tienda">VISITAR</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
