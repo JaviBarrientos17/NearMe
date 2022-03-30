@@ -60,15 +60,20 @@
 .textDiv {
     margin-top: 5%;
 }
-hr.colored {
+hr {
     border: 0;
     height: 5px;
     width: 100%;
     background: linear-gradient(to right,#3D81D2 50%,#000000 50%);
+    /*background: linear-gradient(to right,#FD9F48 50%,#000000 50%);*/
+    opacity: 1;
 }
 .productDescriptionP {
     text-align: justify;
 }
 .productDescriptionColorP {
     text-align: justify;
+}
+.productButtons {
+    margin-top: 5%;
 }
