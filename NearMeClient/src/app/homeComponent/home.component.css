@@ -49,13 +49,8 @@ margin-top: 3%;
   
 }
 .triangulo{
-width: 100px;
-float:right;
 border-left: 50px solid transparent;
 border-bottom: 50px solid #fd9f48;
-top:-50px;
-z-index: 4;
-text-align: center;
 
 }
 
