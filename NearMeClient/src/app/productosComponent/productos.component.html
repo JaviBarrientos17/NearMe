@@ -1,64 +1,70 @@
 <app-navbar></app-navbar>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-md-12">
       <searchBar></searchBar>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="..." />
+    <div class="col-2">
+      <sidebarFiltros-component></sidebarFiltros-component>
+    </div>
+    <div class="col-10">
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+              <div class="card card-producto">
+                <img src="../../assets/nike.png" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-info">Moda</h5>
+                  <h2 class="card-title">Nike Jordan High</h2>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-primary btn-comprar-producto"
+                    >COMPRAR</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+              <div class="card card-producto">
+                <img src="../../assets/nike.png" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-info">Moda</h5>
+                  <h2 class="card-title">Nike Jordan High</h2>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-primary btn-comprar-producto"
+                    >COMPRAR</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+              <div class="card card-producto">
+                <img src="../../assets/nike.png" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-info">Moda</h5>
+                  <h2 class="card-title">Nike Jordan High</h2>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-primary btn-comprar-producto"
+                    >COMPRAR</a
+                  >
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <div class="columna-filtros">
-        <p>Premium</p>
-        <input type="checkbox" />
-        <label for="">Premium</label>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="card card-producto" style="width: 14rem">
-        <img src="../../assets/nike.png" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-info">Moda</h5>
-          <h2 class="card-title">Nike Jordan High</h2>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary btn-comprar-producto">COMPRAR</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+<footer-component></footer-component>

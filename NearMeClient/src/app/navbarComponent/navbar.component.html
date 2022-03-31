@@ -1,4 +1,88 @@
 <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a [routerLink]="['']">
+      <img src="/assets/drawer.png" alt="drawerImg" class="drawerImg" />
+    </a>
+    <a class="navbar-brand" [routerLink]="['']"
+      ><img
+        src="assets/NearMe_logo.png"
+        id="nearmeLogo"
+        alt="nearmeLogo"
+        class="d-inline-block align-text-top"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a [routerLink]="['../tiendas']" class="nav-link" data-hover="Tiendas"
+            >Tiendas</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [routerLink]="['../productos']"
+            class="nav-link"
+            data-hover="Productos"
+            >Productos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [routerLink]="['../dashboard']"
+            class="nav-link"
+            data-hover="Dashboard"
+            >Dashboard</a
+          >
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['../login']" class="nav-link" data-hover="Login"
+            >Login</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            [routerLink]="['../register']"
+            class="nav-link"
+            data-hover="Register"
+            >Register</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <select
+            class="selectLenguage"
+            #langSelect
+            (change)="toogleLanguage(langSelect.value)"
+          >
+            <option *ngFor="let lang of langs" [value]="lang">
+              {{ lang }}
+            </option>
+          </select>
+        </li>
+
+        <li class="nav-item">
+          <a
+            [routerLink]="['../shoppingCart']"
+            class="nav-link"
+            data-hover="Carrito"
+            ><img
+              id="imgCarrito"
+              src="../../assets/shopping-cart-empty-side-view.png"
+              alt=""
+          /></a>
+        </li>
+      </ul>
     <div class="container-fluid">
         <img src="/assets/drawer.png" alt="drawerImg" class="drawerImg"/>
         <a [routerLink]="['']"><img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo"/></a>
@@ -29,5 +113,6 @@
             </ul>
         </div>
     </div>
+  </div>
 </nav>
 <router-outlet></router-outlet>
