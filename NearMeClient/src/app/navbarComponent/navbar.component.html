@@ -2,7 +2,7 @@
   <div class="container">
     <a class="navbar-brand" [routerLink]="['']"
       ><img
-        src="assets/NearMe_logo.png"
+        src="assets/NearMe_white.png"
         id="nearmeLogo"
         alt="nearmeLogo"
         class="d-inline-block align-text-top"
@@ -76,40 +76,11 @@
             data-hover="Carrito"
             ><img
               id="imgCarrito"
-              src="../../assets/shopping-cart-empty-side-view.png"
+              src="../../assets/shopping-cart.png"
               alt=""
           /></a>
         </li>
       </ul>
-    <div class="container-fluid">
-        <img src="/assets/drawer.png" alt="drawerImg" class="drawerImg"/>
-        <a [routerLink]="['']"><img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo"/></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a [routerLink]="['../tiendas']" class="nav-link" data-hover="Tiendas">Tiendas</a>
-                </li>
-                <li class="nav-item">
-                    <a [routerLink]="['../productos']" class="nav-link" data-hover="Productos">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a [routerLink]="['../dashboard']" class="nav-link" data-hover="Dashboard">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a [routerLink]="['../login']" class="nav-link" data-hover="Login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a [routerLink]="['../register']" class="nav-link" data-hover="Register">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a [routerLink]="['../producto']" class="nav-link" data-hover="Product">Product (provisional)</a>
-                </li>
-            </ul>
-        </div>
     </div>
   </div>
 </nav>
