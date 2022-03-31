@@ -4,6 +4,11 @@
         "mas_vendidos": "Most Sales Products",
         "englishLabel": "English",
         "spanishLabel": "Spanish"
+    },
+    "product": {
+        "related_products": "Related products",
+        "englishLabel": "Ingles",
+        "spanishLabel": "Español"
     }
 }
 
