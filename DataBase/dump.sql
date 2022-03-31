@@ -1,51 +1,70 @@
 create database nearme;
 use nearme;
 
-create table nm_fixFeature
+create table user_role
 (
-    id_fix_feature    int unsigned auto_increment
-        primary key,
-    id_attribute     int unsigned not null,
-    type             varchar(255) null,
-    style            varchar(255) null
+    UserEntity_id int          not null,
+    roles         varchar(255) null
+        );
 
+create table password_reset_token
+(
+    id            bigint auto_increment
+        primary key,
+    expiryDate    datetime     null,
+    token         varchar(255) null,
+    used          bit          null,
+    userEntity_id int          null
 );
+create table jwt_blacklist
+(
+    id    bigint auto_increment
+        primary key,
+    token varchar(255) null
+);
+
 create table nm_category
 (
-
     id_category      int unsigned auto_increment
         primary key,
-    id_parent        int unsigned                  not null,
+    id_parent        int unsigned                      null,
     active           tinyint(1) unsigned default 0 not null,
-    is_root_category tinyint(1)          default 0 not null,
-    category_color   varchar(255)                  not null,
-    id_fix_feature   int unsigned,
+    root_category    tinyint(1)          default 0 not null,
+    id_sub_category  int        unsigned           null,
+    filters     varchar(255)                  null
 
-CONSTRAINT FK_ID_Category_Fix_Features FOREIGN KEY (id_fix_feature) REFERENCES nm_fixFeature(id_fix_feature)
+
 );
 
-create index category_parent
-    on nm_category (id_parent);
+
+create index FK4yy3pbo33kybjku4xdo30glsq
+    on user_role (UserEntity_id);
 
 
-create table nm_account
+
+create table nm_user
 (
-    id_account                int unsigned auto_increment
-        primary key,
-    email                      varchar(255)                                    not null,
-    passwd                     varchar(255)                                    not null,
-    last_passwd_gen            timestamp           default current_timestamp() not null,
-    user_type                  tinyint             default -1                  not null
+    id                int unsigned auto_increment
+    primary key,
+    username                      varchar(255)                                    not null,
+    name                          varchar(255)                                    null,
+    surname                       varchar(255)                                    null,
+    status                          int                                           null,
+    password                      varchar(255)                                    not null,
+    loginAttempts                 int                                       not null,
+    last_passwd_gen               timestamp           default current_timestamp() not null,
+
+    constraint UN_1hjno5hn3oij6ki3vb
+        unique (username)
 );
 
-create index customer_email
-    on nm_account (email);
+
 
 create table nm_customer
 (
      id_customer                int unsigned auto_increment
         primary key,
-    id_account                 int unsigned,
+    id                 int unsigned,
     name                       varchar(25)                                    not null,
     firstname                  varchar(25)                                    not null,
     lastname                   varchar(25)                                    not null,
@@ -56,7 +75,7 @@ create table nm_customer
     active                     tinyint(1) unsigned default 0                   not null,
     date_add                   datetime            default current_timestamp() not null,
 
-    CONSTRAINT FK_ID_customer_account FOREIGN KEY (id_account) REFERENCES nm_account(id_account)
+    CONSTRAINT FK_ID_customer_account FOREIGN KEY (id) REFERENCES nm_user(id)
 );
 
 
@@ -64,55 +83,38 @@ create table nm_supplier
 (
     id_supplier                int unsigned auto_increment
         primary key,
-    id_account                 int unsigned,
+    id                 int unsigned,
     contact_mails              varchar(255)                                    not null,
     passwd                     varchar(255)                                    not null,
     last_passwd_gen            timestamp           default current_timestamp() not null,
     active                     tinyint(1) unsigned default 0                   not null,
     date_add                   datetime            default current_timestamp() not null,
 
-    CONSTRAINT FK_ID_SUPPLIER_ACCOUNT FOREIGN KEY (id_account) REFERENCES nm_account(id_account)
+    CONSTRAINT FK_ID_SUPPLIER_ACCOUNT FOREIGN KEY (id) REFERENCES nm_user(id)
 
 );
+
 
 create table nm_product
 (
     id_product                int unsigned auto_increment
         primary key,
     id_supplier               int unsigned                                                                                    null,
-    id_category               int unsigned       
-    product_name              varchar (50) default 0       not null,
-    product_color             varchar(30)                                                            
-    on_sale                   tinyint(1) unsigned                                                            default 0        not null,
-    isbn                      varchar(32)                                                                                     null,
+    id_category               int unsigned                                                                   default 0        not null,
+    id_subcategory            int unsigned                                                                   default 0        null,
     quantity                  smallint                                                                       default 0        not null,
-    minimal_quantity          int unsigned                                                                   default 1        not null,
-    low_stock_alert           tinyint(1)                                                                     default 0        not null,
-    price_showPrice           decimal(20, 6)                                                                 default 0.000000 not null,
-    commission                  decimal(20, 6)                                                               default 0.000000 not null,
-    tax                       decimal(20, 6)                                                                 default 0.000000 not null,
-    additional_shipping_cost  decimal(20, 2)                                                                 default 0.00     not null,
+    price                     decimal(10, 3)                                                                 default 0.000000 not null,
     reference                 varchar(64)                                                                                     null,
-    supplier_reference        varchar(64)                                                                                     null,
-    location                  varchar(64)                                                                                     null,
-    width                     decimal(20, 6)                                                                 default 0.000000 not null,
-    height                    decimal(20, 6)                                                                 default 0.000000 not null,
-    depth                     decimal(20, 6)                                                                 default 0.000000 not null,
-    weight                    decimal(20, 6)                                                                 default 0.000000 not null,
     active                    tinyint(1) unsigned                                                            default 0        not null,
-    available_date            date                                                                                            null,
     show_price                tinyint(1)                                                                     default 1        not null,
-    date_add                  datetime                                                                                        not null,
-    origin_country            varchar(200)                                                                                    null,
     product_order             int(155)                                                                                        not null,
-    product_nutritional_facts varchar(10000)                                                                                  not null,
-    firts_upload              timestamp                                                           default current_timestamp() not null,
-    meta_keywords    varchar(255) null,
+    date_add                  timestamp                                                           default current_timestamp() not null,
+    img_urld                  varchar(255)                                                                                    not null,
 
-CONSTRAINT FK_ID_Product_SUPPLOIER FOREIGN KEY (id_supplier) REFERENCES nm_supplier(id_supplier),
-CONSTRAINT FK_ID_CATEGORY_PRODUCT FOREIGN KEY (id_category) REFERENCES nm_category(id_category)
+
+    CONSTRAINT FK_ID_Product_SUPPLOIER FOREIGN KEY (id_supplier) REFERENCES nm_supplier(id_supplier),
+    CONSTRAINT FK_ID_CATEGORY_PRODUCT FOREIGN KEY (id_category) REFERENCES nm_category(id_category)
 );
-
 
 create table nm_specific_price
 (
@@ -127,43 +129,12 @@ create table nm_specific_price
     from_quantity          mediumint unsigned            not null,
     reduction              decimal(20, 6)                not null,
     reduction_tax          tinyint(1)       default 1    not null,
-    start                 datetime                       not null,
-    end                   datetime                       not null,
+    start                  datetime                       not null,
+    end                    datetime                       not null,
 
 CONSTRAINT FK_ID_specific_price_Product02 FOREIGN KEY (id_product) REFERENCES nm_product(id_product)
 );
 
-# DELIMITER $$
-#
-# DROP PROCEDURE IF EXISTS `add_User`$$
-#
-# CREATE PROCEDURE `add_User`(IN `p_Name` VARCHAR(45), IN `p_Passw` VARCHAR(200))
-# BEGIN
-#     DECLARE `_HOST` CHAR(14) DEFAULT '@\'localhost\'';
-#     SET `p_Name` := CONCAT('\'', REPLACE(TRIM(`p_Name`), CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\''),
-#     `p_Passw` := CONCAT('\'', REPLACE(`p_Passw`, CHAR(39), CONCAT(CHAR(92), CHAR(39))), '\'');
-#     SET @`sql` := CONCAT('CREATE USER ', `p_Name`, `_HOST`, ' IDENTIFIED BY ', `p_Passw`);
-#     PREPARE `stmt` FROM @`sql`;
-#     EXECUTE `stmt`;
-#     SET @`sql` := CONCAT('GRANT ALL PRIVILEGES ON *.* TO ', `p_Name`, `_HOST`);
-#     PREPARE `stmt` FROM @`sql`;
-#     EXECUTE `stmt`;
-#     DEALLOCATE PREPARE `stmt`;
-#     FLUSH PRIVILEGES;
-# END$$
-#
-# DELIMITER ;
-
- create function checkLogIn(@username varchar(25), in @password varchar(255))
- RETURNS bit
- BEGIN
-    if EXISTS(select * from nm_account where email = @username and passwd = @password)
-    then
-       return 1;
-    else
-       return 0;
-    end if;
- end;
 
 create table nm_order_detail
 (
@@ -221,7 +192,7 @@ create table ps_order_history
     id_supplier                   int unsigned                             not null,
     id_product                    int unsigned                             not null,
 
-    CONSTRAINT FK_SUPPLIER_H FOREIGN KEY (id_customer) REFERENCES nm_customer(id_customer),
+    CONSTRAINT FK_SUPPLIER_H FOREIGN KEY (id_customer) REFERENCES nm_user(id),
     CONSTRAINT FK_CUSTOMER_H FOREIGN KEY (id_supplier) REFERENCES nm_supplier(id_supplier),
     CONSTRAINT FK_PRODUCT_H  FOREIGN KEY (id_product) REFERENCES nm_product(id_supplier),
     CONSTRAINT FK_ORDER_H  FOREIGN KEY (id_order) REFERENCES nm_order_detail(id_order)

@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboardComponent/dashboard.component';
 import { HomeComponent } from './homeComponent/home.component';
 import { LoginComponent } from './loginComponent/login.component';
 import { PremiumComponent } from './premiumComponent/premium.component';
+
 import { ProductosComponent } from './productosComponent/productos.component';
 import { RegisterComponent } from './registerComponent/register.component';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
@@ -18,6 +19,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'premium', component: PremiumComponent },
   { path: 'shoppingCart', component: ShoppingCartComponent },
+
+
 ];
 
 @NgModule({
