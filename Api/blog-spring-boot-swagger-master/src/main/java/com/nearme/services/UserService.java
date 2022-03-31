@@ -1,34 +1,18 @@
 package com.nearme.services;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 import java.util.UUID;
-import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.nearme.mappers.UserMapper;
 import com.nearme.models.dto.CreateUserRequestDTO;
 import com.nearme.models.dto.ManageRoleDTO;
-
 import com.nearme.models.dto.UserDTO;
 import com.nearme.models.entities.PasswordResetTokenEntity;
 import com.nearme.models.entities.UserEntity;
@@ -301,7 +285,8 @@ public class UserService {
 		} else {
 			// set a temp password for new users
 			log.info("Creating a new user - "+createUserRequestDTO.getEmail());
-            String password = new Random().ints(10, 33, 122).mapToObj(i -> String.valueOf((char)i)).collect(Collectors.joining());
+            // String password = new Random().ints(10, 33, 122).mapToObj(i -> String.valueOf((char)i)).collect(Collectors.joining());
+			String password ="TOMATOE";
             userToCreate.setUsername(createUserRequestDTO.getEmail());
             userToCreate.setPassword(password);
 			userToCreate.setName(createUserRequestDTO.getName());
