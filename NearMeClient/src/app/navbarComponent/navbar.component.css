@@ -2,16 +2,19 @@
     font-family: "Spline Sans", sans-serif;
 }
 
-nav {
-    background-color: white;
+.navbarPrinc {
+    background-color: #141921;
 }
 
+.navbarSec {
+    background-color: #23303E;
+}
 .drawerImg {
     width: 1.4em;
 }
 
 #nearmeLogo {
-    width: 10em;
+    width: 7em;
 }
 
 #imgCarrito{
@@ -30,3 +33,7 @@ nav {
     display:inline-block;
 }
 
+li>a{
+    color: white !important;
+    font-size: 1.2em;
+}

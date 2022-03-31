@@ -21,6 +21,6 @@ export class RegisterComponent {
 
   insertUser() {
     console.log("insert user");
-    this.usersService.insertUser(this.userName, this.userEmail, this.userPass, this.userPass2);
+    //this.usersService.insertUser(this.userName, this.userEmail, this.userPass, this.userPass2);
   }
 }
