@@ -1,0 +1,52 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.3.RELEASE)
+
+2022-03-30 16:21:30.727  INFO 11660 --- [  restartedMain] com.nearme.SwaggerApiApplication         : Starting SwaggerApiApplication on DESKTOP-36A1D45 with PID 11660 (C:\DAW2\M12\Proyecto DAW2\NearMe\Api\blog-spring-boot-swagger-master\target\classes started by Javi in c:\DAW2\M12\Proyecto DAW2\NearMe\Api\blog-spring-boot-swagger-master)
+2022-03-30 16:21:30.731  INFO 11660 --- [  restartedMain] com.nearme.SwaggerApiApplication         : No active profile set, falling back to default profiles: default
+2022-03-30 16:21:30.798  INFO 11660 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-30 16:21:30.798  INFO 11660 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-30 16:21:32.048  INFO 11660 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-30 16:21:32.049  INFO 11660 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-03-30 16:21:32.109  INFO 11660 --- [  restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.nearme.repositories.JwtBlacklistRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-30 16:21:32.113  INFO 11660 --- [  restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.nearme.repositories.PasswordTokenRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-30 16:21:32.115  INFO 11660 --- [  restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.nearme.repositories.UserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-03-30 16:21:32.115  INFO 11660 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62ms. Found 0 JDBC repository interfaces.
+2022-03-30 16:21:32.139  INFO 11660 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-30 16:21:32.140  INFO 11660 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-03-30 16:21:32.189  INFO 11660 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42ms. Found 3 JPA repository interfaces.
+2022-03-30 16:21:32.883  INFO 11660 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-30 16:21:32.899  INFO 11660 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-30 16:21:32.899  INFO 11660 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2022-03-30 16:21:33.021  INFO 11660 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-30 16:21:33.021  INFO 11660 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2221 ms
+2022-03-30 16:21:33.220  WARN 11660 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+2022-03-30 16:21:33.395  INFO 11660 --- [  restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-30 16:21:33.410  INFO 11660 --- [  restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-03-30 16:21:33.421  INFO 11660 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-30 16:21:33.425  WARN 11660 --- [  restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-03-30 16:21:33.613  INFO 11660 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-30 16:21:33.691  INFO 11660 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-30 16:21:33.822  INFO 11660 --- [  restartedMain] com.nearme.security.SecurityConfig       : adding cors frontend:http://localhost:4200
+2022-03-30 16:21:33.841  INFO 11660 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.20.Final
+2022-03-30 16:21:34.051  INFO 11660 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2022-03-30 16:21:34.224  INFO 11660 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-03-30 16:21:34.402  INFO 11660 --- [  restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-30 16:21:34.581  INFO 11660 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-30 16:21:34.992  INFO 11660 --- [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56b90858, org.springframework.security.web.context.SecurityContextPersistenceFilter@4886792d, org.springframework.security.web.header.HeaderWriterFilter@8a7ffc3, org.springframework.web.filter.CorsFilter@e6e7fb9, org.springframework.security.web.authentication.logout.LogoutFilter@40e34a12, com.nearme.security.jwt.JwtTokenFilter@53681ae1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b23d89d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f7e8636, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10a59e2c, org.springframework.security.web.session.SessionManagementFilter@529cb4ee, org.springframework.security.web.access.ExceptionTranslationFilter@17560933, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ef75fa3]
+2022-03-30 16:21:35.137  INFO 11660 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-30 16:21:35.139  INFO 11660 --- [  restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-30 16:21:35.194  INFO 11660 --- [  restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-30 16:21:35.216  INFO 11660 --- [  restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-30 16:21:35.320  INFO 11660 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-30 16:21:35.331  INFO 11660 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-30 16:21:35.440  INFO 11660 --- [  restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsersListUsingGET_1
+2022-03-30 16:21:35.464  INFO 11660 --- [  restartedMain] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2022-03-30 16:21:35.857  INFO 11660 --- [  restartedMain] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2022-03-30 16:21:35.877  INFO 11660 --- [  restartedMain] com.nearme.SwaggerApiApplication         : Started SwaggerApiApplication in 5.436 seconds (JVM running for 6.6)

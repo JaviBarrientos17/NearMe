@@ -16,21 +16,25 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
               <div class="card card-producto">
                 <img src="../../assets/nike.png" alt="..." />
-                <div class="card-body">
+                <div class="card-body body-producto">
                   <h5 class="card-info">Moda</h5>
                   <h2 class="card-title">Nike Jordan High</h2>
                   <p class="card-text">
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </p>
-                  <a [routerLink]="['../product']" class="btn btn-primary btn-comprar-producto">COMPRAR</a>
+                  <a
+                    [routerLink]="['../product']"
+                    class="btn btn-primary btn-comprar-producto"
+                    >COMPRAR</a
+                  >
                 </div>
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
               <div class="card card-producto">
                 <img src="../../assets/nike.png" alt="..." />
-                <div class="card-body">
+                <div class="card-body body-producto">
                   <h5 class="card-info">Moda</h5>
                   <h2 class="card-title">Nike Jordan High</h2>
                   <p class="card-text">
@@ -46,16 +50,25 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
               <div class="card card-producto">
                 <img src="../../assets/nike.png" alt="..." />
-                <div class="card-body">
+                <div class="card-body body-producto">
                   <h5 class="card-info">Moda</h5>
                   <h2 class="card-title">Nike Jordan High</h2>
                   <p class="card-text">
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </p>
-                  <a href="#" class="btn btn-primary btn-comprar-producto"
-                    >COMPRAR</a
-                  >
+                  <div class="row">
+                    <div class="col-lg-8">
+                      <a
+                        [routerLink]="['../product']"
+                        class="btn btn-primary btn-comprar-producto"
+                        >COMPRAR</a
+                      >
+                    </div>
+                    <div class="col-lg-4">
+                      <h3>99.00€</h3>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
