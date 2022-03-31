@@ -32,6 +32,9 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+import { ProductComponent } from './productComponent/product.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +50,7 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarFiltrosComponent,
     PremiumComponent,
     ShoppingCartComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

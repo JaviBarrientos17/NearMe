@@ -1,15 +1,14 @@
 package com.nearme.config;
 
-import java.util.Arrays;
+
 import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import springfox.documentation.builders.ParameterBuilder;
+
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -33,9 +32,9 @@ public class SwaggerConfig {
 	
 	private ApiInfo getApiInfo() {
 		return new ApiInfo(
-				"Order Service API",
-				"Order Service API Description",
-				"1.0",
+				"NearMe API",
+				"Nearme info api info >",
+				"0.10",
 				"http://nearme.com/terms",
 				new Contact("Nearme", "https://neamre.com", "apis@nearme.com"),
 				"LICENSE",
