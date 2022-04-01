@@ -89,7 +89,7 @@ public class UserService {
 	public List<UserDTO> getUsers() throws Exception {
 		List<UserEntity> usersList = userRepository.findAll();
 		if (usersList.isEmpty()) {
-			new Exception("No users found");
+			new Exception("No users found ");
 		}
 		return UserMapper.INSTANCE.mapEntityToDtoList(usersList);
 	}
