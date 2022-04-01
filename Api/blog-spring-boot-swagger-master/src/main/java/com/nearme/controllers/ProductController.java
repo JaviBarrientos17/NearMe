@@ -25,6 +25,8 @@ public class ProductController{
 
 	@Autowired
 	private ProductService productService;
+
+	
 	/**
 	 * Lists all existing products
 	 * 

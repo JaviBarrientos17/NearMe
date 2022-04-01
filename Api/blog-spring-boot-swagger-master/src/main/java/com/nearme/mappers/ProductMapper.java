@@ -7,7 +7,6 @@ import com.nearme.models.dto.ProductDTO;
 import com.nearme.models.entities.ProductEntity;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper

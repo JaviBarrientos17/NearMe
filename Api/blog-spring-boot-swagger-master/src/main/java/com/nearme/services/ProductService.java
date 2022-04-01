@@ -2,6 +2,7 @@ package com.nearme.services;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import com.nearme.mappers.ProductMapper;
 import com.nearme.models.dto.ProductDTO;
@@ -34,5 +35,28 @@ public class ProductService {
 			new Exception("No products found");
 		}
 		return ProductMapper.INSTANCE.mapEntityToDtoList(productsList);
+	}
+/**
+	 * Gets product by id
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@Transactional
+	public ProductDTO getProductById(Integer idProduct) {
+		ProductEntity product = productRepository.findById(idProduct).get();
+		return ProductMapper.INSTANCE.entityToDto(product);
+	}
+	 
+	/**
+	 * Gets product by name
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@Transactional
+	public ArrayList<ProductDTO> getProductByName(String productName) {
+		List<ProductEntity> products = productRepository.findByName(productName).get();
+		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
 	}
 }
