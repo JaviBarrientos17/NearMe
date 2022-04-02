@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/product")
 public class ProductController {
 
 	@Autowired
@@ -48,7 +48,7 @@ public class ProductController {
 	 * @return
 	 * @throws Exception
 	 */
-	@GetMapping("/product/{id}")
+	@GetMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<ProductDTO> getProductById(@PathVariable Integer idProduct) throws Exception {
 		log.info("Listing a product by id");
@@ -61,7 +61,7 @@ public class ProductController {
 	 * @return
 	 * @throws Exception
 	 */
-	@GetMapping("/product/{name}")
+	@GetMapping("/{name}")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<List<ProductDTO>> getProductByName(@PathVariable String ProductName) throws Exception {
 		log.info("Listing a product by id");
