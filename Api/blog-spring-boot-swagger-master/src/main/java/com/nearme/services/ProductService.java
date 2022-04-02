@@ -1,7 +1,5 @@
 package com.nearme.services;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 import com.nearme.mappers.ProductMapper;
@@ -15,14 +13,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
-
 @Slf4j
 @Service
 public class ProductService {
 
 	@Autowired
-    ProductRepository productRepository;
-    /**
+	ProductRepository productRepository;
+
+	/**
 	 * Gets products list
 	 * 
 	 * @return
@@ -37,7 +35,8 @@ public class ProductService {
 		}
 		return ProductMapper.INSTANCE.mapEntityToDtoList(productsList);
 	}
-/**
+
+	/**
 	 * Gets product by id
 	 * 
 	 * @return
@@ -52,7 +51,7 @@ public class ProductService {
 		}
 		return ProductMapper.INSTANCE.entityToDto(product);
 	}
-	 
+
 	/**
 	 * Gets product by name
 	 * 
@@ -69,7 +68,6 @@ public class ProductService {
 		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
 	}
 
-
 	@Transactional
 	public ArrayList<ProductDTO> getProductByCategory(Integer idCategory) {
 		List<ProductEntity> products = productRepository.findByCategory(idCategory).get();
@@ -80,8 +78,6 @@ public class ProductService {
 		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
 	}
 
-
-
 	@Transactional
 	public ArrayList<ProductDTO> getProductByStock(Integer stock) {
 		List<ProductEntity> products = productRepository.findByStock(stock).get();
@@ -91,8 +87,8 @@ public class ProductService {
 		}
 		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
 
+	}
 
-}
 	@Transactional
 	public ProductDTO addProduct(ProductDTO product) throws Exception {
 		log.info("Trying to add " + product.getName() + " to the database");
@@ -106,7 +102,7 @@ public class ProductService {
 			new Exception("Error adding product " + product.getName() + " to the database");
 		}
 		return product;
-}
+	}
 
 	@Transactional
 	public void deleteProduct(Integer idProduct) {
@@ -120,22 +116,52 @@ public class ProductService {
 		}
 	}
 
-
-
-	// i need a cronojob 
 	@Transactional
-	public void updateStock(Integer amount) {
+	public void updateStock(Integer id, Integer amount) {
 		log.info("Trying to update stock");
 		try {
-			List<ProductEntity> products = productRepository.findAll();
-			for (ProductEntity product : products) {
-				product.setStock(product.getStock() + amount);
-				productRepository.save(product);
-			}
+			ProductDTO product = getProductById(id);
+			product.setStock(product.getStock() + amount);
+			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
+			productRepository.save(productEntity);
+
 			log.info("Stock updated");
 		} catch (Exception e) {
 			log.error("Error updating stock");
 			new Exception("Error updating stock");
 		}
 	}
+
+	//i need a function to update the price of a product
+	@Transactional
+	public void updatePrice(Integer id, Integer price) {
+		log.info("Trying to update price");
+		try {
+			ProductDTO product = getProductById(id);
+			product.setPrice(price);
+			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
+			productRepository.save(productEntity);
+
+			log.info("Price updated");
+		} catch (Exception e) {
+			log.error("Error updating price");
+			new Exception("Error updating price");
+		}
+	}
+
+	
+	@Transactional
+	public ProductDTO updateProduct(ProductDTO product) {
+		log.info("Trying to update product");
+		try {
+			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
+			productRepository.save(productEntity);
+
+			log.info("Product updated");
+		} catch (Exception e) {
+			log.error("Error updating product");
+			new Exception("Error updating product");
+		}
+	}
+
 }

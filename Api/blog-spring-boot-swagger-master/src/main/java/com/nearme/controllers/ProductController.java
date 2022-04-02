@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -79,14 +80,16 @@ public class ProductController {
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> createProduct(@RequestBody ProductDTO data) {
 		try {
-			return new ResponseEntity<ProductDTO>(this.productService.addProduct(data), HttpStatus.OK);
+			this.productService.addProduct(data);
+			return new ResponseEntity<Void>( HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
 	}
 
+
 	/**
-	 * Remove a product by id
+	 * Delete a product by id
 	 * 
 	 * @param idProduct
 	 * @return
@@ -108,11 +111,28 @@ public class ProductController {
 	 * @param response
 	 * @return
 	 */
-	@PostMapping("/{amount}")
+	@PutMapping("/stock/{amount}{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> updateStock(@RequestBody Integer amount) {
+	public ResponseEntity<?> updateStock(@PathVariable Integer id, @PathVariable Integer amount) {
 		try {
-			this.productService.updateStock(amount);
+			this.productService.updateStock(id,amount);
+			return new ResponseEntity<Void>( HttpStatus.OK);
+		} catch (Exception ex) {
+			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
+		}
+	}
+	/**
+	 * Set the price of a product
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@PutMapping("/price/{amount}{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> updatePrice(@PathVariable Integer id, @PathVariable Integer amount) {
+		try {
+			this.productService.updatePrice(id,amount);
 			return new ResponseEntity<Void>( HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
