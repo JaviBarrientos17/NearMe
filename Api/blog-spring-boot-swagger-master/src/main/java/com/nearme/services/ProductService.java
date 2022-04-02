@@ -32,6 +32,7 @@ public class ProductService {
 	public List<ProductDTO> getProducts() throws Exception {
 		List<ProductEntity> productsList = productRepository.findAll();
 		if (productsList.isEmpty()) {
+			log.info("No products found in the database");
 			new Exception("No products found");
 		}
 		return ProductMapper.INSTANCE.mapEntityToDtoList(productsList);
@@ -45,6 +46,10 @@ public class ProductService {
 	@Transactional
 	public ProductDTO getProductById(Integer idProduct) {
 		ProductEntity product = productRepository.findById(idProduct).get();
+		if (product == null) {
+			log.info("No product found with id: " + idProduct);
+			new Exception("No product found with id: " + idProduct);
+		}
 		return ProductMapper.INSTANCE.entityToDto(product);
 	}
 	 
@@ -57,6 +62,35 @@ public class ProductService {
 	@Transactional
 	public ArrayList<ProductDTO> getProductByName(String productName) {
 		List<ProductEntity> products = productRepository.findByName(productName).get();
+		if (products.isEmpty()) {
+			log.info("No products found with name: " + productName);
+			new Exception("No products found with name: " + productName);
+		}
 		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
 	}
+
+
+	@Transactional
+	public ArrayList<ProductDTO> getProductByCategory(Integer idCategory) {
+		List<ProductEntity> products = productRepository.findByCategory(idCategory).get();
+		if (products.isEmpty()) {
+			log.info("No products found with category id: " + idCategory);
+			new Exception("No products found with category id: " + idCategory);
+		}
+		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
+	}
+
+
+
+	@Transactional
+	public ArrayList<ProductDTO> getProductByStock(Integer stock) {
+		List<ProductEntity> products = productRepository.findByStock(stock).get();
+		if (products.isEmpty()) {
+			log.info("No products found with stock: " + stock);
+			new Exception("No products found with stock: " + stock);
+		}
+		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
+
+
+}
 }
