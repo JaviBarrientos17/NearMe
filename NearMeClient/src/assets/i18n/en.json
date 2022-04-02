@@ -9,6 +9,9 @@
         "related_products": "Related products",
         "englishLabel": "Ingles",
         "spanishLabel": "Español"
+    },
+    "company_profile":{
+        "main_info":"Main Information"
     }
 }
 

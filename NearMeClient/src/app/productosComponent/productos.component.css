@@ -32,6 +32,11 @@
     user-select: none;
   }
 
+  .fondo{
+    background-image: url('../../assets/bg_web.png');
+    background-size:cover;
+    
+  }
   @media (min-width: 768px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;

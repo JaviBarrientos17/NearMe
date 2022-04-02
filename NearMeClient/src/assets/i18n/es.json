@@ -8,6 +8,18 @@
         "related_products": "Productos relacionados",
         "englishLabel": "Ingles",
         "spanishLabel": "Español"
+    },
+    "company_profile":{
+        "profile":"Perfil",
+        "main_info":"INFORMACIÓN PRINCIPAL",
+        "personal_info":"INFORMACIÓN PERSONAL",
+        "edit":"EDIT",
+        "web":"Página Web",
+        "ubi":"Ubicación",
+        "schedule":"Horario",
+        "suscription":"Suscripción",
+        "period":"Periodo de Prueba. Te quedan ",
+        "days_left":"días de prueba"
     }
 }
 
