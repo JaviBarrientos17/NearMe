@@ -100,4 +100,22 @@ public class ProductController {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
 	}
+
+	/**
+	 * Update the stock of a product
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@PostMapping("/{amount}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> updateStock(@RequestBody Integer amount) {
+		try {
+			this.productService.updateStock(amount);
+			return new ResponseEntity<Void>( HttpStatus.OK);
+		} catch (Exception ex) {
+			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
+		}
+	}
 }

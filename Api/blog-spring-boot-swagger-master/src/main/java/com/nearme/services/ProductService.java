@@ -120,4 +120,22 @@ public class ProductService {
 		}
 	}
 
+
+
+	// i need a cronojob 
+	@Transactional
+	public void updateStock(Integer amount) {
+		log.info("Trying to update stock");
+		try {
+			List<ProductEntity> products = productRepository.findAll();
+			for (ProductEntity product : products) {
+				product.setStock(product.getStock() + amount);
+				productRepository.save(product);
+			}
+			log.info("Stock updated");
+		} catch (Exception e) {
+			log.error("Error updating stock");
+			new Exception("Error updating stock");
+		}
+	}
 }
