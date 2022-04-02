@@ -60,7 +60,7 @@ public class ProductService {
 	 * @throws Exception
 	 */
 	@Transactional
-	public ArrayList<ProductDTO> getProductByName(String productName) {
+	public List<ProductDTO> getProductByName(String productName) {
 		List<ProductEntity> products = productRepository.findByName(productName).get();
 		if (products.isEmpty()) {
 			log.info("No products found with name: " + productName);
