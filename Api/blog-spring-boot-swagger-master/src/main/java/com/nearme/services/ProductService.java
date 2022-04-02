@@ -151,7 +151,7 @@ public class ProductService {
 
 	
 	@Transactional
-	public ProductDTO updateProduct(ProductDTO product) {
+	public void  updateProduct(ProductDTO product) {
 		log.info("Trying to update product");
 		try {
 			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
