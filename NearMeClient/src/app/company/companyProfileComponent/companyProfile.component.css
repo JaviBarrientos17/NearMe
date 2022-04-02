@@ -1,0 +1,80 @@
+.fondo{
+    background-image: url('../../../assets/bg_web_empresa.png');
+    background-size:cover;
+    
+  }
+
+  .mainContainer {
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 4px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    padding: 0;
+}
+.example-small-box, .example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+
+  
+  .example-large-box {
+    height: 300px;
+    width: 300px;
+  }
+  h1,h2,h3,h4,h5{
+    font-family:'Sora';
+    
+  }
+.card-profile{
+  margin:2%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 4px,
+  rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+i{
+  margin-left:70%;
+  color:#3d81d2;
+}
+h3,h4{
+  font-weight: 500;
+}
+
+.periodo-prueba{
+  background-color: #D84848;
+  color: white;
+}
+.periodo-prueba span{
+  padding: 1.3%;
+  font-size: 1.3em;
+}
+.cardInfoPrincipal{
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 4px,
+  rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  text-align: center;
+  margin:10%
+}
+
+.priceSub{
+  text-align: center;
+  font-size: 1.2em;
+  border-radius: 20px;
+  padding: 8px;
+  
+}
+
+.show-plan{
+  margin-top: 3%;
+  overflow: hidden;
+}
+.show {
+  overflow: visible;
+  height: auto;
+}

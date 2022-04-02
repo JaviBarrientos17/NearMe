@@ -1,0 +1,35 @@
+.cardInfoPrincipal{
+    border-radius: 20px;
+    margin-bottom: 20%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 4px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.card-text{
+    text-align: center;
+    font-size: 2em;
+}
+.priceSub{
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 20px;
+    border: 1px solid gold;
+    padding: 5px;
+
+}
+
+img{
+    margin-top: -8px;
+    height: 50px;
+}
+
+
+.fondo{
+    background-image: url('../../assets/bg_web_empresa.png');
+    background-size:cover;
+    
+  }
+  h1,h2,h3,h4,h5{
+    font-family:'Sora';
+  
+  }

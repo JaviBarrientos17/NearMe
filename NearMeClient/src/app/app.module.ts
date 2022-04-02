@@ -4,6 +4,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,8 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 import { ProductComponent } from './productComponent/product.component';
-
+import { NavBarEmpresaComponent } from './navbarEmpresaComponent/navbarEmpresa.component';
+import { CompanyProfileComponent } from './company/companyProfileComponent/companyProfile.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ProductComponent } from './productComponent/product.component';
     SidebarFiltrosComponent,
     PremiumComponent,
     ShoppingCartComponent,
-    ProductComponent
+    ProductComponent,
+    NavBarEmpresaComponent,
+    CompanyProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +68,7 @@ import { ProductComponent } from './productComponent/product.component';
     FormsModule,
     MatInputModule,
     HttpClientModule,
+    MatTabsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

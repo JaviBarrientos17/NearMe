@@ -1,8 +1,90 @@
 <app-navbar></app-navbar>
-<h1>Dashboard</h1>
-<h1> </h1>
-<h1> </h1>
-<h1> </h1>
-<h1> </h1>
-<h1> </h1>
+<div class="fondo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <navbarEmpresa-component></navbarEmpresa-component>
+      </div>
+      <div class="col-md-9">
+        <h1>Dasboard</h1>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card cardInfoPrincipal">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-8">
+                    <h3>Total Generado</h3>
+                  </div>
+                  <div class="col-4">
+                    <img src="../../assets/total.png" alt="" />
+                  </div>
+                </div>
+                <h3 class="card-text">2.211€/mes</h3>
+                <div class="progress mt-4" style="height: 4px">
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    style="width: 75%"
+                    aria-valuenow="75"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <div class="prevMonth">
+                  <span>Mes Anterior</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card cardInfoPrincipal">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-8">
+                    <h3>Pedidos Totales</h3>
+                  </div>
+                  <div class="col-4">
+                    <img src="../../assets/pedidos.png" alt="" />
+                  </div>
+                </div>
+                <h3 class="card-text">441 mes</h3>
+                <div class="progress mt-4" style="height: 4px">
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    style="width: 75%"
+                    aria-valuenow="75"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <div class="prevMonth">
+                  <span>Mes Anterior</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card cardInfoPrincipal">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-8">
+                    <h3>Suscripción</h3>
+                  </div>
+                  <div class="col-4">
+                    <img src="../../assets/suscripcion.png" alt="" />
+                  </div>
+                </div>
+                <h3 class="card-text">GOLD</h3>
+                <div class="priceSub">
+                  <span>29,99€/mes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <footer-component></footer-component>

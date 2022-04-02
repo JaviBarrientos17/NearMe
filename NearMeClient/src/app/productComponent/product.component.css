@@ -114,3 +114,13 @@ hr {
   h4{
       font-size: 1.3em;
   }
+
+  .fondo{
+    background-image: url('../../assets/bg_web.png');
+    background-size:cover;
+    
+  }
+  h1,h2,h3,h4,h5{
+    font-family:'Sora';
+  
+  }
