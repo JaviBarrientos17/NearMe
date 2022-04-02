@@ -1,34 +1,34 @@
 package com.nearme.controllers;
 
-
-
 import com.nearme.services.ProductService;
 
 import java.util.List;
+
+import com.nearme.models.dto.AuthenticationRequestDTO;
+import com.nearme.models.dto.ErrorDTO;
 import com.nearme.models.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.extern.slf4j.Slf4j;
-
 
 @Slf4j
 @RestController
 @RequestMapping("/api/products")
-public class ProductController{
-
+public class ProductController {
 
 	@Autowired
 	private ProductService productService;
 
-	
 	/**
 	 * Lists all existing products
 	 * 
@@ -55,7 +55,7 @@ public class ProductController{
 		return new ResponseEntity<ProductDTO>(this.productService.getProductById(idProduct), HttpStatus.OK);
 	}
 
-/**
+	/**
 	 * Return a product by name
 	 * 
 	 * @return
@@ -68,6 +68,36 @@ public class ProductController{
 		return new ResponseEntity<List<ProductDTO>>(this.productService.getProductByName(ProductName), HttpStatus.OK);
 	}
 
+	/**
+	 * Add a new Product to the database
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@PostMapping("/")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> createProduct(@RequestBody ProductDTO data) {
+		try {
+			return new ResponseEntity<ProductDTO>(this.productService.addProduct(data), HttpStatus.OK);
+		} catch (Exception ex) {
+			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
+		}
+	}
 
-	
+	/**
+	 * Remove a product by id
+	 * 
+	 * @param idProduct
+	 * @return
+	 */
+	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> deleteProduct(@PathVariable Integer idProduct) {
+		try {
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		} catch (Exception ex) {
+			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
+		}
+	}
 }

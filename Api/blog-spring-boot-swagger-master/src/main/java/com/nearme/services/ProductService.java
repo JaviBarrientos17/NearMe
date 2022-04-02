@@ -93,4 +93,31 @@ public class ProductService {
 
 
 }
+	@Transactional
+	public ProductDTO addProduct(ProductDTO product) throws Exception {
+		log.info("Trying to add " + product.getName() + " to the database");
+		try {
+			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
+			productRepository.save(productEntity);
+			log.info("Product " + product.getName() + " added to the database");
+			return product;
+		} catch (Exception e) {
+			log.error("Error adding product " + product.getName() + " to the database");
+			new Exception("Error adding product " + product.getName() + " to the database");
+		}
+		return product;
+}
+
+	@Transactional
+	public void deleteProduct(Integer idProduct) {
+		log.info("Trying to delete product with id: " + idProduct);
+		try {
+			productRepository.deleteById(idProduct);
+			log.info("Product with id: " + idProduct + " deleted");
+		} catch (Exception e) {
+			log.error("Error deleting product with id: " + idProduct);
+			new Exception("Error deleting product with id: " + idProduct);
+		}
+	}
+
 }

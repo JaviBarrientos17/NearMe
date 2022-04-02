@@ -53,7 +53,7 @@ public class AuthController {
 	 * @param request
 	 * @param response
 	 * @return
-	 */
+	 */	
 	@Operation(security = @SecurityRequirement(name = "JwtToken"))
 	@GetMapping("/logout")
 	@ResponseStatus(HttpStatus.OK)
