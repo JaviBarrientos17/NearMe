@@ -52,7 +52,6 @@ import { CompanyProfileComponent } from './company/companyProfileComponent/compa
     PremiumComponent,
     ShoppingCartComponent,
     ProductComponent,
-
     CompanyProfileComponent,
   ],
   imports: [
