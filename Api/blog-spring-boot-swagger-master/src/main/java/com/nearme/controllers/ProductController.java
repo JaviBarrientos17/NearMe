@@ -4,7 +4,6 @@ import com.nearme.services.ProductService;
 
 import java.util.List;
 
-import com.nearme.models.dto.AuthenticationRequestDTO;
 import com.nearme.models.dto.ErrorDTO;
 import com.nearme.models.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,12 +80,11 @@ public class ProductController {
 	public ResponseEntity<?> createProduct(@RequestBody ProductDTO data) {
 		try {
 			this.productService.addProduct(data);
-			return new ResponseEntity<Void>( HttpStatus.OK);
+			return new ResponseEntity<Void>(HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
 	}
-
 
 	/**
 	 * Delete a product by id
@@ -115,12 +113,13 @@ public class ProductController {
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> updateStock(@PathVariable Integer id, @PathVariable Integer amount) {
 		try {
-			this.productService.updateStock(id,amount);
-			return new ResponseEntity<Void>( HttpStatus.OK);
+			this.productService.updateStock(id, amount);
+			return new ResponseEntity<Void>(HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
 	}
+
 	/**
 	 * Set the price of a product
 	 * 
@@ -132,13 +131,12 @@ public class ProductController {
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> updatePrice(@PathVariable Integer id, @PathVariable Integer amount) {
 		try {
-			this.productService.updatePrice(id,amount);
-			return new ResponseEntity<Void>( HttpStatus.OK);
+			this.productService.updatePrice(id, amount);
+			return new ResponseEntity<Void>(HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
 	}
-
 
 	/**
 	 * Update a product
@@ -152,7 +150,7 @@ public class ProductController {
 	public ResponseEntity<?> updateProduct(@RequestBody ProductDTO data) {
 		try {
 			this.productService.updateProduct(data);
-			return new ResponseEntity<Void>( HttpStatus.OK);
+			return new ResponseEntity<Void>(HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
