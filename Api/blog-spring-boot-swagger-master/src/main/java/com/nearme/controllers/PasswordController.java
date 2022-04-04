@@ -18,15 +18,17 @@ import com.nearme.models.dto.UserDTO;
 import com.nearme.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @Validated
 @RestController
 @RequestMapping("/api/password")
 public class PasswordController {
-    @Autowired 
+    @Autowired
     private UserService userService;
-    
+
     /**
      * reset password
+     * 
      * @param createUserRequestDTO
      * @return
      * @throws Exception
@@ -35,15 +37,16 @@ public class PasswordController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(security = @SecurityRequirement(name = "JwtToken"))
     public ResponseEntity<Void> resetPassword(@Valid @RequestBody PasswordResetDTO passwordResetDTO) throws Exception {
-        if(userService.resetPassword(passwordResetDTO.getToken(), passwordResetDTO.getPassword())) {
+        if (userService.resetPassword(passwordResetDTO.getToken(), passwordResetDTO.getPassword())) {
             return new ResponseEntity<Void>(HttpStatus.OK);
-        }else {
+        } else {
             return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
         }
-    }   
-    
+    }
+
     /**
      * Resets the password of the logged user
+     * 
      * @param passwordResetDTO
      * @param idUser
      * @return
@@ -52,19 +55,22 @@ public class PasswordController {
     @PostMapping("/reset-password-logged/{idUser}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(security = @SecurityRequirement(name = "JwtToken"))
-    public ResponseEntity<Void> resetLoggedPassword(@Valid @RequestBody PasswordResetLoggedDTO passwordResetDTO,  @PathVariable Integer idUser) throws Exception {
+    public ResponseEntity<Void> resetLoggedPassword(@Valid @RequestBody PasswordResetLoggedDTO passwordResetDTO,
+            @PathVariable Integer idUser) throws Exception {
         UserDTO userDTO = userService.getUser(idUser);
-        if(userService.resetLoggedPassword(userDTO, passwordResetDTO.getPassword(), passwordResetDTO.getOldPassword())) {
+        if (userService.resetLoggedPassword(userDTO, passwordResetDTO.getPassword(),
+                passwordResetDTO.getOldPassword())) {
             return new ResponseEntity<Void>(HttpStatus.OK);
-        }else {
+        } else {
             return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);
         }
     }
 
-//PSW SENDER REQUEST
+    // PSW SENDER REQUEST
 
     /**
      * Validates password token
+     * 
      * @param createUserRequestDTO
      * @return
      * @throws Exception
@@ -73,9 +79,9 @@ public class PasswordController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(security = @SecurityRequirement(name = "JwtToken"))
     public ResponseEntity<Void> validateToken(@PathVariable("token") String token) throws Exception {
-        if(userService.validateToken(token)) {
+        if (userService.validateToken(token)) {
             return new ResponseEntity<Void>(HttpStatus.OK);
-        }else {
+        } else {
             return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
         }
     }
