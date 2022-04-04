@@ -3,3 +3,4 @@ Api/.vscode/launch.json
 Api/nearme/target/dependencies.txt
 Api/nearme_API/pom.xml
 
+Api/blog-spring-boot-swagger-master/src/main/resources/application.properties
