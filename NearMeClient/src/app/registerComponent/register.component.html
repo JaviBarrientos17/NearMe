@@ -55,7 +55,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Register</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" #insertUserForm="ngForm" name="insertNewUserForm" (ngSubmit)="insertUser(); insertUserForm.reset()">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="inputForm" id="inputName" [(ngModel)]="userName"
@@ -84,20 +84,26 @@
                                     <div class="col-sm-6">
                                         <input type="password" class="inputForm" id="inputPassword2" [(ngModel)]="userPass2"
                                             name="userPass2Input" placeholder="Repeat password" required />
-                                        
-                                        <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                            Register Account
-                                        </a>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-8">
+                                                <button type="submit" class="btn btn-primary btn-user btn-block"
+                                                [disabled]="!insertUserForm.form.valid" >
+                                                    Register Account
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <hr>
                             </form>
-                            <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            <!-- <div class="text-center">
+                                <a class="small" href="#">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
-                            </div>
+                                <a class="small" href="#">Already have an account? Login!</a>
+                            </div> -->
                         </div>
                     </div>
                 </div>

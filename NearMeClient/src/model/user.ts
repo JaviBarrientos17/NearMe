@@ -1,17 +1,17 @@
-export class User{
-    user_id:number;
-    user_email:string = "";
-    user_password:string = "";
-    // TODO SI DA PROBLEMAS CREO QUE ESTE CAMPO ES PORQUE SE AUTOGENERA
-    last_password_gen:string;
-    // TODO SI DA PROBLEMAS POR DEFECTO userType es un tinyInt
-    user_type:number;
+export class User {
+    user_name:string = '';
+    user_surname:string = '';
+    user_email:string = '';
+    user_phoneNumber:number = 0;
+    user_password:string = '';
+    user_password2:string = '';
 
-    constructor(user_id:number, user_email:string = "", user_password:string, last_password_gen:string, user_type:number){
-        this.user_id = user_id;
+    constructor(user_name:string = '', user_surname:string = '', user_email:string = '', user_phoneNumber:number = 0, user_password:string = '', user_password2:string = '') {
+        this.user_name = user_name;
+        this.user_surname = user_surname;
         this.user_email = user_email;
+        this.user_phoneNumber = user_phoneNumber;
         this.user_password = user_password;
-        this.last_password_gen = last_password_gen;
-        this.user_type = user_type;
+        this.user_password2 = user_password2;
     }
 }
