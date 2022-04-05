@@ -40,7 +40,7 @@ export class RegisterComponent {
       this.userName, this.userSurname, this.userEmail, this.userPhoneNumber, this.userPass
     ).subscribe(
       (resul) => {
-        console.log("Result: " + resul);
+        console.log("User inserted data: " + resul);
         this.usersArray = resul;
         this._router.navigate(['']);
       },

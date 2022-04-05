@@ -5,11 +5,9 @@ import { User } from 'src/model/user';
 
 @Injectable()
 export class UsersService {
-  // url: string = 'https://jsonplaceholder.typicode.com/users';
-
   constructor(private conexHttp: HttpClient) {}
 
-  users=[new User("","","",0,"","")];
+  users=[new User("","","",0,"")];
 
   getAllUsers(): Observable<any> {
     return this.conexHttp.get('/api/users/list', { responseType: 'text' });
@@ -23,7 +21,7 @@ export class UsersService {
       console.log("User phone: " + userPhoneNumber.toString());
       console.log("User pass: " + userPass);
 
-      return this.conexHttp.post('/api/users/add-user', this.users, {
+      return this.conexHttp.post('/api/users/add-user',new User(userName,userSurname,userEmail,userPhoneNumber,userPass), {
         headers: new HttpHeaders(
           { 'Content-Type': 'application/json' }
       )});
