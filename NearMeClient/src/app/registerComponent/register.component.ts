@@ -18,7 +18,6 @@ export class RegisterComponent {
   userEmail:any = '';
   userPhoneNumber:any = '';
   userPass:any = '';
-  userPass2:any = '';
 
   constructor(private usersService:UsersService, private _router: Router){}
 
@@ -34,11 +33,11 @@ export class RegisterComponent {
     );
   }
   
-  // TODO DA UN ERROR 415 (UNSUPORTED MEDIA TYPE) AL HACER EL POST DEL INSERT USER
+  // TODO DA UN ERROR 400 (BAD REQUEST) AL HACER EL POST DEL INSERT USER
   insertUser() {
     console.log("Working...");
     this.usersService.insertUser(
-      this.userName, this.userSurname, this.userPhoneNumber, this.userEmail, this.userPass, this.userPass2
+      this.userName, this.userSurname, this.userEmail, this.userPhoneNumber, this.userPass
     ).subscribe(
       (resul) => {
         console.log("Result: " + resul);
