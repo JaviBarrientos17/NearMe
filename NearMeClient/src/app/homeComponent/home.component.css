@@ -96,3 +96,23 @@ h1,h2,h3,h4,h5{
   font-family:'Sora';
 
 }
+
+.example-toolbar{
+  background-color: #6c7070;
+  color: white;
+  height: 40px;
+}
+
+.img-profile-sidebar{
+  background-color: #fd9f48;
+}
+.img-profile{
+  width: 60px;
+  
+}
+.div-img-profile{
+  margin: 2%;
+}
+.mat-list-item{
+  margin-right: 4%;
+}

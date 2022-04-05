@@ -1,129 +1,176 @@
 <app-navbar></app-navbar>
-<div class="fondo">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <searchBar></searchBar>
-      </div>
-    </div>
 
-    <section class="section-categorias">
-      <div class="row">
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="card text-white card-categoria">
-            <img
-              src="../../assets/lawn-mower-vectorportal.jpg"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="card text-white card-categoria">
-            <img
-              src="../../assets/controller-vectorportal.jpg"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <div class="card text-white cardLong">
-            <img
-              src="../../assets/chef-hat-vectorportal.jpg"
-              class="card-img-long"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="card text-white card-categoria">
-            <img
-              src="../../assets/controller-vectorportal.jpg"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="card text-white card-categoria">
-            <img
-              src="../../assets/controller-vectorportal.jpg"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Todo</h1>
+  </mat-toolbar>
 
-    <section class="section-servicios">
-      <div class="row servicios">
-        <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
-          <img class="img-servicio" src="../../assets/assistance.png" alt="" />
+  <mat-sidenav-container
+    class="example-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <mat-nav-list>
+        <div class="row img-profile-sidebar">
+          <div class="col-md-4 div-img-profile">
+            <img src=".././../assets/nick.png" alt="" class="img-profile" />
+          </div>
+          <div
+            class="col-md-7 d-flex justify-content-start align-self-center"
+            style="font-size: 1.4em"
+          >
+            <span>Hola, Nick</span>
+          </div>
         </div>
-        <div
-          class="col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
-        >
-          <span class="texto-servicios">Soporte Online 24h</span>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
-          <img
-            class="img-servicio"
-            src="../../assets/credit-cards.png"
-            alt=""
-          />
-        </div>
-        <div
-          class="col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
-        >
-          <span class="texto-servicios">Soporte Online 24h</span>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
-          <img
-            class="img-servicio"
-            src="../../assets/entrega-rapida.png"
-            alt=""
-          />
-        </div>
-        <div
-          class="col-2 col-sm-2 col-md-2col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
-        >
-          <span class="texto-servicios">Soporte Online 24h</span>
-        </div>
-      </div>
-    </section>
+        <a mat-list-item routerLink=".">Tendencias </a>
+        <mat-list-item routerLink=".">
+          <div mat-line>Productos Premium</div>
+          <mat-icon mat-list-icon>folder</mat-icon>
+        </mat-list-item>
+        <mat-list-item routerLink=".">Departamentos</mat-list-item>
+        <mat-list-item routerLink=".">Tendencias</mat-list-item>
+        <mat-list-item routerLink=".">Tendencias</mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
 
-    <section class="section-slider-tiendas">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
+    <mat-sidenav-content>
+      <div class="fondo">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <searchBar></searchBar>
+            </div>
+          </div>
 
-        <!--
+          <section class="section-categorias">
+            <div class="row">
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="card text-white card-categoria">
+                  <img
+                    src="../../assets/lawn-mower-vectorportal.jpg"
+                    class="card-img"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="card text-white card-categoria">
+                  <img
+                    src="../../assets/controller-vectorportal.jpg"
+                    class="card-img"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="card text-white cardLong">
+                  <img
+                    src="../../assets/chef-hat-vectorportal.jpg"
+                    class="card-img-long"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="card text-white card-categoria">
+                  <img
+                    src="../../assets/controller-vectorportal.jpg"
+                    class="card-img"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="card text-white card-categoria">
+                  <img
+                    src="../../assets/controller-vectorportal.jpg"
+                    class="card-img"
+                    alt="..."
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-servicios">
+            <div class="row servicios">
+              <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
+                <img
+                  class="img-servicio"
+                  src="../../assets/assistance.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
+              >
+                <span class="texto-servicios">Soporte Online 24h</span>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
+                <img
+                  class="img-servicio"
+                  src="../../assets/credit-cards.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
+              >
+                <span class="texto-servicios">Soporte Online 24h</span>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
+                <img
+                  class="img-servicio"
+                  src="../../assets/entrega-rapida.png"
+                  alt=""
+                />
+              </div>
+              <div
+                class="col-2 col-sm-2 col-md-2col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
+              >
+                <span class="texto-servicios">Soporte Online 24h</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-slider-tiendas">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+
+              <!--
       <div class="carousel-inner">
         <div
           *ngFor="let data of gallery; let i = index"
@@ -137,129 +184,137 @@
       </div>
       -->
 
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </section>
 
-    <section class="section-productos">
-      <h2 class="titulo-mas-vendidos">{{ "home.mas_vendidos" | translate }}</h2>
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-producto">
-            <img src="../../assets/nike.png" alt="..." />
-            <div class="card-body body-producto">
-              <h5 class="card-info">Moda</h5>
-              <h2 class="card-title">Nike Jordan High</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a
-                [routerLink]="['../product']"
-                class="btn btn-primary btn-comprar-producto"
-                >Comprar</a
-              >
+          <section class="section-productos">
+            <h2 class="titulo-mas-vendidos">
+              {{ "home.mas_vendidos" | translate }}
+            </h2>
+            <div class="row">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="card card-producto">
+                  <img src="../../assets/nike.png" alt="..." />
+                  <div class="card-body body-producto">
+                    <h5 class="card-info">Moda</h5>
+                    <h2 class="card-title">Nike Jordan High</h2>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a
+                      [routerLink]="['../product']"
+                      class="btn btn-primary btn-comprar-producto"
+                      >Comprar</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="card card-producto">
+                  <img src="../../assets/nike.png" alt="..." />
+                  <div class="card-body body-producto">
+                    <h5 class="card-info">Moda</h5>
+                    <h2 class="card-title">Nike Jordan High</h2>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-comprar-producto"
+                      >Comprar</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="card card-producto">
+                  <img src="../../assets/nike.png" alt="..." />
+                  <div class="card-body body-producto">
+                    <h5 class="card-info">Moda</h5>
+                    <h2 class="card-title">Nike Jordan High</h2>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-comprar-producto"
+                      >Comprar</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="card card-producto">
+                  <img src="../../assets/nike.png" alt="..." />
+                  <div class="card-body body-producto">
+                    <h5 class="card-info">Moda</h5>
+                    <h2 class="card-title">Nike Jordan High</h2>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-comprar-producto"
+                      >Comprar</a
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-producto">
-            <img src="../../assets/nike.png" alt="..." />
-            <div class="card-body body-producto">
-              <h5 class="card-info">Moda</h5>
-              <h2 class="card-title">Nike Jordan High</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-comprar-producto"
-                >Comprar</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-producto">
-            <img src="../../assets/nike.png" alt="..." />
-            <div class="card-body body-producto">
-              <h5 class="card-info">Moda</h5>
-              <h2 class="card-title">Nike Jordan High</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-comprar-producto"
-                >Comprar</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-producto">
-            <img src="../../assets/nike.png" alt="..." />
-            <div class="card-body body-producto">
-              <h5 class="card-info">Moda</h5>
-              <h2 class="card-title">Nike Jordan High</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-comprar-producto"
-                >Comprar</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </section>
 
-    <section class="section-slider-tiendas">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
+          <section class="section-slider-tiendas">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
 
-        <!--
+              <!--
       <div class="carousel-inner">
         <div
           *ngFor="let data of gallery; let i = index"
@@ -272,89 +327,105 @@
         </div>
       </div>
 -->
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </section>
 
-    <section class="section-tiendas">
-      <h2 class="titulo-mas-vendidos">Tiendas Destacadas</h2>
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-tienda">
-            <img
-              src="../../assets/happy_market.png"
-              class="card-img-top img-tienda"
-              alt="..."
-            />
-            <div class="card-body card-body-tiendas">
-              <i class="bi bi-geo-alt"></i>
-              <h5 class="card-info">C/Balmes 29</h5>
-              <h2 class="card-title">Happy Market</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-visitar-tienda">Visitar</a>
+          <section class="section-tiendas">
+            <h2 class="titulo-mas-vendidos">Tiendas Destacadas</h2>
+            <div class="row">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="card card-tienda">
+                  <img
+                    src="../../assets/happy_market.png"
+                    class="card-img-top img-tienda"
+                    alt="..."
+                  />
+                  <div class="card-body card-body-tiendas">
+                    <i class="bi bi-geo-alt"></i>
+                    <h5 class="card-info">C/Balmes 29</h5>
+                    <h2 class="card-title">Happy Market</h2>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-visitar-tienda"
+                      >Visitar</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="card card-tienda">
+                  <img
+                    src="../../assets/happy_market.png"
+                    class="card-img-top img-tienda"
+                    alt="..."
+                  />
+                  <div class="card-body card-body-tiendas">
+                    <i class="bi bi-geo-alt"></i>
+                    <h5 class="card-info">C/Balmes 29</h5>
+                    <h2 class="card-title">Happy Market</h2>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-visitar-tienda"
+                      >Visitar</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="card card-tienda">
+                  <img
+                    src="../../assets/happy_market.png"
+                    class="card-img-top img-tienda"
+                    alt="..."
+                  />
+                  <div class="card-body card-body-tiendas">
+                    <i class="bi bi-geo-alt"></i>
+                    <h5 class="card-info">C/Balmes 29</h5>
+                    <h2 class="card-title">Happy Market</h2>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-visitar-tienda"
+                      >Visitar</a
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-tienda">
-            <img
-              src="../../assets/happy_market.png"
-              class="card-img-top img-tienda"
-              alt="..."
-            />
-            <div class="card-body card-body-tiendas">
-              <i class="bi bi-geo-alt"></i>
-              <h5 class="card-info">C/Balmes 29</h5>
-              <h2 class="card-title">Happy Market</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-visitar-tienda">Visitar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-tienda">
-            <img
-              src="../../assets/happy_market.png"
-              class="card-img-top img-tienda"
-              alt="..."
-            />
-            <div class="card-body card-body-tiendas">
-              <i class="bi bi-geo-alt"></i>
-              <h5 class="card-info">C/Balmes 29</h5>
-              <h2 class="card-title">Happy Market</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-visitar-tienda">Visitar</a>
-            </div>
-          </div>
+          </section>
         </div>
       </div>
-    </section>
-  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
+
 <footer-component></footer-component>
