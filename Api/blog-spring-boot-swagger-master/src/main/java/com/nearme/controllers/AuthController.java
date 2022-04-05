@@ -45,6 +45,7 @@ public class AuthController {
 		} catch (Exception ex) {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
+
 	}
 
 	/**

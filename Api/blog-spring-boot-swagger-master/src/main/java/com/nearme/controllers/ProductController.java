@@ -4,7 +4,8 @@ import com.nearme.services.ProductService;
 
 import java.util.List;
 
-import com.nearme.models.dto.AuthenticationRequestDTO;
+import javax.validation.Valid;
+
 import com.nearme.models.dto.ErrorDTO;
 import com.nearme.models.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +79,7 @@ public class ProductController {
 	 */
 	@PostMapping("/")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> createProduct(@RequestBody ProductDTO data) {
+	public ResponseEntity<?> createProduct(@Valid@RequestBody ProductDTO data) throws Exception {
 		try {
 			this.productService.addProduct(data);
 			return new ResponseEntity<Void>( HttpStatus.OK);

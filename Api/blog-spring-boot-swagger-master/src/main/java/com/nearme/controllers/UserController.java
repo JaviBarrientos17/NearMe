@@ -110,7 +110,7 @@ public class UserController {
 	/**
 	 * Adds a new user
 	 * @param createUserRequestDTO
-	 * @return
+	 * @return response
 	 * @throws Exception
 	 */
 	@PostMapping("/add-user")

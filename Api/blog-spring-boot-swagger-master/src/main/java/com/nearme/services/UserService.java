@@ -88,7 +88,7 @@ public class UserService {
 	public List<UserDTO> getUsers() throws Exception {
 		List<UserEntity> usersList = userRepository.findAll();
 		if (usersList.isEmpty()) {
-			log.info("No products found with stock");
+		
 			new Exception("No users found");
 		}
 		return UserMapper.INSTANCE.mapEntityToDtoList(usersList);
