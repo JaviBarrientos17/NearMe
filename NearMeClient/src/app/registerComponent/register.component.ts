@@ -17,7 +17,7 @@ export class RegisterComponent {
   name:any = '';
   surname:any = '';
   phone:any = '';
-  userPass:any = '';
+  password:any = '';
 
   constructor(private usersService:UsersService, private _router: Router){}
 
@@ -33,11 +33,11 @@ export class RegisterComponent {
     );
   }
   
-  // TODO DA UN ERROR 400 (BAD REQUEST) AL HACER EL POST DEL INSERT USER
   insertUser() {
     console.log("Working...");
     this.usersService.insertUser(
-      this.email, this.name, this.surname, this.phone, this.userPass
+      // TODO MIRAR PORQUE LA PASSWORD APARECE COMO TOMATOE POR DEFECTO
+      this.email, this.name, this.surname, this.phone, this.password
     ).subscribe(
       (resul) => {
         console.log("User inserted data: " + resul);
