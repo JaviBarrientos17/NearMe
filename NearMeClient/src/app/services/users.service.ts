@@ -26,31 +26,4 @@ export class UsersService {
           { 'Content-Type': 'application/json' }
       )});
   }
-  // TODO CÓDIGO ANTIGUO CON FORMDATA
-  // // TODO PREGUNTAR A CRISTIAN PORQUE NO ME HACE LA LLAMADA AL ENDPOINT DE LA API
-  // insertUser(
-  //   user_name: string,
-  //   user_surname: string,
-  //   user_email: string,
-  //   user_phoneNumber: number,
-  //   user_password: string,
-  //   user_repeatPassword: string,
-  // ): Observable<any> {
-  //   let formData: FormData = new FormData();
-  //   formData.append('username', user_name);
-  //   formData.append('surname', user_surname);
-  //   formData.append('userPhoneInput', user_phoneNumber.toString());
-  //   formData.append('userEmailInput', user_email);
-  //   formData.append('userPasswordInput', user_password);
-  //   formData.append('userRepeatPasswordInput', user_repeatPassword);
-
-  //   console.log("User name: " + user_name);
-  //   console.log("User surname: " + user_surname);
-  //   console.log("User email: " + user_email);
-  //   console.log("User phone: " + user_phoneNumber);
-  //   console.log("User password: " + user_password);
-  //   console.log("User password repeated: " + user_repeatPassword);
-
-  //   return this.conexHttp.post('/api/users/add-user', formData);
-  // }
 }
