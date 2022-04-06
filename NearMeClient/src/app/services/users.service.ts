@@ -13,15 +13,15 @@ export class UsersService {
     return this.conexHttp.get('/api/users/list', { responseType: 'text' });
   }
 
-  insertUser(userName: string, userSurname: string, 
-    userEmail: string, userPhoneNumber: number, userPass: string): Observable<any> {
-      console.log("User name: " + userName);
-      console.log("User surname: " + userSurname);
-      console.log("User email: " + userEmail);
-      console.log("User phone: " + userPhoneNumber.toString());
-      console.log("User pass: " + userPass);
+  insertUser(email: string, name: string, 
+    surname: string, userPhoneNumber: number, userPass: string): Observable<any> {
+      console.log("User email: " + email);
+      console.log("User name: " + name);
+      console.log("User surname: " + surname);
+      // console.log("User phone: " + userPhoneNumber.toString());
+      // console.log("User pass: " + userPass);
 
-      return this.conexHttp.post('/api/users/add-user',new User(userName,userSurname,userEmail,userPhoneNumber,userPass), {
+      return this.conexHttp.post('/api/users/add-user',new User(email,name,surname), {
         headers: new HttpHeaders(
           { 'Content-Type': 'application/json' }
       )});

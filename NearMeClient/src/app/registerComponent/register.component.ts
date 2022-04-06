@@ -13,9 +13,9 @@ export class RegisterComponent {
   usersArray:Array<User> = [new User()];
 
   title:any = 'Register';
-  userName:any = '';
-  userSurname:any = '';
-  userEmail:any = '';
+  email:any = '';
+  name:any = '';
+  surname:any = '';
   userPhoneNumber:any = '';
   userPass:any = '';
 
@@ -37,7 +37,7 @@ export class RegisterComponent {
   insertUser() {
     console.log("Working...");
     this.usersService.insertUser(
-      this.userName, this.userSurname, this.userEmail, this.userPhoneNumber, this.userPass
+      this.email, this.name, this.surname, this.userPhoneNumber, this.userPass
     ).subscribe(
       (resul) => {
         console.log("User inserted data: " + resul);

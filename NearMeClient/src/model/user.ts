@@ -1,15 +1,15 @@
 export class User {
-    user_name:string = '';
-    user_surname:string = '';
-    user_email:string = '';
-    user_phoneNumber:number = 0;
-    user_password:string = '';
+    email:string = '';
+    name:string = '';
+    surname:string = '';
+    phoneNumber:number = 0;
+    password:string = '';
 
-    constructor(user_name:string = '', user_surname:string = '', user_email:string = '', user_phoneNumber:number = 0, user_password:string = '', user_password2:string = '') {
-        this.user_name = user_name;
-        this.user_surname = user_surname;
-        this.user_email = user_email;
-        this.user_phoneNumber = user_phoneNumber;
-        this.user_password = user_password;
+    constructor(email:string = '', name:string = '', surname:string = '', phoneNumber:number = 0, password:string = '') {
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 }
