@@ -14,14 +14,14 @@ export class UsersService {
   }
 
   insertUser(email: string, name: string, 
-    surname: string, userPhoneNumber: number, userPass: string): Observable<any> {
+    surname: string, phone: number, userPass: string): Observable<any> {
       console.log("User email: " + email);
       console.log("User name: " + name);
       console.log("User surname: " + surname);
-      // console.log("User phone: " + userPhoneNumber.toString());
+      console.log("User phone: " + phone);
       // console.log("User pass: " + userPass);
 
-      return this.conexHttp.post('/api/users/add-user',new User(email,name,surname), {
+      return this.conexHttp.post('/api/users/add-user',new User(email,name,surname,phone), {
         headers: new HttpHeaders(
           { 'Content-Type': 'application/json' }
       )});

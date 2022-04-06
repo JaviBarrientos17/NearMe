@@ -2,14 +2,14 @@ export class User {
     email:string = '';
     name:string = '';
     surname:string = '';
-    phoneNumber:number = 0;
+    phone:number = 0;
     password:string = '';
 
-    constructor(email:string = '', name:string = '', surname:string = '', phoneNumber:number = 0, password:string = '') {
+    constructor(email:string = '', name:string = '', surname:string = '', phone:number = 0, password:string = '') {
         this.email = email;
         this.name = name;
         this.surname = surname;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.password = password;
     }
 }

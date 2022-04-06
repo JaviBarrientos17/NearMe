@@ -16,7 +16,7 @@ export class RegisterComponent {
   email:any = '';
   name:any = '';
   surname:any = '';
-  userPhoneNumber:any = '';
+  phone:any = '';
   userPass:any = '';
 
   constructor(private usersService:UsersService, private _router: Router){}
@@ -37,7 +37,7 @@ export class RegisterComponent {
   insertUser() {
     console.log("Working...");
     this.usersService.insertUser(
-      this.email, this.name, this.surname, this.userPhoneNumber, this.userPass
+      this.email, this.name, this.surname, this.phone, this.userPass
     ).subscribe(
       (resul) => {
         console.log("User inserted data: " + resul);
