@@ -1,20 +1,44 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/model/user';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers:[UsersService]
 })
 export class LoginComponent {
   title = 'Login';
-  username = "";
-  userPass = "";
+  email = '';
+  password = '';
 
-  ngOnInit(){
-    console.log("Works!");
-  }
+  usersArray:Array<User> = [new User()];
+
+  constructor(private usersService:UsersService, private _router: Router){}
+
+  // ngOnInit(){
+  //   console.log("Login component");
+  // }
   
-  sendLoginFormData() {
-
+  sendLoginUserData() {
+    console.log("Send login user data");
+    this.usersService.loginUser(this.email, this.password
+    ).subscribe(
+      (resul)=>{
+        console.log('Loggged user: ' + resul);
+        this.usersArray = resul;
+        if(resul.state == "Ok!") {
+          this._router.navigate(['']);
+          // TODO ADD TOKEN LOGIN
+        } else {
+          console.log("Error!");
+        }
+      },
+      (error)=>{
+        console.log('Error: ' + error);
+      }
+    );
   }
 }

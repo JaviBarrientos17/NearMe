@@ -27,4 +27,25 @@ export class UsersService {
           { 'Content-Type': 'application/json' }
       )});
   }
+
+  // TODO MIRAR PORQUE DA ERROR badCredentialsError CUANDO
+  // TODO EL USUARIO EXISTE EN LA BBDD (PREGUNTAR ALEIX)
+
+  // TODO ANTES DE PREGUNTAR MIRAR PORQUE EL USUARIO LO RECIBE
+  // TODO EL BACK COMO NULL
+  /*
+    TODO (PONER ESTO EN EL BACK) log.info("Signin user mail: " + data.getUsername());
+		TODO (PONER ESTO EN EL BACK) log.info("Signin user password: " + data.getPassword());
+  */
+  loginUser(email: string, password: string): Observable<any> {
+    console.log("Login user");
+    console.log("Email: " + email);
+    console.log("Password: " + password);
+
+    return this.conexHttp.post(
+      "/api/auth/signin", new User(email, "", "", 0, password),
+      {headers:new HttpHeaders(
+        {'Content-Type': 'application/json'}
+    )});
+  }
 }
