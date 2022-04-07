@@ -17,10 +17,6 @@ export class LoginComponent {
   usersArray:Array<User> = [new User()];
 
   constructor(private usersService:UsersService, private _router: Router){}
-
-  // ngOnInit(){
-  //   console.log("Login component");
-  // }
   
   sendLoginUserData() {
     console.log("Send login user data");
