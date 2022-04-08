@@ -2,6 +2,8 @@ package com.nearme.controllers;
 
 import com.nearme.services.ProductService;
 import javax.validation.Valid;
+
+import java.io.IOException;
 import java.util.List;
 import com.nearme.models.dto.ErrorDTO;
 import com.nearme.models.dto.ProductDTO;
@@ -14,8 +16,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +34,7 @@ public class ProductController {
 	private ProductService productService;
 
 	/**
+	 * spring.images.products.path
 	 * Lists all existing products
 	 * 
 	 * @return
@@ -45,9 +51,9 @@ public class ProductController {
 	 * Return a product by id
 	 * 
 	 * @return
-	 * @throws Exception
+	 * @throws Exception	
 	 */
-	@GetMapping("/{id}")
+	@GetMapping("/id/{idProduct}")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<ProductDTO> getProductById(@PathVariable Integer idProduct) throws Exception {
 		log.info("Listing a product by id");
@@ -60,7 +66,7 @@ public class ProductController {
 	 * @return
 	 * @throws Exception
 	 */
-	@GetMapping("/{name}")
+	@GetMapping("/name/{ProductName}")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<List<ProductDTO>> getProductByName(@PathVariable String ProductName) throws Exception {
 		log.info("Listing a product by id");
@@ -76,7 +82,7 @@ public class ProductController {
 	 */
 	@PostMapping("/")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> createProduct(@Valid@RequestBody ProductDTO data) throws Exception {
+	public ResponseEntity<?> createProduct(@Valid @RequestBody ProductDTO data) throws Exception {
 		try {
 			this.productService.addProduct(data);
 			return new ResponseEntity<Void>(HttpStatus.OK);
@@ -91,7 +97,7 @@ public class ProductController {
 	 * @param idProduct
 	 * @return
 	 */
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{idProduct}")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> deleteProduct(@PathVariable Integer idProduct) {
 		try {
@@ -128,7 +134,7 @@ public class ProductController {
 	 */
 	@PutMapping("/price/{amount}{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> updatePrice(@PathVariable Integer id, @PathVariable Integer amount) {
+	public ResponseEntity<?> updatePrice(@PathVariable Integer id, @PathVariable Double amount) {
 		try {
 			this.productService.updatePrice(id, amount);
 			return new ResponseEntity<Void>(HttpStatus.OK);
@@ -136,7 +142,7 @@ public class ProductController {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
 	}
-
+  
 	/**
 	 * Update a product
 	 * 
@@ -153,5 +159,23 @@ public class ProductController {
 		} catch (Exception ex) {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
+	}
+
+	/**
+	 * Upload profile image
+	 * 
+	 * @param file
+	 * @return
+	 */
+	@PostMapping("/upload/{idProducto}")
+	public ResponseEntity<Void> uploadFile(@RequestParam("file") MultipartFile file ,@PathVariable Integer idProducto ) {
+		try {
+			if (productService.uploadImage(file, idProducto)) {
+				return new ResponseEntity<Void>(HttpStatus.OK);
+			}
+		} catch (IOException e) {
+			log.error("An error occured while uploading the profile image: " + e.getMessage());
+		}
+		return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);
 	}
 }
