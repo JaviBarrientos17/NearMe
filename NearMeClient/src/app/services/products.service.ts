@@ -7,12 +7,17 @@ export class ProductsService {
   constructor(private conexHttp: HttpClient) {}
 
   getAllProducts(): Observable<any> {
-    return this.conexHttp.get('/api/products/list', { responseType: 'text' });
+    return this.conexHttp.get('/api/product/list', { responseType: 'text' });
+  }
+
+  //Carga productos cuando en el buscador se pone su nombre
+  getProductsById(productId: Number): Observable<any> {
+    return this.conexHttp.get('/api/product/{id}', { responseType: 'text' });
   }
 
   //Carga productos cuando en el buscador se pone su nombre
   getProductsByName(productName: String): Observable<any> {
-    return this.conexHttp.get('/api/products/');
+    return this.conexHttp.get('/api/product/');
   }
 
   //Carga la información de 1 solo proudcto (VISTA PRODUCTO)
