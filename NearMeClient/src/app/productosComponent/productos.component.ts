@@ -11,19 +11,47 @@ import { ProductsService } from '../services/products.service';
 })
 export class ProductosComponent implements OnInit {
   products: Array<Product> = [];
+  objectKeys = Object.keys;
+
+  productName: String = '';
   constructor(
-    private productsService: ProductsService,
+    private _productsService: ProductsService,
     private _activeRoute: ActivatedRoute,
     private _router: Router
   ) {}
   title = 'Productos';
 
   ngOnInit(): void {
-    console.log('GET PRODUCTS');
-    this.productsService
-      .getAllProducts()
-      .subscribe((response) => console.log(response));
+    // this._activeRoute.paramMap.subscribe((params) => {
+    // this.productName = params.get('productName') + '';
+    // console.log(this.productName);
+    // if (this.productName) {
+    //   this._productsService.getProductByName(this.productName).subscribe(
+    //     (resul) => {
+    //       this.products = resul;
+    //       console.log('Producto by name');
+    //       console.log(resul);
+    //       console.log(this.productName);
+    //     },
+    //     (error) => {
+    //       console.log('Product by name error');
+    //       console.log(error);
+    //     }
+    //   );
+    // } else {
+    this._productsService.getAllProducts().subscribe(
+      (resul) => {
+        this.products = JSON.parse(resul);
+        console.log('All products');
+        console.log(resul);
+      },
+      (error) => {
+        console.log('All products error');
+
+        console.log(error);
+      }
+    );
   }
 
-  getProductsByName(productName: String) {}
+  //getProductsByName(productName: String) {}
 }
