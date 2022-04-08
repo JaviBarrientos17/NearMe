@@ -17,12 +17,12 @@ public class ProductDTO {
     Integer idSupplier;
     @Size(min = 0, max = 250)
     private String name;
-    @Size(min = 0, max = 250)
+    @Size(min = 0, max = 10000)
     private String description;
     Integer category;
     Integer subcategory;
     Integer stock;
-    Integer Price;
+    Double Price;
     @Size(min = 0, max = 250)
     String reference;
     boolean active;
@@ -30,4 +30,5 @@ public class ProductDTO {
     String dateAdded;
     @Size(min = 0, max = 250)
     String imgUrl;
+  
 }

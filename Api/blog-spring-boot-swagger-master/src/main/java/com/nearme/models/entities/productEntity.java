@@ -38,7 +38,7 @@ public class ProductEntity {
     private Integer subCategory;
     private Integer stock;
     @NotBlank(message = "A product must have a price")
-    private Integer Price;
+    private Double Price;
     private String reference;
     @Builder.Default
     private boolean active = true;

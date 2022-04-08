@@ -2,10 +2,6 @@ package com.nearme.controllers;
 
 
 import java.util.List;
-
-
-import javax.validation.Valid;
-
 import com.nearme.models.dto.CreateUserRequestDTO;
 import com.nearme.models.dto.ManageRoleDTO;
 import com.nearme.models.dto.UserDTO;
@@ -116,7 +112,7 @@ public class UserController {
 	@PostMapping("/add-user")
     @ResponseStatus(HttpStatus.OK)
 	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
-    public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
+    public ResponseEntity<UserDTO> createUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
         return new ResponseEntity<UserDTO>(userService.createUser(createUserRequestDTO), HttpStatus.OK);
 	}
 
@@ -130,7 +126,7 @@ public class UserController {
 	@PutMapping("/update-user")
     @ResponseStatus(HttpStatus.OK)
 	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
-    public ResponseEntity<?> updateUser(@Valid @RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
+    public ResponseEntity<?> updateUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
         return new ResponseEntity<UserDTO>(userService.updateUser(createUserRequestDTO), HttpStatus.OK);
 	}
 

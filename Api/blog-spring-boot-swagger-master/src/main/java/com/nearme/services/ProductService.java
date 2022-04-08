@@ -1,21 +1,34 @@
 package com.nearme.services;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
+
 import com.nearme.mappers.ProductMapper;
 import com.nearme.models.dto.ProductDTO;
 import com.nearme.models.entities.ProductEntity;
 import com.nearme.repositories.ProductRepository;
-
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
 public class ProductService {
+
+	@Value("${spring.images.products.path}")
+	private String imagesPath;
+	@Value("${spring.images.products.max-size}")
+	private Integer maxSize;
 
 	@Autowired
 	ProductRepository productRepository;
@@ -132,9 +145,9 @@ public class ProductService {
 		}
 	}
 
-	//i need a function to update the price of a product
+	// i need a function to update the price of a product
 	@Transactional
-	public void updatePrice(Integer id, Integer price) {
+	public void updatePrice(Integer id, Double price) {
 		log.info("Trying to update price");
 		try {
 			ProductDTO product = getProductById(id);
@@ -149,9 +162,8 @@ public class ProductService {
 		}
 	}
 
-	
 	@Transactional
-	public void  updateProduct(ProductDTO product) {
+	public void updateProduct(ProductDTO product) {
 		log.info("Trying to update product");
 		try {
 			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
@@ -164,4 +176,53 @@ public class ProductService {
 		}
 	}
 
+	/**
+	 * Upload profile image
+	 * 
+	 * @param file
+	 * @return
+	 * @throws IOException
+	 */
+	@Transactional
+	public Boolean uploadImage(MultipartFile file, Integer idProduct) throws IOException {
+		ProductDTO productDTO  = getProductById(idProduct);
+		ProductEntity productEntity;
+	
+		if (!checkImageFile(file)) {
+			return false;
+		}
+		String fileName = StringUtils
+				.cleanPath(productDTO.getIdProduct() + "-" + productDTO.getName() + "-" + file.getOriginalFilename());
+
+		Path path = Paths.get(imagesPath + fileName);
+		productDTO.setImgUrl(fileName);
+		productEntity = ProductMapper.INSTANCE.dtoToEntity(productDTO);
+		productRepository.save(productEntity);
+		Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+
+		log.info("File " + fileName + " has been saved in the storage and db.");
+		return true;
+	}
+
+	/**
+	 * Check image file
+	 * 
+	 * @param file image file
+	 * @return boolean
+	 */
+	private boolean checkImageFile(MultipartFile file) {
+		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		// getting the extension from file name
+		String extension = fileName.substring(fileName.lastIndexOf(".") + 1);
+		// todo add more formats
+		if (!Stream.of("png").anyMatch(x -> x.equals(extension.toLowerCase()))) {
+			log.error("This extension is not supported.");
+			return false;
+		}
+		if (file.getSize() >= maxSize) {
+			log.error("This file is too big.");
+			return false;
+		}
+		return true;
+	}
 }

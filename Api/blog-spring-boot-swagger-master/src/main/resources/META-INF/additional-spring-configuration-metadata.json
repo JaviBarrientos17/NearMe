@@ -23,6 +23,11 @@
             "name": "spring.environment",
             "type": "java.lang.String",
             "description": "A description for 'spring.environment'"
+        },
+        {
+            "name": "spring.images.products.max-size",
+            "type": "java.lang.String",
+            "description": "A description for 'spring.images.products.max-size'"
         }
     ]
 }
