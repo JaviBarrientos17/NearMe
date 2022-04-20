@@ -60,7 +60,7 @@ public class AuthService {
 	public Map<String, String> authenticate(AuthenticationRequestDTO authRequestDTO)
 			throws Exception {
 		try {
-			log.error("User "+ authRequestDTO.getUsername() + " is trying to login");
+			log.error("User "+ authRequestDTO.getUsername() + " is trying to login "+ authRequestDTO.getPassword());
 			String username = authRequestDTO.getUsername();
 			String password = authRequestDTO.getPassword();
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password)).isAuthenticated();

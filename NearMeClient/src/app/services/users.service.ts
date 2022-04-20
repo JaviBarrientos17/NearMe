@@ -30,19 +30,16 @@ export class UsersService {
   // TODO MIRAR PORQUE DA ERROR badCredentialsError CUANDO
   // TODO EL USUARIO EXISTE EN LA BBDD (PREGUNTAR ALEIX)
 
-  // TODO ANTES DE PREGUNTAR MIRAR PORQUE EL USUARIO LO RECIBE
-  // TODO EL BACK COMO NULL
-  /*
-    TODO (PONER ESTO EN EL BACK) log.info("Signin user mail: " + data.getUsername());
-		TODO (PONER ESTO EN EL BACK) log.info("Signin user password: " + data.getPassword());
-  */
-  loginUser(email: string, password: string): Observable<any> {
-    console.log("Login user");
-    console.log("Email: " + email);
-    console.log("Password: " + password);
+  // TODO INVESTIGAR SI EN VEZ DE USERNAME SE LE ESTÁ ENVIANDO EL CAMPO EMAIL
 
+  loginUser(username: string, password: string): Observable<any> {
+    console.log("Login user");
+    console.log("Email: " + username);
+    console.log("Password: " + password);
+    let u = new User(username, "", "", 0, password);
+    u.username=username;
     return this.conexHttp.post(
-      "/api/auth/signin", new User(email, "", "", 0, password),
+      "/api/auth/signin", u,
       {headers:new HttpHeaders(
         {'Content-Type': 'application/json'}
     )});
