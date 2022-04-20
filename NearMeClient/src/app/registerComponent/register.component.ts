@@ -36,7 +36,6 @@ export class RegisterComponent {
   insertUser() {
     console.log("Working...");
     this.usersService.insertUser(
-      // TODO MIRAR PORQUE LA PASSWORD APARECE COMO TOMATOE POR DEFECTO
       this.email, this.name, this.surname, this.phone, this.password
     ).subscribe(
       (resul) => {
