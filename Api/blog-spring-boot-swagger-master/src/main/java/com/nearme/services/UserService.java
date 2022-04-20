@@ -300,9 +300,10 @@ public class UserService {
 			log.info("Creating a new user - " + createUserRequestDTO.getEmail());
 			// String password = new Random().ints(10, 33, 122).mapToObj(i ->
 			// String.valueOf((char)i)).collect(Collectors.joining());
-			String password = "TOMATOE";
+			// TODO YA COGE LA PASSWORD DEL REGISTRO
+			// String password = "TOMATOE";
 			userToCreate.setUsername(createUserRequestDTO.getEmail());
-			userToCreate.setPassword(password);
+			userToCreate.setPassword(createUserRequestDTO.getPassword());
 			userToCreate.setName(createUserRequestDTO.getName());
 			userToCreate.setSurname(createUserRequestDTO.getSurname());
 			UserEntity userEntity = UserMapper.INSTANCE.dtoToEntity(userToCreate);

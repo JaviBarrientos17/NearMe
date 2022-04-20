@@ -13,7 +13,6 @@ export class UsersService {
     return this.conexHttp.get('/api/users/list', { responseType: 'text' });
   }
 
-  // TODO MIRAR PORQUE LA PASSWORD APARECE COMO TOMATOE POR DEFECTO
   insertUser(email: string, name: string, 
     surname: string, phone: number, password: string): Observable<any> {
       console.log("User email: " + email);
