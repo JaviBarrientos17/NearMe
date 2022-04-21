@@ -11,7 +11,7 @@ import { UsersService } from '../services/users.service';
 })
 export class LoginComponent {
   title = 'Login';
-  email = '';
+  username = '';
   password = '';
 
   usersArray:Array<User> = [new User()];
@@ -20,7 +20,7 @@ export class LoginComponent {
   
   sendLoginUserData() {
     console.log("Send login user data");
-    this.usersService.loginUser(this.email, this.password
+    this.usersService.loginUser(this.username, this.password
     ).subscribe(
       (resul)=>{
         console.log('Loggged user: ' + resul);

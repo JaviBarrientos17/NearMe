@@ -24,7 +24,7 @@ export class RegisterComponent {
   ngOnInit(): void {
     this.usersService.getAllUsers().subscribe(
       (resul) => {
-        console.log("Users list: " + resul);
+        // console.log("Users list: " + resul);
         this.usersArray = resul;
       },
       (error) => {
