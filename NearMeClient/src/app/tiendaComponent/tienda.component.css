@@ -1,0 +1,127 @@
+.card-producto {
+border-radius: 20px;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    flex: 0 0 auto;
+    margin-right: 10%;
+
+}
+
+.body-producto{
+background-color: #E9E9E9;
+border-radius: 0px 0px 20px 20px;
+
+}
+
+.btn-comprar {
+width: 100%;
+background-color: #fd9f48;
+padding: 0.6em 2em;
+color: black;
+border-radius: 20px;
+border-color: #fd9f48;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.btn-comprar-producto {
+background-color: #fd9f48;
+padding: 0.6em 2em;
+color: black;
+border-radius: 20px;
+border-color: #fd9f48;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.mainContainer {
+border-radius: 20px;
+background-color: white;
+margin-top: 2%;
+margin-bottom: 2%;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 4px,
+rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.imagesContainer {
+margin-top: 5%;
+}
+
+.mainImage {
+box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+border-radius: 20px;
+}
+
+.secondaryImages {
+box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+border-radius: 20px;
+margin-top: 7%;
+margin-left: 7%;
+margin-right: 5%;
+margin-bottom: 8px;
+}
+
+.containerScroll {
+display: flex;
+flex-wrap: nowrap;
+overflow-x: auto;
+}
+
+.textDiv {
+margin-top: 5%;
+}
+
+hr {
+    border: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(to right,#3D81D2 50%,#000000 50%);
+    /*background: linear-gradient(to right,#FD9F48 50%,#000000 50%);*/
+    opacity: 1;
+}
+.shopDescriptionP {
+    text-align: justify;
+}
+.productDescriptionColorP {
+    text-align: justify;
+}
+.productButtons {
+    margin-top: 5%;
+}
+/* TODO AÑADIR ESTILOS PARA LA CLASE containerScroll */
+.btn-visitar-tienda {
+    width: 100%;
+    background-color: #3d81d2;
+    padding: 0.6em 2em;
+    border-radius: 20px;
+    border-color: #3d81d2;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.shopName{
+    font-size: 3em;
+}
+
+.brandTown {
+    color: #3d81d2;
+}
+.productPrice{
+    font-size:2em ;
+    color:#FD9F48;
+}
+
+h4{
+    font-size: 1.3em;
+}
+
+.fondo{
+    background-image: url('../../assets/bg_web.png');
+    background-size:cover;
+}
+
+h1,h2,h3,h4,h5{
+font-family:'Sora';
+}
