@@ -12,6 +12,11 @@
     },
     "company_profile":{
         "main_info":"Main Information"
+    },
+    "shop": {
+        "shop_description": "Description of the shop",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish"
     }
 }
 
