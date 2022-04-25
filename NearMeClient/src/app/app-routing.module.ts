@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'premium', component: PremiumComponent },
   { path: 'product/:idProduct', component: ProductComponent },
   { path: 'shoppingCart', component: ShoppingCartComponent },
-  { path: 'companyProfile', component: CompanyProfileComponent },
+  { path: 'dashboard/companyProfile', component: CompanyProfileComponent },
+  { path: 'dashboard/newProduct', component: CompanyProfileComponent },
 ];
 
 @NgModule({
