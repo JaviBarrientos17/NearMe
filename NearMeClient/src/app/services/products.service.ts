@@ -11,8 +11,10 @@ export class ProductsService {
   }
 
   //Carga productos cuando en el buscador se pone su nombre
-  getProductsById(productId: Number): Observable<any> {
-    return this.conexHttp.get('/api/product/{id}', { responseType: 'text' });
+  getProductsById(idProduct: Number): Observable<any> {
+    return this.conexHttp.get('/api/product/id/' + idProduct, {
+      responseType: 'text',
+    });
   }
 
   //Carga productos cuando en el buscador se pone su nombre

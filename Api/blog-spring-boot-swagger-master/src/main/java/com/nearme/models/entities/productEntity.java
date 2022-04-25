@@ -12,8 +12,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Entity
 @Table(name = "nm_product")
 @Data
@@ -22,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductEntity {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_product")
     private Integer IdProduct;
     @Column(name = "id_supplier")
@@ -43,9 +41,7 @@ public class ProductEntity {
     @Builder.Default
     private boolean active = true;
     private String dateAdded;
-    @Column(name="img_url")
-     private String imgUrl;        
-    
-
+    @Column(name = "img_url")
+    private String imgUrl;
 
 }

@@ -3,15 +3,23 @@
 * {
 	box-sizing: border-box;
 }
+.container {
+	background-color: #fd9f48;
+	border-radius: 30px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	position: absolute;
+	overflow: hidden;
+	height: 70%;
+	width: 100%;
+	max-width: 60%;
+	min-height: 480px;
 
-body {
-	background: #f6f5f7;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
+}
+
+.formTitle {
+	font-size: 4em;
+	margin-top: 5%;
+	margin-bottom: 10%;
 }
 
 h1 {
@@ -115,22 +123,7 @@ input {
 	font-size: 15px;
 }
 
-.container {
-	background-color: #fd9f48;
-	border-radius: 30px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	position: absolute;
-	overflow: hidden;
-	width: 80%;
-	height: 90%;
-	max-width: 100%;
-	min-height: 480px;
-	margin-top: 2%;
-	margin-bottom: 2px;
-	margin-left: 10%;
-	margin-right: 10%;
-}
+
 
 .form-container {
 	position: absolute;
@@ -253,8 +246,8 @@ input {
 	justify-content: center;
 	align-items: center;
 	margin: 0 5px;
-	height: 50px;
-	width: 50px;
+	height: 60px;
+	width: 60px;
 }
 
 footer {

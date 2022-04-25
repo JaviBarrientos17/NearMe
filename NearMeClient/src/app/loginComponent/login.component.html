@@ -1,41 +1,76 @@
-<script src="script.js" defer></script>
-<div class="container" id="container">
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form-container sign-in-container">
-				<form class="formLogin" #loginUserForm="ngForm" name="loginUserForm" (ngSubmit)="sendLoginUserData(); loginUserForm.reset()">
-					<h1 class="formTitle">Log in</h1>
-					<span></span>
-					<label class="inputLabel" for="inputEmail">Email</label>
-					<input type="email" class="inputForm" name="inputEmail" [(ngModel)]="email" placeholder="Email" required/>
-					<label class="inputLabel" for="inputPassword">Password</label>
-					<input type="password" class="inputForm" name="inputPassword" [(ngModel)]="password" placeholder="Password" required/>
-					<div class="social-container">
-						<a href="#" class="social"><img class="socialNetworkImg" src="../../assets/facebook.png"></a>
-						<a href="#" class="social"><img class="socialNetworkImg" src="../../assets/google.png"></a>
-					</div>
-					<div class="checkboxDiv d-flex justify-content-center">
-						<input type="checkbox" class="form-check-input inputLabelCheckbox" name="checkboxTerms" id="checkboxTerms"><label class="inputLabel">&nbsp;Accept the terms of use and privacy</label>
-					</div>
-					<a href="#">Forgot your password?</a>
-					<button type="submit">Log In</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-right">
-				<img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo">
-				<a [routerLink]="['../register']" data-hover="Register"><button>Register</button></a>
-				<div class="row">
-                    <div class="cold-md-6">
-                        <div class="row">
-                            <a [routerLink]="['../']"><span class="spanLinks"><i class="bi bi-arrow-left"></i>&nbsp;Homepage</span></a>
-                        </div>
-                    </div>
-                </div>
-			</div>
-		</div>
-	</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-container sign-in-container">
+        <form
+          class="formLogin"
+          #loginUserForm="ngForm"
+          name="loginUserForm"
+          (ngSubmit)="sendLoginUserData(); loginUserForm.reset()"
+        >
+          <h1 class="formTitle">Log in</h1>
+          <span></span>
+          <label class="inputLabel" for="inputEmail">Email</label>
+          <input
+            type="email"
+            class="inputForm"
+            name="inputEmail"
+            [(ngModel)]="email"
+            placeholder="Email"
+            required
+          />
+          <label class="inputLabel" for="inputPassword">Password</label>
+          <input
+            type="password"
+            class="inputForm"
+            name="inputPassword"
+            [(ngModel)]="password"
+            placeholder="Password"
+            required
+          />
+          <div class="social-container">
+            <a href="#" class="social"
+              ><img class="socialNetworkImg" src="../../assets/facebook.png"
+            /></a>
+            <a href="#" class="social"
+              ><img class="socialNetworkImg" src="../../assets/google.png"
+            /></a>
+          </div>
+          <div class="checkboxDiv d-flex justify-content-center">
+            <input
+              type="checkbox"
+              class="form-check-input inputLabelCheckbox"
+              name="checkboxTerms"
+              id="checkboxTerms"
+            /><label class="inputLabel"
+              >&nbsp;Accept the terms of use and privacy</label
+            >
+          </div>
+          <a href="#">Forgot your password?</a>
+          <button type="submit">Log In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo" />
+        <a [routerLink]="['../register']" data-hover="Register"
+          ><button>Register</button></a
+        >
+        <div class="row">
+          <div class="cold-md-6">
+            <div class="row">
+              <a [routerLink]="['../']"
+                ><span class="spanLinks"
+                  ><i class="bi bi-arrow-left"></i>&nbsp;Homepage</span
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
