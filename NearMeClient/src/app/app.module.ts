@@ -37,6 +37,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 import { ProductComponent } from './productComponent/product.component';
 import { CompanyProfileComponent } from './company/companyProfileComponent/companyProfile.component';
+import { TiendaComponent } from './tiendaComponent/tienda.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CompanyProfileComponent } from './company/companyProfileComponent/compa
     ShoppingCartComponent,
     ProductComponent,
     CompanyProfileComponent,
+    TiendaComponent
   ],
   imports: [
     BrowserModule,
