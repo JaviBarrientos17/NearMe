@@ -39,7 +39,7 @@
           <div class="col-md-5 textDiv">
             <h1 class="shopName">Sabater Hnos. Fábrica de jabones <!-- {{ product.name }} --></h1>
             <h3 class="brandTown">Barcelona</h3>
-            <h4 class="productDescriptionH4">Descripción de la tienda</h4>
+            <h4 class="shopH4">{{ "shop.shop_description" | translate }}</h4>
             <hr />
             <p class="shopDescriptionP">
               Una tienda y fábrica de jabones y champús sólidos artesanales a granel formulados
@@ -49,11 +49,15 @@
               <div class="col-md-12 shopButtons">
                 <div class="row">
                   <div class="col-md-5">
-                    <button class="btn btn-primary btn-verProductos">Ver productos</button>
+                    <button class="btn btn-primary btn-verProductos">
+                      {{ "shop.shop_buttons_seeProducts" | translate }}
+                    </button>
                   </div>
                   <div class="col-md-5">
                     <a href="https://www.sabaterhnos.com/es">
-                      <button class="btn btn-primary btn-visitar-tienda">Ver Tienda</button>
+                      <button class="btn btn-primary btn-visitar-tienda">
+                        {{ "shop.shop_buttons_seeStore" | translate }}
+                      </button>
                     </a>
                   </div>
                   <div class="col-md-4"></div>
@@ -66,9 +70,8 @@
         <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10">
-            <h4 class="shopDescriptionH4">
-              Más información de la tienda
-              <!-- {{ "shop.shop_description" | translate }} -->
+            <h4 class="shopH4">
+              {{ "shop.shop_location" | translate }}
             </h4>
             <hr/>
           </div>
@@ -92,5 +95,4 @@
     </div>
   </div>
 </div>
-<!-- TODO PREGUNTAR A CRISTIAN EL ERROR DE LA INSTALACIÓN DE LA DEPENDENCIA DE NGX/TRANSLATE -->
 <footer-component></footer-component>
