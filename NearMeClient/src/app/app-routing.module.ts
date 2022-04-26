@@ -23,8 +23,8 @@ const routes: Routes = [
   { path: 'premium', component: PremiumComponent },
   { path: 'product/:idProduct', component: ProductComponent },
   { path: 'shoppingCart', component: ShoppingCartComponent },
-  { path: 'dashboard/companyProfile', component: CompanyProfileComponent },
-  { path: 'dashboard/newProduct', component: CompanyProfileComponent },
+  { path: 'dashboard/companyProfile', component: ProfileComponent },
+  { path: 'dashboard/newProduct', component: ProfileComponent },
   { path: 'dashboard/productList', component: ProductList },
 ];
 
