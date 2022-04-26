@@ -30,5 +30,11 @@ public class CreateUserRequestDTO {
 
     @Size(max = 100, message = "Surname has max 100 characters")
     @Schema(example = "Matorral", description = "Surname of user")
+<<<<<<< Updated upstream
     String surname;      
+=======
+    String surname;
+
+    String password;
+>>>>>>> Stashed changes
 }

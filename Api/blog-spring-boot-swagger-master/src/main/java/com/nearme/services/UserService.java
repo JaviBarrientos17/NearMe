@@ -300,7 +300,11 @@ public class UserService {
 			log.info("Creating a new user - " + createUserRequestDTO.getEmail());
 			// String password = new Random().ints(10, 33, 122).mapToObj(i ->
 			// String.valueOf((char)i)).collect(Collectors.joining());
+<<<<<<< Updated upstream
 			String password = "TOMATOE";
+=======
+			// String password = "TOMATOE";
+>>>>>>> Stashed changes
 			userToCreate.setUsername(createUserRequestDTO.getEmail());
 			userToCreate.setPassword(password);
 			userToCreate.setName(createUserRequestDTO.getName());
