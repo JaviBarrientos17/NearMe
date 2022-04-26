@@ -38,7 +38,9 @@ export class ProductsService {
   // }
 
   //Añadir 1 Producto desde el dashboard
-  addProductByForm(data: Product) {}
+  addProductByForm(data: Product): Observable<any> {
+    return this.conexHttp.get('');
+  }
 
   //Añadir productos mediante CSV
   addProductsByCsv() {}
