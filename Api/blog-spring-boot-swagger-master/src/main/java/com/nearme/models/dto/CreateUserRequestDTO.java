@@ -32,6 +32,5 @@ public class CreateUserRequestDTO {
     @Schema(example = "Matorral", description = "Surname of user")
     String surname;
 
-    // TODO AÑADIR @Size y @Schema para la password
-    String password;
+      String password;
 }

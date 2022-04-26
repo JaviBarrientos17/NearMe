@@ -299,9 +299,7 @@ public class UserService {
 			// set a temp password for new users
 			log.info("Creating a new user - " + createUserRequestDTO.getEmail());
 			// String password = new Random().ints(10, 33, 122).mapToObj(i ->
-			// String.valueOf((char)i)).collect(Collectors.joining());
-			// TODO YA COGE LA PASSWORD DEL REGISTRO
-			// String password = "TOMATOE";
+
 			userToCreate.setUsername(createUserRequestDTO.getEmail());
 			userToCreate.setPassword(createUserRequestDTO.getPassword());
 			userToCreate.setName(createUserRequestDTO.getName());
