@@ -88,7 +88,7 @@ public class UserService {
 	public List<UserDTO> getUsers() throws Exception {
 		List<UserEntity> usersList = userRepository.findAll();
 		if (usersList.isEmpty()) {
-		
+
 			new Exception("No users found");
 		}
 		return UserMapper.INSTANCE.mapEntityToDtoList(usersList);
@@ -298,27 +298,14 @@ public class UserService {
 		} else {
 			// set a temp password for new users
 			log.info("Creating a new user - " + createUserRequestDTO.getEmail());
-			// String password = new Random().ints(10, 33, 122).mapToObj(i ->
-			// String.valueOf((char)i)).collect(Collectors.joining());
-<<<<<<< Updated upstream
-			String password = "TOMATOE";
-=======
-			// String password = "TOMATOE";
->>>>>>> Stashed changes
 			userToCreate.setUsername(createUserRequestDTO.getEmail());
-			userToCreate.setPassword(password);
+			userToCreate.setPassword(createUserRequestDTO.getPassword());
 			userToCreate.setName(createUserRequestDTO.getName());
 			userToCreate.setSurname(createUserRequestDTO.getSurname());
 			UserEntity userEntity = UserMapper.INSTANCE.dtoToEntity(userToCreate);
 			userEntity.setStatus(UserStatusType.DISABLED);
 			userEntity.setRoles(Arrays.asList(RoleType.ROLE_CLIENT.toString()));
 			this.userRepository.save(userEntity);
-			// send a password confirmation
-			// log.info("Creating and sending a confirmation token email for user -
-			// "+createUserRequestDTO.getEmail());
-			// PasswordResetTokenEntity token = createPasswordResetTokenForUser(userEntity);
-			// emailSenderService.sendConfirmationEmail(userEntity.getUsername(),
-			// token.getToken());
 			UserDTO userCreated = UserMapper.INSTANCE.entityToDto(userEntity);
 			userCreated.setPassword(null);
 			return userCreated;
