@@ -4,6 +4,24 @@
         "englishLabel": "Ingles",
         "spanishLabel": "Español"
     },
+    "navbar": {
+        "shops": "Tiendas",
+        "products": "Productos",
+        "dashboard": "Panel de control",
+        "login": "Iniciar sesión",
+        "register": "Registrarse"
+    },
+    "footer": {
+        "quickLinks": "Enlaces Rápidos",
+        "home": "Inicio",
+        "contact": "Contacto",
+        "cookies": "Politica de cookies",
+        "privacy": "Politica de privacidad",
+        "aboutUs": "Sobre Nosotros",
+        "whoWeAre": "¿Quienes Somos?",
+        "freqQuestions": "Preguntas Frecuentes",
+        "premium": "Hazte premium"
+    },
     "product": {
         "related_products": "Productos relacionados",
         "englishLabel": "Ingles",
@@ -20,6 +38,12 @@
         "suscription":"Suscripción",
         "period":"Periodo de Prueba. Te quedan ",
         "days_left":"días de prueba"
+    },
+    "shop": {
+        "shop_description": "Descripción de la tienda",
+        "shop_location": "Localización de la tienda",
+        "shop_buttons_seeProducts": "Ver productos",
+        "shop_buttons_seeStore": "Ver tienda"
     }
 }
 

@@ -24,7 +24,7 @@ export class RegisterComponent {
   ngOnInit(): void {
     this.usersService.getAllUsers().subscribe(
       (resul) => {
-        console.log("Users list: " + resul);
+        // console.log("Users list: " + resul);
         this.usersArray = resul;
       },
       (error) => {
@@ -36,7 +36,6 @@ export class RegisterComponent {
   insertUser() {
     console.log("Working...");
     this.usersService.insertUser(
-      // TODO MIRAR PORQUE LA PASSWORD APARECE COMO TOMATOE POR DEFECTO
       this.email, this.name, this.surname, this.phone, this.password
     ).subscribe(
       (resul) => {

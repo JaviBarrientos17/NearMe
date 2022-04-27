@@ -38,6 +38,10 @@ export class UsersService {
     console.log("Password: " + password);
     let u = new User(username, "", "", 0, password);
     u.username=username;
+
+    // TODO INSERTED USERNAME (ALSO EMAIL), AND PASSWORD
+    console.log("Form data:\n" +"Username: " + u.username + "\n" + "Email: " + u.email + "\n" + "Password: " + u.password);
+
     return this.conexHttp.post(
       "/api/auth/signin", u,
       {headers:new HttpHeaders(
