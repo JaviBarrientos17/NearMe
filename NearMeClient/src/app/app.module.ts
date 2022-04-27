@@ -39,6 +39,7 @@ import { ProductComponent } from './productComponent/product.component';
 import { ProductList } from './company/productList/productList.component';
 import { ProfileComponent } from './company/profileComponent/profile.component';
 import { FormProductComponent } from './company/formProduct/formProduct.components';
+import { TiendaComponent } from './tiendaComponent/tienda.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,7 @@ import { FormProductComponent } from './company/formProduct/formProduct.componen
     ProductList,
     ProfileComponent,
     FormProductComponent,
-    TiendasComponent,
+    TiendaComponent,
   ],
   imports: [
     BrowserModule,
