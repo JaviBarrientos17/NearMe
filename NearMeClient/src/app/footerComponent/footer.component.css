@@ -12,9 +12,14 @@
 .redes {
   width: 40px;
 }
+
+.row {
+  margin-right: 0px !important;
+}
+
 .row-subfooter {
   margin-top: 3%;
-  padding: 3%;
+  padding: 2%;
   text-align: center;
   background-color: black;
   color: white;
