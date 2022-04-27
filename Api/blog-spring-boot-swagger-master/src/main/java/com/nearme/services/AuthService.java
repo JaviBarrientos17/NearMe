@@ -63,6 +63,11 @@ public class AuthService {
 			log.error("User "+ authRequestDTO.getUsername() + " is trying to login " + authRequestDTO.getPassword());
 			String username = authRequestDTO.getUsername();
 			String password = authRequestDTO.getPassword();
+
+			// TODO REVISAR
+			log.info("Username/email: " + authRequestDTO.getUsername());
+			log.info("Password: " + authRequestDTO.getPassword());
+
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password)).isAuthenticated();
 			String token = this.createJwtToken(username);
 			Map<String, String> model = new HashMap<String, String>();

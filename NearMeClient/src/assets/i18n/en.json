@@ -1,9 +1,26 @@
-
 {
     "home": {
         "mas_vendidos": "Most Sales Products",
         "englishLabel": "English",
         "spanishLabel": "Spanish"
+    },
+    "navbar": {
+        "shops": "Shops",
+        "products": "Products",
+        "dashboard": "Dashboard",
+        "login": "Login",
+        "register": "Register"
+    },
+    "footer": {
+        "quickLinks": "Quick Links",
+        "home": "Home",
+        "contact": "Contact",
+        "cookies": "Cookies policy",
+        "privacy": "Privacy policy",
+        "aboutUs": "About us",
+        "whoWeAre": "¿Who we are?",
+        "freqQuestions": "Frequent questions",
+        "premium": "Go premium"
     },
     "product": {
         "related_products": "Related products",
@@ -12,6 +29,13 @@
     },
     "company_profile":{
         "main_info":"Main Information"
+    },
+    "shop": {
+        "shop_description": "Description of the shop",
+        "shop_location": "Shop location",
+        "shop_buttons_seeProducts": "See products",
+        "shop_buttons_seeStore": "See store",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish"
     }
 }
-

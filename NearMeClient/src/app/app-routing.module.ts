@@ -11,6 +11,7 @@ import { ProductComponent } from './productComponent/product.component';
 import { ProductosComponent } from './productosComponent/productos.component';
 import { RegisterComponent } from './registerComponent/register.component';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
+import { TiendaComponent } from './tiendaComponent/tienda.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'tiendas', component: TiendasComponent },
+  { path: 'tienda', component: TiendaComponent },
   { path: 'productos', component: ProductosComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'premium', component: PremiumComponent },

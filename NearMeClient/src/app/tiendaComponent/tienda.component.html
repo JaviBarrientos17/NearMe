@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+<div class="fondo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mainContainer">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-4 imagesContainer">
+            <div class="card mainImage">
+              <img
+                class="card-img-top"
+                src="https://bcnmes.com/wp-content/blogs.dir/4/files/2022/02/Sabater_Hnos._tienda-400x267.jpg"
+                alt="Card image cap"
+              />
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="card secondaryImages">
+                  <img
+                    class="card-img-top"
+                    src="https://bcnmes.com/wp-content/blogs.dir/4/files/2022/02/Sabater_Hnos._frente-400x267.jpg"
+                    alt="Card image cap"
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="card secondaryImages">
+                  <img
+                    class="card-img-top"
+                    src="https://bcnmes.com/wp-content/blogs.dir/4/files/2022/02/Sabater_Hnos._interior2-400x267.jpg"
+                    alt="Card image cap"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- TODO LINK TIENDAS COMERCIO LOCAL https://bcnmes.com/la-comunidad/tiendas-pequeno-comercio-barcelona/ -->
+          <div class="col-md-1"></div>
+          <div class="col-md-5 textDiv">
+            <h1 class="shopName">Sabater Hnos. Fábrica de jabones <!-- {{ product.name }} --></h1>
+            <h3 class="brandTown">Barcelona</h3>
+            <h4 class="shopH4">{{ "shop.shop_description" | translate }}</h4>
+            <hr />
+            <p class="shopDescriptionP">
+              Una tienda y fábrica de jabones y champús sólidos artesanales a granel formulados
+              con ingredientes veganos, biodegradables, cruelty free y de proximidad en el Gótico.
+            </p>
+            <div class="row">
+              <div class="col-md-12 shopButtons">
+                <div class="row">
+                  <div class="col-md-5">
+                    <button class="btn btn-primary btn-verProductos">
+                      {{ "shop.shop_buttons_seeProducts" | translate }}
+                    </button>
+                  </div>
+                  <div class="col-md-5">
+                    <a href="https://www.sabaterhnos.com/es">
+                      <button class="btn btn-primary btn-visitar-tienda">
+                        {{ "shop.shop_buttons_seeStore" | translate }}
+                      </button>
+                    </a>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <h4 class="shopH4">
+              {{ "shop.shop_location" | translate }}
+            </h4>
+            <hr/>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10 containerScroll">
+            <div class="mapDiv">
+              <!-- TODO AÑADIR DIRECIÓN CON LOS {} -->
+              <iframe width="100%" height="400px" frameborder="0" 
+                  scrolling="no" marginheight="0" marginwidth="0" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2499.178116481182!2d2.1734384816506935!3d41.3832739641582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f9d4b0a2f9%3A0x5f9c4adb49d0308a!2sSabater%20Hnos.%20F%C3%A1brica%20de%20jabones!5e0!3m2!1ses!2ses!4v1650896662641!5m2!1ses!2ses">
+                <!-- <a href="https://www.gps.ie/car-satnav-gps/">Car Navigation Systems</a> -->
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</div>
+<footer-component></footer-component>
