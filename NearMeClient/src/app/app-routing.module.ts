@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CompanyProfileComponent } from './company/companyProfileComponent/companyProfile.component';
+import { ProfileComponent } from './company/profileComponent/profile.component';
+import { ProductList } from './company/productList/productList.component';
 import { DashboardComponent } from './dashboardComponent/dashboard.component';
 import { HomeComponent } from './homeComponent/home.component';
 import { LoginComponent } from './loginComponent/login.component';
@@ -22,7 +23,9 @@ const routes: Routes = [
   { path: 'premium', component: PremiumComponent },
   { path: 'product/:idProduct', component: ProductComponent },
   { path: 'shoppingCart', component: ShoppingCartComponent },
-  { path: 'companyProfile', component: CompanyProfileComponent },
+  { path: 'dashboard/companyProfile', component: ProfileComponent },
+  { path: 'dashboard/newProduct', component: ProfileComponent },
+  { path: 'dashboard/productList', component: ProductList },
 ];
 
 @NgModule({

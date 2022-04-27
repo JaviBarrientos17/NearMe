@@ -24,8 +24,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Entity
 @Table(name = "nm_user")
 @Data
@@ -34,7 +32,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserEntity implements UserDetails {
 	private static final long serialVersionUID = 1L;
-    @Id
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Integer idUser;
@@ -55,6 +53,7 @@ public class UserEntity implements UserDetails {
 	private List<String> roles = new ArrayList<>();
 	private int loginattempts;
 	private String last_passwd_gen;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return this.roles.stream().map(SimpleGrantedAuthority::new).collect(toList());

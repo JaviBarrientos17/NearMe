@@ -23,14 +23,16 @@ public class CreateUserRequestDTO {
     @Size(min = 5, max = 300, message = "Email must have min 1 max 200 characters")
     @Schema(example = "correo@gmail..com", description = "User´s email which will be used as login")
     String email;
-       
+
     @Size(max = 100, message = "Name has max 100 characters")
     @Schema(example = "Max", description = "Name of user")
-    String name;  
+    String name;
 
     @Size(max = 100, message = "Surname has max 100 characters")
     @Schema(example = "Matorral", description = "Surname of user")
+
     String surname;
 
-      String password;
+    String password;
+
 }

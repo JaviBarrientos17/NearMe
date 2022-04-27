@@ -26,14 +26,14 @@ export class ProductComponent implements OnInit {
     this._productsService.getProductsById(this.id).subscribe(
       (resul) => {
         this.product = JSON.parse(resul);
-        console.log('All products');
-        console.log(resul);
+        console.log('Product');
+        console.log(this.product);
       },
       (error) => {
-        console.log('All products error');
-
+        console.log('Product error');
         console.log(error);
       }
     );
   }
+  //TODO
 }

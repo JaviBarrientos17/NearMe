@@ -1,6 +1,7 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.project.sourcePaths": [
-        "blog-spring-boot-swagger-master/src"
-    ]
+        "Api/blog-spring-boot-swagger-master/src/main/java/com/nearme"
+    ],
+    "java.dependency.packagePresentation": "hierarchical"
 }
