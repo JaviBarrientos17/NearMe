@@ -1,10 +1,26 @@
 import { Component } from '@angular/core';
+import { BaseCartItem } from 'ng-shopping-cart';
 
 @Component({
   selector: 'app-root',
   templateUrl: './shoppingCart.component.html',
   styleUrls: ['./shoppingCart.component.css'],
+  providers: [BaseCartItem],
 })
+
 export class ShoppingCartComponent {
   title = 'ShoppingCart';
+  item = new BaseCartItem();
+
+  ngOnInit(): void {
+    // TODO SETEAR AL ITEM LOS VALORES DE LA BBDD
+    // TODO PASAR TODO LO DE LA LIBRERIA DEL SHOPPING CART EN EL MODELO ITEM AL MODELO PRODUCTO
+    this.item.setId(1);
+    this.item.setName("TestItem");
+    this.item.setPrice(10);
+    this.item.setQuantity(1);
+    this.item.setImage("https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    
+    console.log(JSON.parse(JSON.stringify(this.item)));
+  }
 }
