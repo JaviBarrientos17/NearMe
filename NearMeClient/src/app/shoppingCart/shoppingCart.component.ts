@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { BaseCartItem } from 'ng-shopping-cart';
+import { cartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './shoppingCart.component.html',
   styleUrls: ['./shoppingCart.component.css'],
-  providers: [BaseCartItem],
+  providers: [BaseCartItem, cartService],
 })
 
 export class ShoppingCartComponent {
   title = 'ShoppingCart';
   item = new BaseCartItem();
+
+  constructor(private cartService:cartService) {}
 
   ngOnInit(): void {
     // TODO SETEAR AL ITEM LOS VALORES DE LA BBDD
