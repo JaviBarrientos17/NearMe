@@ -40,6 +40,10 @@ import { ProductList } from './company/productList/productList.component';
 import { ProfileComponent } from './company/profileComponent/profile.component';
 import { FormProductComponent } from './company/formProduct/formProduct.components';
 import { TiendaComponent } from './tiendaComponent/tienda.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SideNavCompanyComponent } from './company/sidenavCompany-component/sidenavComany.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +64,7 @@ import { TiendaComponent } from './tiendaComponent/tienda.component';
     ProfileComponent,
     FormProductComponent,
     TiendaComponent,
+    SideNavCompanyComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +88,9 @@ import { TiendaComponent } from './tiendaComponent/tienda.component';
         deps: [HttpClient],
       },
     }),
+    BrowserModule,
+    MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
