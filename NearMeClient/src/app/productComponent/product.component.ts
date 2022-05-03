@@ -39,15 +39,15 @@ export class ProductComponent implements OnInit {
         console.log(error);
       }
     );
-    this._cartService.getItem(this.prueba).subscribe(
-      (resul) => {
-        console.log(this.prueba);
-        console.log(resul);
-      },
-      (error) => {
-        console.log('Product error');
-        console.log(error);
-      }
-    );
+    // this._cartService.getItem(this.prueba).subscribe(
+    //   (resul) => {
+    //     console.log(this.prueba);
+    //     console.log(resul);
+    //   },
+    //   (error) => {
+    //     console.log('Product error');
+    //     console.log(error);
+    //   }
+    // );
   }
 }
