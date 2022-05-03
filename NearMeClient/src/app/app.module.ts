@@ -30,7 +30,6 @@ import { NavbarComponent } from './navbarComponent/navbar.component';
 import { FooterComponent } from './footerComponent/footer.component';
 import { SidebarFiltrosComponent } from './sidebarFiltrosComponent/sidebarFiltros.component';
 import { PremiumComponent } from './premiumComponent/premium.component';
-import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -40,6 +39,9 @@ import { ProductList } from './company/productList/productList.component';
 import { ProfileComponent } from './company/profileComponent/profile.component';
 import { FormProductComponent } from './company/formProduct/formProduct.components';
 import { TiendaComponent } from './tiendaComponent/tienda.component';
+import { ShoppingCartModule } from 'ng-shopping-cart';
+import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
+import { CustomCardItem } from 'src/model/item';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +84,14 @@ import { TiendaComponent } from './tiendaComponent/tienda.component';
         useFactory: createTranslateLoader,
         deps: [HttpClient],
       },
+    }),
+    ShoppingCartModule.forRoot({
+      itemType: CustomCardItem,
+      serviceType: 'localStorage',
+      serviceOptions: {
+        storageKey: 'nearmeShoppingCart',
+        clearOnError: true
+      }
     }),
   ],
   providers: [],
