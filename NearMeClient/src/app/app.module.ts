@@ -42,6 +42,8 @@ import { TiendaComponent } from './tiendaComponent/tienda.component';
 import { ShoppingCartModule } from 'ng-shopping-cart';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
 import { CustomCardItem } from 'src/model/item';
+import { SidenavComany } from './company/sidenavCompanyComponent/sidenavCompany.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +56,7 @@ import { CustomCardItem } from 'src/model/item';
     SearchBar,
     NavbarComponent,
     FooterComponent,
+    SidenavComany,
     SidebarFiltrosComponent,
     PremiumComponent,
     ShoppingCartComponent,
@@ -63,6 +66,7 @@ import { CustomCardItem } from 'src/model/item';
     FormProductComponent,
     TiendaComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -90,8 +94,8 @@ import { CustomCardItem } from 'src/model/item';
       serviceType: 'localStorage',
       serviceOptions: {
         storageKey: 'nearmeShoppingCart',
-        clearOnError: true
-      }
+        clearOnError: true,
+      },
     }),
   ],
   providers: [],
