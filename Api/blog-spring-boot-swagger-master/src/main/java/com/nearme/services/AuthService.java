@@ -64,7 +64,6 @@ public class AuthService {
 			String username = authRequestDTO.getUsername();
 			String password = authRequestDTO.getPassword();
 
-			// TODO REVISAR
 			log.info("Username/email: " + authRequestDTO.getUsername());
 			log.info("Password: " + authRequestDTO.getPassword());
 
