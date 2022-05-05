@@ -39,6 +39,7 @@
                   class="inputLabel"
                   placeholder="Nombre"
                   [(ngModel)]="name"
+                  [ngModelOptions]="{standalone: true}"
                   required
                 />
               </div>
@@ -52,7 +53,9 @@
                     class="inputLabel"
                     name="inputSurname"
                     [(ngModel)]="surname"
+                    [ngModelOptions]="{standalone: true}"
                     placeholder="Apellidos"
+                    required
                   />
                 </div>
               </div>
@@ -69,6 +72,7 @@
                   name="inputEmail"
                   [(ngModel)]="email"
                   placeholder="Email"
+                  [ngModelOptions]="{standalone: true}"
                   required
                 />
               </div>
@@ -82,7 +86,8 @@
                     class="inputLabel"
                     [(ngModel)]="phone"
                     placeholder="Teléfono"
-                    required=""
+                    [ngModelOptions]="{standalone: true}"
+                    required
                   />
                 </div>
               </div>
@@ -98,6 +103,7 @@
                   class="inputLabel"
                   [(ngModel)]="password"
                   placeholder="Contraseña"
+                  [ngModelOptions]="{standalone: true}"
                   required
                 />
               </div>
@@ -112,8 +118,9 @@
                     type="password"
                     class="inputLabel"
                     [(ngModel)]="password"
-                    required
+                    [ngModelOptions]="{standalone: true}"
                     placeholder="Contraseña"
+                    required
                   />
                 </div>
               </div>
@@ -135,8 +142,7 @@
               of use and privacy</label
             >
           </div>
-
-          <button type="submit">Registrates</button>
+          <button type="submit">Registrate</button>
         </form>
       </div>
     </div>
