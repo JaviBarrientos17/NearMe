@@ -35,6 +35,19 @@ public class UserController {
 
 
 	/**
+	 * Adds a new user
+	 * @param UserDTO
+	 * @return response
+	 * @throws Exception
+	 */
+	@PostMapping("/add-user")
+    @ResponseStatus(HttpStatus.OK)
+	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
+    public ResponseEntity<UserDTO> createUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
+        return new ResponseEntity<UserDTO>(this.userService.createUser(createUserRequestDTO), HttpStatus.OK);
+	}
+
+	/**
 	 * Lists all existing users
 	 * 
 	 * @return
@@ -103,19 +116,6 @@ public class UserController {
 		this.userService.unblockUser(idUser);
 	}
 
-	/**
-	 * Adds a new user
-	 * @param createUserRequestDTO
-	 * @return response
-	 * @throws Exception
-	 */
-	@PostMapping("/add-user")
-    @ResponseStatus(HttpStatus.OK)
-	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
-    public ResponseEntity<UserDTO> createUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
-        return new ResponseEntity<UserDTO>(userService.createUser(createUserRequestDTO), HttpStatus.OK);
-	}
-
 
 	/**
 	 * Update a user
@@ -129,5 +129,4 @@ public class UserController {
     public ResponseEntity<?> updateUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
         return new ResponseEntity<UserDTO>(userService.updateUser(createUserRequestDTO), HttpStatus.OK);
 	}
-
 }
