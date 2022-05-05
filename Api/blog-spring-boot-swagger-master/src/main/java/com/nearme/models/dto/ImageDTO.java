@@ -1,5 +1,6 @@
 package com.nearme.models.dto;
 
+import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,11 +11,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ImageDTO {
-    private Integer idImages;
-    private Integer id_reference;
-    private Integer table_reference;
-    private String type;
-    private String name;
-    private String path;
-
+    Integer id;
+    Integer id_reference;
+    Integer table_reference;
+    @Size(min = 0, max = 250)
+    String type;
+    @Size(min = 0, max = 250)
+    String name;
+    @Size(min = 0, max = 250)
+    String path;
 }
