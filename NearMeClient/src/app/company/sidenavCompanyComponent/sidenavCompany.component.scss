@@ -6,7 +6,7 @@ $primary-lighter: #2c5bd0;
 $text-light: #a7bbeb; //#86a1e4;
 $text-on-primary: #fff;
 
-$sidenav-width: 100%;
+$sidenav-width: 16rem;
 $sidenav-gutter: 1.5rem;
 $icon-width: 2.5rem;
 $icon-size: 1.25rem;
@@ -23,21 +23,20 @@ $duration: 250ms;
 	background: none;
 	color: $text-light;
 	border: 0;
-	overflow: hidden;
 	border-radius: $radius-sm;
 	cursor: pointer;
 	outline-offset: -2px;
 	transition-property: background, color;
 	transition-duration: $duration;
-
+	
 	.is-active & {
 		color: #fff;
 	}
-
+	
 	&:focus-visible {
 		outline: 2px solid $primary-lighter;
 	}
-
+	
 	&:focus-visible,
 	&:hover {
 		background: $primary-light;
@@ -52,7 +51,7 @@ $duration: 250ms;
 	align-items: center;
 	justify-content: center;
 	flex: 0 0 auto;
-
+	
 	& .fa {
 		aspect-ratio: 1;
 		font-size: $icon-size;
@@ -70,7 +69,7 @@ $duration: 250ms;
 	transition-duration: $duration;
 	transition-timing-function: ease-out;
 	transition-delay: 100ms;
-
+	
 	.is-collapsed & {
 		opacity: 0;
 		transform: translateX(1rem);
@@ -152,11 +151,12 @@ body {
 	color: #212121;
 }
 
-
 .app {
 	display: flex;
 	flex-flow: row nowrap;
 	resize: both;
+	background: #E9E9E9;
+	border-radius: $radius;
 	width: 500px;
 	max-width: 100%;
 	min-width: $sidenav-width;
@@ -171,13 +171,14 @@ body {
 	display: flex;
 	flex-flow: column nowrap;
 	background: $primary;
-	color: #fff;
+	color: #E9E9E9;
 	padding: $sidenav-gutter;
+	border-radius: $radius;
 	flex: 0 1 auto;
 	width: $sidenav-width;
 	max-width: 100%;
 	transition: width $duration $timing;
-
+	
 	&.is-collapsed {
 		width: $icon-width + ($sidenav-gutter * 2);
 	}
@@ -192,7 +193,7 @@ body {
 
 .header__icon {
 	@include icon;
-
+	
 	.fa {
 		font-size: 1.75rem;
 	}
@@ -202,7 +203,6 @@ body {
 	@include label;
 	font-weight: 700;
 	flex: 1;
-	margin-left: 4%;
 }
 
 .sidenav__button {
@@ -231,11 +231,11 @@ body {
 .header .sidenav__button-icon > * {
 	transition-property: transform, color;
 	transition-duration: $duration;
-
+	
 	&:hover {
 		color: $text-on-primary;
 	}
-
+	
 	.is-collapsed & {
 		transform: rotate(180deg);
 	}
@@ -256,7 +256,42 @@ body {
 	cursor: pointer;
 }
 
-
+.search__input {
+	flex: 1 1 auto;
+	min-width: 1px;
+	height: $icon-width;
+	border: none;
+	background: $primary-light;
+	border-radius: $radius-sm;
+	color: $text-on-primary;
+	padding: 0 $icon-width 0 1rem;
+	outline-offset: -2px;
+	transition-property: background, color, padding;
+	transition-duration: $duration;
+	
+	&:placeholder {
+		color: $text-light;
+		transition-property: color;
+		transition-duration: $duration;
+	}
+	
+	&:focus {
+		outline: 2px solid rgba(#fff, .3);
+	}
+	
+	.is-collapsed & {
+		color: transparent;
+		padding-left: 0;
+		
+		&:not(:hover) {
+			background: none;
+		}
+		
+		&:placeholder {
+			color: transparent;
+		}
+	}
+}
 
 .sidenav__nav {
 	$offset: $sidenav-gutter - .125rem;
@@ -268,33 +303,32 @@ body {
 .nav {
 	$scroll-track: $primary-lighter;
 	$scroll-thumb: $text-light;
-	overflow: hidden;
 	overflow-y: auto;
 	scrollbar-color: $scroll-thumb transparent;
   scrollbar-width: thin;
 	transition: scrollbar-color 200ms;
-
+	
 	&::-webkit-scrollbar {
 		height: 8px;
 		width: 8px;
 	}
-
+	
 	&::-webkit-scrollbar-track {
 		background: transparent;
 		transition: background 200ms;
 	}
-
+	
 	&::-webkit-scrollbar-thumb {
     background: $scroll-thumb;
 	}
-
+	
 	&::-webkit-scrollbar-corner{
 		background: none;
 	}
-
+	
 	&:hover {
 		scrollbar-color: $scroll-thumb $scroll-track;
-
+		
 		&::-webkit-scrollbar-track {
 			background: $scroll-track;
 		}
@@ -314,7 +348,7 @@ body {
 	margin: 1rem 0;
 	padding: 0 ($icon-width - $icon-size) / 2;
 	min-width: $icon-width;
-
+	
 	&::before {
 		display: block;
 		content: '';
@@ -325,7 +359,7 @@ body {
 
 .nav__item {
 	position: relative;
-
+	
 	& + & {
 		margin-top: .25rem;
 	}
@@ -361,11 +395,11 @@ body {
 	transition-property: transform, font-size, padding, color;
 	transition-duration: $duration;
 	transition-timing-function: $timing;
-
+	
 	&.warn {
 		background: #ffbc00;
 	}
-
+	
 	.is-collapsed & {
 		transform: translate(-.25rem, 50%);
 		color: transparent;
@@ -401,7 +435,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
+	
 	.fa {
 		color: #263238;
 		font-size: 1.5rem;
@@ -417,11 +451,10 @@ body {
 
 .user__name,
 .user__title {
-	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
 .user__title {
 	font-size: .75rem;
 	color: $text-light;
-} 
+}

@@ -2,9 +2,10 @@
   <div id="sidenav" class="sidenav">
     <header class="sidenav__header header">
       <span class="header__icon">
-        <img src=".././../assets/nick.png" alt="" class="img-profile" />
+        <i class="fa fa-cube" aria-hidden="true"></i>
       </span>
-      <span class="header__text">Hola, Zapas</span>
+      <span class="header__text">Application</span>
+
       <button class="sidenav__button" aria-label="Expand" onClick="toggle()">
         <span class="sidenav__button-icon">
           <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -17,60 +18,85 @@
         <li class="nav__item is-active">
           <button class="nav__button">
             <span class="nav__icon">
-              <i class="fa-solid fa-border-all" aria-hidden="true"></i>
+              <i class="fa fa-home" aria-hidden="true"></i>
             </span>
-            <span class="nav__label" [routerLink]="['dashboard']">{{
-              "dashboard" | translate
-            }}</span>
+            <span
+              class="header__text nav-link"
+              [routerLink]="['/dashboard']"
+              data-hover="Dashboard"
+            >
+              {{ "company.dashboard" | translate }}</span
+            >
           </button>
         </li>
         <li class="nav__item">
           <button class="nav__button">
             <span class="nav__icon">
-              <i class="fa-solid fa-list" aria-hidden="true"></i>
+              <i class="fa fa-box" aria-hidden="true"></i>
             </span>
             <span
-              class="nav__label"
+              class="header__text nav-link"
               [routerLink]="['/dashboard/productList']"
-              >{{ "products" | translate }}</span
+              data-hover="Products"
+            >
+              {{ "company.products" | translate }}</span
+            >
+          </button>
+        </li>
+      </ul>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <button class="nav__button">
+            <span class="nav__icon">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+            </span>
+            <span
+              class="header__text nav-link"
+              [routerLink]="['/pedidos']"
+              data-hover="Pedidos"
+            >
+              {{ "company.pedidos" | translate }}</span
             >
           </button>
         </li>
         <li class="nav__item">
           <button class="nav__button">
             <span class="nav__icon">
-              <i class="fa-solid fa-rectangle-list" aria-hidden="true"></i>
+              <i class="fa fa-comments" aria-hidden="true"></i>
             </span>
             <span
-              class="nav__label"
-              [routerLink]="['/dashboard/productOrders']"
-              >{{ "orders" | translate }}</span
-            >
-          </button>
-        </li>
-        <li class="nav__item">
-          <button class="nav__button">
-            <span class="nav__icon">
-              <i class="fa-solid fa-id-badge" aria-hidden="true"></i>
-            </span>
-            <span
-              class="nav__label"
+              class="header__text nav-link"
               [routerLink]="['/dashboard/companyProfile']"
-              >{{ "profile" | translate }}</span
+              data-hover="Perfil"
+            >
+              {{ "company.profile" | translate }}</span
             >
           </button>
         </li>
         <li class="nav__item">
           <button class="nav__button">
             <span class="nav__icon">
-              <i class="fa-solid fa-gear" aria-hidden="true"></i>
+              <i class="fa fa-sliders-h" aria-hidden="true"></i>
             </span>
-            <span class="nav__label" [routerLink]="['/dashboard/settings']">{{
-              "settings" | translate
-            }}</span>
+            <span class="nav__label">Settings</span>
           </button>
         </li>
       </ul>
     </nav>
+
+    <div class="sidenav__footer user">
+      <button class="user__button">
+        <div class="user__badge">
+          <div class="user__image">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="user__text">
+          <span class="user__name">John Smith</span>
+          <span class="user__title">Web developer</span>
+        </div>
+      </button>
+    </div>
   </div>
+  <div class="content"></div>
 </div>
