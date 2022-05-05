@@ -18,6 +18,6 @@ public interface UserMapper {
 	UserDTO entityToDto(UserEntity entity);
 
 	UserEntity dtoToEntity(UserDTO dto);
- 	
+
 	ArrayList<UserDTO> mapEntityToDtoList(List<UserEntity> userEntityList);
 }

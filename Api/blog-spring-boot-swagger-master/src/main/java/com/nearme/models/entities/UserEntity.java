@@ -1,6 +1,8 @@
 package com.nearme.models.entities;
 
 import static java.util.stream.Collectors.toList;
+
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -41,8 +43,11 @@ public class UserEntity implements UserDetails {
 	@Email(message = "Username must be a valid email address")
 	@NotBlank(message = "Username is mandatory")
 	private String username;
+	@NotBlank(message = "Username is mandatory")
+	private String mail;
 	private String name;
 	private String surname;
+	private Integer phone;
 	@Builder.Default
 	private UserStatusType status = UserStatusType.DISABLED;
 	@Column(nullable = false)
@@ -52,7 +57,7 @@ public class UserEntity implements UserDetails {
 	@Builder.Default
 	private List<String> roles = new ArrayList<>();
 	private int loginattempts;
-	private String last_passwd_gen;
+	private Timestamp last_passwd_gen;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -77,5 +82,10 @@ public class UserEntity implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return this.status.equals(UserStatusType.ENABLED);
+	}
+	@Override
+	public String toString() {
+		return "UserEntity [idUser=" + idUser + ", username=" + username + ", name=" + name + ", surname=" + surname + ", phone="
+				+ phone + ", status=" + status + ", password=" + password + ", roles=" + roles + "]";
 	}
 }

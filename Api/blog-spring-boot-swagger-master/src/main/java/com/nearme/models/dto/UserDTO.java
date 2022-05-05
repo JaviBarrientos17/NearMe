@@ -25,9 +25,18 @@ public class UserDTO {
     String name;
     @Size(min = 0, max = 250)    
     String surname;
+    Integer phone;
     UserStatusType status;
     String password;
     List<String> roles = new ArrayList<String>();
+
+
+
+    @Override
+    public String toString() {
+        return "UserDTO{" + "idUser=" + idUser + ", mail=" + mail + ", phone=" + phone + ", username=" + username + ", name=" + name + ", surname=" + surname + ", status=" + status + ", password=" + password + ", roles=" + roles + '}';
+    }
+
 }
 
 
