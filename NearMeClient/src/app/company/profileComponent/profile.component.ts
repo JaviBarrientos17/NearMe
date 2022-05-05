@@ -9,5 +9,7 @@ export class ProfileComponent implements OnInit {
   constructor() {}
 
   //TODO
+
   ngOnInit() {}
+  show = false;
 }
