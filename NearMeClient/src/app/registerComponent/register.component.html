@@ -3,14 +3,14 @@
     <div class="col-lg-5 logoImg">
       <img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo" />
       <a [routerLink]="['../login']" data-hover="Login"
-        ><button>Inicia Sesión</button></a
+        ><button>{{ "register.login_btn" | translate }}</button></a
       >
       <div class="row">
         <div class="cold-md-6">
           <div class="row">
             <a [routerLink]="['../']"
               ><span class="spanLinks"
-                ><i class="bi bi-arrow-left"></i>&nbsp;Home</span
+                ><i class="bi bi-arrow-left"></i>&nbsp;{{ "register.home_btn" | translate }}</span
               ></a
             >
           </div>
@@ -21,7 +21,7 @@
       <div class="fondo">
         <div class="row">
           <div class="col">
-            <h1 class="formTitle">Registro</h1>
+            <h1 class="formTitle">{{ "register.register_title" | translate }}</h1>
           </div>
         </div>
         <form
@@ -33,7 +33,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="formName" class="inputLabel">Nombre</label>
+                <label for="formName" class="inputLabel">{{ "register.name" | translate }}</label>
                 <input
                   type="text"
                   class="inputLabel"
@@ -47,7 +47,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="mb-3">
-                  <label class="inputLabel" for="formSurname">Apellidos</label>
+                  <label class="inputLabel" for="formSurname">{{ "register.surnames" | translate }}</label>
                   <input
                     type="text"
                     class="inputLabel"
@@ -65,7 +65,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
-                <label class="inputLabel" for="inputEmail">Email</label>
+                <label class="inputLabel" for="inputEmail">{{ "register.email" | translate }}</label>
                 <input
                   type="email"
                   class="inputForm"
@@ -80,7 +80,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="mb-3">
-                  <label for="formTel" class="inputLabel">Teléfono</label>
+                  <label for="formTel" class="inputLabel">{{ "register.telephone" | translate }}</label>
                   <input
                     type="tel"
                     class="inputLabel"
@@ -97,7 +97,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="formPassword" class="inputLabel">Contraseña</label>
+                <label for="formPassword" class="inputLabel">{{ "register.password" | translate }}</label>
                 <input
                   type="password"
                   class="inputLabel"
@@ -111,9 +111,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="mb-3">
-                  <label for="formRepeatPassword" class="inputLabel"
-                    >Repetir Contraseña</label
-                  >
+                  <label for="formRepeatPassword" class="inputLabel">{{ "register.password_repeat" | translate }}</label>
                   <input
                     type="password"
                     class="inputLabel"
@@ -138,11 +136,9 @@
           </div>
           <div class="row">
             <label
-              ><input type="checkbox" value="first_checkbox" />Accept the terms
-              of use and privacy</label
-            >
+              ><input type="checkbox" value="first_checkbox" />{{ "register.terms_conditions" | translate }}</label>
           </div>
-          <button type="submit">Registrate</button>
+          <button type="submit">{{ "register.register_btn" | translate }}</button>
         </form>
       </div>
     </div>

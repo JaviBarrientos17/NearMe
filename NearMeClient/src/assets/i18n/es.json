@@ -61,6 +61,22 @@
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
+    },
+    "register": {
+        "register_title": "Registro",
+        "name": "Nombre",
+        "surnames": "Apellidos",
+        "email": "Correo electrónico",
+        "telephone": "Teléfono",
+        "password": "Contraseña",
+        "password_repeat": "Repite la contraseña",
+        "register_btn": "Registrarme",
+        "login_btn": "Iniciar sesión",
+        "terms_conditions": "Acepto los términos y condiciones",
+        "home_btn": "Inicio",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     }
 }
 

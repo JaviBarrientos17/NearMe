@@ -54,5 +54,21 @@
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
+    },
+    "register": {
+        "register_title": "Register",
+        "name": "Name",
+        "surnames": "Surnames",
+        "email": "Email",
+        "telephone": "Phone",
+        "password": "Password",
+        "password_repeat": "Repeat password",
+        "register_btn": "Register",
+        "login_btn": "Login",
+        "terms_conditions": "Accept the terms and conditions",
+        "home_btn": "Home",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     }
 }

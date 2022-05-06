@@ -54,5 +54,21 @@
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
+    },
+    "register": {
+        "register_title": "Registre",
+        "name": "Nom",
+        "surnames": "Cognoms",
+        "email": "Correu electrònic",
+        "telephone": "Telèfon",
+        "password": "Contrasenya",
+        "password_repeat": "Repeteix la contrasenya",
+        "register_btn": "Registrar-se",
+        "login_btn": "Inicia sessió",
+        "terms_conditions": "Accepto els termes i condicions",
+        "home_btn": "Inici",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     }
 }
