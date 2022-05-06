@@ -1,15 +1,22 @@
 {
     "home": {
         "mas_vendidos": "Productos Más Vendidos",
-        "englishLabel": "Ingles",
-        "spanishLabel": "Español"
+        "tiendas_destacadas" : "Tiendas Destacadas",
+        "visitar_btn":"Visitar",
+        "comprar_btn":"Comprar",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "navbar": {
         "shops": "Tiendas",
         "products": "Productos",
         "dashboard": "Panel de control",
         "login": "Iniciar sesión",
-        "register": "Registrarse"
+        "register": "Registrarse",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "footer": {
         "quickLinks": "Enlaces Rápidos",
@@ -20,12 +27,16 @@
         "aboutUs": "Sobre Nosotros",
         "whoWeAre": "¿Quienes Somos?",
         "freqQuestions": "Preguntas Frecuentes",
-        "premium": "Hazte premium"
+        "premium": "Hazte premium",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "product": {
         "related_products": "Productos relacionados",
-        "englishLabel": "Ingles",
-        "spanishLabel": "Español"
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "company_profile":{
         "profile":"Perfil",
@@ -37,13 +48,19 @@
         "schedule":"Horario",
         "suscription":"Suscripción",
         "period":"Periodo de Prueba. Te quedan ",
-        "days_left":"días de prueba"
+        "days_left":"días de prueba",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "shop": {
         "shop_description": "Descripción de la tienda",
         "shop_location": "Localización de la tienda",
         "shop_buttons_seeProducts": "Ver productos",
-        "shop_buttons_seeStore": "Ver tienda"
+        "shop_buttons_seeStore": "Ver tienda",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     }
 }
 
