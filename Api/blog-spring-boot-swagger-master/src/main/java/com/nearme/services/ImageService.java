@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class imagesService {
+public class ImageService {
     @Value("${spring.images.products.path}")
     private String imagesPath;
     @Value("${spring.images.products.max-size}")

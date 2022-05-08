@@ -24,7 +24,7 @@ public class ImageEntity {
     @Column(name = "id_image")
     private Integer idImages;
     @Column(name = "id_reference")
-    private Integer id_reference;
+    private Integer idReference;
     @Column(name = "table_reference")
     private Integer table_reference;
     @NotBlank(message = "A image must have a type")
