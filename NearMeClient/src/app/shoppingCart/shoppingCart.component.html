@@ -1,11 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="row">
-    <div class="col-md-12 shoppingCartTitle">
-      <h1>Shopping Cart</h1>
-    </div>
-  </div>
-  <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -14,58 +9,54 @@
               <table class="table table-striped shoppingCartTable">
                 <thead>
                   <tr>
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
+                    <th class="imgColumn">{{ "shopping_cart.shopping_cart_image_column" | translate }}</th>
+                    <th class="productColumn">{{ "shopping_cart.shopping_cart_product_column" | translate }}</th>
+                    <th class="quantityColumn">{{ "shopping_cart.shopping_cart_quantity_column" | translate }}</th>
+                    <th class="priceColumn">{{ "shopping_cart.shopping_cart_price_column" | translate }}</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- <tr *ngFor="let item of cartItems">
-                          <td>{{item.name}}</td>
-                          <td>{{item.quantity}}</td>
-                          <td>{{item.price | currency:'EUR':true}}</td>
-                          <td>{{item.total | currency:'EUR':true}}</td>
-                          <td><button class="btn btn-danger" (click)="removeItem(item)">Remove</button></td>
-                        </tr> -->
                   <!-- TODO RENDERIZAR DATOS MEDIANTE EL *ngFor -->
-                  <tr>
+                  <tr *ngFor="let item of cartItemsArray">
+                    <td>
+                      <img src="{{item.image}}" alt="{{item.name}}" class="img-responsive"/>
+                    </td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.price | currency:'EUR':true}}</td>
+                  </tr>
+                  <!-- <tr>
                     <td class="imgTd">
-                      <img src="assets/nike.png" class="itemImg" />
+                      <img src="assets/nike.png" class="itemImg"/>
+                    </td>
+                    <td class="itemName">Zapas Nike</td>
+                    <td class="itemQuantity">1</td>
+                    <td class="itemPrice">199,99</td>
+                  </tr> -->
+                  <!-- <tr>
+                    <td class="imgTd">
+                      <img src="assets/nike.png" class="itemImg"/>
                     </td>
                     <td>Zapas Nike</td>
                     <td>1</td>
                     <td>199,99</td>
-                    <td>199,99</td>
                   </tr>
                   <tr>
                     <td class="imgTd">
-                      <img src="assets/nike.png" class="itemImg" />
+                      <img src="assets/nike.png" class="itemImg"/>
                     </td>
                     <td>Zapas Nike</td>
                     <td>1</td>
                     <td>199,99</td>
-                    <td>199,99</td>
                   </tr>
                   <tr>
                     <td class="imgTd">
-                      <img src="assets/nike.png" class="itemImg" />
+                      <img src="assets/nike.png" class="itemImg"/>
                     </td>
                     <td>Zapas Nike</td>
                     <td>1</td>
                     <td>199,99</td>
-                    <td>199,99</td>
-                  </tr>
-                  <tr>
-                    <td class="imgTd">
-                      <img src="assets/nike.png" class="itemImg" />
-                    </td>
-                    <td>Zapas Nike</td>
-                    <td>1</td>
-                    <td>199,99</td>
-                    <td>199,99</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -78,7 +69,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <button class="btn btn-success btnCheckout">Checkout</button>
+              <button class="btn btn-success btnCheckout">{{ "shopping_cart.shopping_cart_btn_checkout" | translate }}</button>
             </div>
           </div>
         </div>

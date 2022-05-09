@@ -82,5 +82,19 @@
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
+    },
+    "shopping_cart": {
+        "shopping_cart_title": "Shopping cart",
+        "shopping_cart_empty": "Your shopping cart is empty",
+        "shopping_cart_total": "Total",
+        "shopping_cart_btn_checkout": "Checkout",
+        "shopping_cart_image_column": "Image",
+        "shopping_cart_name_column": "Name",
+        "shopping_cart_product_column": "Product",
+        "shopping_cart_price_column": "Price",
+        "shopping_cart_quantity_column": "Quantity",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     }
 }

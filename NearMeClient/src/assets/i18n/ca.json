@@ -82,5 +82,19 @@
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
+    },
+    "shopping_cart": {
+        "shopping_cart_title": "Carret de la compra",
+        "shopping_cart_empty": "El carret de la compra està buit",
+        "shopping_cart_total": "Total",
+        "shopping_cart_btn_checkout": "Realitzar el pagament",
+        "shopping_cart_image_column": "Imatge",
+        "shopping_cart_name_column": "Nom",
+        "shopping_cart_product_column": "Producte",
+        "shopping_cart_price_column": "Preu",
+        "shopping_cart_quantity_column": "Quantitat",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     }
 }
