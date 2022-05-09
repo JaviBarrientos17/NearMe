@@ -38,6 +38,12 @@
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
     },
+    "products": {
+        "buy_btns":"Comprar",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
     "company_profile":{
         "profile":"Perfil",
         "main_info":"INFORMACIÓ PRINCIPAL",
@@ -67,6 +73,12 @@
         "login_btn": "Inicia sessió",
         "terms_conditions": "Accepto els termes i condicions",
         "home_btn": "Inici",
+        "name_placeholder": "Nom",
+        "surnames_placeholder": "Cognoms",
+        "email_placeholder": "Correu electrònic",
+        "phone_placeholder": "Telèfon",
+        "password_placeholder": "Contrasenya",
+        "password_repeat_placeholder": "Repeteix la contrasenya",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"

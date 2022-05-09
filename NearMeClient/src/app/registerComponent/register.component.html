@@ -37,7 +37,7 @@
                 <input
                   type="text"
                   class="inputLabel"
-                  placeholder="Nombre"
+                  placeholder='{{ "register.name_placeholder" | translate }}'
                   [(ngModel)]="name"
                   [ngModelOptions]="{standalone: true}"
                   required
@@ -54,7 +54,7 @@
                     name="inputSurname"
                     [(ngModel)]="surname"
                     [ngModelOptions]="{standalone: true}"
-                    placeholder="Apellidos"
+                    placeholder='{{ "register.surnames_placeholder" | translate }}'
                     required
                   />
                 </div>
@@ -71,7 +71,7 @@
                   class="inputForm"
                   name="inputEmail"
                   [(ngModel)]="email"
-                  placeholder="Email"
+                  placeholder='{{ "register.email_placeholder" | translate }}'
                   [ngModelOptions]="{standalone: true}"
                   required
                 />
@@ -85,7 +85,7 @@
                     type="tel"
                     class="inputLabel"
                     [(ngModel)]="phone"
-                    placeholder="Teléfono"
+                    placeholder='{{ "register.phone_placeholder" | translate }}'
                     [ngModelOptions]="{standalone: true}"
                     required
                   />
@@ -102,7 +102,7 @@
                   type="password"
                   class="inputLabel"
                   [(ngModel)]="password"
-                  placeholder="Contraseña"
+                  placeholder='{{ "register.password_placeholder" | translate }}'
                   [ngModelOptions]="{standalone: true}"
                   required
                 />
@@ -117,7 +117,7 @@
                     class="inputLabel"
                     [(ngModel)]="password"
                     [ngModelOptions]="{standalone: true}"
-                    placeholder="Contraseña"
+                    placeholder='{{ "register.password_placeholder" | translate }}'
                     required
                   />
                 </div>
