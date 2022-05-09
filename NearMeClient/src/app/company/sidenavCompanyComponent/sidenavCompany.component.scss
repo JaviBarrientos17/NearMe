@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
 
 $primary: #3D81D2;
 $primary-light: #0d43c9;
@@ -109,7 +109,6 @@ img {
 	max-width: 100%;
 	margin: 0;
 	height: auto;
-	vertical-align: top;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -147,7 +146,6 @@ body {
 	overflow-x: hidden;
 	padding: 1rem;
 	background: #cad5e8;
-	font-family: 'Lato', 'Arial', sans-serif;
 	color: #212121;
 }
 
@@ -173,10 +171,9 @@ body {
 	background: $primary;
 	color: #E9E9E9;
 	padding: $sidenav-gutter;
-	border-radius: $radius;
 	flex: 0 1 auto;
-	width: $sidenav-width;
-	max-width: 100%;
+	width: 100%;
+	max-width: 250px;
 	transition: width $duration $timing;
 	
 	&.is-collapsed {
