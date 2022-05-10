@@ -1,6 +1,5 @@
 package com.nearme.services;
 
-
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,32 +45,32 @@ public class UserService {
 	 * @throws Exception
 	 */
 	@Transactional
-	public UserDTO createUser(CreateUserRequestDTO createUserRequestDTO) throws Exception {
+	public UserDTO createUser(CreateUserRequestDTO createUserRequestDTO)  throws Exception {	
 		UserDTO userToCreate = new UserDTO();
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		if (this.userRepository.findByUsername(createUserRequestDTO.getEmail()).isPresent()) {
 			log.warn("User with email " + createUserRequestDTO.getEmail() + " already exists");
 			throw new Exception("User with email " + createUserRequestDTO.getEmail() + " already exists");
 		} else {
-			// campos entity requieren validacion dto
-			log.info("Creating a new user - " + createUserRequestDTO.getEmail());
-			userToCreate.setUsername(createUserRequestDTO.getEmail());
-			userToCreate.setMail(createUserRequestDTO.getEmail());
-			userToCreate.setPassword(createUserRequestDTO.getPassword());
-			userToCreate.setName(createUserRequestDTO.getName());
-			userToCreate.setSurname(createUserRequestDTO.getSurname());
-			userToCreate.setPhone(createUserRequestDTO.getPhone());
-			log.info("Creating a new user model - " + userToCreate.toString());
-			UserEntity userEntity = UserMapper.INSTANCE.dtoToEntity(userToCreate);
-			userEntity.setStatus(UserStatusType.ENABLED);
-			userEntity.setRoles(Arrays.asList(RoleType.ROLE_CLIENT.toString()));
-			userEntity.setLast_passwd_gen(timestamp);
-			userEntity.setPhone(createUserRequestDTO.getPhone());
-			this.userRepository.save(userEntity);
-			log.info("User Created  - " + userEntity.toString());
-			UserDTO userCreated = UserMapper.INSTANCE.entityToDto(userEntity);
-			userCreated.setPassword(null);
-			return userCreated;
+		// campos entity requieren validacion dto
+		log.info("Creating a new user - " + createUserRequestDTO.getEmail());
+		userToCreate.setUsername(createUserRequestDTO.getEmail());
+		userToCreate.setMail(createUserRequestDTO.getEmail());
+		userToCreate.setPassword(createUserRequestDTO.getPassword());
+		userToCreate.setName(createUserRequestDTO.getName());
+		userToCreate.setSurname(createUserRequestDTO.getSurname());
+		userToCreate.setPhone(createUserRequestDTO.getPhone());
+		log.info("Creating a new user model - " + userToCreate.toString());
+		UserEntity userEntity = UserMapper.INSTANCE.dtoToEntity(userToCreate);
+		userEntity.setStatus(UserStatusType.ENABLED);
+		userEntity.setRoles(Arrays.asList(RoleType.ROLE_CLIENT.toString()));
+		userEntity.setLast_passwd_gen(timestamp);
+		userEntity.setPhone(createUserRequestDTO.getPhone());
+		this.userRepository.save(userEntity);
+		log.info("User Created  - " + userEntity.toString());
+		UserDTO userCreated = UserMapper.INSTANCE.entityToDto(userEntity);
+		userCreated.setPassword(null);
+		return userCreated;
 		}
 	}
 
@@ -121,11 +120,6 @@ public class UserService {
 	@Transactional
 	public UserDTO getUser(Integer id) {
 		UserEntity user = userRepository.findById(id).get();
-		if (user == null) {
-			log.info("No user found with id: " + id);
-			new Exception("No user found with id: " + id);
-			return null;
-		}
 		return UserMapper.INSTANCE.entityToDto(user);
 	}
 
