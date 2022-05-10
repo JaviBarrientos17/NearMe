@@ -1,15 +1,22 @@
 {
     "home": {
         "mas_vendidos": "Most Sales Products",
+        "tiendas_destacadas" : "Featured Stores",
+        "visitar_btn":"Visit",
+        "comprar_btn":"Buy",
         "englishLabel": "English",
-        "spanishLabel": "Spanish"
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "navbar": {
         "shops": "Shops",
         "products": "Products",
         "dashboard": "Dashboard",
         "login": "Login",
-        "register": "Register"
+        "register": "Register",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "footer": {
         "quickLinks": "Quick Links",
@@ -20,15 +27,30 @@
         "aboutUs": "About us",
         "whoWeAre": "¿Who we are?",
         "freqQuestions": "Frequent questions",
-        "premium": "Go premium"
+        "premium": "Go premium",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "product": {
         "related_products": "Related products",
-        "englishLabel": "Ingles",
-        "spanishLabel": "Español"
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "products": {
+        "buy_btns":"Buy",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "company_profile":{
-        "main_info":"Main Information"
+        "profile":"Perfil",
+        "main_info":"MAIN INFORMATION",
+        "personal_info":"PERSONAL INFORMATION",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     },
     "shop": {
         "shop_description": "Description of the shop",
@@ -36,6 +58,43 @@
         "shop_buttons_seeProducts": "See products",
         "shop_buttons_seeStore": "See store",
         "englishLabel": "English",
-        "spanishLabel": "Spanish"
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "register": {
+        "register_title": "Register",
+        "name": "Name",
+        "surnames": "Surnames",
+        "email": "Email",
+        "telephone": "Phone",
+        "password": "Password",
+        "password_repeat": "Repeat password",
+        "register_btn": "Register",
+        "login_btn": "Login",
+        "terms_conditions": "Accept the terms and conditions",
+        "home_btn": "Home",
+        "name_placeholder": "Name",
+        "surnames_placeholder": "Surnames",
+        "email_placeholder": "Email",
+        "phone_placeholder": "Phone",
+        "password_placeholder": "Password",
+        "password_repeat_placeholder": "Repeat password",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "shopping_cart": {
+        "shopping_cart_title": "Shopping cart",
+        "shopping_cart_empty": "Your shopping cart is empty",
+        "shopping_cart_total": "Total",
+        "shopping_cart_btn_checkout": "Checkout",
+        "shopping_cart_image_column": "Image",
+        "shopping_cart_name_column": "Name",
+        "shopping_cart_product_column": "Product",
+        "shopping_cart_price_column": "Price",
+        "shopping_cart_quantity_column": "Quantity",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
     }
 }

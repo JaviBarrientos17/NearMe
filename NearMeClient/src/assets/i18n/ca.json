@@ -1,0 +1,100 @@
+{
+    "home": {
+        "mas_vendidos": "Productes més venuts",
+        "tiendas_destacadas" : "Botigues destacades",
+        "visitar_btn":"Visitar",
+        "comprar_btn":"Comprar",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "navbar": {
+        "shops": "Botigues",
+        "products": "Productes",
+        "dashboard": "Panell de control",
+        "login": "Inici de sessió",
+        "register": "Registre",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "footer": {
+        "quickLinks": "Quick Links",
+        "home": "Inici",
+        "contact": "Contacte",
+        "cookies": "Política de Cookies",
+        "privacy": "Política de Privacitat",
+        "aboutUs": "Sobre nosaltres",
+        "whoWeAre": "Qui som?",
+        "freqQuestions": "Preguntes freqüents",
+        "premium": "Fes-te premium!",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "product": {
+        "related_products": "Productes relacionats",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "products": {
+        "buy_btns":"Comprar",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "company_profile":{
+        "profile":"Perfil",
+        "main_info":"INFORMACIÓ PRINCIPAL",
+        "personal_info":"INFORMACIÓ PERSONAL",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "shop": {
+        "shop_description": "Descripció de la botiga",
+        "shop_location": "Localització de la botiga",
+        "shop_buttons_seeProducts": "Veure productes",
+        "shop_buttons_seeStore": "Veure botiga",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "register": {
+        "register_title": "Registre",
+        "name": "Nom",
+        "surnames": "Cognoms",
+        "email": "Correu electrònic",
+        "telephone": "Telèfon",
+        "password": "Contrasenya",
+        "password_repeat": "Repeteix la contrasenya",
+        "register_btn": "Registrar-se",
+        "login_btn": "Inicia sessió",
+        "terms_conditions": "Accepto els termes i condicions",
+        "home_btn": "Inici",
+        "name_placeholder": "Nom",
+        "surnames_placeholder": "Cognoms",
+        "email_placeholder": "Correu electrònic",
+        "phone_placeholder": "Telèfon",
+        "password_placeholder": "Contrasenya",
+        "password_repeat_placeholder": "Repeteix la contrasenya",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "shopping_cart": {
+        "shopping_cart_title": "Carret de la compra",
+        "shopping_cart_empty": "El carret de la compra està buit",
+        "shopping_cart_total": "Total",
+        "shopping_cart_btn_checkout": "Realitzar el pagament",
+        "shopping_cart_image_column": "Imatge",
+        "shopping_cart_name_column": "Nom",
+        "shopping_cart_product_column": "Producte",
+        "shopping_cart_price_column": "Preu",
+        "shopping_cart_quantity_column": "Quantitat",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    }
+}
