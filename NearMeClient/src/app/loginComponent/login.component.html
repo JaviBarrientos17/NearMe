@@ -46,8 +46,13 @@
       </form>
 
       <p>
-        Don't have an account ?<b><a href="#"> Sign Up Now</a></b>
+        Don't have an account ?<b
+          ><a [routerLink]="['../register']" data-hover="Register">
+            Sign Up Now</a
+          >
+        </b>
       </p>
+
       <div class="or">
         <span> Or </span>
       </div>
@@ -70,18 +75,6 @@
             class="nearmeLogo"
             alt="nearmeLogo"
           />
-          <a [routerLink]="['../register']" data-hover="Register"
-            ><button>Register</button></a
-          >
-        </div>
-      </div>
-      <div class="row mt-4 text-center">
-        <div class="col">
-          <a [routerLink]="['../']"
-            ><span class="spanLinks"
-              ><i class="bi bi-arrow-left"></i>&nbsp;Homepage</span
-            ></a
-          >
         </div>
       </div>
     </div>

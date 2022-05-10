@@ -162,3 +162,22 @@ input {
 #flexSwitchCheckChecked{
 	width:30px;
 }
+
+.inputRight{
+	text-align: right;
+}
+.inputLeft{
+	text-align: left;
+}
+.inputCenter{
+	text-align: center;
+}
+
+.backgroundLogin {
+	background-image: url('../../assets/barcelonaLogin.png');
+	height: 100%;
+	max-width: 100%;
+	border-radius: 30px 0px 0px 30px;
+	background-size: cover;
+	height: auto;
+  }

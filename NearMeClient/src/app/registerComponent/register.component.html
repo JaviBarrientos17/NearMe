@@ -8,18 +8,6 @@
             class="nearmeLogo"
             alt="nearmeLogo"
           />
-          <a [routerLink]="['../login']" data-hover="Login"
-            ><button>Inicia Sesión</button></a
-          >
-        </div>
-      </div>
-      <div class="row mt-4 text-center">
-        <div class="col">
-          <a [routerLink]="['../']"
-            ><span class="spanLinks"
-              ><i class="bi bi-arrow-left"></i>&nbsp;Home</span
-            ></a
-          >
         </div>
       </div>
     </div>
@@ -45,7 +33,7 @@
       >
         <div class="row">
           <div class="col-6">
-            <div class="input-icons">
+            <div class="input-icons inputRight">
               <i class="fa fa-user icon"></i>
               <input
                 type="text"
@@ -59,7 +47,7 @@
             </div>
           </div>
           <div class="col-6">
-            <div class="input-icons mt-2">
+            <div class="input-icons inputLeft">
               <i class="fa-solid fa-user-tag icon"></i>
               <input
                 type="text"
@@ -90,7 +78,7 @@
           </div>
         </div>
         <div class="row my-2">
-          <div class="col-6">
+          <div class="col-6 inputCenter">
             <div class="form-check form-check-inline">
               <input
                 class="form-check-input"
@@ -104,7 +92,7 @@
               >
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-6 inputCenter">
             <div class="form-check form-check-inline">
               <input
                 class="form-check-input"
@@ -185,7 +173,9 @@
         </div>
         <div class="row">
           <p>
-            Ya estás registrado ?<b><a href="#"> Sign In</a></b>
+            Ya estás registrado ?<b>
+              <a [routerLink]="['../login']" data-hover="Login">Sign In</a></b
+            >
           </p>
         </div>
       </form>

@@ -109,14 +109,16 @@ input {
 	margin: 0px 20px;
 }
 
-
 .spanLinks {
 	font-size: 15px;
 }
 
-
 .backgroundLogin {
-	background-image: url("/NearMeClient/src/assets/barcelonaLogin.jpeg");
-	height: 500px;
+	background-image: url('../../assets/barcelonaLogin.png');
+	height: 100%;
 	max-width: 100%;
+	border-radius: 0px 30px 30px 0px;
+	height: auto;
+	background-size: cover;
+
   }
