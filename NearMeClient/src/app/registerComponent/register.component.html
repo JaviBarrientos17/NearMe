@@ -1,150 +1,184 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-5 logoImg">
-      <img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo" />
-      <a [routerLink]="['../login']" data-hover="Login"
-        ><button>Inicia Sesión</button></a
-      >
-      <div class="row">
-        <div class="cold-md-6">
-          <div class="row">
-            <a [routerLink]="['../']"
-              ><span class="spanLinks"
-                ><i class="bi bi-arrow-left"></i>&nbsp;Home</span
-              ></a
-            >
-          </div>
+    <div class="col-md-6 backgroundLogin">
+      <div class="row text-center">
+        <div class="col">
+          <img
+            src="assets/NearMe_logo.png"
+            class="nearmeLogo"
+            alt="nearmeLogo"
+          />
         </div>
       </div>
     </div>
-    <div class="col-lg-7 form">
-      <div class="fondo">
+
+    <div class="col-md-6 colInputs">
+      <div class="row">
+        <div class="col">
+          <h2>WELCOME TO</h2>
+          <img
+            src="assets/NearMe_logo.png"
+            class="nearmeLogoSmall"
+            alt="nearmeLogo"
+          />
+          <p>Inicia sesión para descubir los mejores productos que te rodean</p>
+        </div>
+      </div>
+
+      <form
+        class="formLogin"
+        #loginUserForm="ngForm"
+        name="loginUserForm"
+        (ngSubmit)="insertUser()"
+      >
         <div class="row">
-          <div class="col">
-            <h1 class="formTitle">Registro</h1>
+          <div class="col-6">
+            <div class="input-icons inputRight">
+              <i class="fa fa-user icon"></i>
+              <input
+                type="text"
+                class="input-field"
+                name="inputName"
+                placeholder="Nombre"
+                [(ngModel)]="name"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="input-icons inputLeft">
+              <i class="fa-solid fa-user-tag icon"></i>
+              <input
+                type="text"
+                class="input-field"
+                name="inputSurname"
+                [(ngModel)]="surname"
+                [ngModelOptions]="{ standalone: true }"
+                placeholder="Apellidos"
+                required
+              />
+            </div>
           </div>
         </div>
-        <form
-          action="submit"
-          #insertUserForm="ngForm"
-          name="insertNewUserForm"
-          (ngSubmit)="insertUser(); insertUserForm.reset()"
-        >
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="formName" class="inputLabel">Nombre</label>
-                <input
-                  type="text"
-                  class="inputLabel"
-                  placeholder="Nombre"
-                  [(ngModel)]="name"
-                  [ngModelOptions]="{standalone: true}"
-                  required
-                />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="mb-3">
-                  <label class="inputLabel" for="formSurname">Apellidos</label>
-                  <input
-                    type="text"
-                    class="inputLabel"
-                    name="inputSurname"
-                    [(ngModel)]="surname"
-                    [ngModelOptions]="{standalone: true}"
-                    placeholder="Apellidos"
-                    required
-                  />
-                </div>
-              </div>
+        <div class="row">
+          <div class="col">
+            <div class="input-icons mt-2">
+              <i class="fa-solid fa-unlock icon"></i>
+              <input
+                type="email"
+                class="input-field"
+                name="inputEmail"
+                [(ngModel)]="email"
+                placeholder="Email"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              />
             </div>
           </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-6 inputCenter">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="option1"
+              />
+              <label class="form-check-label" for="inlineRadio1"
+                >Particular</label
+              >
+            </div>
+          </div>
+          <div class="col-6 inputCenter">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="option2"
+              />
+              <label class="form-check-label" for="inlineRadio2">Empresa</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="input-icons mt-2">
+              <i class="fa-solid fa-mobile-screen-button icon"></i>
+              <input
+                type="tel"
+                class="input-field"
+                [(ngModel)]="phone"
+                placeholder="Teléfono"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="input-icons mt-2">
+              <i class="fa-solid fa-unlock icon"></i>
+              <input
+                type="password"
+                class="input-field"
+                [(ngModel)]="password"
+                placeholder="Contraseña"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="input-icons mt-2">
+              <i class="fa-solid fa-unlock icon"></i>
+              <input
+                type="password"
+                class="input-field"
+                [(ngModel)]="password"
+                [ngModelOptions]="{ standalone: true }"
+                placeholder="Contraseña"
+                required
+              />
+            </div>
+          </div>
+        </div>
 
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label class="inputLabel" for="inputEmail">Email</label>
-                <input
-                  type="email"
-                  class="inputForm"
-                  name="inputEmail"
-                  [(ngModel)]="email"
-                  placeholder="Email"
-                  [ngModelOptions]="{standalone: true}"
-                  required
-                />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="mb-3">
-                  <label for="formTel" class="inputLabel">Teléfono</label>
-                  <input
-                    type="tel"
-                    class="inputLabel"
-                    [(ngModel)]="phone"
-                    placeholder="Teléfono"
-                    [ngModelOptions]="{standalone: true}"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mb-3">
-                <label for="formPassword" class="inputLabel">Contraseña</label>
-                <input
-                  type="password"
-                  class="inputLabel"
-                  [(ngModel)]="password"
-                  placeholder="Contraseña"
-                  [ngModelOptions]="{standalone: true}"
-                  required
-                />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="mb-3">
-                  <label for="formRepeatPassword" class="inputLabel"
-                    >Repetir Contraseña</label
-                  >
-                  <input
-                    type="password"
-                    class="inputLabel"
-                    [(ngModel)]="password"
-                    [ngModelOptions]="{standalone: true}"
-                    placeholder="Contraseña"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="social-container">
-              <a href="#" class="social"
-                ><img class="socialNetworkImg" src="../../assets/facebook.png"
-              /></a>
-              <a href="#" class="social"
-                ><img class="socialNetworkImg" src="../../assets/google.png"
-              /></a>
-            </div>
-          </div>
-          <div class="row">
-            <label
-              ><input type="checkbox" value="first_checkbox" />Accept the terms
-              of use and privacy</label
+        <div class="row mt-4">
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked"
+              >Acepto los Terminos y Condiciones y las Políticas de
+              Privacida</label
             >
           </div>
-          <button type="submit">Registrate</button>
-        </form>
-      </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button type="submit" class="mt-4">Log In</button>
+          </div>
+        </div>
+        <div class="row">
+          <p>
+            Ya estás registrado ?<b>
+              <a [routerLink]="['../login']" data-hover="Login">Sign In</a></b
+            >
+          </p>
+        </div>
+      </form>
     </div>
   </div>
 </div>
