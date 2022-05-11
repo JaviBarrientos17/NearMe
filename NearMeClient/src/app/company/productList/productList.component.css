@@ -1,1 +1,6 @@
 /*TODO*/
+.fondo{
+    background-image: url('../../../assets/bg_web_empresa.png');
+    background-size:cover;
+    
+  }
