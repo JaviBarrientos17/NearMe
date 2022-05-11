@@ -3,13 +3,13 @@
     <div class="col-md-6 colInputs">
       <div class="row">
         <div class="col">
-          <h2>WELCOME TO</h2>
+          <h2>{{ "register.welcome" | translate }}</h2>
           <img
             src="assets/NearMe_logo.png"
             class="nearmeLogoSmall"
             alt="nearmeLogo"
           />
-          <p>Inicia sesión para descubir los mejores productos que te rodean</p>
+          <p>{{ "register.loginSession" | translate }}</p>
         </div>
       </div>
       <form
@@ -24,7 +24,7 @@
             type="email"
             class="input-field"
             name="inputEmail"
-            placeholder="Email"
+            placeholder='{{ "register.email" | translate }}'
             [(ngModel)]="email"
             [ngModelOptions]="{ standalone: true }"
             required
@@ -38,25 +38,26 @@
             name="inputPassword"
             [(ngModel)]="password"
             [ngModelOptions]="{ standalone: true }"
-            placeholder="Password"
+            placeholder='{{ "register.password" | translate }}'
             required
           />
         </div>
-        <button type="submit" class="mt-4">Log In</button>
+        <button type="submit" class="mt-4">{{ "register.login_btn" | translate }}</button>
       </form>
 
       <p>
-        Don't have an account ?<b
-          ><a [routerLink]="['../register']" data-hover="Register">
-            Sign Up Now</a
-          >
+        {{ "login.dont_have_account" | translate }}
+        <b>
+          <a [routerLink]="['../register']" data-hover="Register">
+            {{ "login.sign_up_now" | translate }}
+          </a>
         </b>
       </p>
 
       <div class="or">
-        <span> Or </span>
+        <span> {{ "login.or" | translate }}</span>
       </div>
-      <p>Continue with social media</p>
+      <p>{{ "login.continue_with_social_media" | translate }}</p>
       <div class="social-container">
         <a href="#"
           ><img class="socialNetworkImg" src="../../assets/facebookIcon.png"

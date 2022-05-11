@@ -79,6 +79,21 @@
         "phone_placeholder": "Telèfon",
         "password_placeholder": "Contrasenya",
         "password_repeat_placeholder": "Repeteix la contrasenya",
+        "privacy_policy": "Accepto la política de privacitat i els termes i condicions",
+        "are_you_registered": "Ets registrat?",
+        "loginSession": "Inicia sesió per descubrir els millors productes a prop teu!",
+        "welcome": "Benvingut a ",
+        "particular": "Particular",
+        "empresa": "Empresa",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "login": {
+        "dont_have_account": "No tens un compte?",
+        "sign_up_now": "Registra't ara!",
+        "continue_with_social_media": "Continua amb les xarxes socials",
+        "or": "O",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"

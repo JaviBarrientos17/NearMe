@@ -11,20 +11,18 @@
         </div>
       </div>
     </div>
-
     <div class="col-md-6 colInputs">
       <div class="row">
         <div class="col">
-          <h2>WELCOME TO</h2>
+          <h2>{{ "register.welcome" | translate }}</h2>
           <img
             src="assets/NearMe_logo.png"
             class="nearmeLogoSmall"
             alt="nearmeLogo"
           />
-          <p>Inicia sesión para descubir los mejores productos que te rodean</p>
+          <p>{{ "register.loginSession" | translate }}</p>
         </div>
       </div>
-
       <form
         class="formLogin"
         #loginUserForm="ngForm"
@@ -39,7 +37,7 @@
                 type="text"
                 class="input-field"
                 name="inputName"
-                placeholder="Nombre"
+                placeholder='{{ "register.name" | translate }}'
                 [(ngModel)]="name"
                 [ngModelOptions]="{ standalone: true }"
                 required
@@ -55,7 +53,7 @@
                 name="inputSurname"
                 [(ngModel)]="surname"
                 [ngModelOptions]="{ standalone: true }"
-                placeholder="Apellidos"
+                placeholder='{{ "register.surnames_placeholder" | translate }}'
                 required
               />
             </div>
@@ -70,7 +68,7 @@
                 class="input-field"
                 name="inputEmail"
                 [(ngModel)]="email"
-                placeholder="Email"
+                placeholder='{{ "register.email" | translate }}'
                 [ngModelOptions]="{ standalone: true }"
                 required
               />
@@ -87,9 +85,9 @@
                 id="inlineRadio1"
                 value="option1"
               />
-              <label class="form-check-label" for="inlineRadio1"
-                >Particular</label
-              >
+              <label class="form-check-label" for="inlineRadio1">
+                {{ "register.particular" | translate }}
+              </label>
             </div>
           </div>
           <div class="col-6 inputCenter">
@@ -101,7 +99,7 @@
                 id="inlineRadio2"
                 value="option2"
               />
-              <label class="form-check-label" for="inlineRadio2">Empresa</label>
+              <label class="form-check-label" for="inlineRadio2">{{ "register.empresa" | translate }}</label>
             </div>
           </div>
         </div>
@@ -113,7 +111,7 @@
                 type="tel"
                 class="input-field"
                 [(ngModel)]="phone"
-                placeholder="Teléfono"
+                placeholder='{{ "register.phone_placeholder" | translate }}'
                 [ngModelOptions]="{ standalone: true }"
                 required
               />
@@ -128,7 +126,7 @@
                 type="password"
                 class="input-field"
                 [(ngModel)]="password"
-                placeholder="Contraseña"
+                placeholder='{{ "register.password" | translate }}'
                 [ngModelOptions]="{ standalone: true }"
                 required
               />
@@ -144,13 +142,12 @@
                 class="input-field"
                 [(ngModel)]="password"
                 [ngModelOptions]="{ standalone: true }"
-                placeholder="Contraseña"
+                placeholder='{{ "register.password_repeat" | translate }}'
                 required
               />
             </div>
           </div>
         </div>
-
         <div class="row mt-4">
           <div class="form-check form-switch">
             <input
@@ -160,22 +157,20 @@
               id="flexSwitchCheckChecked"
               checked
             />
-            <label class="form-check-label" for="flexSwitchCheckChecked"
-              >Acepto los Terminos y Condiciones y las Políticas de
-              Privacida</label
-            >
+            <label class="form-check-label" for="flexSwitchCheckChecked">
+              {{ "register.privacy_policy" | translate }}
+            </label>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <button type="submit" class="mt-4">Log In</button>
+            <button type="submit" class="mt-4">{{ "register.login_btn" | translate }}</button>
           </div>
         </div>
         <div class="row">
           <p>
-            Ya estás registrado ?<b>
-              <a [routerLink]="['../login']" data-hover="Login">Sign In</a></b
-            >
+            {{ "register.are_you_registered" | translate }}<b>
+            <a [routerLink]="['../login']" data-hover="Login">{{ "register.register_btn" | translate }}</a></b>
           </p>
         </div>
       </form>
