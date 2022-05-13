@@ -7,7 +7,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './loginComponent/login.component';
@@ -18,10 +17,15 @@ import { TiendasComponent } from './tiendasComponent/tiendas.component';
 import { ProductosComponent } from './productosComponent/productos.component';
 import { DashboardComponent } from './dashboardComponent/dashboard.component';
 import { SearchBar } from './searchBarComponent/searchBar.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
@@ -33,6 +37,7 @@ import { PremiumComponent } from './premiumComponent/premium.component';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+import { MatRadioModule } from '@angular/material/radio';
 
 import { ProductComponent } from './productComponent/product.component';
 import { ProductList } from './company/productList/productList.component';
@@ -78,10 +83,16 @@ import { SidenavComany } from './company/sidenavCompanyComponent/sidenavCompany.
     MatIconModule,
     FormsModule,
     MatInputModule,
+    MatRadioModule,
     HttpClientModule,
     MatTabsModule,
     MatSidenavModule,
+    MatPaginatorModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
     MatListModule,
+    MatMenuModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
