@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './company/profileComponent/profile.component';
-import { ProductList } from './company/productList/productList.component';
-import { DashboardComponent } from './dashboardComponent/dashboard.component';
+import { ProfileComponent } from './companyComponent/profile/profile.component';
+import { ProductList } from './companyComponent/productos/productList/productList.component';
+import { DashboardComponent } from './companyComponent/dashboard/dashboard.component';
 import { HomeComponent } from './homeComponent/home.component';
 import { LoginComponent } from './loginComponent/login.component';
 import { PremiumComponent } from './premiumComponent/premium.component';
@@ -13,7 +13,9 @@ import { RegisterComponent } from './registerComponent/register.component';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
 import { TiendaComponent } from './tiendaComponent/tienda.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
-import { FormProductComponent } from './company/formProduct/formProduct.components';
+import { FormProductComponent } from './companyComponent/productos/formProduct/formProduct.components';
+import { AboutUsComponent } from './footerComponent/aboutUs/aboutus.component';
+import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: 'dashboard/companyProfile', component: ProfileComponent },
   { path: 'dashboard/newProduct', component: FormProductComponent },
   { path: 'dashboard/productList', component: ProductList },
+  { path: 'dashboard/pedidosList', component: PedidosList },
+  { path: 'aboutus', component: AboutUsComponent },
 ];
 
 @NgModule({

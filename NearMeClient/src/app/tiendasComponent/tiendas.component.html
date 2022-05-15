@@ -1,4 +1,47 @@
 <app-navbar></app-navbar>
-<h1>Tiendas</h1>
-<h3><a [routerLink]="['/tienda']">Sabater Hnos. Fábrica de jabones</a></h3>
+<div class="fondo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <searchBar></searchBar>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <sidebarFiltros-component></sidebarFiltros-component>
+      </div>
+      <div class="col-10">
+        <div class="container">
+          <h1>Tiendas</h1>
+          <h3>
+            <a [routerLink]="['/tienda']">Sabater Hnos. Fábrica de jabones</a>
+          </h3>
+          <div class="row gy-4">
+            <ng-container *ngFor="let t of tiendas">
+              <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                <div class="card h-100 card-producto">
+                  <img src="../../assets/nike.png" alt="..." />
+                  <div class="card-body body-producto">
+                    <h5 class="card-info">Moda</h5>
+                    <h2 class="card-title">{{ t }}</h2>
+                    <p class="card-text">
+                      {{ t }}
+                    </p>
+                    <div class="btn-holder">
+                      <a
+                        [routerLink]="['/product', t]"
+                        class="btn btn-primary btn-comprar-producto"
+                        >{{ "products.buy_btns" | translate }}</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <footer-component></footer-component>
