@@ -1,40 +1,74 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/model/user';
-import { UsersService } from '../services/users.service';
-
+import { UserService } from 'src/app/services/users.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { catchError, first, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers:[UsersService]
+  providers: [UserService]
 })
-export class LoginComponent {
-  title = 'Login';
-  email = '';
-  password = '';
+export class LoginComponent implements OnInit, OnDestroy {
+  private unsubscribe: Subject<void> = new Subject();
+  public loginForm: FormGroup;
+  public submitted = false;
+  public BAD_CREDENTIALS_ERROR_KEY = 'badCredentialsError';
+  // This url indicates the page the user was on before going to the login page
+  public returnUrl: string;
+  public error: string;
 
-  usersArray:Array<User> = [new User()];
+  /**
+   * Gets loginForm fields
+   */
+  get fields(): any { return this.loginForm.controls; }
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {
+    // when already logged redirect to dashboard
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
+  }
 
-  constructor(private usersService:UsersService, private _router: Router){}
-  
-  sendLoginUserData() {
-    console.log("Send login user data");
-    this.usersService.loginUser(this.email, this.password
-    ).subscribe(
-      (resul)=>{
-        console.log('Loggged user: ' + resul);
-        this.usersArray = resul;
-        if(resul.state == "Ok!") {
-          this._router.navigate(['']);
-          // TODO ADD TOKEN LOGIN
-        } else {
-          console.log("Error!");
-        }
-      },
-      (error)=>{
-        console.log('Error: ' + error);
-      }
-    );
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+
+    // get return url or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+  }
+
+  /**
+   * Determines whether submit on
+   * @returns void
+   */
+  onSubmit(): null {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+
+    this.authenticationService.login(this.fields.username.value, this.fields.password.value)
+      .pipe(first()).pipe(takeUntil(this.unsubscribe), catchError(e => this.error = e)).subscribe(data => {
+
+        this.router.navigate([this.returnUrl]);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

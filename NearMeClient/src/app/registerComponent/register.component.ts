@@ -1,57 +1,81 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from 'src/model/user';
-import { UsersService } from '../services/users.service';
-//TODO
+import { UserService } from './../services/users.service';
+import { ToastService } from './../services/toast.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { catchError, takeUntil } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  providers: [UsersService],
+  selector: 'app-create-user',
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.scss']
 })
-export class RegisterComponent {
-  usersArray: Array<User> = [new User()];
-
-  title: any = 'Register';
-  email: any = '';
-  name: any = '';
-  surname: any = '';
-  phone: any = '';
-  password: any = '';
-
-  constructor(private usersService: UsersService, private _router: Router) {}
+export class CreateUserComponent implements OnInit, OnDestroy {
+  public createUserForm: FormGroup;
+  private unsubscribe: Subject<void> = new Subject();
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private toastService: ToastService) { }
 
   ngOnInit(): void {
-    this.usersService.getAllUsers().subscribe(
-      (resul) => {
-        // console.log("Users list: " + resul);
-        this.usersArray = resul;
-      },
-      (error) => {
-        console.log('Error: ' + error);
-      }
+    this.createUserForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      name: [''],
+      surname: [''],
+    });
+  }
+
+  /**
+   * On submit form creates a new user and shows a success or error message
+   */
+  onSubmit(): void {
+    this.userService.createUser(this.createUserForm.value).pipe(takeUntil(this.unsubscribe)).subscribe(data => {
+      this.showUserCreatedMessage();
+      this.createUserForm.reset();
+      this.createUserForm.controls.email.setValue('');
+    }, error => this.showUserCreatedError(error));
+  }
+
+  /**
+   * Gets createUserForm fields
+   */
+  get fields(): any { return this.createUserForm.controls; }
+
+  /**
+   * Validation getters
+   */
+  get emailValid(): boolean {
+    return !this.fields.email.hasError('email') && this.fields.email.value !== '';
+  }
+  get emailRequired(): boolean {
+    return !this.fields.email.hasError('required') && this.fields.email.value !== '';
+  }
+  /**
+   * Shows user created success message
+   */
+  showUserCreatedMessage(): void {
+    this.toastService.show(
+      'userCreated',
+      { classname: 'bg-success text-light', delay: 3000 }
     );
   }
 
-  insertUser() {
-    console.log('Working...');
-    this.usersService
-      .insertUser(
-        this.email,
-        this.name,
-        this.surname,
-        this.phone,
-        this.password
-      )
-      .subscribe(
-        (resul) => {
-          console.log('User inserted data: ' + resul);
-          this.usersArray = resul;
-          this._router.navigate(['']);
-        },
-        (error) => {
-          console.log('Error: ' + error);
-        }
-      );
+  /**
+   * Shows user created error message
+   */
+  showUserCreatedError(error: string): void {
+    this.toastService.show(
+      'userCreatedError',
+      { classname: 'bg-danger text-light', delay: 3000 }
+    );
+  }
+
+  /**
+   * on destroy
+   */
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

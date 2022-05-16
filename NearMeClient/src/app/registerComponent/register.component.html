@@ -1,179 +1,104 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 backgroundLogin">
-      <div class="row text-center">
-        <div class="col">
-          <img
-            src="assets/NearMe_logo.png"
-            class="nearmeLogo"
-            alt="nearmeLogo"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 colInputs">
-      <div class="row">
-        <div class="col">
-          <h2>{{ "register.welcome" | translate }}</h2>
-          <img
-            src="assets/NearMe_logo.png"
-            class="nearmeLogoSmall"
-            alt="nearmeLogo"
-          />
-          <p>{{ "register.loginSession" | translate }}</p>
-        </div>
-      </div>
-      <form
-        class="formLogin"
-        #loginUserForm="ngForm"
-        name="loginUserForm"
-        (ngSubmit)="insertUser()"
-      >
-        <div class="row">
-          <div class="col-6">
-            <div class="input-icons inputRight">
-              <i class="fa fa-user icon"></i>
-              <input
-                type="text"
-                class="input-field"
-                name="inputName"
-                placeholder='{{ "register.name" | translate }}'
-                [(ngModel)]="name"
-                [ngModelOptions]="{ standalone: true }"
-                required
-              />
+    <div class="row">
+        <div class="col-md-6 backgroundLogin">
+            <div class="row text-center">
+                <div class="col">
+                    <img src="assets/NearMe_logo.png" class="nearmeLogo" alt="nearmeLogo" />
+                </div>
             </div>
-          </div>
-          <div class="col-6">
-            <div class="input-icons inputLeft">
-              <i class="fa-solid fa-user-tag icon"></i>
-              <input
-                type="text"
-                class="input-field"
-                name="inputSurname"
-                [(ngModel)]="surname"
-                [ngModelOptions]="{ standalone: true }"
-                placeholder='{{ "register.surnames_placeholder" | translate }}'
-                required
-              />
-            </div>
-          </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="input-icons mt-2">
-              <i class="fa-solid fa-unlock icon"></i>
-              <input
-                type="email"
-                class="input-field"
-                name="inputEmail"
-                [(ngModel)]="email"
-                placeholder='{{ "register.email" | translate }}'
-                [ngModelOptions]="{ standalone: true }"
-                required
-              />
+        <div class="col-md-6 colInputs">
+            <div class="row">
+                <div class="col">
+                    <h2>{{ "register.welcome" | translate }}</h2>
+                    <img src="assets/NearMe_logo.png" class="nearmeLogoSmall" alt="nearmeLogo" />
+                    <p>{{ "register.loginSession" | translate }}</p>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="row my-2">
-          <div class="col-6 inputCenter">
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineRadio1">
+            <form class="formLogin" #loginUserForm="ngForm" [formGroup]="createUserForm">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-icons inputRight">
+                            <i class="fa fa-user icon"></i>
+                            <input type="text" class="input-field" name="name" formControlName="name" placeholder='{{ "register.name" | translate }}' required>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-icons inputLeft">
+                            <i class="fa-solid fa-user-tag icon"></i>
+                            <input type="text" class="input-field" name="surname" formControlName="surname" placeholder='{{ "register.surnames_placeholder" | translate }}' required />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-icons mt-2">
+                            <i class="fa-solid fa-unlock icon"></i>
+                            <input type="email" class="input-field" name="email" formControlName="email" placeholder='{{ "register.email" | translate }}' required />
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row my-2">
+                    <div class="col-6 inputCenter">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1">
                 {{ "register.particular" | translate }}
               </label>
-            </div>
-          </div>
-          <div class="col-6 inputCenter">
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio2"
-                value="option2"
-              />
-              <label class="form-check-label" for="inlineRadio2">{{ "register.empresa" | translate }}</label>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="input-icons mt-2">
-              <i class="fa-solid fa-mobile-screen-button icon"></i>
-              <input
-                type="tel"
-                class="input-field"
-                [(ngModel)]="phone"
-                placeholder='{{ "register.phone_placeholder" | translate }}'
-                [ngModelOptions]="{ standalone: true }"
-                required
-              />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="input-icons mt-2">
-              <i class="fa-solid fa-unlock icon"></i>
-              <input
-                type="password"
-                class="input-field"
-                [(ngModel)]="password"
-                placeholder='{{ "register.password" | translate }}'
-                [ngModelOptions]="{ standalone: true }"
-                required
-              />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="input-icons mt-2">
-              <i class="fa-solid fa-unlock icon"></i>
-              <input
-                type="password"
-                class="input-field"
-                [(ngModel)]="password"
-                [ngModelOptions]="{ standalone: true }"
-                placeholder='{{ "register.password_repeat" | translate }}'
-                required
-              />
-            </div>
-          </div>
-        </div>
-        <div class="row mt-4">
-          <div class="form-check form-switch">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckChecked"
-              checked
-            />
-            <label class="form-check-label" for="flexSwitchCheckChecked">
+                        </div>
+                    </div>
+                    <div class="col-6 inputCenter">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2">{{ "register.empresa" | translate }}</label>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col">
+                        <div class="input-icons mt-2">
+                            <i class="fa-solid fa-mobile-screen-button icon"></i>
+                            <input type="text" name="phone" formControlName="phone" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-icons mt-2">
+                            <i class="fa-solid fa-unlock icon"></i>
+                            <input type="password" class="input-field" [(ngModel)]="password" placeholder='{{ "register.password" | translate }}' [ngModelOptions]="{ standalone: true }" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-icons mt-2">
+                            <i class="fa-solid fa-unlock icon"></i>
+                            <input type="password" class="input-field" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }" placeholder='{{ "register.password_repeat" | translate }}' required />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
+                        <label class="form-check-label" for="flexSwitchCheckChecked">
               {{ "register.privacy_policy" | translate }}
             </label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <button type="submit" class="mt-4">{{ "register.login_btn" | translate }}</button>
-          </div>
-        </div>
-        <div class="row">
-          <p>
-            {{ "register.are_you_registered" | translate }}<b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="mt-4">{{ "register.login_btn" | translate }}</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <p>
+                        {{ "register.are_you_registered" | translate }}<b>
             <a [routerLink]="['../login']" data-hover="Login">{{ "register.register_btn" | translate }}</a></b>
-          </p>
+                    </p>
+                </div>
+
+            </form>
         </div>
-      </form>
     </div>
-  </div>
 </div>
