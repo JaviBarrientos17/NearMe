@@ -28,6 +28,7 @@
         "whoWeAre": "¿Quienes Somos?",
         "freqQuestions": "Preguntas Frecuentes",
         "premium": "Hazte premium",
+        "lorem_ipsum_text": "NearMe ofrece un servicio a las empresas locales para que éstas puedan darse a conocer y tengan mayor importancia a la hora de vender sus productos respecto a otras empresas internacionales a las que los productos que ofrecen pueden ser fabricados en cualquier parte del mundo.",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
@@ -115,6 +116,18 @@
         "shopping_cart_product_column": "Producto",
         "shopping_cart_price_column": "Precio",
         "shopping_cart_quantity_column": "Cantidad",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "about_us": {
+        "text_1": "NearMe ofrece un servicio a las empresas locales para que éstas puedan darse a conocer y tengan mayor importancia a la hora de vender sus productos respecto a otras empresas internacionales a las que los productos que ofrecen pueden ser fabricados en cualquier parte del mundo.",
+        "text_2": "NearMe está dirigido tanto a empresas, que quieran aumentar su popularidad y sus ventas, como a particulares que quieran comprar un producto sólo en tiendas locales dando así mayor importancia al comercio de proximidad.",
+        "text_3": "NearMe une la idea de potenciar las pequeñas y medianas empresas locales ofreciéndoles un sitio donde promocionarse a sí mismas ya sus productos, con la de formar un sitio web donde cualquier persona podrá encontrar el producto que busca fabricado únicamente en la suya región.",
+        "text_4": "Cada tienda dispondrá de un “escaparate” dentro de la web, donde se podrá encontrar información sobre la tienda, su ubicación, el enlace a su página web y, sobre todo, también se mostrarán todos los productos que tengan en la tienda. Si el cliente decide comprar en nuestra página web, NearMe ofrece también un envío a domicilio cuyo coste irá en proporción al pedido en cuestión y al coste del mismo.",
+        "who_we_are": "¿Quiénes somos?",
+        "satisfied_companies":"Empresas satisfechas",
+        "neighborhoods":"Barrios",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"

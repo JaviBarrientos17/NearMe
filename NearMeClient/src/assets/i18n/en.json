@@ -28,6 +28,7 @@
         "whoWeAre": "¿Who we are?",
         "freqQuestions": "Frequent questions",
         "premium": "Go premium",
+        "lorem_ipsum_text":"NearMe offers a service to local companies so that they can make themselves known and have greater importance when it comes to selling their products compared to other international companies to which the products they offer can be manufactured anywhere in the world.",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
@@ -108,6 +109,18 @@
         "shopping_cart_product_column": "Product",
         "shopping_cart_price_column": "Price",
         "shopping_cart_quantity_column": "Quantity",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "about_us": {
+        "text_1": "NearMe offers a service to local companies because they need to donate to be more important when it comes to selling their products compared to other international companies to whom the products they offer can be manufactured anywhere in the world.",
+        "text_2": "NearMe is aimed at both companies that want to increase their popularity and sales, as well as individuals who want to buy a product only in local stores, thus giving more importance to local trade.",
+        "text_3": "NearMe combines the idea of ​​empowering small and medium-sized local businesses by offering them a place to promote themselves and their products, with the idea of ​​forming a website where anyone can find the product they are looking for made only on their own. region.",
+        "text_4": "Each store will have a “showcase” within the web, where you can find information about the store, its location, the link to its website and, above all, all the products that they have in the store will be displayed. If the customer decides to buy on our website, NearMe also offers home delivery, the cost of which will be in proportion to the order in question and its cost.",
+        "who_we_are": "¿Who we are?",
+        "satisfied_companies":"Satisified companies",
+        "neighborhoods":"Neighborhoods",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"

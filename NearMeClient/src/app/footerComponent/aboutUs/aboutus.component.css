@@ -17,7 +17,7 @@
 }
 
 /*TEAM*/
-.member{
+.member {
     position: relative;
 }
 
@@ -98,24 +98,28 @@
     transform: translateY(0);
 }
 
-img{
+img {
     width: 100%;
 }
 
-a{
+a {
     background-color: rgb(187, 187, 187);
     border: 1px solid rgb(187, 187, 187);
     border-radius: 30px;
 
 }
 
-.team{
+.team {
     background-color:  rgb(226, 226, 226);
 }
 
-h1{
+h1 {
     font-size: 3em;
 }
-h2{
+h2 {
     font-size: 2em;
+}
+
+.pAboutUs {
+    text-align: justify;
 }
