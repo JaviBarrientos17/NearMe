@@ -2,7 +2,9 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-6">
-      <h1 class="about__title">{{ "about_us.who_we_are" | translate }}</h1>
+      <h1 class="about__title">
+        {{ "about_us.who_we_are" | translate }}
+      </h1>
     </div>
   </div>
   <div class="row mt-4">
@@ -29,13 +31,17 @@
         <div class="col-3">
           <div class="experience__item">
             <h2><b>30+</b></h2>
-            <h5 class="font-semibold">SATISFIED COMPANIES</h5>
+            <h5 class="font-semibold">
+              {{ "about_us.satisfied_companies" | translate }}
+            </h5>
           </div>
         </div>
         <div class="col-3">
           <div class="experience__item">
             <h2><b>100+</b></h2>
-            <h5 class="font-semibold">NEIGHBORGHUDS</h5>
+            <h5 class="font-semibold">
+              {{ "about_us.neighborhoods" | translate }}
+            </h5>
           </div>
         </div>
       </div>
@@ -46,7 +52,9 @@
   </div>
   <div class="team py-5 row d-flex justify-content-around mt-5">
     <div class="col-12">
-      <h2 class="text-center mb-4">Our Creative, a Rockin' Team</h2>
+      <h2 class="text-center mb-4 ourTeam">
+        {{ "about_us.our_team" | translate }}
+      </h2>
     </div>
     <div class="col-6 col-md-3">
       <div class="member">
@@ -84,7 +92,7 @@
         </div>
         <div class="member__desc px-4 pb-2">
           <h3 class="name m-0">Javi Barrientos</h3>
-          <h6 class="designation">Full Stack Developer</h6>
+          <h6 class="designation">Frontend Developer</h6>
         </div>
         <div class="member__social px-2">
           <div class="row">
@@ -137,5 +145,4 @@
     </div>
   </div>
 </div>
-
 <footer-component></footer-component>

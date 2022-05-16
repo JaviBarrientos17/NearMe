@@ -123,3 +123,7 @@ h2 {
 .pAboutUs {
     text-align: justify;
 }
+
+.ourTeam {
+    text-decoration: underline;
+}
