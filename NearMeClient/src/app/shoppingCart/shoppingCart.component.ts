@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { BaseCartItem, CheckoutPaypalSettings } from 'ng-shopping-cart';
+import { BaseCartItem } from 'ng-shopping-cart';
 import { cartService } from 'src/app/services/cart.service';
 import { ProductsService } from '../services/products.service';
 
@@ -7,7 +7,7 @@ import { ProductsService } from '../services/products.service';
   selector: 'app-root',
   templateUrl: './shoppingCart.component.html',
   styleUrls: ['./shoppingCart.component.css'],
-  providers: [BaseCartItem, cartService],
+  providers: [BaseCartItem, ProductsService, cartService],
 })
 
 export class ShoppingCartComponent {
