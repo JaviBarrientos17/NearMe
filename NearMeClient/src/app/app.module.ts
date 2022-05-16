@@ -15,7 +15,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './registerComponent/register.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
 import { ProductosComponent } from './productosComponent/productos.component';
-import { DashboardComponent } from './dashboardComponent/dashboard.component';
+import { DashboardComponent } from './companyComponent/dashboard/dashboard.component';
 import { SearchBar } from './searchBarComponent/searchBar.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -31,23 +31,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbarComponent/navbar.component';
-import { FooterComponent } from './footerComponent/footer.component';
+import { FooterComponent } from './footerComponent/footer/footer.component';
 import { SidebarFiltrosComponent } from './sidebarFiltrosComponent/sidebarFiltros.component';
 import { PremiumComponent } from './premiumComponent/premium.component';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 import { MatRadioModule } from '@angular/material/radio';
-
 import { ProductComponent } from './productComponent/product.component';
-import { ProductList } from './company/productList/productList.component';
-import { ProfileComponent } from './company/profileComponent/profile.component';
-import { FormProductComponent } from './company/formProduct/formProduct.components';
+import { ProductList } from './companyComponent/productos/productList/productList.component';
+import { ProfileComponent } from './companyComponent/profile/profile.component';
+import { FormProductComponent } from './companyComponent/productos/formProduct/formProduct.components';
 import { TiendaComponent } from './tiendaComponent/tienda.component';
 import { ShoppingCartModule } from 'ng-shopping-cart';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
 import { CustomCardItem } from 'src/model/item';
-import { SidenavComany } from './company/sidenavCompanyComponent/sidenavCompany.component';
+import { SidenavComany } from './companyComponent/sidenav/sidenavCompany.component';
+import { AboutUsComponent } from './footerComponent/aboutUs/aboutus.component';
+import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,8 @@ import { SidenavComany } from './company/sidenavCompanyComponent/sidenavCompany.
     ProfileComponent,
     FormProductComponent,
     TiendaComponent,
+    AboutUsComponent,
+    PedidosList,
   ],
 
   imports: [

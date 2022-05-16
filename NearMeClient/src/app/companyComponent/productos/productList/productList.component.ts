@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { productsDB } from 'src/app/data/products';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatTableModule } from '@angular/material/table';
 
 import { Product } from 'src/model/product';
 

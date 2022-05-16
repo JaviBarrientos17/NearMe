@@ -455,3 +455,110 @@ body {
 	font-size: .75rem;
 	color: $text-light;
 }
+
+
+
+
+
+
+
+
+/******* Sidemenu *******/
+.side-menu {
+	width: 240px;
+	z-index: 10;
+	background: #222437;
+	bottom: 0;
+	margin-top: 0;
+	padding-bottom: 30px;
+	position: fixed;
+	top: 70px;
+  }
+  
+  .side-menu .waves-effect .waves-ripple {
+	background-color: rgba(34, 36, 55, 0.4);
+  }
+  
+  #sidebar-menu {
+	padding-top: 10px;
+  }
+  
+  #sidebar-menu > ul > li.mm-active > a > span > .menu-arrow i {
+	-webkit-transform: rotate(90deg);
+			transform: rotate(90deg);
+  }
+  
+  #sidebar-menu > ul > li > a {
+	color: #b0b1b7;
+	display: block;
+	padding: 13px 20px;
+	font-size: 14px;
+	position: relative;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	font-family: "Poppins", sans-serif;
+  }
+  
+  #sidebar-menu > ul > li > a:hover, #sidebar-menu > ul > li > a:focus, #sidebar-menu > ul > li > a:active {
+	color: #f6f6f6;
+	text-decoration: none;
+  }
+  
+  #sidebar-menu > ul > li > a > span {
+	margin-left: 7px;
+  }
+  
+  #sidebar-menu > ul > li > a i {
+	line-height: 1;
+	width: 20px;
+	display: inline-block;
+	vertical-align: middle;
+  }
+  
+  #sidebar-menu > ul > li > a .badge {
+	margin-top: 3px;
+  }
+  
+  #sidebar-menu > ul > li > a.mm-active {
+	color: #f6f6f6 !important;
+	background-color: #2e304a;
+  }
+  
+  #sidebar-menu .menu-title {
+	padding: 12px 20px !important;
+	letter-spacing: 1px;
+	font-size: 10px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: #f0f4f7;
+  }
+  
+  #sidebar-menu .submenu li.mm-active > a {
+	color: #f6f6f6;
+	background-color: #222437;
+  }
+  
+  #sidebar-menu .submenu li a {
+	padding: 8px 20px 8px 10px;
+	color: #b0b1b7;
+	display: block;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+  }
+  
+  #sidebar-menu .submenu li a:focus {
+	background-color: left-bar;
+  }
+  
+  #sidebar-menu .submenu li a:hover {
+	background-color: #2e304a;
+	color: #f6f6f6;
+  }
+  
+  #sidebar-menu .submenu > li > a {
+	padding-left: 50px;
+  }
+  
+  #sidebar-menu .submenu > li .submenu > li > a {
+	padding-left: 70px;
+  }

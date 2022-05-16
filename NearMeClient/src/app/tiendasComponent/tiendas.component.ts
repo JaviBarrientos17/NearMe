@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Tienda } from 'src/model/tienda';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class TiendasComponent {
   title = 'Tiendas';
+  tiendas: Array<Tienda> = [];
 }
