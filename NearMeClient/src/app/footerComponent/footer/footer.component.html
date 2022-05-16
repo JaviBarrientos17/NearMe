@@ -11,14 +11,10 @@
           </p>
         </div>
         <div class="row">
-          <div class="col-md-4">
-            <a href="https://www.facebook.com/NearMe-116168281091148"><i class="bi bi-facebook redes"></i></a>
-          </div>
-          <div class="col-md-4">
-            <a href="https://www.instagram.com/nearmedaw2/"><i class="bi bi-instagram redes"></i></a>
-          </div>
-          <div class="col-md-4">
-            <a href="https://twitter.com/_NearMe_"><i class="bi bi-twitter redes"></i></a>
+          <div class="col-12">
+              <a href="https://www.facebook.com/NearMe-116168281091148" class="px-4"><i class="bi bi-facebook redes"></i></a>
+              <a href="https://www.instagram.com/nearmedaw2/" class="px-4"><i class="bi bi-instagram redes"></i></a>
+              <a href="https://twitter.com/_NearMe_" class="px-4"><i class="bi bi-twitter redes"></i></a>
           </div>
         </div>
       </div>
@@ -31,24 +27,24 @@
         </div>
         <div class="row">
           <div class="col-md-12 footer-links">
-            <a [routerLink]="['home']">{{ "footer.home" | translate }}</a>
+            <a [routerLink]="['..']">{{ "footer.home" | translate }}</a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 footer-links">
-            <a [routerLink]="['contacta']">
+            <a [routerLink]="['../contacta']">
               {{"footer.contact" | translate}}
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 footer-links">
-            <a [routerLink]="['cookies']">{{ "footer.cookies" | translate }}</a>
+            <a [routerLink]="['../cookies']">{{ "footer.cookies" | translate }}</a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 footer-links">
-            <a [routerLink]="['privacidad']">
+            <a [routerLink]="['../privacidad']">
               {{"footer.privacy" | translate}}
             </a>
           </div>
@@ -63,14 +59,14 @@
         </div>
         <div class="row">
           <div class="col-md-12 footer-links">
-            <a [routerLink]="['aboutus']">
+            <a [routerLink]="['../aboutus']">
               {{"footer.whoWeAre" | translate}}
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 footer-links">
-            <a [routerLink]="['faq']">
+            <a [routerLink]="['../faq']">
               {{"footer.freqQuestions" | translate}}
             </a>
           </div>
@@ -84,9 +80,11 @@
           </div>
         </div>
         <div class="row">
-          <a [routerLink]="['../premium']" class="nav-link" data-hover="Premium">
-            {{ "footer.premium" | translate }}
-          </a>
+          <div class="col-md-12 footer-links">
+            <a [routerLink]="['../premium']">
+              {{"footer.premium" | translate}}
+            </a>
+          </div>
         </div>
       </div>
     </div>
