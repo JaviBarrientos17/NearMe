@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'formProduct-component',
@@ -6,8 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['formProduct.component.css'],
 })
 export class FormProductComponent implements OnInit {
-  constructor() {}
+  constructor(protected router: Router, protected route: ActivatedRoute) {}
 
-  ngOnInit() {}
-  //TODO
+  productForm!: FormGroup;
+
+  private initForm() {
+    this.productForm = new FormGroup({
+      productReference: new FormControl(''),
+      productName: new FormControl(''),
+      productPrice: new FormControl([
+        Validators.required,
+        Validators.minLength(100),
+      ]),
+      productDescription: new FormControl(''),
+      productCategory: new FormControl(''),
+      productImage: new FormControl(''),
+      productActive: new FormControl(''),
+      productStock: new FormControl(''),
+    });
+  }
+
+  workerId: number | undefined;
+  ngOnInit() {
+    this.initForm();
+  }
+  onSubmit() {}
 }

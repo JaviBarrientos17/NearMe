@@ -13,6 +13,7 @@ import { RegisterComponent } from './registerComponent/register.component';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
 import { TiendaComponent } from './tiendaComponent/tienda.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
+import { FormProductComponent } from './company/formProduct/formProduct.components';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'product/:idProduct', component: ProductComponent },
   { path: 'shoppingCart', component: ShoppingCartComponent },
   { path: 'dashboard/companyProfile', component: ProfileComponent },
-  { path: 'dashboard/newProduct', component: ProfileComponent },
+  { path: 'dashboard/newProduct', component: FormProductComponent },
   { path: 'dashboard/productList', component: ProductList },
 ];
 

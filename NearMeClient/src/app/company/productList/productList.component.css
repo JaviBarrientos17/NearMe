@@ -4,3 +4,47 @@
     background-size:cover;
     
   }
+
+.tableProducts{
+    width: 100%;
+}
+
+.table-inside{
+  overflow-x: auto;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 4px,
+  rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+
+tr {
+  min-height: 40px;
+}
+
+
+@media (max-width: 1439px) {
+  .table-inside .ltXxl\:responsive {
+    width: 1439px;
+  }
+}
+@media (max-width: 1199px) {
+  .table-inside .ltXl\:responsive {
+    width: 1199px;
+  }
+}
+@media (max-width: 991px) {
+  .table-inside .ltLg\:responsive {
+    width: 991px;
+  }
+}
+@media (max-width: 767px) {
+  .table-inside .ltMd\:responsive {
+    width: 767px;
+  }
+}
+@media (max-width: 575px) {
+  .table-inside .ltSm\:responsive {
+    width: 575px;
+  }
+}
+

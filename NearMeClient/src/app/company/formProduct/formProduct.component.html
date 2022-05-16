@@ -1,1 +1,104 @@
-<div class="container"></div>
+<app-navbar></app-navbar>
+<div class="fondo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2" style="padding: 0">
+        <sidenavCompany-component></sidenavCompany-component>
+      </div>
+      <div class="col-md-10 px-5">
+        <div class="row mt-4">
+          <div class="col-3 my-auto">
+            <h1 class="m-0">Añadir Producto</h1>
+          </div>
+          <div class="col-1">
+            <button
+              mat-fab
+              color="primary"
+              aria-label=""
+              routerLink="/dashboard/newProduct"
+            >
+              <i class="fa-solid fa-file-csv"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mainContainer p-4">
+            <div class="col-xs-12">
+              <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-sm-2 form-group">
+                    <label class="m-2" for="productReference">Reference</label>
+                    <input
+                      type="text"
+                      id="productReference"
+                      class="form-control"
+                      formControlName="productReference"
+                    />
+                  </div>
+
+                  <div class="col-sm-3 form-group">
+                    <label class="m-2" for="productName">Name</label>
+                    <input
+                      type="text"
+                      id="productName"
+                      class="form-control"
+                      formControlName="productName"
+                    />
+                  </div>
+                  <div class="col-sm-2 form-group">
+                    <label class="m-2" for="productPrice">Price</label>
+                    <input
+                      type="number"
+                      id="productPrice"
+                      class="form-control"
+                      formControlName="productPrice"
+                    />
+                  </div>
+                  <div class="col-sm-6 form-group">
+                    <label class="m-2" for="productDescription"
+                      >Description</label
+                    >
+                    <input
+                      type="text"
+                      id="productDescription"
+                      class="form-control"
+                      formControlName="productDescription"
+                    />
+                  </div>
+                  <div class="col-sm-2 form-group">
+                    <label class="m-2" for="productCategory">Category</label>
+                    <input
+                      type="text"
+                      id="productCategory"
+                      class="form-control"
+                      formControlName="productCategory"
+                    />
+                  </div>
+                  <div class="col-sm-2 form-group">
+                    <label class="m-2" for="productStock">Stock</label>
+                    <input
+                      type="number"
+                      id="productStock"
+                      class="form-control"
+                      formControlName="productStock"
+                    />
+                  </div>
+                  <mat-slide-toggle class="m-2"
+                    >Activar Producto</mat-slide-toggle
+                  >
+                </div>
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <button class="btn btnSave" type="submit">Add</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer-component></footer-component>
+</div>
