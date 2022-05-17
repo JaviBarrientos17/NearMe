@@ -10,9 +10,12 @@ import { Subject } from 'rxjs';
   selector: 'app-root',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [UserService]
+  providers: [UserService],
 })
 export class LoginComponent implements OnInit, OnDestroy {
+  onSubmit() {
+    throw new Error('Method not implemented.');
+  }
   private unsubscribe: Subject<void> = new Subject();
   public loginForm: FormGroup;
   public submitted = false;
@@ -24,7 +27,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * Gets loginForm fields
    */
-  get fields(): any { return this.loginForm.controls; }
+  get fields(): any {
+    return this.loginForm.controls;
+  }
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -40,7 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
 
     // get return url or default to '/'
@@ -59,10 +64,15 @@ export class LoginComponent implements OnInit, OnDestroy {
     //   break;
     // }
 
-alert('test');
-    this.authenticationService.login(this.fields.username.value, this.fields.password.value)
-      .pipe(first()).pipe(takeUntil(this.unsubscribe), catchError(e => this.error = e)).subscribe(data => {
-
+    alert('test');
+    this.authenticationService
+      .login(this.fields.username.value, this.fields.password.value)
+      .pipe(first())
+      .pipe(
+        takeUntil(this.unsubscribe),
+        catchError((e) => (this.error = e))
+      )
+      .subscribe((data) => {
         this.router.navigate([this.returnUrl]);
       });
   }
