@@ -7,8 +7,8 @@ import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.scss']
+  templateUrl: 'register.component.html',
+  styleUrls: ['register.component.css']
 })
 export class CreateUserComponent implements OnInit, OnDestroy {
   public createUserForm: FormGroup;
@@ -23,6 +23,9 @@ export class CreateUserComponent implements OnInit, OnDestroy {
       email: ['', [Validators.required, Validators.email]],
       name: [''],
       surname: [''],
+      phone: [''],
+      password: [''],
+
     });
   }
 

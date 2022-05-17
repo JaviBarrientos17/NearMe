@@ -51,13 +51,13 @@ export class LoginComponent implements OnInit, OnDestroy {
    * Determines whether submit on
    * @returns void
    */
-  onSubmit(): null {
+  onSubmit(): void {
     this.submitted = true;
 
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
+    // // stop here if form is invalid
+    // if (this.loginForm.invalid) {
+    //   break;
+    // }
 
 
     this.authenticationService.login(this.fields.username.value, this.fields.password.value)

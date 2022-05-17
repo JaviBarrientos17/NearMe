@@ -66,7 +66,7 @@
                     <div class="col">
                         <div class="input-icons mt-2">
                             <i class="fa-solid fa-unlock icon"></i>
-                            <input type="password" class="input-field" [(ngModel)]="password" placeholder='{{ "register.password" | translate }}' [ngModelOptions]="{ standalone: true }" required />
+                            <input type="password" class="input-field" formControlName="password" placeholder='{{ "register.password" | translate }}' required />
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <div class="col">
                         <div class="input-icons mt-2">
                             <i class="fa-solid fa-unlock icon"></i>
-                            <input type="password" class="input-field" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }" placeholder='{{ "register.password_repeat" | translate }}' required />
+                            <input type="password" class="input-field" placeholder='{{ "register.password_repeat" | translate }}' required />
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './loginComponent/login.component';
 import { HomeComponent } from './homeComponent/home.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterComponent } from './registerComponent/register.component';
+import { CreateUserComponent } from './registerComponent/register.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
 import { ProductosComponent } from './productosComponent/productos.component';
 import { DashboardComponent } from './companyComponent/dashboard/dashboard.component';
@@ -55,7 +55,7 @@ import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
+    CreateUserComponent,
     TiendasComponent,
     ProductosComponent,
     DashboardComponent,
