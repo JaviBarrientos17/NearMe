@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    * Determines whether submit on
    * @returns void
    */
-  onSubmit(): void {
+  ClickOnSubmit(): void {
     this.submitted = true;
 
     // // stop here if form is invalid
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     //   break;
     // }
 
-
+alert('test');
     this.authenticationService.login(this.fields.username.value, this.fields.password.value)
       .pipe(first()).pipe(takeUntil(this.unsubscribe), catchError(e => this.error = e)).subscribe(data => {
 

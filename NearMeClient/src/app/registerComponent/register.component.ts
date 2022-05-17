@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { catchError, takeUntil } from 'rxjs/operators';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -13,7 +14,9 @@ import { Subject } from 'rxjs';
 export class CreateUserComponent implements OnInit, OnDestroy {
   public createUserForm: FormGroup;
   private unsubscribe: Subject<void> = new Subject();
+
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private userService: UserService,
     private toastService: ToastService) { }
@@ -32,12 +35,17 @@ export class CreateUserComponent implements OnInit, OnDestroy {
   /**
    * On submit form creates a new user and shows a success or error message
    */
-  onSubmit(): void {
+  clickSubmit(): any {
+  
     this.userService.createUser(this.createUserForm.value).pipe(takeUntil(this.unsubscribe)).subscribe(data => {
+
       this.showUserCreatedMessage();
       this.createUserForm.reset();
       this.createUserForm.controls.email.setValue('');
+      this.router.navigate(['/']);
+
     }, error => this.showUserCreatedError(error));
+
   }
 
   /**

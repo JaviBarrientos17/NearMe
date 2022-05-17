@@ -46,9 +46,10 @@ export class UserService implements OnDestroy {
    * @param data CreateUserRequest
    * @returns Observable
    */
-  createUser(data: CreateUserRequest): any {
+  createUser(data: CreateUserRequest): any {    
     return this.http.post(`${this.apiUrl}/users/add-user`, data);
   }
+  
   /**
    * Updates user
    * @param data user data

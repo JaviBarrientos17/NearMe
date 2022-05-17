@@ -15,7 +15,7 @@
                     <p>{{ "register.loginSession" | translate }}</p>
                 </div>
             </div>
-            <form class="formLogin" #loginUserForm="ngForm" [formGroup]="createUserForm">
+            <form class="formLogin" [formGroup]="createUserForm">
                 <div class="row">
                     <div class="col-6">
                         <div class="input-icons inputRight">
@@ -78,17 +78,20 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row mt-4">
-                    <div class="form-check form-switch">
+                    <!-- <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked />
                         <label class="form-check-label" for="flexSwitchCheckChecked">
               {{ "register.privacy_policy" | translate }}
             </label>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button type="submit" class="mt-4">{{ "register.login_btn" | translate }}</button>
+                        <button (click)="clickSubmit()" class="mt-4">
+                            {{ "register.register" | translate }}
+                        </button>
                     </div>
                 </div>
                 <div class="row">
@@ -97,8 +100,8 @@
             <a [routerLink]="['../login']" data-hover="Login">{{ "register.register_btn" | translate }}</a></b>
                     </p>
                 </div>
-
             </form>
+
         </div>
     </div>
 </div>

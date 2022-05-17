@@ -24,7 +24,7 @@
                 <div *ngIf="submitted && fields.password.errors " class="invalid-feedback ">
                     <div *ngIf="fields.password.errors.required ">{{'login.passwordRequired' | translate }}</div>
                 </div>
-                <button padding="10px " (onClick)="onSubmit() " class="mt-4 ">
+                <button padding="10px " (click)="ClickOnSubmit() " class="mt-4 ">
                 </button>
             </form>
 
