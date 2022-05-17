@@ -45,34 +45,36 @@ public class UserService {
 	 * @throws Exception
 	 */
 	@Transactional
-	public UserDTO createUser(CreateUserRequestDTO createUserRequestDTO)  throws Exception {	
+	public UserDTO createUser(CreateUserRequestDTO createUserRequestDTO) throws Exception {
 		UserDTO userToCreate = new UserDTO();
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		if (this.userRepository.findByUsername(createUserRequestDTO.getEmail()).isPresent()) {
 			log.warn("User with email " + createUserRequestDTO.getEmail() + " already exists");
 			throw new Exception("User with email " + createUserRequestDTO.getEmail() + " already exists");
 		} else {
-		// campos entity requieren validacion dto
-		log.info("Creating a new user - " + createUserRequestDTO.getEmail());
-		userToCreate.setUsername(createUserRequestDTO.getEmail());
-		userToCreate.setMail(createUserRequestDTO.getEmail());
-		userToCreate.setPassword(createUserRequestDTO.getPassword());
-		userToCreate.setName(createUserRequestDTO.getName());
-		userToCreate.setSurname(createUserRequestDTO.getSurname());
-		userToCreate.setPhone(createUserRequestDTO.getPhone());
-		log.info("Creating a new user model - " + userToCreate.toString());
-		UserEntity userEntity = UserMapper.INSTANCE.dtoToEntity(userToCreate);
-		userEntity.setStatus(UserStatusType.ENABLED);
-		userEntity.setRoles(Arrays.asList(RoleType.ROLE_CLIENT.toString()));
-		userEntity.setLast_passwd_gen(timestamp);
-		userEntity.setPhone(createUserRequestDTO.getPhone());
-		this.userRepository.save(userEntity);
-		log.info("User Created  - " + userEntity.toString());
-		UserDTO userCreated = UserMapper.INSTANCE.entityToDto(userEntity);
-		userCreated.setPassword(null);
-		return userCreated;
+			log.info("Creating a new user - " + createUserRequestDTO.getEmail());
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String hashedPassword = passwordEncoder.encode(createUserRequestDTO.getPassword());
+			userToCreate.setPassword(hashedPassword);
+			userToCreate.setUsername(createUserRequestDTO.getEmail());
+			userToCreate.setMail(createUserRequestDTO.getEmail());
+			userToCreate.setName(createUserRequestDTO.getName());
+			userToCreate.setSurname(createUserRequestDTO.getSurname());
+			userToCreate.setPhone(createUserRequestDTO.getPhone());
+			log.info("Creating a new user model - " + userToCreate.toString());
+			UserEntity userEntity = UserMapper.INSTANCE.dtoToEntity(userToCreate);
+			userEntity.setStatus(UserStatusType.ENABLED);
+			userEntity.setRoles(Arrays.asList(RoleType.ROLE_CLIENT.toString()));
+			userEntity.setLast_passwd_gen(timestamp);
+			userEntity.setPhone(createUserRequestDTO.getPhone());
+			this.userRepository.save(userEntity);
+			log.info("User Created  - " + userEntity.toString());
+			UserDTO userCreated = UserMapper.INSTANCE.entityToDto(userEntity);
+			userCreated.setPassword(null);
+			return userCreated;
 		}
 	}
+
 
 	/**
 	 * Update an existing user
@@ -314,6 +316,8 @@ public class UserService {
 			}
 			return null;
 		}
-	}
 
+		// I want a function to print a crismas tree pattern in console
+
+	}
 }
