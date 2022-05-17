@@ -31,7 +31,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbarComponent/navbar.component';
-import { FooterComponent } from './footerComponent/footer/footer.component';
 import { SidebarFiltrosComponent } from './sidebarFiltrosComponent/sidebarFiltros.component';
 import { PremiumComponent } from './premiumComponent/premium.component';
 export function createTranslateLoader(http: HttpClient) {
@@ -49,6 +48,9 @@ import { CustomCardItem } from 'src/model/item';
 import { SidenavComany } from './companyComponent/sidenav/sidenavCompany.component';
 import { AboutUsComponent } from './footerComponent/aboutUs/aboutus.component';
 import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.component';
+import { VentasSemanalesComponent } from './companyComponent/charts/cirWeekSalesChart/ventasSemanales.component';
+import { BarSalesChartComponent } from './companyComponent/charts/barSalesChart/barSalesChart.component';
+import { FooterComponent } from './footerComponent/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,8 @@ import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.
     TiendaComponent,
     AboutUsComponent,
     PedidosList,
+    VentasSemanalesComponent,
+    BarSalesChartComponent
   ],
 
   imports: [
