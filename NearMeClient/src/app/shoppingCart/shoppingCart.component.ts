@@ -14,7 +14,11 @@ export class ShoppingCartComponent {
   title = 'ShoppingCart';
   cartItems = new BaseCartItem();
   total = 0;
-  idProduct:any = 1;
+  idItem:any = 1;
+  nameItem: string = "";
+  priceItem: number = 0;
+  quantityItem: number = 1;
+  imageItem: string = "";
 
   cartItemsArray = [
     new BaseCartItem({
@@ -39,7 +43,7 @@ export class ShoppingCartComponent {
     // this.cartItems.setId(1);
 
     // TODO COMPROBAR SI RECIBE LOS DATOS DEL PRODUCTO
-    this.productService.getProductsById(this.idProduct).subscribe(
+    this.productService.getProductsById(this.idItem).subscribe(
       (data) => {
         // this.cartItems.setName(
         //   this.productService.getProductsById(this.idProduct: Number).subscribe(
@@ -50,6 +54,18 @@ export class ShoppingCartComponent {
         //     },
         //   )
         // );
+
+        this.cartItems.setId(this.idItem);
+        this.cartItems.setName(this.nameItem);
+        this.cartItems.setPrice(this.priceItem);
+        this.cartItems.setQuantity(this.quantityItem);
+        this.cartItems.setImage(this.imageItem);
+
+        // this.cartItems.setId("1");
+        // this.cartItems.setName("Zapas Nike");
+        // this.cartItems.setPrice(10);
+        // this.cartItems.setQuantity(1);
+        // this.cartItems.setImage("https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
 
         console.log(JSON.parse(JSON.stringify(this.cartItems)));
 
