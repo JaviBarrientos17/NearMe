@@ -133,6 +133,4 @@ public class AuthService {
 		UserDetails userDetail = (UserDetails) principal;
 		return userDetail;
 	}
-
-
 }

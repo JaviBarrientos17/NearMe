@@ -9,7 +9,7 @@ import { PremiumComponent } from './premiumComponent/premium.component';
 import { ProductComponent } from './productComponent/product.component';
 
 import { ProductosComponent } from './productosComponent/productos.component';
-import { RegisterComponent } from './registerComponent/register.component';
+import { CreateUserComponent } from './registerComponent/register.component';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
 import { TiendaComponent } from './tiendaComponent/tienda.component';
 import { TiendasComponent } from './tiendasComponent/tiendas.component';
@@ -20,7 +20,7 @@ import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'register', component: CreateUserComponent },
   { path: 'tiendas', component: TiendasComponent },
   { path: 'tienda', component: TiendaComponent },
   { path: 'productos', component: ProductosComponent },

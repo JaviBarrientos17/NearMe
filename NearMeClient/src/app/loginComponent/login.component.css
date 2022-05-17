@@ -2,123 +2,119 @@
 
 /*TODO*/
 
-
 h1 {
-	font-weight: bold;
-	margin: 0;
+    font-weight: bold;
+    margin: 0;
 }
 
 h2 {
-	text-align: center;
+    text-align: center;
 }
 
 p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
 }
 
 span {
-	font-size: 12px;
+    font-size: 12px;
 }
 
 a {
-	color: #333;
-	font-size: 14px;
-	text-decoration: none;
-	margin: 15px 0;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
 }
 
-.colInputs{
-	text-align: center;
-	
+.colInputs {
+    text-align: center;
 }
 
 .nearmeLogoSmall {
-	width: 40%;
+    width: 40%;
 }
 
 button {
-	border-radius: 30px;
-	border: 1px solid #fd9f48;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-	background-color: white;
-	color: black;
-	font-size: 14px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	width: 70%;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
+    border-radius: 30px;
+    border: 1px solid #fd9f48;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    width: 70%;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
 }
 
 button:active {
-	transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 button:focus {
-	outline: none;
+    outline: none;
 }
 
 button.ghost {
-	background-color: transparent;
-	border-color: black;
+    background-color: transparent;
+    border-color: black;
 }
 
 input {
-	border-radius: 30px;
+    border-radius: 30px;
 }
 
-.inline{
-	max-width:400px;
-	margin:auto;
+.inline {
+    max-width: 400px;
+    margin: auto;
 }
+
 .input-icons i {
-	position: absolute;
-}
-  
-.input-icons {
-	width: 100%;
-}
-  
-.icon {
-	padding: 13px;
-	min-width: 40px;
-}
-  
-.input-field {
-	width: 70%;
-	max-width: 500px;
-	padding: 10px;
-	text-align: center;
-	margin-bottom: 3px;
+    position: absolute;
 }
 
-.socialNetworkImg{
-	width: 50px;
-	border-radius: 30px;
-	border: 1px solid #fd9f48;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-	background-color: white;
-	padding: 10px;
-	margin: 0px 20px;
+.input-icons {
+    width: 100%;
+}
+
+.icon {
+    padding: 13px;
+    min-width: 40px;
+}
+
+.input-field {
+    width: 70%;
+    max-width: 500px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.socialNetworkImg {
+    width: 50px;
+    border-radius: 30px;
+    border: 1px solid #fd9f48;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: white;
+    padding: 10px;
+    margin: 0px 20px;
 }
 
 .spanLinks {
-	font-size: 15px;
+    font-size: 15px;
 }
 
 .backgroundLogin {
-	background-image: url('../../assets/barcelonaLogin.png');
-	height: 100%;
-	max-width: 100%;
-	border-radius: 0px 30px 30px 0px;
-	height: auto;
-	background-size: cover;
-
-  }
+    background-image: url('../../assets/barcelonaLogin.png');
+    height: 100%;
+    max-width: 100%;
+    border-radius: 0px 30px 30px 0px;
+    height: auto;
+    background-size: cover;
+}
