@@ -9,10 +9,27 @@
               <table class="table table-striped shoppingCartTable">
                 <thead>
                   <tr>
-                    <th class="imgColumn">{{ "shopping_cart.shopping_cart_image_column" | translate }}</th>
-                    <th class="productColumn">{{ "shopping_cart.shopping_cart_product_column" | translate }}</th>
-                    <th class="quantityColumn">{{ "shopping_cart.shopping_cart_quantity_column" | translate }}</th>
-                    <th class="priceColumn">{{ "shopping_cart.shopping_cart_price_column" | translate }}</th>
+                    <th class="imgColumn">
+                      {{
+                        "shopping_cart.shopping_cart_image_column" | translate
+                      }}
+                    </th>
+                    <th class="productColumn">
+                      {{
+                        "shopping_cart.shopping_cart_product_column" | translate
+                      }}
+                    </th>
+                    <th class="quantityColumn">
+                      {{
+                        "shopping_cart.shopping_cart_quantity_column"
+                          | translate
+                      }}
+                    </th>
+                    <th class="priceColumn">
+                      {{
+                        "shopping_cart.shopping_cart_price_column" | translate
+                      }}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -20,11 +37,15 @@
                   <!-- TODO MIRAR PORQUE NO MUESTRA EL NOMBRE NI LA IMG -->
                   <tr *ngFor="let item of cartItemsArray">
                     <td>
-                      <img src="{{item.image}}" alt="Img of a product" class="img-responsive"/>
+                      <img
+                        src="{{ item.image }}"
+                        alt="Img of a product"
+                        class="img-responsive"
+                      />
                     </td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.price | currency:'EUR':true}}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price | currency: "EUR":true }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -32,7 +53,9 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <h3 id="orderTotal" class="orderTotal">Order Total: {{total | currency:'EUR':true}}</h3>
+              <h3 id="orderTotal" class="orderTotal">
+                Order Total: {{ total | currency: "EUR":true }}
+              </h3>
             </div>
           </div>
           <div class="row">

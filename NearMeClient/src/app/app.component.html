@@ -1,1 +1,156 @@
+<ng-container *ngIf="router.url != '/dashboard'">
+  <body>
+    <div>
+      <aside class="sidebarClient">
+        <div class="toggle">
+          <a
+            id="js-menu-toggle"
+            class="burger js-menu-toggle"
+            data-toggle="collapse"
+            data-target="#main-navbar"
+            onclick="toggleClient()"
+          >
+            <span></span>
+          </a>
+        </div>
+        <div class="side-inner">
+          <div class="profile">
+            <img
+              src="images/person_profile.jpg"
+              alt="Image"
+              class="img-fluid"
+            />
+            <h3 class="name">Debby Williams</h3>
+            <span class="country">New York, USA</span>
+          </div>
+
+          <div class="counter d-flex justify-content-center">
+            <div class="row justify-content-center">
+              <div class="col">
+                <strong class="number">892</strong>
+                <span class="number-label">Posts</span>
+              </div>
+              <div class="col">
+                <strong class="number">22.5k</strong>
+                <span class="number-label">Followers</span>
+              </div>
+              <div class="col">
+                <strong class="number">150</strong>
+                <span class="number-label">Following</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-menu">
+            <ul>
+              <li class="active">
+                <a href="#"><span class="icon-home mr-3"></span>Feed</a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-search2 mr-3"></span>Explore</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><span class="icon-notifications mr-3"></span>Notifications</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><span class="icon-location-arrow mr-3"></span>Direct</a
+                >
+              </li>
+              <li>
+                <a href="#"><span class="icon-pie-chart mr-3"></span>Stats</a>
+              </li>
+              <li>
+                <a href="#"><span class="icon-sign-out mr-3"></span>Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </body>
+</ng-container>
+<ng-container *ngIf="router.url === '/dashboard'">
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar" class="active">
+      <h1><a href="index.html" class="logo">M.</a></h1>
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a href="#"><span class="fa fa-home"></span> Home</a>
+        </li>
+        <li>
+          <a href="#"><span class="fa fa-user"></span> About</a>
+        </li>
+        <li>
+          <a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
+        </li>
+        <li>
+          <a href="#"><span class="fa fa-cogs"></span> Services</a>
+        </li>
+        <li>
+          <a href="#"><span class="fa fa-paper-plane"></span> Contacts</a>
+        </li>
+      </ul>
+
+      <div class="footer">
+        <p>
+          Copyright &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All rights reserved | This template is made with
+          <i class="icon-heart" aria-hidden="true"></i> by
+          <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+        </p>
+      </div>
+    </nav>
+
+    <div id="content" class="p-4 p-md-5">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button
+            type="button"
+            id="sidebarCollapse"
+            class="btn btn-primary"
+            onclick="toggleCompany()"
+          >
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+          <button
+            class="btn btn-dark d-inline-block d-lg-none ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</ng-container>
+
 <router-outlet></router-outlet>
