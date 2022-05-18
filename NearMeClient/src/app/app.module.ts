@@ -51,6 +51,8 @@ import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.
 import { VentasSemanalesComponent } from './companyComponent/charts/cirWeekSalesChart/ventasSemanales.component';
 import { BarSalesChartComponent } from './companyComponent/charts/barSalesChart/barSalesChart.component';
 import { FooterComponent } from './footerComponent/footer/footer.component';
+import { SliderComponent } from './slider/slider.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ import { FooterComponent } from './footerComponent/footer/footer.component';
     AboutUsComponent,
     PedidosList,
     VentasSemanalesComponent,
-    BarSalesChartComponent
+    BarSalesChartComponent,
+    SliderComponent
   ],
 
   imports: [
@@ -115,6 +118,7 @@ import { FooterComponent } from './footerComponent/footer/footer.component';
         clearOnError: true,
       },
     }),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
