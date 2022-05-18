@@ -51,6 +51,7 @@ import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.
 import { VentasSemanalesComponent } from './companyComponent/charts/cirWeekSalesChart/ventasSemanales.component';
 import { BarSalesChartComponent } from './companyComponent/charts/barSalesChart/barSalesChart.component';
 import { FooterComponent } from './footerComponent/footer/footer.component';
+import { SliderComponent } from './slider/slider.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -77,7 +78,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AboutUsComponent,
     PedidosList,
     VentasSemanalesComponent,
-    BarSalesChartComponent
+    BarSalesChartComponent,
+    SliderComponent,
   ],
 
   imports: [
