@@ -28,5 +28,5 @@ public class ProductDTO {
     String dateAdded;
     @Size(min = 0, max = 250)
     String imgUrl;
-  
+   
 }
