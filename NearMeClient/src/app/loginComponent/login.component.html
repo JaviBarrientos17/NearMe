@@ -1,4 +1,5 @@
 <div class="container">
+
     <div class="row">
         <div class="col-md-6 colInputs">
             <div class="row">
@@ -20,6 +21,55 @@
                     <i class="fa-solid fa-unlock icon"></i>
                     <input class="input-field" type="password" name="password" formControlName="password" placeholder='{{ " register.password " | translate }}' required />
                 </div>
+
+  <div class="row">
+    <div class="col-md-6 colInputs">
+      <div class="row">
+        <div class="col">
+          <h2>{{ "register.welcome" | translate }}</h2>
+          <img
+            src="assets/NearMe_logo.png"
+            class="nearmeLogoSmall"
+            alt="nearmeLogo"
+          />
+          <p>{{ "register.loginSession" | translate }}</p>
+        </div>
+      </div>
+      <form
+        class="formLogin"
+        #loginUserForm="ngForm"
+        name="loginUserForm"
+        (ngSubmit)="sendLoginUserData(); loginUserForm.reset()"
+      >
+        <div class="input-icons">
+          <i class="fa fa-user icon"></i>
+          <input
+            type="email"
+            class="input-field"
+            name="inputEmail"
+            placeholder="{{ 'register.email' | translate }}"
+            [(ngModel)]="email"
+            [ngModelOptions]="{ standalone: true }"
+            required
+          />
+        </div>
+        <div class="input-icons mt-2">
+          <i class="fa-solid fa-unlock icon"></i>
+          <input
+            type="password"
+            class="input-field"
+            name="inputPassword"
+            [(ngModel)]="password"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder="{{ 'register.password' | translate }}"
+            required
+          />
+        </div>
+        <button type="submit" class="mt-4">
+          {{ "register.login_btn" | translate }}
+        </button>
+      </form>
+
 
                 <div *ngIf="submitted && fields.password.errors " class="invalid-feedback ">
                     <div *ngIf="fields.password.errors.required ">{{'login.passwordRequired' | translate }}</div>

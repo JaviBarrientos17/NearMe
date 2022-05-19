@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { cartService } from './services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,5 @@ import { cartService } from './services/cart.service';
 })
 export class AppComponent {
   title = 'NearMe';
+  constructor(public router: Router) {}
 }
