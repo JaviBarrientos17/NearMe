@@ -59,7 +59,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   ClickOnSubmit(): void {
     this.submitted = true;
 
-    alert('test');
+
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+
     this.authenticationService
       .login(this.fields.username.value, this.fields.password.value)
       .pipe(first())

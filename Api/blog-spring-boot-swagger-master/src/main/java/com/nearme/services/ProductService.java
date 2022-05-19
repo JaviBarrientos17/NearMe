@@ -2,6 +2,7 @@ package com.nearme.services;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 import com.nearme.mappers.ProductMapper;
@@ -18,6 +19,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -176,7 +179,7 @@ public class ProductService {
 	}
 
 	/**
-	 * Upload profile image
+	 * 
 	 * 
 	 * @param file
 	 * @return
@@ -184,19 +187,24 @@ public class ProductService {
 	 */
 	@Transactional
 	public Boolean uploadImage(MultipartFile file, Integer idProduct) throws IOException {
-		ProductDTO productDTO = getProductById(idProduct);
-		ProductEntity productEntity;
+
+		ProductEntity productEntity = productRepository.findById(idProduct).get();
+		;
 
 		if (!checkImageFile(file)) {
 			return false;
 		}
+		// I want a timestamp to name the image
+		String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
+		String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
 		String fileName = StringUtils
-				.cleanPath(productDTO.getIdProduct() + "-" + productDTO.getName() + "-" + file.getOriginalFilename());
+				.cleanPath(productEntity.getIdProduct() + "-" + productEntity.getName() + "-"
+						+ timestamp + "-" + productEntity.getIdSupplier() + "." +
+						fileType);
 
 		Path path = Paths.get(imagesPath + fileName);
-		productDTO.setImgUrl(fileName);
-		productEntity = ProductMapper.INSTANCE.dtoToEntity(productDTO);
+		productEntity.setImgUrl(fileName);
 		productRepository.save(productEntity);
 		log.info("Product url " + productEntity.getImgUrl() + " has been saved in the db.");
 		Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
