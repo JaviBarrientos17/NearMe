@@ -11,7 +11,7 @@ export class VentasSemanalesComponent implements OnInit {
     public chart:any = null;
 
     ngOnInit(): void {
-        Chart.defaults.font.size = 16;
+        Chart.defaults.font.size = 15;
         this.chart = new Chart('donutChart', {
             type: 'doughnut',
             data: {
@@ -41,7 +41,7 @@ export class VentasSemanalesComponent implements OnInit {
             options: {
                 plugins: {
                     legend: {
-                        display: true,
+                        display: false,
                     },
                     title: {
                         display: true,

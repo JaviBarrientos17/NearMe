@@ -1,0 +1,10 @@
+#donutChart {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 10px;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
