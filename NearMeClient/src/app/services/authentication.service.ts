@@ -107,7 +107,7 @@ export class AuthenticationService implements OnDestroy {
     }
 
     // decode token to read the payload details
-    const decodeToken: any = jwt_decode(this.currentUserValue.token); 
+    const decodeToken: any = jwt_decode(this.currentUserValue.token);
     // check if it was decoded successfully, if not the token is not valid, deny access
     if (!decodeToken) {
       console.log('Invalid token');
