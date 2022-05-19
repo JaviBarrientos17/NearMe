@@ -59,11 +59,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ClickOnSubmit(): void {
     this.submitted = true;
 
-    // // stop here if form is invalid
-    // if (this.loginForm.invalid) {
-    //   break;
-    // }
-
     alert('test');
     this.authenticationService
       .login(this.fields.username.value, this.fields.password.value)

@@ -1,4 +1,5 @@
 package com.nearme.services;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -183,21 +184,21 @@ public class ProductService {
 	 */
 	@Transactional
 	public Boolean uploadImage(MultipartFile file, Integer idProduct) throws IOException {
-		ProductDTO productDTO  = getProductById(idProduct);
+		ProductDTO productDTO = getProductById(idProduct);
 		ProductEntity productEntity;
-	
+
 		if (!checkImageFile(file)) {
 			return false;
 		}
+
 		String fileName = StringUtils
 				.cleanPath(productDTO.getIdProduct() + "-" + productDTO.getName() + "-" + file.getOriginalFilename());
 
 		Path path = Paths.get(imagesPath + fileName);
 		productDTO.setImgUrl(fileName);
-		log.info("Product url " + productDTO.getImgUrl() + " has been saved in the db.");
 		productEntity = ProductMapper.INSTANCE.dtoToEntity(productDTO);
+		productRepository.save(productEntity);
 		log.info("Product url " + productEntity.getImgUrl() + " has been saved in the db.");
-		productRepository.save (productEntity);
 		Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
 		log.info("File " + fileName + " has been saved in the storage and db.");
 		log.info("Product url " + productEntity.getImgUrl() + " has been saved in the db.");
@@ -224,5 +225,6 @@ public class ProductService {
 			return false;
 		}
 		return true;
+
 	}
 }
