@@ -1,5 +1,5 @@
 .divCarousel {
-  border-radius: 30px;
+  /* border-radius: 10%; */
   border: 2px solid black;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
   rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -12,13 +12,16 @@
   margin-bottom: 10px;
 }
 
-.imgGallery {
-  border-radius: 30px;
-}
+/* TODO BORDER-RADIUS PARA EL DIV DEL CAROUSEL */
+/*.imgGallery {
+  border-radius: 10%;
+} */
 
 img {
   width: 100%;
   height: 60%;
+  /* TODO BORDER-RADIUS PARA LA IMG */
+  /* border-radius: 10%; */
 }
 
 .carousel-control-prev-icon,
