@@ -12,6 +12,7 @@ export class BarSalesChartComponent implements OnInit {
     public chart:any = null;
 
     ngOnInit(): void {
+        Chart.defaults.font.size = 18;
         this.chart = new Chart('barChart', {
             type: 'bar',
             data: {
