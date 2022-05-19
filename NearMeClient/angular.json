@@ -34,29 +34,19 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-
             ],
-            "scripts": ["node_modules/jquery/dist/jquery.min.js",
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/sidenav.js",
               "src/assets/js/sidenavClient.js",
-              "src/assets/js/sidenavCompany.js"]
+              "src/assets/js/sidenavCompany.js",
+              "src/assets/js/sidenav.js"
+
+            ]
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -109,6 +99,14 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/NearMe",
+            "netlifyToken": "0VT4fYR41y_lzrSvc9m_1ty-OMqUDmMAlR7FOp-TzzA",
+            "siteId": "74ec6981-444c-4b71-baf5-13d893f76cfb"
           }
         }
       }
