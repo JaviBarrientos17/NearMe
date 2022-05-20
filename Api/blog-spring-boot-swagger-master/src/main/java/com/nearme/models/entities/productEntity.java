@@ -44,5 +44,4 @@ public class ProductEntity {
     @Column(name = "img_url")
     private String imgUrl;
 
-
 }
