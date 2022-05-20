@@ -28,18 +28,17 @@ export class ProductList implements OnInit {
   view = 'list';
   products!: {
     idProduct: number;
-    id_supplier: number;
-    id_subcategory: number;
-    quantity: number;
+    idSupplier: number;
+    idSubcategory: number;
     description: string;
     reference: string;
     active: boolean;
-    date_added: string;
-    img_url: string;
+    dateAdded: string;
+    imgUrl: string;
     name: string;
     price: number;
     stock: number;
-    id_category: number;
+    idCategory: number;
   }[];
 
   ngOnInit(): void {
