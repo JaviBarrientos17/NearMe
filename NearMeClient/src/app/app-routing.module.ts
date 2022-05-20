@@ -7,7 +7,6 @@ import { HomeComponent } from './homeComponent/home.component';
 import { LoginComponent } from './loginComponent/login.component';
 import { PremiumComponent } from './premiumComponent/premium.component';
 import { ProductComponent } from './productComponent/product.component';
-
 import { ProductosComponent } from './productosComponent/productos.component';
 import { CreateUserComponent } from './registerComponent/register.component';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
