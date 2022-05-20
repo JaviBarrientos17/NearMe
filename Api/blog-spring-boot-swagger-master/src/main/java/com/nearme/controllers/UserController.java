@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -34,7 +37,7 @@ public class UserController {
 	 */
 	@PostMapping("/add-user")
 	@ResponseStatus(HttpStatus.OK)
-	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
+	@Operation(security = @SecurityRequirement(name = "JwtToken"))
 	public ResponseEntity<UserDTO> createUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
 		return new ResponseEntity<UserDTO>(this.userService.createUser(createUserRequestDTO), HttpStatus.OK);
 	}
@@ -45,7 +48,7 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	// // @Operation(security = @SecurityRequirement(name = "JwtToken"))
+	@Operation(security = @SecurityRequirement(name = "JwtToken"))
 	@GetMapping("/list")
 	public ResponseEntity<List<UserDTO>> getUsersList() throws Exception {
 		log.info("Listing all users");
@@ -61,7 +64,7 @@ public class UserController {
 
 	@PostMapping("/assign-role")
 	@ResponseStatus(HttpStatus.OK)
-	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
+	@Operation(security = @SecurityRequirement(name = "JwtToken"))
 	public void assignRole(@RequestBody ManageRoleDTO manageRoleDTO) {
 		this.userService.assignRole(manageRoleDTO);
 	}
@@ -74,7 +77,7 @@ public class UserController {
 
 	@PostMapping("/remove-role")
 	@ResponseStatus(HttpStatus.OK)
-	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
+	@Operation(security = @SecurityRequirement(name = "JwtToken"))
 	public void removeRole(@RequestBody ManageRoleDTO manageRoleDTO) {
 		this.userService.removeRole(manageRoleDTO);
 	}
@@ -87,7 +90,7 @@ public class UserController {
 
 	@PostMapping("/block-user")
 	@ResponseStatus(HttpStatus.OK)
-	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
+	@Operation(security = @SecurityRequirement(name = "JwtToken"))
 	public void blockUser(@RequestBody Integer idUser) throws Exception {
 		this.userService.blockUser(idUser);
 	}
@@ -100,7 +103,7 @@ public class UserController {
 
 	@PostMapping("/unblock-user")
 	@ResponseStatus(HttpStatus.OK)
-	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
+	@Operation(security = @SecurityRequirement(name = "JwtToken"))
 	public void unblockUser(@RequestBody Integer idUser) throws Exception {
 		this.userService.unblockUser(idUser);
 	}
@@ -114,7 +117,7 @@ public class UserController {
 	 */
 	@PutMapping("/update-user")
 	@ResponseStatus(HttpStatus.OK)
-	// @Operation(security = @SecurityRequirement(name = "JwtToken"))
+	@Operation(security = @SecurityRequirement(name = "JwtToken"))
 	public ResponseEntity<?> updateUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
 		return new ResponseEntity<UserDTO>(userService.updateUser(createUserRequestDTO), HttpStatus.OK);
 	}

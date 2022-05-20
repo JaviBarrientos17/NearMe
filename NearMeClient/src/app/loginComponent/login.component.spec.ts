@@ -57,7 +57,7 @@ describe('LoginComponent', () => {
           httpClient: HttpTestingController,
           authService: AuthenticationService
         ) => {
-          component.returnUrl = '/dashboard';
+          component.returnUrl = '/';
           const loginResponseMock: any = {
             id: '1',
             username: 'testuser',

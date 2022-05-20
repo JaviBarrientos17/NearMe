@@ -16,15 +16,23 @@ import { TiendasComponent } from './tiendasComponent/tiendas.component';
 import { FormProductComponent } from './companyComponent/productos/formProduct/formProduct.components';
 import { AboutUsComponent } from './footerComponent/aboutUs/aboutus.component';
 import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.component';
+import { UserRoleType } from 'src/model/enums/user-role-type.enum';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {
+    path: '', component: HomeComponent
+  },
+
   { path: 'login', component: LoginComponent },
   { path: 'register', component: CreateUserComponent },
   { path: 'tiendas', component: TiendasComponent },
   { path: 'tienda', component: TiendaComponent },
   { path: 'productos', component: ProductosComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'dashboard', component: DashboardComponent, data: {
+      roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN]
+    },
+  },
   { path: 'premium', component: PremiumComponent },
   { path: 'product/:idProduct', component: ProductComponent },
   { path: 'shoppingCart', component: ShoppingCartComponent },
@@ -39,4 +47,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
