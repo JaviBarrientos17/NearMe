@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   { path: 'premium', component: PremiumComponent },
   { path: 'product/:idProduct', component: ProductComponent },
-  { path: 'shoppingCart', component: ShoppingCartComponent },
+  { path: 'cart', component: ShoppingCartComponent },
   { path: 'dashboard/companyProfile', component: ProfileComponent },
   { path: 'dashboard/newProduct', component: FormProductComponent },
   { path: 'dashboard/productList', component: ProductList },
