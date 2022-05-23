@@ -42,8 +42,6 @@ import { ProductList } from './companyComponent/productos/productList/productLis
 import { ProfileComponent } from './companyComponent/profile/profile.component';
 import { FormProductComponent } from './companyComponent/productos/formProduct/formProduct.components';
 import { TiendaComponent } from './tiendaComponent/tienda.component';
-import { ShoppingCartModule } from 'ng-shopping-cart';
-import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
 import { CustomCardItem } from 'src/model/item';
 import { SidenavComany } from './companyComponent/sidenav/sidenavCompany.component';
 import { AboutUsComponent } from './footerComponent/aboutUs/aboutus.component';
@@ -54,6 +52,7 @@ import { FooterComponent } from './footerComponent/footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
 
 @NgModule({
   declarations: [
@@ -110,14 +109,6 @@ import { MatDialogModule } from '@angular/material/dialog';
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
         deps: [HttpClient],
-      },
-    }),
-    ShoppingCartModule.forRoot({
-      itemType: CustomCardItem,
-      serviceType: 'localStorage',
-      serviceOptions: {
-        storageKey: 'nearmeShoppingCart',
-        clearOnError: true,
       },
     }),
     NgbModule,

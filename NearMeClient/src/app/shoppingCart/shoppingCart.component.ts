@@ -5,4 +5,4 @@ import { Component } from "@angular/core";
     templateUrl: './shoppingCart.component.html',
     styleUrls: ['./shoppingCart.component.css'],
 })
-export class ProductComponent {}
+export class ShoppingCartComponent {}

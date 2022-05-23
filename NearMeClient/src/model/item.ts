@@ -1,6 +1,4 @@
-import { CartItem } from "ng-shopping-cart";
-
-export class CustomCardItem extends CartItem {
+export class CustomCardItem {
     private id:number;
     private name:string;
     private price:number;
@@ -8,7 +6,6 @@ export class CustomCardItem extends CartItem {
     public image:string;
 
     constructor(itemData: any) {
-        super();
         this.id = itemData.id;
         this.name = itemData.name;
         this.price = itemData.price;
