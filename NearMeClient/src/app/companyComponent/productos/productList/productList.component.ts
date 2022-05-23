@@ -1,51 +1,56 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { productsDB } from 'src/app/data/products';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { MatDialog } from '@angular/material/dialog';
 import { Product } from 'src/model/product';
+import { ProductsService } from 'src/app/services/products.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'productList-component',
   templateUrl: 'productList.component.html',
   styleUrls: ['productList.component.css'],
+  providers: [ProductsService],
 })
 export class ProductList implements OnInit {
   displayedColumns: string[] = [
-    'position',
+    'idProduct',
     'name',
-    'weight',
-    'symbol',
-    'active',
+    'price',
+    'idCategory',
+    'dateAdded',
     'actions',
   ];
-  dataSource = new MatTableDataSource<Product>(productsDB.Product);
+
+  products: Array<Product> = [];
+  dataSource: any;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  constructor() {}
+  constructor(
+    private _productsService: ProductsService,
+    private _activeRoute: ActivatedRoute,
+    private _router: Router,
+    public dialog: MatDialog
+  ) {}
   view = 'list';
-  products!: {
-    idProduct: number;
-    idSupplier: number;
-    idSubcategory: number;
-    description: string;
-    reference: string;
-    active: boolean;
-    dateAdded: string;
-    imgUrl: string;
-    name: string;
-    price: number;
-    stock: number;
-    idCategory: number;
-  }[];
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.products = productsDB.Product;
-
-    console.log(this.dataSource);
+    this._productsService.getAllProducts().subscribe(
+      (resul) => {
+        console.log('OK');
+        this.products = JSON.parse(resul);
+        this.dataSource = new MatTableDataSource<Product>(this.products);
+        this.dataSource.paginator = this.paginator;
+        console.log(this.products);
+        console.log(this.products.length);
+      },
+      (error) => {
+        console.log('ERROR');
+        console.log(error);
+      }
+    );
     console.log(this.products);
   }
 }
