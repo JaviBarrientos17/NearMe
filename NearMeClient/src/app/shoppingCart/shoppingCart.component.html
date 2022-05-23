@@ -5,8 +5,8 @@
       <div class="cart-product">
         <table class="table table-responsive">
           <thead>
-              <!-- TODO CAMBIAR NOMBRE COLUMNAS SEGÚN EL NOMBRE DE LA INFO DE CADA PRODUCTO AÑADIDO -->
-              <!-- TODO MIRAR COMO MOSTRAR BIEN LA IMG DE CADA PRODUCTO -->
+            <!-- TODO CAMBIAR NOMBRE COLUMNAS SEGÚN EL NOMBRE DE LA INFO DE CADA PRODUCTO AÑADIDO -->
+            <!-- TODO MIRAR COMO MOSTRAR BIEN LA IMG DE CADA PRODUCTO -->
             <tr>
               <th>Image</th>
               <th>Name</th>
@@ -17,12 +17,12 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of product; let i = index">
-                <td>{{i+1}}</td>
-              <td><img src="{{item.image}}" alt="Cart item image" /></td>
-              <td>{{item.name}}</td>
-              <td>{{item.description}}</td>
-              <td>{{item.price}}</td>
-              <td>{{item.quantity}}</td>
+              <td>{{ i + 1 }}</td>
+              <td><img src="{{ item.image }}" alt="Cart item image" /></td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.price }}</td>
+              <td>{{ item.quantity }}</td>
               <td>
                 <button (click)="removeItem(item)" class="btn btn-danger">
                   <i class="fas fa-trash-alt"></i>
@@ -42,7 +42,9 @@
       <img src="../../assets/shopping-cart.png" alt="Empty shopping cart" />
       <h3>Your cart is empty!</h3>
       <h4>Add item to it now</h4>
-      <button [routerLink]="['/productos']" class="btn btn-primary">Shop now</button>
+      <button [routerLink]="['/productos']" class="btn btn-primary">
+        Shop now
+      </button>
     </div>
   </div>
 </ng-container>
