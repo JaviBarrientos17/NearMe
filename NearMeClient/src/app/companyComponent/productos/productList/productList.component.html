@@ -2,140 +2,247 @@
 <div class="fondo">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2" style="padding: 0">
-        <sidenavCompany-component></sidenavCompany-component>
-      </div>
-      <div class="col-md-10 productsListBg px-5">
-        <div class="row mt-4">
-          <div class="col-2 my-auto">
-            <h1 class="m-0">Productos</h1>
+      <!--SIDEBAR-->
+      <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar" class="active bg-white">
+          <div class="header bgHeader p-2">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="assets/truck.png" alt="" />
+              </div>
+              <div class="col-md-8 my-auto">
+                <h1 class="align-center hello">Hola, Zapas</h1>
+              </div>
+            </div>
           </div>
-          <div class="col-1">
-            <button
-              mat-fab
-              color="primary"
-              aria-label=""
-              routerLink="/dashboard/newProduct"
-            >
-              <i class="fa fa-plus icon"></i>
-            </button>
-          </div>
-          <div class="col my-auto">
-            <button
-              [class.text-accent]="view === 'grid'"
-              (click)="view = 'grid'"
-              mat-icon-button
-              class="view__btn"
-            >
-              <mat-icon>grid_view</mat-icon>
-            </button>
-            <button
-              [class.text-accent]="view === 'list'"
-              (click)="view = 'list'"
-              mat-icon-button
-              class="view__btn"
-            >
-              <mat-icon>list_alt</mat-icon>
-            </button>
-          </div>
-        </div>
 
-        <div *ngIf="view === 'list'" class="table-inside my-4">
-          <div class="mat-elevation-z8">
-            <table class="tableProducts" mat-table [dataSource]="dataSource">
-              <!-- Position Column -->
-              <ng-container matColumnDef="idProduct">
-                <th mat-header-cell *matHeaderCellDef>No.</th>
-                <td mat-cell *matCellDef="let product">
-                  {{ product.idProduct }}
-                </td>
-              </ng-container>
+          <ul class="list-unstyled components mb-5">
+            <li>
+              <a [routerLink]="['/dashboard']"
+                ><span class="fa fa-home"></span>
+                {{ "company.dashboard" | translate }}</a
+              >
+            </li>
 
-              <!-- Name Column -->
-              <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Name</th>
-                <td mat-cell *matCellDef="let product">{{ product.name }}</td>
-              </ng-container>
+            <li class="active">
+              <a [routerLink]="['/dashboard/productList']"
+                ><span class="fa fa-box"></span>
+                {{ "company.products" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/pedidosList']"
+                ><span class="fa fa-bell"></span>
+                {{ "company.pedidos" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-comments"></span>
+                {{ "company.profile" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-sliders-h"></span>
+                {{ "company.settings" | translate }}</a
+              >
+            </li>
+          </ul>
+        </nav>
 
-              <!-- Weight Column -->
-              <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef>Weight</th>
-                <td mat-cell *matCellDef="let product">
-                  {{ product.price }}
-                </td>
-              </ng-container>
+        <div id="content" class="p-4 p-md-5">
+          <button
+            type="button"
+            id="sidebarCollapse"
+            class="btn btn-primary"
+            onclick="toggleCompany()"
+          >
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+          <button
+            class="btn btn-dark d-inline-block d-lg-none ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
 
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="idCategory">
-                <th mat-header-cell *matHeaderCellDef>Symbol</th>
-                <td mat-cell *matCellDef="let product">
-                  {{ product.idCategory }}
-                </td>
-              </ng-container>
-
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="dateAdded">
-                <th mat-header-cell *matHeaderCellDef>Active</th>
-                <td mat-cell *matCellDef="let product">
-                  {{ product.dateAdded }}
-                </td>
-              </ng-container>
-
-              <!-- actions -->
-              <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef>Actions</th>
-                <td mat-cell *matCellDef="let row; let i = index">
-                  <button mat-icon-button color="primary">
-                    <mat-icon aria-label="Edit">create</mat-icon>
-                  </button>
-
-                  <button mat-icon-button color="primary">
-                    <mat-icon aria-label="Delete">delete_outline</mat-icon>
-                  </button>
-                  <button mat-icon-button color="primary">
-                    <mat-icon aria-label="View">remove_red_eye</mat-icon>
-                  </button>
-                </td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-            </table>
-
-            <mat-paginator
-              [pageSize]="5"
-              [pageSizeOptions]="[5, 10, 20]"
-              showFirstLastButtons
-              aria-label="Select page of periodic product"
-            >
-            </mat-paginator>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-12 gap-4" *ngIf="view === 'grid'">
-          <div class="col-span-4" *ngFor="let product of products | slice: 0:9">
-            <mat-card>
-              <img
-                class="m-0 mb-4"
-                mat-card-image
-                src="{{ product.imgUrl }}"
-                alt=""
-              />
-              <mat-card-header class="mx-0">
-                <h3 class="text-[15px] leading-[23px]">
-                  {{ product.name }}
-                </h3>
-              </mat-card-header>
-              <mat-card-actions>
-                <a
-                  mat-stroked-button
-                  [routerLink]="['/products', product.idProduct]"
-                  class="px-5"
-                  >View</a
+          <!--CONTENIDO-->
+          <div class="col-md-12 productsListBg px-5">
+            <div class="row mt-4">
+              <div class="col-2 my-auto">
+                <h1 class="m-0">Productos</h1>
+              </div>
+              <div class="col-1">
+                <button
+                  mat-fab
+                  color="primary"
+                  aria-label=""
+                  routerLink="/dashboard/newProduct"
                 >
-                <button mat-button>SHARE</button>
-              </mat-card-actions>
-            </mat-card>
+                  <i class="fa fa-plus icon"></i>
+                </button>
+              </div>
+              <div class="col my-auto">
+                <button
+                  [class.text-accent]="view === 'grid'"
+                  (click)="view = 'grid'"
+                  mat-icon-button
+                  class="view__btn"
+                >
+                  <mat-icon>grid_view</mat-icon>
+                </button>
+                <button
+                  [class.text-accent]="view === 'list'"
+                  (click)="view = 'list'"
+                  mat-icon-button
+                  class="view__btn"
+                >
+                  <mat-icon>list_alt</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <div *ngIf="view === 'list'" class="table-inside my-4">
+              <div class="mat-elevation-z8">
+                <table
+                  class="tableProducts"
+                  mat-table
+                  [dataSource]="dataSource"
+                >
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="idProduct">
+                    <th mat-header-cell *matHeaderCellDef>Id</th>
+                    <td mat-cell *matCellDef="let product">
+                      #{{ product.idProduct }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                    <td mat-cell *matCellDef="let product">
+                      {{ product.name }}
+                    </td>
+                  </ng-container>
+
+                  <!--
+                      <!-- Weight Column -->
+                  <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef>Precio</th>
+                    <td mat-cell *matCellDef="let product">
+                      {{ product.price }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="idCategory">
+                    <th mat-header-cell *matHeaderCellDef>Categoria</th>
+                    <td mat-cell *matCellDef="let product">
+                      {{ product.idCategory }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="dateAdded">
+                    <th mat-header-cell *matHeaderCellDef>Añadido</th>
+                    <td mat-cell *matCellDef="let product">
+                      {{ product.dateAdded }}
+                    </td>
+                  </ng-container>
+
+                  <!-- actions -->
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                    <td mat-cell *matCellDef="let product">
+                      <button
+                        mat-icon-button
+                        color="primary"
+                        routerLink="/dashboard/editProduct/{{
+                          product.idProduct
+                        }}"
+                      >
+                        <mat-icon aria-label="Edit">create</mat-icon>
+                      </button>
+
+                      <button
+                        mat-icon-button
+                        color="primary"
+                        (click)="deleteProduct(product.idProduct)"
+                        [disabled]="product.isDeleting"
+                      >
+                        <mat-icon
+                          aria-label="Delete"
+                          *ngIf="!product.isDeleting"
+                          >delete_outline</mat-icon
+                        >
+                        <span
+                          *ngIf="product.isDeleting"
+                          class="spinner-border spinner-border-sm"
+                        ></span>
+                      </button>
+                      <button
+                        mat-icon-button
+                        color="primary"
+                        routerLink="/product/{{ product.idProduct }}"
+                      >
+                        <mat-icon aria-label="View">remove_red_eye</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr
+                    mat-row
+                    *matRowDef="let row; columns: displayedColumns"
+                  ></tr>
+                </table>
+
+                <mat-paginator
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 20]"
+                  showFirstLastButtons
+                  aria-label="Select page of periodic product"
+                >
+                </mat-paginator>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-4" *ngIf="view === 'grid'">
+              <div
+                class="col-span-4"
+                *ngFor="let product of products | slice: 0:9"
+              >
+                <mat-card>
+                  <img
+                    class="m-0 mb-4"
+                    mat-card-image
+                    src="{{ product.imgUrl }}"
+                    alt=""
+                  />
+                  <mat-card-header class="mx-0">
+                    <h3 class="text-[15px] leading-[23px]">
+                      {{ product.name }}
+                    </h3>
+                  </mat-card-header>
+                  <mat-card-actions>
+                    <a
+                      mat-stroked-button
+                      [routerLink]="['/products', product.idProduct]"
+                      class="px-5"
+                      >View</a
+                    >
+                    <button mat-button>SHARE</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -2,108 +2,177 @@
 <div class="fondo">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2" style="padding: 0">
-        <sidenavCompany-component></sidenavCompany-component>
-      </div>
-      <div class="col-md-10">
-        <h1>Dashboard</h1>
-        <div class="row">
-          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-            <div class="card cardInfoPrincipal">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-8">
-                    <h3>Total Generado</h3>
-                  </div>
-                  <div class="col-4">
-                    <img src="../../assets/total.png" alt="" />
-                  </div>
-                </div>
-                <h3 class="card-text">2.211€/mes</h3>
-                <div class="progress mt-4" style="height: 4px">
-                  <div
-                    class="progress-bar bg-primary"
-                    role="progressbar"
-                    style="width: 75%"
-                    aria-valuenow="75"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <div class="prevMonth">
-                  <span>Mes Anterior</span>
-                </div>
+      <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar" class="active bg-white">
+          <div class="header bgHeader p-2">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="assets/truck.png" alt="" />
+              </div>
+              <div class="col-md-8 my-auto">
+                <h1 class="align-center hello">Hola, Zapas</h1>
               </div>
             </div>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-            <div class="card cardInfoPrincipal">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-8">
-                    <h3>Pedidos Totales</h3>
-                  </div>
-                  <div class="col-4">
-                    <img src="../../assets/pedidos.png" alt="" />
+
+          <ul class="list-unstyled components mb-5">
+            <li class="active">
+              <a [routerLink]="['/dashboard']"
+                ><span class="fa fa-home"></span>
+                {{ "company.dashboard" | translate }}</a
+              >
+            </li>
+
+            <li>
+              <a [routerLink]="['/dashboard/productList']"
+                ><span class="fa fa-box"></span>
+                {{ "company.products" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/pedidosList']"
+                ><span class="fa fa-bell"></span>
+                {{ "company.pedidos" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-comments"></span>
+                {{ "company.profile" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-sliders-h"></span>
+                {{ "company.settings" | translate }}</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div id="content" class="p-4 p-md-5">
+          <button
+            type="button"
+            id="sidebarCollapse"
+            class="btn btn-primary"
+            onclick="toggleCompany()"
+          >
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+          <button
+            class="btn btn-dark d-inline-block d-lg-none ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <div class="col-md-12">
+            <h1>Dashboard</h1>
+            <div class="row">
+              <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="card cardInfoPrincipal">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-8">
+                        <h3>Total Generado</h3>
+                      </div>
+                      <div class="col-4">
+                        <img src="../../assets/total.png" alt="" />
+                      </div>
+                    </div>
+                    <h3 class="card-text">2.211€/mes</h3>
+                    <div class="progress mt-4" style="height: 4px">
+                      <div
+                        class="progress-bar bg-primary"
+                        role="progressbar"
+                        style="width: 75%"
+                        aria-valuenow="75"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <div class="prevMonth">
+                      <span>Mes Anterior</span>
+                    </div>
                   </div>
                 </div>
-                <h3 class="card-text">441 mes</h3>
-                <div class="progress mt-4" style="height: 4px">
-                  <div
-                    class="progress-bar bg-primary"
-                    role="progressbar"
-                    style="width: 75%"
-                    aria-valuenow="75"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="card cardInfoPrincipal">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-8">
+                        <h3>Pedidos Totales</h3>
+                      </div>
+                      <div class="col-4">
+                        <img src="../../assets/pedidos.png" alt="" />
+                      </div>
+                    </div>
+                    <h3 class="card-text">441 mes</h3>
+                    <div class="progress mt-4" style="height: 4px">
+                      <div
+                        class="progress-bar bg-primary"
+                        role="progressbar"
+                        style="width: 75%"
+                        aria-valuenow="75"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                    <div class="prevMonth">
+                      <span>Mes Anterior</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="prevMonth">
-                  <span>Mes Anterior</span>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <div class="card cardInfoPrincipal">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-8">
+                        <h3>Suscripción</h3>
+                      </div>
+                      <div class="col-4">
+                        <img src="../../assets/suscripcion.png" alt="" />
+                      </div>
+                    </div>
+                    <h3 class="card-text">GOLD</h3>
+                    <div class="priceSub">
+                      <span>29,99€/mes</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-            <div class="card cardInfoPrincipal">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-8">
-                    <h3>Suscripción</h3>
-                  </div>
-                  <div class="col-4">
-                    <img src="../../assets/suscripcion.png" alt="" />
-                  </div>
-                </div>
-                <h3 class="card-text">GOLD</h3>
-                <div class="priceSub">
-                  <span>29,99€/mes</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <!-- <div class="col-md-12">
+            <div class="row">
+              <!-- <div class="col-md-12">
             <productList-component></productList-component>
           </div> -->
-        </div>
-        <div class="row">
-          <div class="col-md-7">
-            <div class="cardInfoCharts w-100">
-              <barSalesChart-component></barSalesChart-component>
             </div>
-          </div>
-          <div class="col-md-5">
-            <div class="row justify-content-center">
-              <div class="cardInfoCharts w-75">
-                  <ventasSemanales-component></ventasSemanales-component>
+            <div class="row">
+              <div class="col-md-7">
+                <div class="cardInfoCharts w-100">
+                  <barSalesChart-component></barSalesChart-component>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="row justify-content-center">
+                  <div class="cardInfoCharts w-75">
+                    <ventasSemanales-component></ventasSemanales-component>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <footer-component></footer-component>
     </div>
   </div>
-  <footer-component></footer-component>
 </div>

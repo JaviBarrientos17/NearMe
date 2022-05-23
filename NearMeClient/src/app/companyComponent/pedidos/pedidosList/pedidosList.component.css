@@ -1,18 +1,18 @@
 /*TODO*/
-.fondo{
-    background-size:cover;
-    
+.fondo {
+  background-size: cover;
+  background-image: url('/../assets/bg_web_empresa.png');
 }
 
-.tablePedidos{
-    width: 100%;
+.tablePedidos {
+  width: 100%;
 }
 
-.table-inside{
+.table-inside {
   overflow-x: auto;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 4px,
-  rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 
@@ -21,3 +21,256 @@ tr {
 }
 
 
+
+.hello {
+  color: white;
+  margin: 0;
+}
+
+img {
+  width: 70px;
+}
+
+.bgHeader {
+  background-color: #3D81D2;
+}
+
+body {
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: normal;
+  background: #fafafa;
+  color: #808080;
+}
+
+a {
+  transition: 0.3s all ease;
+  color: #3D81D2;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none;
+}
+
+button {
+  transition: 0.3s all ease;
+}
+
+button:hover,
+button:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: 'Sora', Arial, sans-serif !important;
+  color: black;
+}
+
+.ftco-section {
+  padding: 7em 0;
+}
+
+.ftco-no-pt {
+  padding-top: 0;
+}
+
+.ftco-no-pb {
+  padding-bottom: 0;
+}
+
+.heading-section {
+  font-size: 28px;
+  color: black;
+}
+
+.heading-section small {
+  font-size: 18px;
+}
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.navbar {
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #ddd;
+  margin: 40px 0;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+#sidebar {
+  min-width: 270px;
+  max-width: 270px;
+  background: #3D81D2;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  min-width: 80px;
+  max-width: 80px;
+  text-align: center;
+}
+
+#sidebar.active ul.components li {
+  font-size: 14px;
+}
+
+#sidebar.active ul.components li a {
+  padding: 10px 0;
+}
+
+#sidebar.active ul.components li a span {
+  margin-right: 0;
+  display: block;
+  font-size: 24px;
+}
+
+#sidebar.active .logo {
+  padding: 10px 0;
+}
+
+#sidebar.active .footer {
+  display: none;
+}
+
+#sidebar .logo {
+  display: block;
+  color: white;
+  font-weight: 900;
+  padding: 10px 30px;
+  transition: all 0.3s;
+}
+
+#sidebar ul.components {
+  padding: 0;
+  transition: all 0.3s;
+}
+
+#sidebar ul li {
+  font-size: 16px;
+}
+
+#sidebar ul li>ul {
+  margin-left: 10px;
+}
+
+#sidebar ul li>ul li {
+  font-size: 14px;
+}
+
+#sidebar ul li a {
+  padding: 10px 30px;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+#sidebar ul li a span {
+  margin-right: 15px;
+}
+
+#sidebar ul li a:hover {
+  color: rgb(143, 141, 141);
+}
+
+#sidebar ul li.active>a {
+  background: transparent;
+  color: rgb(154, 152, 152);
+}
+
+@media (max-width: 960px) {
+  #sidebar {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    margin-left: -80px !important;
+  }
+
+  #sidebar.active {
+    margin-left: 0 !important;
+  }
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 960px) {
+  #sidebarCollapse span {
+    display: none;
+  }
+}
+
+.footer {
+  padding: 0 30px;
+}
+
+@media (max-width: 960px) {
+  .footer {
+    display: none;
+  }
+}
+
+#content {
+  width: 100%;
+  padding: 0;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+.btn.btn-primary {
+  background: #3D81D2;
+  border-color: #3D81D2;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  background: #3D81D2 !important;
+  border-color: #3D81D2 !important;
+}

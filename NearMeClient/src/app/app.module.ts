@@ -40,7 +40,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ProductComponent } from './productComponent/product.component';
 import { ProductList } from './companyComponent/productos/productList/productList.component';
 import { ProfileComponent } from './companyComponent/profile/profile.component';
-import { FormProductComponent } from './companyComponent/productos/formProduct/formProduct.components';
+import { FormProductComponent } from './companyComponent/productos/formProduct/formProduct.component';
 import { TiendaComponent } from './tiendaComponent/tienda.component';
 import { CustomCardItem } from 'src/model/item';
 import { SidenavComany } from './companyComponent/sidenav/sidenavCompany.component';
