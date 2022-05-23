@@ -53,6 +53,7 @@ import { BarSalesChartComponent } from './companyComponent/charts/barSalesChart/
 import { FooterComponent } from './footerComponent/footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatRadioModule,
     HttpClientModule,
     MatTabsModule,
+    MatDialogModule,
     MatSidenavModule,
     MatPaginatorModule,
     MatTableModule,

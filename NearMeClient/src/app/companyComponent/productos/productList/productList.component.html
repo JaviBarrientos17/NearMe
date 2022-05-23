@@ -44,40 +44,40 @@
           <div class="mat-elevation-z8">
             <table class="tableProducts" mat-table [dataSource]="dataSource">
               <!-- Position Column -->
-              <ng-container matColumnDef="position">
+              <ng-container matColumnDef="idProduct">
                 <th mat-header-cell *matHeaderCellDef>No.</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.idProduct }}
+                <td mat-cell *matCellDef="let product">
+                  {{ product.idProduct }}
                 </td>
               </ng-container>
 
               <!-- Name Column -->
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef>Name</th>
-                <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                <td mat-cell *matCellDef="let product">{{ product.name }}</td>
               </ng-container>
 
               <!-- Weight Column -->
-              <ng-container matColumnDef="weight">
+              <ng-container matColumnDef="price">
                 <th mat-header-cell *matHeaderCellDef>Weight</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.quantity }}
+                <td mat-cell *matCellDef="let product">
+                  {{ product.price }}
                 </td>
               </ng-container>
 
               <!-- Symbol Column -->
-              <ng-container matColumnDef="symbol">
+              <ng-container matColumnDef="idCategory">
                 <th mat-header-cell *matHeaderCellDef>Symbol</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.symbol }}
+                <td mat-cell *matCellDef="let product">
+                  {{ product.idCategory }}
                 </td>
               </ng-container>
 
               <!-- Symbol Column -->
-              <ng-container matColumnDef="active">
+              <ng-container matColumnDef="dateAdded">
                 <th mat-header-cell *matHeaderCellDef>Active</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.active }}
+                <td mat-cell *matCellDef="let product">
+                  {{ product.dateAdded }}
                 </td>
               </ng-container>
 
@@ -106,7 +106,7 @@
               [pageSize]="5"
               [pageSizeOptions]="[5, 10, 20]"
               showFirstLastButtons
-              aria-label="Select page of periodic elements"
+              aria-label="Select page of periodic product"
             >
             </mat-paginator>
           </div>
