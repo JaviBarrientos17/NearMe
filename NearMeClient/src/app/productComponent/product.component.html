@@ -9,29 +9,9 @@
             <div class="card mainImage">
               <img
                 class="card-img-top"
-                src="assets/nike.png"
+                src="{{ product.imgUrl }}"
                 alt="Card image cap"
               />
-            </div>
-            <div class="row">
-              <div class="col-6">
-                <div class="card secondaryImages">
-                  <img
-                    class="card-img-top"
-                    src="assets/Image_4.png"
-                    alt="Card image cap"
-                  />
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="card secondaryImages">
-                  <img
-                    class="card-img-top"
-                    src="assets/Image_8.png"
-                    alt="Card image cap"
-                  />
-                </div>
-              </div>
             </div>
           </div>
           <div class="col-md-1"></div>
@@ -43,9 +23,6 @@
             <hr />
             <p class="productDescriptionP">
               {{ product.description }}
-            </p>
-            <p class="productDescriptionColorP">
-              Color mostrado: Blanco/Cargo Khaki
             </p>
             <div class="row">
               <div class="col-md-5">
@@ -70,8 +47,7 @@
               <div class="col-md-12 productButtons">
                 <div class="row">
                   <div class="col-md-5">
-                    <button class="btn btn-primary btn-comprar"
-                      [routerLink]="['/shoppingCart']" >
+                    <button class="btn btn-primary btn-comprar">
                       Comprar
                     </button>
                   </div>
@@ -87,7 +63,6 @@
           </div>
           <div class="col-md-1"></div>
         </div>
-
         <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-11">
@@ -102,22 +77,25 @@
           <div class="col-md-1"></div>
           <div class="col-md-11 containerScroll">
             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-              <div class="card card-producto">
-                <img src="../../assets/nike.png" alt="..." />
-                <div class="card-body body-producto">
-                  <h5 class="card-info">Moda</h5>
-                  <h2 class="card-title">Nike Jordan High</h2>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a
-                    [routerLink]="['../product']"
-                    class="btn btn-primary btn-comprar-producto"
-                    >Comprar</a
-                  >
+              <!-- TODO AÑADIR PRODUCTOS RELACIONADOS DE LA BBDD -->
+              <ng-container>
+                <div class="card card-producto">
+                  <img src="../../assets/nike.png" alt="..." />
+                  <div class="card-body body-producto">
+                    <h5 class="card-info">Moda</h5>
+                    <h2 class="card-title">Nike Jordan High</h2>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and make
+                      up the bulk of the card's content.
+                    </p>
+                    <a
+                      [routerLink]="['../product']"
+                      class="btn btn-primary btn-comprar-producto"
+                      >Comprar</a
+                    >
+                  </div>
                 </div>
-              </div>
+              </ng-container>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
               <div class="card card-producto">

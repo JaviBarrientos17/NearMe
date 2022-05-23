@@ -14,8 +14,7 @@ export class ProductComponent implements OnInit {
   product: Product | any = null;
   title = 'Product';
   id: Number = 0;
-
-  prueba: any;
+  category: String = '';
 
   constructor(
     private _productsService: ProductsService,
@@ -23,6 +22,7 @@ export class ProductComponent implements OnInit {
     private _cartService: cartService,
     private _router: Router
   ) {}
+  
   ngOnInit(): void {
     this._activeRoute.paramMap.subscribe((params) => {
       this.id = Number.parseInt(params.get('idProduct') + '');
@@ -36,6 +36,17 @@ export class ProductComponent implements OnInit {
       },
       (error) => {
         console.log('Product error');
+        console.log(error);
+      }
+    );
+    this._productsService.getProductsByCategory(this.category).subscribe(
+      (resul) => {
+        this.category = JSON.parse(resul);
+        console.log('Product by category');
+        console.log(this.category);
+      },
+      (error) => {
+        console.log('Product by category error');
         console.log(error);
       }
     );

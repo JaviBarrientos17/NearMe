@@ -4,13 +4,11 @@
       rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
       flex: 0 0 auto;
       margin-right: 10%;
-
 }
 
 .body-producto{
     background-color: #E9E9E9;
     border-radius: 0px 0px 20px 20px;
-
 }
 
 .btn-comprar {
@@ -22,7 +20,7 @@
     border-color: #fd9f48;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
       rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  }
+}
   
 .btn-comprar-producto {
     background-color: #fd9f48;
@@ -31,8 +29,8 @@
     border-radius: 20px;
     border-color: #fd9f48;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  }
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
   
 .mainContainer {
     border-radius: 20px;
@@ -46,11 +44,13 @@
 .imagesContainer {
     margin-top: 5%;
 }
+
 .mainImage {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     border-radius: 20px;
 }
+
 .secondaryImages {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -67,7 +67,6 @@
     overflow-x: auto;
 }
 
-
 .textDiv {
     margin-top: 5%;
 }
@@ -79,6 +78,7 @@ hr {
     /*background: linear-gradient(to right,#FD9F48 50%,#000000 50%);*/
     opacity: 1;
 }
+
 .productDescriptionP {
     text-align: justify;
 }
@@ -100,7 +100,8 @@ hr {
   }
 
   .productModel{
-      font-size: 3em;
+    font-size: 3em;
+    line-height: 1em;
   }
 
   .brandTown {
