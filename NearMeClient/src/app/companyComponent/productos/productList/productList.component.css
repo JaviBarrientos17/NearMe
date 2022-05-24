@@ -24,11 +24,8 @@ tr {
   margin: 0;
 }
 
-img {
-  width: 70px;
-}
 
-.bgHeader {
+.profile {
   background-color: #3D81D2;
 }
 
@@ -44,6 +41,7 @@ body {
 a {
   transition: 0.3s all ease;
   color: #3D81D2;
+  text-decoration: none;
 }
 
 a:hover,
@@ -64,6 +62,10 @@ button:focus {
   box-shadow: none !important;
 }
 
+h1 {
+  font-size: 35px;
+}
+
 h1,
 h2,
 h3,
@@ -78,19 +80,10 @@ h5,
   font-weight: 400;
   font-family: 'Sora', Arial, sans-serif !important;
   color: black;
+
 }
 
-.ftco-section {
-  padding: 7em 0;
-}
 
-.ftco-no-pt {
-  padding-top: 0;
-}
-
-.ftco-no-pb {
-  padding-bottom: 0;
-}
 
 .heading-section {
   font-size: 28px;
@@ -99,12 +92,6 @@ h5,
 
 .heading-section small {
   font-size: 18px;
-}
-
-.img {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 .navbar {
@@ -116,39 +103,33 @@ h5,
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-btn {
-  box-shadow: none;
-  outline: none !important;
-  border: none;
-}
-
-.line {
-  width: 100%;
-  height: 1px;
-  border-bottom: 1px dashed #ddd;
-  margin: 40px 0;
-}
 
 .wrapper {
   width: 100%;
 }
 
 #sidebar {
-  min-width: 270px;
-  max-width: 270px;
+  min-width: 250px;
+  max-width: 250px;
   background: #3D81D2;
   color: #fff;
   transition: all 0.3s;
 }
 
 #sidebar.active {
-  min-width: 80px;
-  max-width: 80px;
+  min-width: 70px;
+  max-width: 70px;
   text-align: center;
+
 }
 
+#sidebar.active .profile h1 {
+  font-size: 0px;
+}
+
+
 #sidebar.active ul.components li {
-  font-size: 14px;
+  font-size: 0px;
 }
 
 #sidebar.active ul.components li a {
@@ -157,25 +138,15 @@ h5,
 
 #sidebar.active ul.components li a span {
   margin-right: 0;
-  display: block;
-  font-size: 24px;
+
+  font-size: 18px;
 }
 
-#sidebar.active .logo {
-  padding: 10px 0;
-}
 
 #sidebar.active .footer {
   display: none;
 }
 
-#sidebar .logo {
-  display: block;
-  color: white;
-  font-weight: 900;
-  padding: 10px 30px;
-  transition: all 0.3s;
-}
 
 #sidebar ul.components {
   padding: 0;
@@ -183,7 +154,8 @@ h5,
 }
 
 #sidebar ul li {
-  font-size: 16px;
+  font-size: 18px;
+  margin-top: 20px;
 }
 
 #sidebar ul li>ul {
@@ -197,7 +169,6 @@ h5,
 #sidebar ul li a {
   padding: 10px 30px;
   display: block;
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
 
 #sidebar ul li a span {
@@ -205,13 +176,19 @@ h5,
 }
 
 #sidebar ul li a:hover {
-  color: rgb(143, 141, 141);
+  background-color: rgb(207, 207, 207);
+  margin: 0px 10px;
+  border-radius: 10px;
+
 }
 
 #sidebar ul li.active>a {
-  background: transparent;
-  color: rgb(154, 152, 152);
+  background-color: rgb(207, 207, 207);
+  margin: 0px 10px;
+  border-radius: 10px;
 }
+
+
 
 @media (max-width: 960px) {
   #sidebar {
@@ -270,4 +247,42 @@ a[data-toggle="collapse"] {
 .btn.btn-primary:focus {
   background: #3D81D2 !important;
   border-color: #3D81D2 !important;
+}
+
+
+#sidebar .profile {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.profile img {
+  width: 80px;
+  margin: 10px auto 10px auto;
+}
+
+
+#sidebar.active .profile {
+
+  padding-bottom: 10px;
+
+}
+
+#sidebar.active .profile img {
+  width: 50px;
+  margin: 10px auto 0px auto;
+}
+
+.profile .name {
+  font-size: 22px;
+  margin-bottom: 0;
+  color: white;
+}
+
+.tooltipBtn {
+  margin-top: -40px;
+  margin-bottom: 10px;
+  background-color: #E9E9E9;
 }

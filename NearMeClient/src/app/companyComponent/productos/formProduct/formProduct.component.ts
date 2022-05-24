@@ -12,6 +12,20 @@ import { ProductsService } from 'src/app/services/products.service';
   providers: [ProductsService],
 })
 export class FormProductComponent implements OnInit {
+  productForm!: FormGroup;
+  submitted = false;
+  idProduct!: Number;
+  isAddMode!: boolean;
+
+  productReference: string = '';
+  productName: string = '';
+  productPrice: number = null;
+  productImage: string = '';
+  productDescription: string = '';
+  productCategory: number = null;
+  productActive: boolean = null;
+  productStock: number = null;
+
   constructor(
     private formBuilder: FormBuilder,
     protected router: Router,
@@ -19,31 +33,26 @@ export class FormProductComponent implements OnInit {
     protected _productService: ProductsService
   ) {}
 
-  productForm!: FormGroup;
-  submitted = false;
-  idProduct!: Number;
-  isAddMode!: boolean;
-
-  workerId: number | undefined;
   ngOnInit() {
     this.idProduct = this.route.snapshot.params['idProduct'];
-    console.log(this.idProduct);
-    //PARA CREAR EL PRODUCTO
-    console.log(this.isAddMode);
     this.isAddMode = !this.idProduct;
+    console.log(this.idProduct);
+    console.log(this.isAddMode);
+
     this.productForm = this.formBuilder.group({
-      productReference: [''],
-      productName: [''],
-      productPrice: [''],
-      productDescription: [''],
-      productCategory: [''],
-      // productImage: ['',Validators.nullValidator],
-      productActive: [''],
-      productStock: [''],
+      reference: ['', Validators.required],
+      name: ['', Validators.required],
+      price: ['', Validators.required],
+      imgUrl: [''],
+      description: ['', Validators.required],
+      idCategory: ['', Validators.required],
+      active: ['', Validators.required],
+      stock: ['', Validators.required],
     });
 
     //PARA EDITAR EL PRODUCTO
     if (!this.isAddMode) {
+      console.log('EDITAR');
       this._productService
         .getProductsById(this.idProduct)
         .pipe(first())
@@ -84,6 +93,7 @@ export class FormProductComponent implements OnInit {
   }
 
   private updateProduct() {
+    console.log(this.productForm.value);
     this._productService
       .updateProduct(this.idProduct, this.productForm.value)
       .pipe(first())

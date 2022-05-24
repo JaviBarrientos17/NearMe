@@ -3,17 +3,11 @@
   <div class="container-fluid">
     <div class="row">
       <!--SIDEBAR-->
-      <div class="wrapper d-flex align-items-stretch">
+      <div class="wrapper d-flex align-items-stretch p-0">
         <nav id="sidebar" class="active bg-white">
-          <div class="header bgHeader p-2">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="assets/truck.png" alt="" />
-              </div>
-              <div class="col-md-8 my-auto">
-                <h1 class="align-center hello">Hola, Zapas</h1>
-              </div>
-            </div>
+          <div class="profile">
+            <img src="assets/nick.png" alt="Image" class="img-fluid" />
+            <h1 class="name">Hola Zapas</h1>
           </div>
 
           <ul class="list-unstyled components mb-5">
@@ -52,63 +46,45 @@
         </nav>
 
         <div id="content" class="p-4 p-md-5">
-          <button
-            type="button"
-            id="sidebarCollapse"
-            class="btn btn-primary"
-            onclick="toggleCompany()"
-          >
-            <i class="fa fa-bars"></i>
-            <span class="sr-only">Toggle Menu</span>
-          </button>
-          <button
-            class="btn btn-dark d-inline-block d-lg-none ml-auto"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="fa fa-bars"></i>
-          </button>
+          <mat-toolbar class="tooltipBtn">
+            <button
+              type="button"
+              id="sidebarCollapse"
+              class="btn btn-primary"
+              onclick="toggleCompany()"
+            >
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <h1 class="m-4">Productos</h1>
+            <button
+              mat-fab
+              color="primary"
+              aria-label=""
+              routerLink="/dashboard/newProduct"
+            >
+              <i class="fa fa-plus icon"></i>
+            </button>
+            <button
+              [class.text-accent]="view === 'grid'"
+              (click)="view = 'grid'"
+              mat-icon-button
+              class="view__btn"
+            >
+              <mat-icon>grid_view</mat-icon>
+            </button>
+            <button
+              [class.text-accent]="view === 'list'"
+              (click)="view = 'list'"
+              mat-icon-button
+              class="view__btn"
+            >
+              <mat-icon>list_alt</mat-icon>
+            </button>
+          </mat-toolbar>
 
           <!--CONTENIDO-->
-          <div class="col-md-12 productsListBg px-5">
-            <div class="row mt-4">
-              <div class="col-2 my-auto">
-                <h1 class="m-0">Productos</h1>
-              </div>
-              <div class="col-1">
-                <button
-                  mat-fab
-                  color="primary"
-                  aria-label=""
-                  routerLink="/dashboard/newProduct"
-                >
-                  <i class="fa fa-plus icon"></i>
-                </button>
-              </div>
-              <div class="col my-auto">
-                <button
-                  [class.text-accent]="view === 'grid'"
-                  (click)="view = 'grid'"
-                  mat-icon-button
-                  class="view__btn"
-                >
-                  <mat-icon>grid_view</mat-icon>
-                </button>
-                <button
-                  [class.text-accent]="view === 'list'"
-                  (click)="view = 'list'"
-                  mat-icon-button
-                  class="view__btn"
-                >
-                  <mat-icon>list_alt</mat-icon>
-                </button>
-              </div>
-            </div>
-
+          <div class="col-md-12 productsListBg">
             <div *ngIf="view === 'list'" class="table-inside my-4">
               <div class="mat-elevation-z8">
                 <table
@@ -214,14 +190,11 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-12 gap-4" *ngIf="view === 'grid'">
-              <div
-                class="col-span-4"
-                *ngFor="let product of products | slice: 0:9"
-              >
+            <div class="grid grid-cols-3" *ngIf="view === 'grid'">
+              <div class="col-md-3" *ngFor="let product of products">
                 <mat-card>
                   <img
-                    class="m-0 mb-4"
+                    class="m-0"
                     mat-card-image
                     src="{{ product.imgUrl }}"
                     alt=""
@@ -234,11 +207,17 @@
                   <mat-card-actions>
                     <a
                       mat-stroked-button
-                      [routerLink]="['/products', product.idProduct]"
+                      routerLink="/product/{{ product.idProduct }}"
                       class="px-5"
-                      >View</a
+                      >Ver</a
                     >
-                    <button mat-button>SHARE</button>
+                    <a
+                      mat-stroked-button
+                      (click)="deleteProduct(product.idProduct)"
+                      [disabled]="product.isDeleting"
+                      class="px-5"
+                      >Eliminar</a
+                    >
                   </mat-card-actions>
                 </mat-card>
               </div>
