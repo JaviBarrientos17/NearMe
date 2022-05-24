@@ -50,14 +50,18 @@ h3, h4 {
     border-radius: 3px !important;
 }
 
-td {
+.tdImg {
     width: 30%;
+}
+
+.tdQuantity {
+    width: 20%;
 }
 
 td, tr, th{
     text-align: center;
+    font-size: 15px;
 }
-
 
 /* ITEM IMG */
 img {

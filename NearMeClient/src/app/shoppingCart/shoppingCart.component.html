@@ -17,10 +17,15 @@
           <tbody>
             <tr *ngFor="let item of product; let i = index">
               <td>{{ i + 1 }}</td>
-              <td><img src="{{item.imgUrl}}" alt="Cart item image" class="itemImage"/></td>
+              <td class="tdImg"><img src="{{item.imgUrl}}" alt="Cart item image" class="itemImage"/></td>
               <td>{{ item.name }}</td>
               <td>{{ item.price }}€</td>
-              <td>1</td>              
+              <td class="tdQuantity">
+                <button class="btn btn-info" (click)="increaseQuantity(item)"><i class="fa-solid fa-plus"></i></button>
+                <!-- TODO MIRAR PORQUE NO PRINTA LA CANTIDAD, MIENTRAS LA AUMENTA Y LA REDUCE -->
+                <p class="quantity">{{item.cantidad}}</p>
+                <button class="btn btn-info" (click)="decreaseQuantity(item)"><i class="fa-solid fa-minus"></i></button>
+              </td>              
               <td>
                 <button (click)="removeItem(item)" class="btn btn-danger">
                   <i class="fas fa-trash-alt"></i>
@@ -31,7 +36,7 @@
         </table>
       </div>
       <div class="row">
-        <h2>Total: {{grandTotal}}€</h2>
+        <h2>Total: {{total}}€</h2>
       </div>
       <button (click)="emptyCart()" class="btn btn-danger emptyCartBtn">Empty cart</button>
     </div>

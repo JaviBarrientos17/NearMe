@@ -13,7 +13,7 @@ export class ShoppingCartComponent implements OnInit {
     products: Product | any = null;
     id:number = null;
     public product:any = [];
-    public grandTotal!:number;
+    public total!:number;
 
     constructor(
         private _productsService: ProductsService,
@@ -35,7 +35,6 @@ export class ShoppingCartComponent implements OnInit {
         this.cartService.getProducts()
         .subscribe(res => {
             this.product = res;
-            this.grandTotal = this.cartService.getTotalPrice();
         });
     }
 
@@ -45,5 +44,17 @@ export class ShoppingCartComponent implements OnInit {
 
     emptyCart() {
         this.cartService.removeAllCartItem();
+    }
+
+    increaseQuantity(item:any) {
+        console.log("Works!");
+        this.cartService.increaseQuantity(item);
+        this.total = this.cartService.getTotalPrice();
+    }
+
+    decreaseQuantity(item:any) {
+        console.log("Works!");
+        this.cartService.decreaseQuantity(item);
+        this.total = this.cartService.getTotalPrice();
     }
 }
