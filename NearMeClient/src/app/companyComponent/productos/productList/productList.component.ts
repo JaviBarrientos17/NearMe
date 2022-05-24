@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Product } from 'src/model/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'productList-component',
@@ -13,6 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   providers: [ProductsService],
 })
 export class ProductList implements OnInit {
+
   displayedColumns: string[] = [
     'idProduct',
     'name',
@@ -29,6 +32,7 @@ export class ProductList implements OnInit {
   paginator!: MatPaginator;
 
   constructor(
+    private userService: UserService, private authService: AuthenticationService,
     private _productsService: ProductsService,
     private _activeRoute: ActivatedRoute,
     private _router: Router,
@@ -37,6 +41,8 @@ export class ProductList implements OnInit {
   view = 'list';
 
   ngOnInit(): void {
+this.authService.currentUserIdValue;
+
     this._productsService.getAllProducts().subscribe(
       (resul) => {
         console.log('OK');
@@ -50,7 +56,12 @@ export class ProductList implements OnInit {
         console.log('ERROR');
         console.log(error);
       }
+    
     );
     console.log(this.products);
+
+
+    
   }
+
 }
