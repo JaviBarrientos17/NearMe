@@ -22,8 +22,7 @@
               <td>{{ item.price }}€</td>
               <td class="tdQuantity">
                 <button class="btn btn-info" (click)="increaseQuantity(item)"><i class="fa-solid fa-plus"></i></button>
-                <!-- TODO MIRAR PORQUE NO PRINTA LA CANTIDAD, MIENTRAS LA AUMENTA Y LA REDUCE -->
-                <p class="quantity">{{item.cantidad}}</p>
+                <p class="quantity">{{item.stock}}</p>
                 <button class="btn btn-info" (click)="decreaseQuantity(item)"><i class="fa-solid fa-minus"></i></button>
               </td>              
               <td>

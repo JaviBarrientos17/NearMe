@@ -45,9 +45,9 @@ export class CartService {
         console.log("Enters increase function");
         this.cartItemList.map((a:any) => {
             if(product.id === a.id) {
-                this.cantidad += 1;
+                a.stock += 1;
                 this.getTotalPrice();
-                console.log("Increased stock: " + this.cantidad);
+                console.log("Increased stock: " + a.stock);
                 console.log(this.cartItemList);
             }
         });
@@ -57,12 +57,12 @@ export class CartService {
         console.log("Enters decrease function");
         this.cartItemList.map((a:any) => {
             if(product.id === a.id) {
-                if(this.cantidad === 0) {
+                if(a.stock === 0) {
                     alert("Cannot be negative stock");
                 } else {
-                    this.cantidad -= 1;
+                    a.stock -= 1;
                     this.getTotalPrice();
-                    console.log("Decreased stock: " + this.cantidad);
+                    console.log("Decreased stock: " + a.stock);
                     console.log(this.cartItemList);
                 }         
             }
@@ -71,11 +71,14 @@ export class CartService {
 
     getTotalPrice(): number {
         let total = 0;
-        this.cartItemList.map((a:any) => {
-            // total += a.price;
-            total = a.price * this.cantidad;
-           // console.log(total);
-        });
+        if (total <0) {
+            alert("The price cannot be negative");
+        } else {
+            this.cartItemList.map((a:any) => {
+                total += 0;
+                total = a.price * a.stock;
+            });   
+        }
         return total;
     }
 }
