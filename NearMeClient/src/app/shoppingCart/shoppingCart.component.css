@@ -49,3 +49,69 @@ h3, h4 {
     padding: 12px 72px;
     border-radius: 3px !important;
 }
+
+td {
+    width: 30%;
+}
+
+td, tr, th{
+    text-align: center;
+}
+
+
+/* ITEM IMG */
+img {
+    object-fit: cover;
+    width: 50%;
+    height: 50%;
+}
+
+.btn-comprar-producto {
+    background-color: #fd9f48;
+    padding: 0.6em 2em;
+    color: black;
+    border-radius: 20px;
+    border-color: #fd9f48;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.emptyCartBtn {
+    background-color: #DC3545;
+    padding: 0.6em 2em;
+    color: black;
+    border-radius: 20px;
+    border-color: #fd9f48;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+/* TODO CSS SHOPPING CART ERIK */
+
+/* .container{
+    border-radius: 20px;
+    background-color: red;
+}
+.items{
+    border-radius: 20px;
+}
+.payment{
+    border-radius: 20px;
+    background-color: #6065C9;
+}
+.imgProfile{
+    width: 50px
+}
+h2,span,p,label{
+    color:white
+}
+.btn-checkout{
+    margin-top: 10%;
+    background-color:#23E7C7 ;
+    width: 100%;
+    border-radius: 15px;
+    padding: 15px;
+}
+.totals{
+    margin-top: 5%;
+} */

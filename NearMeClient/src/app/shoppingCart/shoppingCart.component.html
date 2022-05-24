@@ -5,9 +5,8 @@
       <div class="cart-product">
         <table class="table table-responsive">
           <thead>
-            <!-- TODO CAMBIAR NOMBRE COLUMNAS SEGÚN EL NOMBRE DE LA INFO DE CADA PRODUCTO AÑADIDO -->
-            <!-- TODO MIRAR COMO MOSTRAR BIEN LA IMG DE CADA PRODUCTO -->
             <tr>
+              <th>Id</th>
               <th>Image</th>
               <th>Name</th>
               <th>Price</th>
@@ -18,11 +17,10 @@
           <tbody>
             <tr *ngFor="let item of product; let i = index">
               <td>{{ i + 1 }}</td>
-              <td><img src="{{ item.image }}" alt="Cart item image" /></td>
+              <td><img src="{{item.imgUrl}}" alt="Cart item image" class="itemImage"/></td>
               <td>{{ item.name }}</td>
-              <td>{{ item.description }}</td>
-              <td>{{ item.price }}</td>
-              <td>{{ item.quantity }}</td>
+              <td>{{ item.price }}€</td>
+              <td>1</td>              
               <td>
                 <button (click)="removeItem(item)" class="btn btn-danger">
                   <i class="fas fa-trash-alt"></i>
@@ -32,6 +30,10 @@
           </tbody>
         </table>
       </div>
+      <div class="row">
+        <h2>Total: {{grandTotal}}€</h2>
+      </div>
+      <button (click)="emptyCart()" class="btn btn-danger emptyCartBtn">Empty cart</button>
     </div>
   </div>
 </ng-container>
@@ -42,13 +44,96 @@
       <img src="../../assets/shopping-cart.png" alt="Empty shopping cart" />
       <h3>Your cart is empty!</h3>
       <h4>Add item to it now</h4>
-      <button [routerLink]="['/productos']" class="btn btn-primary">
+      <button [routerLink]="['/productos']" class="btn btn-primary btn-comprar-producto">
         Shop now
       </button>
     </div>
   </div>
 </ng-container>
 <footer-component></footer-component>
-<!-- TODO MINUTO ACTUAL -->
+
+<!-- TODO VIDEO MINUTO ACTUAL -->
 <!-- https://youtu.be/855KrFfF9-w?t=4372 -->
 <!-- https://github.com/yshashi/add-to-cart -->
+
+
+<!-- TODO CÓDIGO SHOPPING CART ERIK -->
+<!-- <div class="row">
+    <div class="col-lg-8 items">
+      <h1>Shopping Cart</h1>
+      <span></span>
+    </div>
+    <div class="col-lg-4 payment">
+      <div class="row">
+        <div class="col-10">
+          <h2>Card Details</h2>
+        </div>
+        <div class="col-2">
+          <img class="imgProfile" src="../../assets/nick.png" alt="" />
+        </div>
+      </div>
+      <form action="submit">
+        <span>Card Type</span>
+        <div class="row">
+          <div class="col-4"><p>MASTERCARD</p></div>
+          <div class="col-4"><p>PAYPAL</p></div>
+          <div class="col-4"><p>VISA</p></div>
+        </div>
+        <div class="row">
+          <div class="mb-3">
+            <label for="cardName" class="form-label">Name on Card</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cardName"
+              placeholder="Name on Card"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Password</label>
+            <input
+              type="number"
+              class="form-control"
+              id="cardNumber"
+              placeholder="Card Number"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="expirationDate" class="form-label"
+              >Expiration Date</label
+            >
+            <input type="date" class="form-control" id="expirationDate" />
+          </div>
+          <div class="fmb-3 col-md-6">
+            <label for="cvv" class="form-label">CVV</label>
+            <input
+              type="number"
+              class="form-control"
+              id="cvv"
+              placeholder="XXX"
+            />
+          </div>
+        </div>
+        <hr />
+        <div class="row totals">
+          <div class="col-8">
+            <p>Subtotal</p>
+            <p>Shipping</p>
+            <p>Total (iva incl.)</p>
+          </div>
+          <div class="col-4">
+            <p>2000.00€</p>
+            <p>20.00€</p>
+            <p>2020.00€</p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-checkout">
+          2020.00€ Checkout
+        </button>
+      </form>
+    </div>
+  </div> -->
