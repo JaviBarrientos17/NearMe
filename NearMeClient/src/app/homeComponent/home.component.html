@@ -58,7 +58,7 @@
     </section>
 
     <section class="section-servicios">
-      <div class="row servicios">
+      <div class="row my-5">
         <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
           <img class="img-servicio" src="../../assets/assistance.png" alt="" />
         </div>
@@ -94,19 +94,19 @@
       </div>
     </section>
 
-    <section class="section-slider-tiendas">
-      <div class="row justify-content-center">
-        <div class="col-6">
+    <section class="section-slider-productos">
+      <div class="row justify-content-center my-5">
+        <div class="col-12">
           <slider-component></slider-component>
         </div>
       </div>
     </section>
 
-    <section class="section-productos">
-      <h2 class="titulo-mas-vendidos">
+    <section class="section-productos my-5">
+      <h2 class="titulo-mas-vendidos text-center m-5">
         {{ "home.mas_vendidos" | translate }}
       </h2>
-      <div class="row">
+      <div class="row my-5">
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
           <div class="card card-producto">
             <img src="../../assets/nike.png" alt="..." />
@@ -176,74 +176,19 @@
       </div>
     </section>
 
-    <section class="section-slider-tiendas">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
+    <section class="section-slider-tiendas my-5">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <slider-component></slider-component>
         </div>
-
-        <!--
-      <div class="carousel-inner">
-        <div
-          *ngFor="let data of gallery; let i = index"
-          [ngClass]="i === 0 ? 'active' : ''"
-        >
-          <img src=" data " alt=" name " />
-          <div class="container">
-            <div class="carousel-caption"></div>
-          </div>
-        </div>
-      </div>
--->
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </section>
 
-    <section class="section-tiendas">
-      <h2 class="titulo-mas-vendidos">
+    <section class="section-tiendas my-5">
+      <h2 class="titulo-mas-vendidos text-center my-5">
         {{ "home.tiendas_destacadas" | translate }}
       </h2>
-      <div class="row">
+      <div class="row pb-5">
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
           <div class="card card-tienda">
             <img

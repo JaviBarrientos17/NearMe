@@ -10,7 +10,7 @@ import { ProductsService } from '../services/products.service';
   providers: [ProductsService],
 })
 export class ProductComponent implements OnInit {
-  product: Product | any = null;
+  product: Product;
   title = 'Product';
   id: Number = 0;
   category: String = '';
@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
     private _activeRoute: ActivatedRoute,
     private _router: Router
   ) {}
-  
+
   ngOnInit(): void {
     this._activeRoute.paramMap.subscribe((params) => {
       this.id = Number.parseInt(params.get('idProduct') + '');
@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
     });
     this._productsService.getProductsById(this.id).subscribe(
       (resul) => {
-        this.product = JSON.parse(resul);
+        this.product = resul;
         console.log('Product');
         console.log(this.product);
       },

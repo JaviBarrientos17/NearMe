@@ -1,54 +1,72 @@
-import { Component, OnInit } from "@angular/core";
-import { Chart, registerables } from "chart.js";
+import { Component, OnInit } from '@angular/core';
+import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 @Component({
-    selector: 'ventasSemanales-component',
-    templateUrl: './ventasSemanales.component.html',
-    styleUrls: ['./ventasSemanales.component.css'],
+  selector: 'ventasSemanales-component',
+  templateUrl: './ventasSemanales.component.html',
+  styleUrls: ['./ventasSemanales.component.css'],
 })
 export class VentasSemanalesComponent implements OnInit {
-    public chart:any = null;
+  public chart: any = null;
 
-    ngOnInit(): void {
-        Chart.defaults.font.size = 15;
-        this.chart = new Chart('donutChart', {
-            type: 'doughnut',
-            data: {
-                labels: ["Moda", "Electrónica", "Informática", "Juguetes y Bebé", "Alimentación y bebidas", "Videojuegos", "Hogar y Jardín", "Deportes"],
-                datasets: [{
-                    label: "Ventas Semanales",
-                    data: [12, 19, 5, 5, 2, 3, 20, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 0, 255, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 0, 255, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)',
-                    ],
-                    borderWidth: 1,
-                }]
+  ngOnInit(): void {
+    Chart.defaults.font.size = 18;
+    this.chart = new Chart('donutChart', {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Moda',
+          'Electrónica',
+          'Informática',
+          'Juguetes y Bebé',
+          'Alimentación y bebidas',
+          'Videojuegos',
+          'Hogar y Jardín',
+          'Deportes',
+        ],
+        datasets: [
+          {
+            label: 'Ventas Semanales',
+            data: [12, 19, 5, 5, 2, 3, 20, 3],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 0, 255, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 0, 255, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)',
+            ],
+            borderWidth: 1,
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          title: {
+            font: {
+              size: 26,
+              family: 'Sora',
             },
-            options: {
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    title: {
-                        display: true,
-                        text: 'Ventas por categorías',
-                    }
-                },
-            }
-        });
-    }
+            display: true,
+            text: 'Ventas por categorías',
+          },
+        },
+      },
+    });
+  }
 }

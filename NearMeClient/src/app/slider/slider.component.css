@@ -1,8 +1,9 @@
 .divCarousel {
   /* border-radius: 10%; */
-  border: 2px solid black;
+  border-radius: 20px;
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-  rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   width: 100%;
   height: 100%;
 }
@@ -18,8 +19,7 @@
 } */
 
 img {
-  width: 100%;
-  height: 60%;
+  width: 20%;
   /* TODO BORDER-RADIUS PARA LA IMG */
   /* border-radius: 10%; */
 }

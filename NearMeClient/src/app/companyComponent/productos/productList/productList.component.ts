@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Product } from 'src/model/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/users.service';
 
@@ -63,5 +65,21 @@ this.authService.currentUserIdValue;
 
     
   }
+  deleteProduct(idProduct: Number) {
+    const product = this.products.find((x) => x.idProduct === idProduct);
+    if (!product) return;
+    product.isDeleting = true;
+    this._productsService
+      .deleteProduct(idProduct)
+      .pipe(first())
+      .subscribe(
+        () =>
+          (this.products = this.products.filter(
+            (x) => x.idProduct !== idProduct
+          ))
+      );
+  }
+}
+
 
 }
