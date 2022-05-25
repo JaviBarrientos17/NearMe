@@ -11,6 +11,6 @@ public interface CategoryRepository extends JpaRepository<CategoryEntity, Intege
 
     Optional<List<CategoryEntity>> findByIdCategory(Integer Id_Category);
 
-    List<CategoryEntity> findByRoot(boolean root);
+    Optional<List<CategoryEntity>> findByRoot(boolean root);
 
 }
