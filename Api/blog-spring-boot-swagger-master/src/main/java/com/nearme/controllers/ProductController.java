@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.extern.slf4j.Slf4j;
 
@@ -51,7 +50,7 @@ public class ProductController {
 	 * Return a product by id
 	 * 
 	 * @return
-	 * @throws Exception	
+	 * @throws Exception
 	 */
 	@GetMapping("/id/{idProduct}")
 	@ResponseStatus(HttpStatus.OK)
@@ -109,6 +108,21 @@ public class ProductController {
 	}
 
 	/**
+	 * Fet product by id
+	 * 
+	 * @param idProduct
+	 * @param data
+	 * @return
+	 */
+	@GetMapping("/supplier/{idSupplier}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<List<ProductDTO>> getProductBySupplier(@PathVariable Integer idSupplier) throws Exception {
+		log.info("Listing a product by idSuplier");
+		return new ResponseEntity<List<ProductDTO>>(this.productService.getProductsByIdSupplier(idSupplier),
+				HttpStatus.OK);
+	}
+
+	/**
 	 * Update the stock of a product
 	 * 
 	 * @param request
@@ -143,7 +157,7 @@ public class ProductController {
 			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
 		}
 	}
-  
+
 	/**
 	 * Update a product
 	 * 
@@ -169,7 +183,7 @@ public class ProductController {
 	 * @return
 	 */
 	@PostMapping("/upload/{idProducto}")
-	public ResponseEntity<Void> uploadFile(@RequestParam("file") MultipartFile file ,@PathVariable Integer idProducto ) {
+	public ResponseEntity<Void> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable Integer idProducto) {
 		try {
 			if (productService.uploadImage(file, idProducto)) {
 				return new ResponseEntity<Void>(HttpStatus.OK);
