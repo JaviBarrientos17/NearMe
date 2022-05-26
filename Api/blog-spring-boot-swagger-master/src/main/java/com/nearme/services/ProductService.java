@@ -163,8 +163,7 @@ public class ProductService {
 		}
 	}
 
-	@Transactional
-	public void updateProduct(ProductDTO product) {
+	public ProductEntity updateProduct(ProductDTO product) {
 		log.warn("Trying to update product" + product.toString());
 		try {
 			log.info("Trying to update product with id: " + product.toString());
@@ -181,11 +180,12 @@ public class ProductService {
 			log.info("trying to save overwrite productEntity");
 			productRepository.save(actualProductEntity);
 			log.info("Product updated");
-
+return actualProductEntity;
 		} catch (Exception e) {
 			log.error("Error updating product");
 			new Exception("Error updating product");
 		}
+		return null;
 	}
 
 	/**

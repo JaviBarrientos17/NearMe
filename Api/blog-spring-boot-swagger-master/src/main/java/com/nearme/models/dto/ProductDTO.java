@@ -20,7 +20,7 @@ public class ProductDTO {
     Integer category;
     Integer subcategory;
     Integer stock;
-    Double Price;
+    Double price;
     @Size(min = 0, max = 250)
     String reference;
     boolean active;
@@ -33,7 +33,7 @@ public class ProductDTO {
     public String toString() {
         return "ProductDTO [idProduct=" + idProduct + ", idSupplier=" + idSupplier + ", name=" + name + ", description="
                 + description + ", category=" + category + ", subcategory=" + subcategory + ", stock=" + stock
-                + ", Price=" + Price + ", reference=" + reference + ", active=" + active + ", dateAdded=" + dateAdded
+                + ", Price=" + price + ", reference=" + reference + ", active=" + active + ", dateAdded=" + dateAdded
                 + ", imgUrl=" + imgUrl + "]";
     }
 }
