@@ -170,9 +170,9 @@ public class ProductService {
 		try {
 			log.info("Trying to update product with id: " + product.toString());
 			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
-			log.info("trying to instance productEntity");
+			log.warn("trying to instance productEntity with id: " + product.toString());
 			ProductEntity actualProductEntity = productRepository.findById(product.getIdProduct()).get();
-			log.info("trying to get actual productEntity");
+			log.warn("trying to get actual actualProductEntity with id: " + actualProductEntity.toString());
 			actualProductEntity = productEntity;
 			log.info("trying to save overwrite productEntity");
 			productRepository.save(actualProductEntity);
