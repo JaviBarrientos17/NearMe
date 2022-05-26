@@ -1,3 +1,4 @@
+/*TODO*/
 .card-producto {
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
@@ -7,8 +8,6 @@
 .body-producto {
   background-color: #E9E9E9;
 
-.body-producto {
-  background-color: #e9e9e9;
 }
 
 .card-body {
@@ -28,6 +27,8 @@
   border-color: #fd9f48;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+}
 
 img {
   max-height: 300px;
