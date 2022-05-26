@@ -22,7 +22,7 @@ public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_product")
-    private Integer IdProduct;
+    private Integer idProduct;
     @Column(name = "id_supplier")
     @NotBlank(message = "A product must have a supplier")
     private Integer idSupplier;
@@ -36,7 +36,7 @@ public class ProductEntity {
     private Integer subCategory;
     private Integer stock;
     @NotBlank(message = "A product must have a price")
-    private Double Price;
+    private Double price;
     private String reference;
     @Builder.Default
     private boolean active = true;
@@ -55,25 +55,25 @@ public class ProductEntity {
         if (that.getIdProduct() == getIdProduct()) {
             return true;
         }
-        return IdProduct.equals(that.IdProduct);
+        return idProduct.equals(that.idProduct);
     }
 
     @Override
     public int hashCode() {
-        return IdProduct.hashCode();
+        return idProduct.hashCode();
     }
 
     @Override
     public String toString() {
         return "ProductEntity{" +
-                "IdProduct=" + IdProduct +
+                "idProduct=" + idProduct +
                 ", idSupplier=" + idSupplier +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", category=" + category +
                 ", subCategory=" + subCategory +
                 ", stock=" + stock +
-                ", Price=" + Price +
+                ", price=" + price +
                 ", reference='" + reference + '\'' +
                 ", active=" + active +
                 ", dateAdded='" + dateAdded + '\'' +

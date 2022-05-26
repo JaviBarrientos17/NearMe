@@ -28,5 +28,12 @@ public class ProductDTO {
     String dateAdded;
     @Size(min = 0, max = 250)
     String imgUrl;
-   
+
+    @Override
+    public String toString() {
+        return "ProductDTO [idProduct=" + idProduct + ", idSupplier=" + idSupplier + ", name=" + name + ", description="
+                + description + ", category=" + category + ", subcategory=" + subcategory + ", stock=" + stock
+                + ", Price=" + Price + ", reference=" + reference + ", active=" + active + ", dateAdded=" + dateAdded
+                + ", imgUrl=" + imgUrl + "]";
+    }
 }

@@ -15,7 +15,6 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
     Optional<List<ProductEntity>> findBySubCategory(Integer id_subCategory);
 
     Optional<List<ProductEntity>> findByName(String productName);
-
     
     ProductEntity findByReference(String reference);
 
