@@ -147,7 +147,6 @@ public class ProductService {
 		}
 	}
 
-
 	@Transactional
 	public void updatePrice(Integer id, Double price) {
 		log.info("Trying to update price");
@@ -171,7 +170,7 @@ public class ProductService {
 			log.info("Trying to update product with id: " + product.toString());
 			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
 			log.warn("trying to instance productEntity with id: " + product.toString());
-			ProductEntity actualProductEntity = productRepository.findById(product.getIdProduct()).get();
+			ProductEntity actualProductEntity = productRepository.findByReference(product.getReference());
 			log.warn("trying to get actual actualProductEntity with id: " + actualProductEntity.toString());
 			actualProductEntity = productEntity;
 			log.info("trying to save overwrite productEntity");

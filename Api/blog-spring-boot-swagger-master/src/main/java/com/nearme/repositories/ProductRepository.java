@@ -16,6 +16,8 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
 
     Optional<List<ProductEntity>> findByName(String productName);
 
+    
+    ProductEntity findByReference(String reference);
 
     Optional<List<ProductEntity>> findByIdSupplier(Integer id_supplier);
 
