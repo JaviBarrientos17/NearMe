@@ -42,8 +42,8 @@ export class ProductsService {
   //Añadir productos mediante CSV
   addProductsByCsv() {}
 
-  updateProduct(idProduct: Number, product: Product) {
-    return this.conexHttp.put('/api/product/update/' + idProduct, product);
+  updateProduct(product: Product) {
+    return this.conexHttp.put('/api/product/update/', product);
   }
 
   deleteProduct(idProduct: Number) {
