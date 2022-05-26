@@ -4,7 +4,8 @@ import com.nearme.services.CategoryServices;
 
 import java.util.List;
 
-import com.nearme.models.dto.CategoryDTO;
+import com.nearme.models.entities.CategoryEntity;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,9 +32,9 @@ public class CategoryController {
      */
     @GetMapping("/listMain")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<CategoryDTO>> getMainCategoryList() throws Exception {
+    public ResponseEntity<List<CategoryEntity>> getMainCategoryList() throws Exception {
         log.info("Listing all MainCategories");
-        return new ResponseEntity<List<CategoryDTO>>(this.categoryService.getMainCategories(), HttpStatus.OK);
+        return new ResponseEntity<List<CategoryEntity>>(this.categoryService.getMainCategories(), HttpStatus.OK);
     }
 
     /**
@@ -44,11 +45,22 @@ public class CategoryController {
      */
     @GetMapping("/ListSub")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<CategoryDTO>> getSubCategoryList() throws Exception {
+    public ResponseEntity<List<CategoryEntity>> getSubCategoryList() throws Exception {
         log.info("Listing all SubCategories");
-        return new ResponseEntity<List<CategoryDTO>>(this.categoryService.getSubCategories(), HttpStatus.OK);
+        return new ResponseEntity<List<CategoryEntity>>(this.categoryService.getSubCategories(), HttpStatus.OK);
     }
 
+    /**
+     * List All Existing Categories
+     *
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/list")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<CategoryEntity>> getCategoryList() throws Exception {
+        log.info("Listing all categories");
+        return new ResponseEntity<List<CategoryEntity>>(this.categoryService.getAllCategories(), HttpStatus.OK);
+
+    }
 }
-
-

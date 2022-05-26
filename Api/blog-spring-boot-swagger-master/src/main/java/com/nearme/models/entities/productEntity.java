@@ -44,4 +44,23 @@ public class ProductEntity {
     @Column(name = "img_url")
     private String imgUrl;
 
+    // override equals and hashcode
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        ProductEntity that = (ProductEntity) o;
+        if (that.getIdProduct() == getIdProduct()) {
+            return true;
+        }
+        return IdProduct.equals(that.IdProduct);
+    }
+
+    @Override
+    public int hashCode() {
+        return IdProduct.hashCode();
+    }
+
 }

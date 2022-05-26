@@ -94,16 +94,6 @@ public class ProductService {
 	}
 
 	@Transactional
-	public ArrayList<ProductDTO> getProductByCategory(Integer idCategory) {
-		List<ProductEntity> products = productRepository.findByCategory(idCategory).get();
-		if (products.isEmpty()) {
-			log.info("No products found with category id: " + idCategory);
-			new Exception("No products found with category id: " + idCategory);
-		}
-		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
-	}
-
-	@Transactional
 	public ArrayList<ProductDTO> getProductByStock(Integer stock) {
 		List<ProductEntity> products = productRepository.findByStock(stock).get();
 		if (products.isEmpty()) {
@@ -157,7 +147,7 @@ public class ProductService {
 		}
 	}
 
-	// i need a function to update the price of a product
+
 	@Transactional
 	public void updatePrice(Integer id, Double price) {
 		log.info("Trying to update price");
@@ -176,11 +166,16 @@ public class ProductService {
 
 	@Transactional
 	public void updateProduct(ProductDTO product) {
-		log.info("Trying to update product");
+		log.warn("Trying to update product");
 		try {
+			log.info("Trying to update product with id: " + product.toString());
 			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
-			productRepository.save(productEntity);
-
+			log.info("trying to instance productEntity");
+			ProductEntity actualProductEntity = productRepository.findById(product.getIdProduct()).get();
+			log.info("trying to get actual productEntity");
+			actualProductEntity = productEntity;
+			log.info("trying to save overwrite productEntity");
+			productRepository.save(actualProductEntity);
 			log.info("Product updated");
 		} catch (Exception e) {
 			log.error("Error updating product");
@@ -244,5 +239,53 @@ public class ProductService {
 		}
 		return true;
 
+	}
+
+	/**
+	 * Filter products by category, neds two params, subcategory must be negative
+	 * if you only want to filter by category
+	 * 
+	 * @param file image file
+	 * @return boolean
+	 */
+	@Transactional
+	public ArrayList<ProductDTO> getProductByCategory(Integer idCategory, Integer subCategory) {
+		List<ProductEntity> productsCategory = productRepository.findByCategory(idCategory).get();
+		List<ProductEntity> productsSubCategory;
+		List<ProductEntity> resultProducts;
+		if (productsCategory.isEmpty()) {
+			log.info("No products found with category: " + idCategory);
+			new Exception("No products found with category: " + idCategory);
+		}
+		log.info("list of products with category:" + idCategory + "found");
+		if (subCategory > 0) {
+			productsSubCategory = productRepository.findBySubCategory(subCategory).get();
+
+			if (!productsCategory.isEmpty() && !productsSubCategory.isEmpty()) {
+				resultProducts = this.intersect(productsCategory, productsSubCategory);
+				return ProductMapper.INSTANCE.mapEntityToDtoList(resultProducts);
+			}
+		}
+
+		return ProductMapper.INSTANCE.mapEntityToDtoList(productsCategory);
+	}
+
+	/**
+	 * Intersect two lists
+	 * 
+	 * @param file image file
+	 * @return list
+	 */
+	private List<ProductEntity> intersect(List<ProductEntity> list1, List<ProductEntity> list2) {
+		List<ProductEntity> list = new ArrayList<ProductEntity>();
+
+		for (ProductEntity t : list1) {
+			// Contains use equals everwrited method in productEntity
+			if (list2.contains(t)) {
+				list.add(t);
+			}
+		}
+
+		return list;
 	}
 }
