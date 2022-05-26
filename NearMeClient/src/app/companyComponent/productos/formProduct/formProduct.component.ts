@@ -2,8 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { User } from 'src/model/user.model';
 
 @Component({
   selector: 'formProduct-component',
@@ -15,17 +18,21 @@ export class FormProductComponent implements OnInit {
   productForm!: FormGroup;
   submitted = false;
   idProduct!: Number;
+  idSupplier: Observable<string>;
+  dateAdded: String;
   isAddMode!: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
     protected router: Router,
     protected route: ActivatedRoute,
-    protected _productService: ProductsService
+    protected _productService: ProductsService,
+    protected authService: AuthenticationService
   ) {}
 
   ngOnInit() {
     this.idProduct = this.route.snapshot.params['idProduct'];
+    this.idSupplier = this.authService.currentUserId;
     this.isAddMode = !this.idProduct;
     console.log(this.idProduct);
     console.log(this.isAddMode);
@@ -36,9 +43,16 @@ export class FormProductComponent implements OnInit {
       price: ['', Validators.required],
       imgUrl: [''],
       description: ['', Validators.required],
-      idCategory: ['', Validators.required],
+      category: ['', Validators.required],
+      subCategory: ['', Validators.required],
       active: ['', Validators.required],
       stock: ['', Validators.required],
+    });
+
+    this.productForm.patchValue({
+      idProduct: this.idProduct,
+      idSupplier: this.idSupplier,
+      dateAdded: '',
     });
 
     //PARA EDITAR EL PRODUCTO

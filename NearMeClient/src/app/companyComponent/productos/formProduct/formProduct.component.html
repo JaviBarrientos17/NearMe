@@ -75,7 +75,17 @@
                       <div class="col-sm-2 form-group">
                         <label class="m-2" for="reference">Reference</label>
                         <input
+                          *ngIf="!isAddMode"
                           readonly
+                          type="text"
+                          class="form-control"
+                          formControlName="reference"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.reference.errors
+                          }"
+                        />
+                        <input
+                          *ngIf="isAddMode"
                           type="text"
                           class="form-control"
                           formControlName="reference"
@@ -163,20 +173,39 @@
                         </div>
                       </div>
                       <div class="col-sm-2 form-group">
-                        <label class="m-2" for="idCategory">Category</label>
+                        <label class="m-2" for="category">Category</label>
                         <input
                           type="text"
                           class="form-control"
-                          formControlName="idCategory"
+                          formControlName="category"
                           [ngClass]="{
-                            'is-invalid': submitted && f.idCategory.errors
+                            'is-invalid': submitted && f.category.errors
                           }"
                         />
                         <div
-                          *ngIf="submitted && f.idCategory.errors"
+                          *ngIf="submitted && f.category.errors"
                           class="invalid-feedback"
                         >
-                          <div *ngIf="f.idCategory.errors.required">
+                          <div *ngIf="f.category.errors.required">
+                            Product Category is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 form-group">
+                        <label class="m-2" for="subCategory">Category</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="subCategory"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.subCategory.errors
+                          }"
+                        />
+                        <div
+                          *ngIf="submitted && f.subCategory.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.subCategory.errors.required">
                             Product Category is required
                           </div>
                         </div>
