@@ -170,10 +170,11 @@ public class ProductController {
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> updateProduct(@RequestBody ProductDTO data) {
 		try {
+			log.warn("testing ----> "+data.toString());
 			this.productService.updateProduct(data);
 			return new ResponseEntity<Void>(HttpStatus.OK);
 		} catch (Exception ex) {
-			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<ErrorDTO>(new ErrorDTO(ex.getMessage()), HttpStatus.CONFLICT);
 		}
 	}
 
