@@ -63,4 +63,22 @@ public class ProductEntity {
         return IdProduct.hashCode();
     }
 
+
+    @Override
+    public String toString() {
+        return "ProductEntity{" +
+                "IdProduct=" + IdProduct +
+                ", idSupplier=" + idSupplier +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", category=" + category +
+                ", subCategory=" + subCategory +
+                ", stock=" + stock +
+                ", Price=" + Price +
+                ", reference='" + reference + '\'' +
+                ", active=" + active +
+                ", dateAdded='" + dateAdded + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
+                '}';
+    }
 }
