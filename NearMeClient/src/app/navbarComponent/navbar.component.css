@@ -7,7 +7,7 @@
 }
 
 .navbarSec {
-    background-color: #23303E;
+    background-color: #23303e;
 }
 .drawerImg {
     width: 1.4em;
@@ -17,23 +17,24 @@
     width: 7em;
 }
 
-#imgCarrito{
-    width:30px;
+#imgCarrito {
+    width: 30px;
 }
 .navbar-nav {
     width: 100%;
     text-align: center;
 }
-.navbar-nav>li {
+.navbar-nav > li {
     float: initial;
-  line-height: 40px;
-  padding-left: 3em ;
+    line-height: 40px;
+    padding-left: 3em;
 }
-.nav>li {
-    display:inline-block;
+.nav > li {
+    display: inline-block;
 }
 
-li>a{
+li > a {
     color: white !important;
     font-size: 1.2em;
 }
+  
