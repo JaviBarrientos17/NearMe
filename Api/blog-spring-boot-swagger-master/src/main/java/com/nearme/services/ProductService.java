@@ -147,7 +147,7 @@ public class ProductService {
 		}
 	}
 
-	// i need a function to update the price of a product
+
 	@Transactional
 	public void updatePrice(Integer id, Double price) {
 		log.info("Trying to update price");
