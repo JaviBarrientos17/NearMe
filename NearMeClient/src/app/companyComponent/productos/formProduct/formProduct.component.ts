@@ -93,14 +93,14 @@ export class FormProductComponent implements OnInit {
   }
 
   private updateProduct() {
-    console.log(this.productForm.value);
-    this._productService
-      .updateProduct(this.productForm.value)
-      .pipe(first())
-      .subscribe(() => {
-        console.log('UPDATED');
-        this.router.navigate(['../'], { relativeTo: this.route });
-      })
-      .add();
+    // console.log(this.productForm.value);
+    // this._productService
+    //   .updateProduct(this.productForm.value)
+    //   .pipe(first())
+    //   .subscribe(() => {
+    //     console.log('UPDATED');
+    //     this.router.navigate(['../'], { relativeTo: this.route });
+    //   })
+    //   .add();
   }
 }
