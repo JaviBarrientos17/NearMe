@@ -166,12 +166,15 @@ public class ProductService {
 
 	@Transactional
 	public void updateProduct(ProductDTO product) {
-		log.info("Trying to update product");
+		log.warn("Trying to update product");
 		try {
+			log.info("Trying to update product with id: " + product.toString());
 			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
+			log.info("trying to instance productEntity");
 			ProductEntity actualProductEntity = productRepository.findById(product.getIdProduct()).get();
+			log.info("trying to get actual productEntity");
 			actualProductEntity = productEntity;
-
+			log.info("trying to save overwrite productEntity");
 			productRepository.save(actualProductEntity);
 			log.info("Product updated");
 		} catch (Exception e) {
