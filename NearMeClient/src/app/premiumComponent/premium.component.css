@@ -1,33 +1,28 @@
-
-.fondo{
-    background-color: #f0efef;
+.fondo {
+  background-color: #f0efef;
 }
-.background{
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+.background {
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    margin-top: 5%;
-    margin-bottom: 5%;
-
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
-.divIcons{
-    margin-top: 7%;
-
+.divIcons {
+  margin-top: 7%;
 }
 
-.icons img{
-    margin-top: 5%;
-    width: 90px;
-
+.icons img {
+  margin-top: 5%;
+  width: 90px;
 }
 
-
-.btnPremiumCompanies{
-    margin-top: 3em;
-    margin-bottom: 2em;
- background-color: #3d81d2;
+.btnPremiumCompanies {
+  margin-top: 3em;
+  margin-bottom: 2em;
+  background-color: #3d81d2;
   padding: 1em 2em;
   border-radius: 20px;
   border-color: #3d81d2;
@@ -35,29 +30,27 @@
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-
-.btnPremiumClients{
-    margin-top: 3em;
-    margin-bottom: 2em;
-    background-color: #fd9f48;
-    padding: 1em 2em;
-    color: black;
-    border-radius: 20px;
-    border-color: #fd9f48;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+.btnPremiumClients {
+  margin-top: 3em;
+  margin-bottom: 2em;
+  background-color: #fd9f48;
+  padding: 1em 2em;
+  color: black;
+  border-radius: 20px;
+  border-color: #fd9f48;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-
-h2{
-    margin-top: 7%;
-    margin-bottom: 7%;
-    font-size: 2.7rem;
+h2 {
+  margin-top: 7%;
+  margin-bottom: 7%;
+  font-size: 2.7rem;
 }
-p,td{
-    
-    margin-left: 4%;
-    margin-right: 4%;
-    text-align: center;
-    font-size: 1.2rem;
+p,
+td {
+  margin-left: 4%;
+  margin-right: 4%;
+  text-align: center;
+  font-size: 1.2rem;
 }
