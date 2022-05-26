@@ -67,6 +67,16 @@ public class ProductService {
 		return ProductMapper.INSTANCE.entityToDto(product);
 	}
 
+	@Transactional
+	public List<ProductDTO> getProductsByIdSupplier(Integer idSupplier) {
+		List<ProductEntity> productsList = productRepository.findByIdSupplier(idSupplier).get();
+		if (productsList.isEmpty()) {
+			log.info("No products found in the database");
+			new Exception("No products found");
+		}
+		return ProductMapper.INSTANCE.mapEntityToDtoList(productsList);
+	}
+
 	/**
 	 * Gets product by name
 	 * 

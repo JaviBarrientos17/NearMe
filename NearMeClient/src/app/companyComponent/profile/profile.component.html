@@ -2,164 +2,219 @@
 <div class="fondo">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2" style="padding: 0">
-        <sidenavCompany-component></sidenavCompany-component>
-      </div>
-      <div class="col-md-10 mainContainer">
-        <mat-tab-group dynamicHeight>
-          <mat-tab label="Perfil">
-            <div class="card card-profile">
-              <h3 class="card-header">
-                {{ "company_profile.main_info" | translate }}
-                <i class="bi bi-pencil">
-                  {{ "company_profile.edit" | translate }}</i
-                >
-              </h3>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-lg-3">
-                    <h4>{{ "company_profile.web" | translate }}</h4>
-                  </div>
-                  <div class="col-lg-3">
-                    <p>www.zapas.com</p>
-                  </div>
-                  <div class="col-lg-3">
-                    <h4>{{ "company_profile.ubi" | translate }}</h4>
-                  </div>
-                  <div class="col-lg-3">
-                    <p>C/Balmes 98</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-3">
-                    <h4>{{ "company_profile.schedule" | translate }}</h4>
-                  </div>
-                  <div class="col-lg-3">
-                    <p>L-V, 9:00 a 19:00</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-3">
-                    <h4>{{ "company_profile.suscription" | translate }}</h4>
-                  </div>
-                  <div class="col-lg-3">
-                    <p>GOLD</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card card-profile">
-              <h3 class="card-header">
-                {{ "company_profile.personal_info" | translate }}
-                <i class="bi bi-pencil">
-                  {{ "company_profile.edit" | translate }}</i
-                >
-              </h3>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-lg-3">
-                    <h4>{{ "company_profile.web" | translate }}</h4>
-                  </div>
-                  <div class="col-lg-3">
-                    <p>www.zapas.com</p>
-                  </div>
-                  <div class="col-lg-3">
-                    <h4>{{ "company_profile.ubi" | translate }}</h4>
-                  </div>
-                  <div class="col-lg-3">
-                    <p>C/Balmes 98</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-3">
-                    <h4>{{ "company_profile.schedule" | translate }}</h4>
-                  </div>
-                  <div class="col-lg-3">
-                    <p>L-V, 9:00 a 19:00</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-3">
-                    <h4>{{ "company_profile.suscription" | translate }}</h4>
-                  </div>
-                  <div class="col-lg-3">
-                    <p>GOLD</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </mat-tab>
-          <mat-tab label="Mi Plan">
-            <div class="row-fluid">
-              <div
-                class="col-lg-12 periodo-prueba d-flex justify-content-center align-self-center"
+      <div class="wrapper d-flex align-items-stretch p-0">
+        <nav id="sidebar" class="active bg-white">
+          <div class="profile">
+            <img src="assets/nick.png" alt="Image" class="img-fluid" />
+            <h1 class="name">Hola Zapas</h1>
+          </div>
+
+          <ul class="list-unstyled components mb-5">
+            <li>
+              <a [routerLink]="['/dashboard']"
+                ><span class="fa fa-home"></span>
+                {{ "company.dashboard" | translate }}</a
               >
-                <span>
-                  {{ "company_profile.period" | translate }}+ +
-                  {{ "company_profile.days_left" | translate }}
-                </span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div
-                  class="card cardInfoPrincipal"
-                  style="border: 1px solid brown"
-                >
+            </li>
+
+            <li>
+              <a [routerLink]="['/dashboard/productList']"
+                ><span class="fa fa-box"></span>
+                {{ "company.products" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/pedidosList']"
+                ><span class="fa fa-bell"></span>
+                {{ "company.pedidos" | translate }}</a
+              >
+            </li>
+            <li class="active">
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-comments"></span>
+                {{ "company.profile" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-sliders-h"></span>
+                {{ "company.settings" | translate }}</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div id="content" class="p-4 p-md-5">
+          <mat-toolbar class="tooltipBtn">
+            <button
+              type="button"
+              id="sidebarCollapse"
+              class="btn btn-primary"
+              onclick="toggleCompany()"
+            >
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <h1 class="m-4">Perfil</h1>
+          </mat-toolbar>
+
+          <div class="col-md-12 mainContainer">
+            <mat-tab-group dynamicHeight>
+              <mat-tab label="Perfil">
+                <div class="card card-profile">
+                  <h3 class="card-header">
+                    {{ "company_profile.main_info" | translate }}
+                    <i class="bi bi-pencil">
+                      {{ "company_profile.edit" | translate }}</i
+                    >
+                  </h3>
                   <div class="card-body">
-                    <h3>BRONZE</h3>
-                    <div class="priceSub" style="border: 1px solid brown">
-                      <span>9,99€/mes</span>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <h4>{{ "company_profile.web" | translate }}</h4>
+                      </div>
+                      <div class="col-lg-3">
+                        <p>www.zapas.com</p>
+                      </div>
+                      <div class="col-lg-3">
+                        <h4>{{ "company_profile.ubi" | translate }}</h4>
+                      </div>
+                      <div class="col-lg-3">
+                        <p>C/Balmes 98</p>
+                      </div>
                     </div>
-                    <div class="swow-plan" [class.show]="show">
-                      <p (click)="show = !show">
-                        {{ show ? "Ver Menos" : "Ver Más" }}
-                      </p>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <h4>{{ "company_profile.schedule" | translate }}</h4>
+                      </div>
+                      <div class="col-lg-3">
+                        <p>L-V, 9:00 a 19:00</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <h4>{{ "company_profile.suscription" | translate }}</h4>
+                      </div>
+                      <div class="col-lg-3">
+                        <p>GOLD</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-4">
-                <div
-                  class="card cardInfoPrincipal"
-                  style="border: 1px solid silver"
-                >
+                <div class="card card-profile">
+                  <h3 class="card-header">
+                    {{ "company_profile.personal_info" | translate }}
+                    <i class="bi bi-pencil">
+                      {{ "company_profile.edit" | translate }}</i
+                    >
+                  </h3>
                   <div class="card-body">
-                    <h3>SILVER</h3>
-                    <div class="priceSub" style="border: 1px solid silver">
-                      <span>29,99€/mes</span>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <h4>{{ "company_profile.web" | translate }}</h4>
+                      </div>
+                      <div class="col-lg-3">
+                        <p>www.zapas.com</p>
+                      </div>
+                      <div class="col-lg-3">
+                        <h4>{{ "company_profile.ubi" | translate }}</h4>
+                      </div>
+                      <div class="col-lg-3">
+                        <p>C/Balmes 98</p>
+                      </div>
                     </div>
-                    <div class="swow-plan" [class.show]="show">
-                      <p (click)="show = !show">
-                        {{ show ? "Ver Menos" : "Ver Más" }}
-                      </p>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <h4>{{ "company_profile.schedule" | translate }}</h4>
+                      </div>
+                      <div class="col-lg-3">
+                        <p>L-V, 9:00 a 19:00</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <h4>{{ "company_profile.suscription" | translate }}</h4>
+                      </div>
+                      <div class="col-lg-3">
+                        <p>GOLD</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-4">
-                <div
-                  class="card cardInfoPrincipal"
-                  style="border: 1px solid gold"
-                >
-                  <div class="card-body">
-                    <h3>GOLD</h3>
-                    <div class="priceSub" style="border: 1px solid gold">
-                      <span>49,99€/mes</span>
+              </mat-tab>
+              <mat-tab label="Mi Plan">
+                <div class="row-fluid">
+                  <div
+                    class="col-lg-12 periodo-prueba d-flex justify-content-center align-self-center"
+                  >
+                    <span>
+                      {{ "company_profile.period" | translate }}+ +
+                      {{ "company_profile.days_left" | translate }}
+                    </span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div
+                      class="card cardInfoPrincipal"
+                      style="border: 1px solid brown"
+                    >
+                      <div class="card-body">
+                        <h3>BRONZE</h3>
+                        <div class="priceSub" style="border: 1px solid brown">
+                          <span>9,99€/mes</span>
+                        </div>
+                        <div class="swow-plan" [class.show]="show">
+                          <p (click)="show = !show">
+                            {{ show ? "Ver Menos" : "Ver Más" }}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="swow-plan" [class.show]="show">
-                      <p (click)="show = !show">
-                        {{ show ? "Ver Menos" : "Ver Más" }}
-                      </p>
+                  </div>
+                  <div class="col-md-4">
+                    <div
+                      class="card cardInfoPrincipal"
+                      style="border: 1px solid silver"
+                    >
+                      <div class="card-body">
+                        <h3>SILVER</h3>
+                        <div class="priceSub" style="border: 1px solid silver">
+                          <span>29,99€/mes</span>
+                        </div>
+                        <div class="swow-plan" [class.show]="show">
+                          <p (click)="show = !show">
+                            {{ show ? "Ver Menos" : "Ver Más" }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div
+                      class="card cardInfoPrincipal"
+                      style="border: 1px solid gold"
+                    >
+                      <div class="card-body">
+                        <h3>GOLD</h3>
+                        <div class="priceSub" style="border: 1px solid gold">
+                          <span>49,99€/mes</span>
+                        </div>
+                        <div class="swow-plan" [class.show]="show">
+                          <p (click)="show = !show">
+                            {{ show ? "Ver Menos" : "Ver Más" }}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </mat-tab>
-        </mat-tab-group>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
       </div>
     </div>
+    <footer-component></footer-component>
   </div>
 </div>
-<footer-component></footer-component>

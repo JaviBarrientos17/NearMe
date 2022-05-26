@@ -11,7 +11,7 @@ import { ProductsService } from '../services/products.service';
   providers: [ProductsService],
 })
 export class ProductComponent implements OnInit {
-  product: Product | any = null;
+  product: Product;
   title = 'Product';
   id: Number = 0;
   category: String = '';
@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit {
     private _router: Router,
     private _cartService: CartService
   ) {}
-  
+
   ngOnInit(): void {
     this._activeRoute.paramMap.subscribe((params) => {
       this.id = Number.parseInt(params.get('idProduct') + '');
@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit {
     });
     this._productsService.getProductsById(this.id).subscribe(
       (resul) => {
-        this.product = JSON.parse(resul);
+        this.product = resul;
         console.log('Product');
         console.log(this.product);
       },
@@ -61,7 +61,7 @@ export class ProductComponent implements OnInit {
     //   }
     // );
   }
-
+  
   addToCart(product:any) {
     this._cartService.addToCart(product);
   }
