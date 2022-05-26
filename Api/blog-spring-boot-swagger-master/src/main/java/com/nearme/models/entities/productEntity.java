@@ -63,7 +63,6 @@ public class ProductEntity {
         return IdProduct.hashCode();
     }
 
-
     @Override
     public String toString() {
         return "ProductEntity{" +
