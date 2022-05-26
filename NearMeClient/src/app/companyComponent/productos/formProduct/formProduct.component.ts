@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { Product } from 'src/model/product';
 import { User } from 'src/model/user.model';
 
 @Component({
@@ -18,8 +19,10 @@ export class FormProductComponent implements OnInit {
   productForm!: FormGroup;
   submitted = false;
   idProduct!: Number;
-  idSupplier: Observable<string>;
+  user: User;
+  idSupplier: string;
   dateAdded: String;
+  product: Product;
   isAddMode!: boolean;
 
   constructor(
@@ -32,10 +35,12 @@ export class FormProductComponent implements OnInit {
 
   ngOnInit() {
     this.idProduct = this.route.snapshot.params['idProduct'];
-    this.idSupplier = this.authService.currentUserId;
+    this.user = this.authService.currentUserValue;
+    this.idSupplier = this.user.id;
     this.isAddMode = !this.idProduct;
     console.log(this.idProduct);
     console.log(this.isAddMode);
+    console.log(this.idSupplier);
 
     this.productForm = this.formBuilder.group({
       reference: ['', Validators.required],
@@ -87,13 +92,15 @@ export class FormProductComponent implements OnInit {
   }
 
   private addProduct() {
-    this._productService
-      .addProductByForm(this.productForm.value)
-      .pipe(first())
-      .subscribe(() => {
-        console.log('ADDED');
-      })
-      .add();
+    console.log(this.productForm.value);
+    this._productService.addProductByForm(this.productForm.value).subscribe(
+      (resul) => {
+        console.log('User inserted data: ' + resul);
+      },
+      (error) => {
+        console.log('Error: ' + error);
+      }
+    );
   }
 
   private updateProduct() {
