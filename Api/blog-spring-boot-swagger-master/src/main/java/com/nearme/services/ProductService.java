@@ -180,7 +180,7 @@ public class ProductService {
 			log.info("trying to save overwrite productEntity");
 			productRepository.save(actualProductEntity);
 			log.info("Product updated");
-return actualProductEntity;
+			return actualProductEntity;
 		} catch (Exception e) {
 			log.error("Error updating product");
 			new Exception("Error updating product");
