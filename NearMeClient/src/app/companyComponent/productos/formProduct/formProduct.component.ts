@@ -17,15 +17,6 @@ export class FormProductComponent implements OnInit {
   idProduct!: Number;
   isAddMode!: boolean;
 
-  productReference: string = '';
-  productName: string = '';
-  productPrice: number = null;
-  productImage: string = '';
-  productDescription: string = '';
-  productCategory: number = null;
-  productActive: boolean = null;
-  productStock: number = null;
-
   constructor(
     private formBuilder: FormBuilder,
     protected router: Router,
@@ -80,14 +71,13 @@ export class FormProductComponent implements OnInit {
       this.updateProduct();
     }
   }
+
   private addProduct() {
     this._productService
       .addProductByForm(this.productForm.value)
       .pipe(first())
       .subscribe(() => {
-        //this.alertService.success('User added', { keepAfterRouteChange: true });
         console.log('ADDED');
-        this.router.navigate(['../'], { relativeTo: this.route });
       })
       .add();
   }
@@ -99,7 +89,6 @@ export class FormProductComponent implements OnInit {
       .pipe(first())
       .subscribe(() => {
         console.log('UPDATED');
-        this.router.navigate(['../'], { relativeTo: this.route });
       })
       .add();
   }
