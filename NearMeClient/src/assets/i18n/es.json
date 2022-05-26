@@ -34,11 +34,7 @@
         "catalanLabel": "Catalan"
     },
     "product": {
-        "product_description": "Descripción del producto",
         "related_products": "Productos relacionados",
-        "buy_btn": "Comprar",
-        "see_shop": "Ver tienda",
-        "product_zone": "Cataluña",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"

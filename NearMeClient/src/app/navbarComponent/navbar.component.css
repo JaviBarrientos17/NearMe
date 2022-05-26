@@ -1,39 +1,39 @@
 * {
-  font-family: "Spline Sans", sans-serif;
+    font-family: "Spline Sans", sans-serif;
 }
 
 .navbarPrinc {
-  background-color: #141921;
+    background-color: #141921;
 }
 
 .navbarSec {
-  background-color: #23303e;
+    background-color: #23303E;
 }
 .drawerImg {
-  width: 1.4em;
+    width: 1.4em;
 }
 
 #nearmeLogo {
-  width: 7em;
+    width: 7em;
 }
 
-#imgCarrito {
-  width: 30px;
+#imgCarrito{
+    width:30px;
 }
 .navbar-nav {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
-.navbar-nav > li {
-  float: initial;
+.navbar-nav>li {
+    float: initial;
   line-height: 40px;
-  padding-left: 3em;
+  padding-left: 3em ;
 }
-.nav > li {
-  display: inline-block;
+.nav>li {
+    display:inline-block;
 }
 
-li > a {
-  color: white !important;
-  font-size: 1.2em;
+li>a{
+    color: white !important;
+    font-size: 1.2em;
 }
