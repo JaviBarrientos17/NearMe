@@ -26,6 +26,7 @@ export class ShoppingCartComponent implements OnInit {
                 this.products = JSON.parse(resul);
                 console.log('Product');
                 console.log(this.products);
+                // TODO
             },
             (error) => {
                 console.log('Product error');
