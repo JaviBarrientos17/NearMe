@@ -5,7 +5,6 @@ import javax.validation.Valid;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import com.nearme.models.dto.ErrorDTO;
 import com.nearme.models.dto.ProductDTO;

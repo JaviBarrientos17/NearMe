@@ -4,7 +4,6 @@ import com.nearme.services.CategoryServices;
 
 import java.util.List;
 
-import com.nearme.models.dto.CategoryDTO;
 import com.nearme.models.entities.CategoryEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
