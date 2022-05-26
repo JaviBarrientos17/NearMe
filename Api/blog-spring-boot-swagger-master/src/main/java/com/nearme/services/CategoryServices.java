@@ -25,14 +25,31 @@ public class CategoryServices {
      * @throws Exception
      */
     @Transactional
-    public List<CategoryDTO> getMainCategories() throws Exception {
+    public List<CategoryEntity> getMainCategories() throws Exception {
         List<CategoryEntity> categoriesList = categoryRepository.findByRoot(true).get();
 
         if (categoriesList.isEmpty()) {
             log.info("No categories found in the database");
             new Exception("No categories found");
         }
-        return CategoryMapper.INSTANCE.mapEntityToDtoList(categoriesList);
+        return categoriesList;
+    }
+
+    /**
+     * Gets categories Categories
+     * 
+     * @return
+     * @throws Exception
+     */
+    @Transactional
+    public List<CategoryEntity> getAllCategories() throws Exception {
+        List<CategoryEntity> categoriesList = categoryRepository.findAll();
+
+        if (categoriesList.isEmpty()) {
+            log.info("No categories found in the database");
+            new Exception("No categories found");
+        }
+        return categoriesList;
     }
 
     /**
@@ -42,13 +59,13 @@ public class CategoryServices {
      * @throws Exception
      */
     @Transactional
-    public List<CategoryDTO> getSubCategories() throws Exception {
+    public List<CategoryEntity> getSubCategories() throws Exception {
         List<CategoryEntity> categoriesList = categoryRepository.findByRoot(false).get();
         if (categoriesList.isEmpty()) {
             log.info("No categories found in the database");
             new Exception("No categories found");
         }
-        return CategoryMapper.INSTANCE.mapEntityToDtoList(categoriesList);
+        return categoriesList;
     }
 
     /**

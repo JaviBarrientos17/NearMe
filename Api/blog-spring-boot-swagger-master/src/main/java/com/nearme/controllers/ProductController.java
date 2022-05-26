@@ -5,6 +5,8 @@ import javax.validation.Valid;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+
 import com.nearme.models.dto.ErrorDTO;
 import com.nearme.models.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -182,7 +184,7 @@ public class ProductController {
 	 * @param file
 	 * @return
 	 */
-	@PostMapping("/upload/{idProducto}")
+	@PostMapping("/upload/{idProducto}/")
 	public ResponseEntity<Void> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable Integer idProducto) {
 		try {
 			if (productService.uploadImage(file, idProducto)) {
@@ -193,4 +195,18 @@ public class ProductController {
 		}
 		return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);
 	}
+
+	// get product by category
+	@GetMapping("/category/{idCategory}/{idSubCategory}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<List<ProductDTO>> getProductByCategory(@PathVariable Integer idCategory,
+			@PathVariable Integer idSubCategory) throws Exception {
+
+		if (idSubCategory == null || idSubCategory == 0) {
+			idSubCategory = -1;
+		}
+		return new ResponseEntity<List<ProductDTO>>(this.productService.getProductByCategory(idCategory, idSubCategory),
+				HttpStatus.OK);
+	}
+
 }

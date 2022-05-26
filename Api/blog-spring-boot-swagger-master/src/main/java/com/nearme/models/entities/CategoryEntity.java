@@ -28,5 +28,7 @@ public class CategoryEntity {
     @Builder.Default
     private boolean root = true;
     private Integer parent;
+    @Column(name = "img_url")
+    private String imgUrl;
 
 }

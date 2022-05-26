@@ -15,4 +15,5 @@ public class CategoryDTO {
     private String name;
     private boolean root;
     private Integer parent;
+    private String imgUrl;
 }

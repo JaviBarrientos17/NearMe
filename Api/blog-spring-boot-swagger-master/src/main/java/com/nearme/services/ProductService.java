@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.nearme.mappers.ProductMapper;
 import com.nearme.models.dto.ProductDTO;
@@ -94,16 +95,6 @@ public class ProductService {
 	}
 
 	@Transactional
-	public ArrayList<ProductDTO> getProductByCategory(Integer idCategory) {
-		List<ProductEntity> products = productRepository.findByCategory(idCategory).get();
-		if (products.isEmpty()) {
-			log.info("No products found with category id: " + idCategory);
-			new Exception("No products found with category id: " + idCategory);
-		}
-		return ProductMapper.INSTANCE.mapEntityToDtoList(products);
-	}
-
-	@Transactional
 	public ArrayList<ProductDTO> getProductByStock(Integer stock) {
 		List<ProductEntity> products = productRepository.findByStock(stock).get();
 		if (products.isEmpty()) {
@@ -179,8 +170,10 @@ public class ProductService {
 		log.info("Trying to update product");
 		try {
 			ProductEntity productEntity = ProductMapper.INSTANCE.dtoToEntity(product);
-			productRepository.save(productEntity);
+			ProductEntity actualProductEntity = productRepository.findById(product.getIdProduct()).get();
+			actualProductEntity = productEntity;
 
+			productRepository.save(actualProductEntity);
 			log.info("Product updated");
 		} catch (Exception e) {
 			log.error("Error updating product");
@@ -244,5 +237,53 @@ public class ProductService {
 		}
 		return true;
 
+	}
+
+	/**
+	 * Filter products by category, neds two params, subcategory must be negative
+	 * if you only want to filter by category
+	 * 
+	 * @param file image file
+	 * @return boolean
+	 */
+	@Transactional
+	public ArrayList<ProductDTO> getProductByCategory(Integer idCategory, Integer subCategory) {
+		List<ProductEntity> productsCategory = productRepository.findByCategory(idCategory).get();
+		List<ProductEntity> productsSubCategory;
+		List<ProductEntity> resultProducts;
+		if (productsCategory.isEmpty()) {
+			log.info("No products found with category: " + idCategory);
+			new Exception("No products found with category: " + idCategory);
+		}
+		log.info("list of products with category:" + idCategory + "found");
+		if (subCategory > 0) {
+			productsSubCategory = productRepository.findBySubCategory(subCategory).get();
+
+			if (!productsCategory.isEmpty() && !productsSubCategory.isEmpty()) {
+				resultProducts = this.intersect(productsCategory, productsSubCategory);
+				return ProductMapper.INSTANCE.mapEntityToDtoList(resultProducts);
+			}
+		}
+
+		return ProductMapper.INSTANCE.mapEntityToDtoList(productsCategory);
+	}
+
+	/**
+	 * Intersect two lists
+	 * 
+	 * @param file image file
+	 * @return list
+	 */
+	private List<ProductEntity> intersect(List<ProductEntity> list1, List<ProductEntity> list2) {
+		List<ProductEntity> list = new ArrayList<ProductEntity>();
+
+		for (ProductEntity t : list1) {
+			// Contains use equals everwrited method in productEntity
+			if (list2.contains(t)) {
+				list.add(t);
+			}
+		}
+
+		return list;
 	}
 }
