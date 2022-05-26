@@ -95,14 +95,11 @@ export class FormProductComponent implements OnInit {
   private updateProduct() {
     console.log(this.productForm.value);
     this._productService
-      .updateProduct(this.idProduct, this.productForm.value)
+      .updateProduct(this.productForm.value)
       .pipe(first())
       .subscribe(() => {
-        // this.alertService.success('User updated', {
-        //   keepAfterRouteChange: true,
-        // });
         console.log('UPDATED');
-        this.router.navigate(['../../'], { relativeTo: this.route });
+        this.router.navigate(['../'], { relativeTo: this.route });
       })
       .add();
   }

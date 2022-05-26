@@ -44,7 +44,24 @@ export class ProductList implements OnInit {
 
   ngOnInit(): void {
     this.authService.currentUserIdValue;
-
+    this.getAllProducts();
+  }
+  deleteProduct(idProduct: Number) {
+    const product = this.products.find((x) => x.idProduct === idProduct);
+    if (!product) return;
+    product.isDeleting = true;
+    this._productsService
+      .deleteProduct(idProduct)
+      .pipe(first())
+      .subscribe(
+        () =>
+          (this.products = this.products.filter(
+            (x) => x.idProduct !== idProduct
+          ))
+      );
+    this.getAllProducts();
+  }
+  getAllProducts() {
     this._productsService.getAllProducts().subscribe(
       (resul) => {
         console.log('OK');
@@ -60,19 +77,5 @@ export class ProductList implements OnInit {
       }
     );
     console.log(this.products);
-  }
-  deleteProduct(idProduct: Number) {
-    const product = this.products.find((x) => x.idProduct === idProduct);
-    if (!product) return;
-    product.isDeleting = true;
-    this._productsService
-      .deleteProduct(idProduct)
-      .pipe(first())
-      .subscribe(
-        () =>
-          (this.products = this.products.filter(
-            (x) => x.idProduct !== idProduct
-          ))
-      );
   }
 }
