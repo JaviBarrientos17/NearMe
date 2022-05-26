@@ -2,108 +2,164 @@
 <div class="fondo">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2" style="padding: 0">
-        <sidenavCompany-component></sidenavCompany-component>
-      </div>
-      <div class="col-md-10 pedidosListBg px-5">
-        <div class="row mt-4">
-          <div class="col-2 my-auto">
-            <h1 class="m-0">Pedidos</h1>
+      <div class="wrapper d-flex align-items-stretch p-0">
+        <nav id="sidebar" class="active bg-white">
+          <div class="profile">
+            <img src="assets/nick.png" alt="Image" class="img-fluid" />
+            <h1 class="name">Hola Zapas</h1>
           </div>
-        </div>
 
-        <div *ngIf="view === 'list'" class="table-inside my-4">
-          <div class="mat-elevation-z8">
-            <table class="tablePedidos" mat-table [dataSource]="dataSource">
-              <!-- Position Column -->
-              <ng-container matColumnDef="id_pedido">
-                <th mat-header-cell *matHeaderCellDef>Id</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.id_pedido }}
-                </td>
-              </ng-container>
+          <ul class="list-unstyled components mb-5">
+            <li>
+              <a [routerLink]="['/dashboard']"
+                ><span class="fa fa-home"></span>
+                {{ "company.dashboard" | translate }}</a
+              >
+            </li>
 
-              <!-- Name Column -->
-              <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Name</th>
-                <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-              </ng-container>
+            <li>
+              <a [routerLink]="['/dashboard/productList']"
+                ><span class="fa fa-box"></span>
+                {{ "company.products" | translate }}</a
+              >
+            </li>
+            <li class="active">
+              <a [routerLink]="['/dashboard/pedidosList']"
+                ><span class="fa fa-bell"></span>
+                {{ "company.pedidos" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-comments"></span>
+                {{ "company.profile" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-sliders-h"></span>
+                {{ "company.settings" | translate }}</a
+              >
+            </li>
+          </ul>
+        </nav>
 
-              <!-- Weight Column -->
-              <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef>Price</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.price }}
-                </td>
-              </ng-container>
-
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="date_added">
-                <th mat-header-cell *matHeaderCellDef>Added</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.date_added }}
-                </td>
-              </ng-container>
-
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="state">
-                <th mat-header-cell *matHeaderCellDef>State</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.state }}
-                </td>
-              </ng-container>
-
-              <!-- actions -->
-              <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef>Actions</th>
-                <td mat-cell *matCellDef="let row; let i = index">
-                  <button mat-icon-button color="primary">
-                    <mat-icon aria-label="Edit">create</mat-icon>
-                  </button>
-
-                  <button mat-icon-button color="primary">
-                    <mat-icon aria-label="View">remove_red_eye</mat-icon>
-                  </button>
-                </td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-            </table>
-
-            <mat-paginator
-              [pageSize]="5"
-              [pageSizeOptions]="[5, 10, 20]"
-              showFirstLastButtons
-              aria-label="Select page of periodic elements"
+        <div id="content" class="p-4 p-md-5">
+          <mat-toolbar class="tooltipBtn">
+            <button
+              type="button"
+              id="sidebarCollapse"
+              class="btn btn-primary"
+              onclick="toggleCompany()"
             >
-            </mat-paginator>
-          </div>
-        </div>
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <h1 class="m-4">Pedidos</h1>
+          </mat-toolbar>
+          <div class="col-md-12 pedidosListBg">
+            <div *ngIf="view === 'list'" class="table-inside my-4">
+              <div class="mat-elevation-z8">
+                <table class="tablePedidos" mat-table [dataSource]="dataSource">
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="id_pedido">
+                    <th mat-header-cell *matHeaderCellDef>Id</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.id_pedido }}
+                    </td>
+                  </ng-container>
 
-        <div class="grid grid-cols-12 gap-4" *ngIf="view === 'grid'">
-          <div class="col-span-4" *ngFor="let pedido of pedidos | slice: 0:9">
-            <mat-card>
-              <img
-                class="m-0 mb-4"
-                mat-card-image
-                src="{{ pedido.img_url }}"
-                alt=""
-              />
-              <mat-card-header class="mx-0">
-                <h3 class="text-[15px] leading-[23px]">
-                  {{ pedido.name }}
-                </h3>
-              </mat-card-header>
-              <mat-card-actions>
-                <a mat-stroked-button class="px-5">View</a>
-                <button mat-button>SHARE</button>
-              </mat-card-actions>
-            </mat-card>
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.name }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef>Price</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.price }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="date_added">
+                    <th mat-header-cell *matHeaderCellDef>Added</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.date_added }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="state">
+                    <th mat-header-cell *matHeaderCellDef>State</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.state }}
+                    </td>
+                  </ng-container>
+
+                  <!-- actions -->
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let row; let i = index">
+                      <button mat-icon-button color="primary">
+                        <mat-icon aria-label="Edit">create</mat-icon>
+                      </button>
+
+                      <button mat-icon-button color="primary">
+                        <mat-icon aria-label="View">remove_red_eye</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr
+                    mat-row
+                    *matRowDef="let row; columns: displayedColumns"
+                  ></tr>
+                </table>
+
+                <mat-paginator
+                  [pageSize]="5"
+                  [pageSizeOptions]="[5, 10, 20]"
+                  showFirstLastButtons
+                  aria-label="Select page of periodic elements"
+                >
+                </mat-paginator>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-4" *ngIf="view === 'grid'">
+              <div
+                class="col-span-4"
+                *ngFor="let pedido of pedidos | slice: 0:9"
+              >
+                <mat-card>
+                  <img
+                    class="m-0 mb-4"
+                    mat-card-image
+                    src="{{ pedido.img_url }}"
+                    alt=""
+                  />
+                  <mat-card-header class="mx-0">
+                    <h3 class="text-[15px] leading-[23px]">
+                      {{ pedido.name }}
+                    </h3>
+                  </mat-card-header>
+                  <mat-card-actions>
+                    <a mat-stroked-button class="px-5">View</a>
+                    <button mat-button>SHARE</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <footer-component></footer-component>
   </div>
 </div>
-<footer-component></footer-component>

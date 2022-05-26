@@ -26,11 +26,11 @@
         aria-label="Slide 3"
       ></button>
       <button
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to="3"
-      aria-label="Slide 4"
-    ></button>
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
     </div>
     <div
       id="carouselExampleCaptions"
@@ -50,7 +50,11 @@
           *ngFor="let item of images; let index = index; let isFirst = first"
           [ngClass]="{ active: isFirst }"
         >
-          <img [src]="item.url" class="d-block imgGallery" [alt]="item.title" />
+          <img
+            [src]="item.url"
+            class="d-block imgGallery mx-auto"
+            [alt]="item.title"
+          />
           <div class="carousel-caption d-none d-md-block">
             <h5 [textContent]="item.title"></h5>
             <p [textContent]="item.summery"></p>

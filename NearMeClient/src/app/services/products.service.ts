@@ -11,10 +11,8 @@ export class ProductsService {
   }
 
   //Carga productos cuando en el buscador se pone su nombre
-  getProductsById(idProduct: Number) : Observable<any> {
-    return this.conexHttp.get('/api/product/id/' + idProduct, {
-      responseType: 'text',
-    });
+  getProductsById(idProduct: Number) {
+    return this.conexHttp.get<Product>('/api/product/id/' + idProduct);
   }
 
   //Carga productos cuando en el buscador se pone su nombre
@@ -38,10 +36,17 @@ export class ProductsService {
   // }
 
   //Añadir 1 Producto desde el dashboard
-  addProductByForm(data: Product): Observable<any> {
-    return this.conexHttp.get('');
+  addProductByForm(product: Product): Observable<any> {
+    return this.conexHttp.post('/api/product/', +product);
   }
-
   //Añadir productos mediante CSV
   addProductsByCsv() {}
+
+  updateProduct(idProduct: Number, product: Product) {
+    return this.conexHttp.put('/api/product/update/' + idProduct, product);
+  }
+
+  deleteProduct(idProduct: Number) {
+    return this.conexHttp.delete('/api/product/' + idProduct);
+  }
 }

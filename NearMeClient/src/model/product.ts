@@ -11,6 +11,7 @@ export class Product {
   active: Boolean;
   dateAdded: String;
   imgUrl: String;
+  isDeleting: boolean = false;
 
   constructor(
     idProduct: Number,

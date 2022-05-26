@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Product } from 'src/model/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/users.service';
 
@@ -15,7 +17,6 @@ import { UserService } from 'src/app/services/users.service';
   providers: [ProductsService],
 })
 export class ProductList implements OnInit {
-
   displayedColumns: string[] = [
     'idProduct',
     'name',
@@ -32,7 +33,8 @@ export class ProductList implements OnInit {
   paginator!: MatPaginator;
 
   constructor(
-    private userService: UserService, private authService: AuthenticationService,
+    private userService: UserService,
+    private authService: AuthenticationService,
     private _productsService: ProductsService,
     private _activeRoute: ActivatedRoute,
     private _router: Router,
@@ -41,7 +43,7 @@ export class ProductList implements OnInit {
   view = 'list';
 
   ngOnInit(): void {
-this.authService.currentUserIdValue;
+    this.authService.currentUserIdValue;
 
     this._productsService.getAllProducts().subscribe(
       (resul) => {
@@ -56,12 +58,21 @@ this.authService.currentUserIdValue;
         console.log('ERROR');
         console.log(error);
       }
-    
     );
     console.log(this.products);
-
-
-    
   }
-
+  deleteProduct(idProduct: Number) {
+    const product = this.products.find((x) => x.idProduct === idProduct);
+    if (!product) return;
+    product.isDeleting = true;
+    this._productsService
+      .deleteProduct(idProduct)
+      .pipe(first())
+      .subscribe(
+        () =>
+          (this.products = this.products.filter(
+            (x) => x.idProduct !== idProduct
+          ))
+      );
+  }
 }
