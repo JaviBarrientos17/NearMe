@@ -137,5 +137,13 @@
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
+    },
+
+    "company":{
+        "dashboard":"Dashboard",
+        "products":"Productos",
+        "pedidos":"Pedidos",
+        "profile":"Perfil",
+        "settings":"Ajustes"
     }
 }

@@ -1,16 +1,17 @@
-.fondo{
-  background-size:cover;
+.fondo {
+  background-size: cover;
+  background-image: url('/../assets/bg_web_empresa.png');
 }
 
-.tableProducts{
+.tableProducts {
   width: 100%;
 }
 
-.table-inside{
+.table-inside {
   overflow-x: auto;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px 4px,
-  rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 
@@ -18,3 +19,270 @@ tr {
   min-height: 40px;
 }
 
+.hello {
+  color: white;
+  margin: 0;
+}
+
+
+.profile {
+  background-color: #3D81D2;
+}
+
+body {
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: normal;
+  background: #fafafa;
+  color: #808080;
+}
+
+a {
+  transition: 0.3s all ease;
+  color: #3D81D2;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none;
+}
+
+button {
+  transition: 0.3s all ease;
+}
+
+button:hover,
+button:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: 'Sora', Arial, sans-serif !important;
+  color: black;
+
+}
+
+
+
+.heading-section {
+  font-size: 28px;
+  color: black;
+}
+
+.heading-section small {
+  font-size: 18px;
+}
+
+.navbar {
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+.wrapper {
+  width: 100%;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #3D81D2;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  min-width: 70px;
+  max-width: 70px;
+  text-align: center;
+
+}
+
+#sidebar.active .profile h1 {
+  font-size: 0px;
+}
+
+
+#sidebar.active ul.components li {
+  font-size: 0px;
+}
+
+#sidebar.active ul.components li a {
+  padding: 10px 0;
+}
+
+#sidebar.active ul.components li a span {
+  margin-right: 0;
+
+  font-size: 18px;
+}
+
+
+#sidebar.active .footer {
+  display: none;
+}
+
+
+#sidebar ul.components {
+  padding: 0;
+  transition: all 0.3s;
+}
+
+#sidebar ul li {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+#sidebar ul li>ul {
+  margin-left: 10px;
+}
+
+#sidebar ul li>ul li {
+  font-size: 14px;
+}
+
+#sidebar ul li a {
+  padding: 10px 30px;
+  display: block;
+}
+
+#sidebar ul li a span {
+  margin-right: 15px;
+}
+
+#sidebar ul li a:hover {
+  background-color: rgb(207, 207, 207);
+  margin: 0px 10px;
+  border-radius: 10px;
+
+}
+
+#sidebar ul li.active>a {
+  background-color: rgb(207, 207, 207);
+  margin: 0px 10px;
+  border-radius: 10px;
+}
+
+
+
+@media (max-width: 960px) {
+  #sidebar {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    margin-left: -80px !important;
+  }
+
+  #sidebar.active {
+    margin-left: 0 !important;
+  }
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 960px) {
+  #sidebarCollapse span {
+    display: none;
+  }
+}
+
+.footer {
+  padding: 0 30px;
+}
+
+@media (max-width: 960px) {
+  .footer {
+    display: none;
+  }
+}
+
+#content {
+  width: 100%;
+  padding: 0;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+.btn.btn-primary {
+  background: #3D81D2;
+  border-color: #3D81D2;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  background: #3D81D2 !important;
+  border-color: #3D81D2 !important;
+}
+
+
+#sidebar .profile {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.profile img {
+  width: 80px;
+  margin: 10px auto 10px auto;
+}
+
+
+#sidebar.active .profile {
+
+  padding-bottom: 10px;
+
+}
+
+#sidebar.active .profile img {
+  width: 50px;
+  margin: 10px auto 0px auto;
+}
+
+.profile .name {
+  font-size: 22px;
+  margin-bottom: 0;
+  color: white;
+}
+
+.tooltipBtn {
+  margin-top: -40px;
+  margin-bottom: 10px;
+  background-color: #E9E9E9;
+}

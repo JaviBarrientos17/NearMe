@@ -2,101 +2,221 @@
 <div class="fondo">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2" style="padding: 0"></div>
-      <div class="col-md-10 px-5">
-        <div class="row mt-4">
-          <div class="col-3 my-auto">
-            <h1 class="m-0">Añadir Producto</h1>
+      <div class="wrapper d-flex align-items-stretch p-0">
+        <nav id="sidebar" class="active bg-white">
+          <div class="profile">
+            <img src="assets/nick.png" alt="Image" class="img-fluid" />
+            <h1 class="name">Hola Zapas</h1>
           </div>
-          <div class="col-1">
+
+          <ul class="list-unstyled components mb-5">
+            <li>
+              <a [routerLink]="['/dashboard']"
+                ><span class="fa fa-home"></span>
+                {{ "company.dashboard" | translate }}</a
+              >
+            </li>
+
+            <li class="active">
+              <a [routerLink]="['/dashboard/productList']"
+                ><span class="fa fa-box"></span>
+                {{ "company.products" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/pedidosList']"
+                ><span class="fa fa-bell"></span>
+                {{ "company.pedidos" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-comments"></span>
+                {{ "company.profile" | translate }}</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/dashboard/companyProfile']"
+                ><span class="fa fa-sliders-h"></span>
+                {{ "company.settings" | translate }}</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div id="content" class="p-4 p-md-5">
+          <mat-toolbar class="tooltipBtn">
+            <button
+              type="button"
+              id="sidebarCollapse"
+              class="btn btn-primary"
+              onclick="toggleCompany()"
+            >
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <h1 class="m-4" *ngIf="isAddMode">Añadir Producto</h1>
+            <h1 class="m-4" *ngIf="!isAddMode">Editar Producto</h1>
             <button
               mat-fab
               color="primary"
               aria-label=""
-              routerLink="/dashboard/newProduct"
+              routerLink="/newProduct"
             >
               <i class="fa-solid fa-file-csv"></i>
             </button>
-          </div>
-        </div>
+          </mat-toolbar>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="mainContainer p-4">
+                <div class="col-xs-12">
+                  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                      <div class="col-sm-2 form-group">
+                        <label class="m-2" for="reference">Reference</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="reference"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.reference.errors
+                          }"
+                        />
+                        <div
+                          *ngIf="submitted && f.reference.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.reference.errors.required">
+                            Reference is required
+                          </div>
+                        </div>
+                      </div>
 
-        <div class="row">
-          <div class="mainContainer p-4">
-            <div class="col-xs-12">
-              <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-                <div class="row">
-                  <div class="col-sm-2 form-group">
-                    <label class="m-2" for="productReference">Reference</label>
-                    <input
-                      type="text"
-                      id="productReference"
-                      class="form-control"
-                      formControlName="productReference"
-                    />
-                  </div>
+                      <div class="col-sm-3 form-group">
+                        <label class="m-2" for="name">Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="name"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.name.errors
+                          }"
+                        />
+                        <div
+                          *ngIf="submitted && f.name.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.name.errors.required">
+                            Product Name is required
+                          </div>
+                        </div>
+                      </div>
 
-                  <div class="col-sm-3 form-group">
-                    <label class="m-2" for="productName">Name</label>
-                    <input
-                      type="text"
-                      id="productName"
-                      class="form-control"
-                      formControlName="productName"
-                    />
-                  </div>
-                  <div class="col-sm-2 form-group">
-                    <label class="m-2" for="productPrice">Price</label>
-                    <input
-                      type="number"
-                      id="productPrice"
-                      class="form-control"
-                      formControlName="productPrice"
-                    />
-                  </div>
-                  <div class="col-sm-6 form-group">
-                    <label class="m-2" for="productDescription"
-                      >Description</label
-                    >
-                    <input
-                      type="text"
-                      id="productDescription"
-                      class="form-control"
-                      formControlName="productDescription"
-                    />
-                  </div>
-                  <div class="col-sm-2 form-group">
-                    <label class="m-2" for="productCategory">Category</label>
-                    <input
-                      type="text"
-                      id="productCategory"
-                      class="form-control"
-                      formControlName="productCategory"
-                    />
-                  </div>
-                  <div class="col-sm-2 form-group">
-                    <label class="m-2" for="productStock">Stock</label>
-                    <input
-                      type="number"
-                      id="productStock"
-                      class="form-control"
-                      formControlName="productStock"
-                    />
-                  </div>
-                  <mat-slide-toggle class="m-2"
-                    >Activar Producto</mat-slide-toggle
-                  >
+                      <div class="col-sm-2 form-group">
+                        <label class="m-2" for="price">Price</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          formControlName="price"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.price.errors
+                          }"
+                        />
+                        <div
+                          *ngIf="submitted && f.price.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.price.errors.required">
+                            Product Price is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4 form-group">
+                        <label class="m-2" for="imgUrl">Imagen</label>
+                        <input
+                          type="file"
+                          class="form-control"
+                          formControlName="imgUrl"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.imgUrl.errors
+                          }"
+                        />
+                      </div>
+                      <div class="col-sm-6 form-group">
+                        <label class="m-2" for="description">Description</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="description"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.description.errors
+                          }"
+                        />
+                        <div
+                          *ngIf="submitted && f.description.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.description.errors.required">
+                            Product Description is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 form-group">
+                        <label class="m-2" for="idCategory">Category</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="idCategory"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.idCategory.errors
+                          }"
+                        />
+                        <div
+                          *ngIf="submitted && f.idCategory.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.idCategory.errors.required">
+                            Product Category is required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 form-group">
+                        <label class="m-2" for="stock">Stock</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          formControlName="stock"
+                          [ngClass]="{
+                            'is-invalid': submitted && f.stock.errors
+                          }"
+                        />
+                        <div
+                          *ngIf="submitted && f.stock.errors"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="f.stock.errors.required">
+                            Product Stock is required
+                          </div>
+                        </div>
+                      </div>
+                      <mat-slide-toggle class="m-2" formControlName="active"
+                        >Activar Producto</mat-slide-toggle
+                      >
+                    </div>
+                    <p>Form Status: {{ productForm.status }}</p>
+                    <div class="row">
+                      <div class="col-12 text-center">
+                        <button class="btn btnSave" type="submit">Add</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                <div class="row">
-                  <div class="col-12 text-center">
-                    <button class="btn btnSave" type="submit">Add</button>
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <footer-component></footer-component>
     </div>
   </div>
-  <footer-component></footer-component>
 </div>

@@ -22,7 +22,7 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_category")
-    private Integer IdCategory;
+    private Integer idCategory;
     @NotBlank(message = "A category must have a name")
     private String name;
     @Builder.Default
