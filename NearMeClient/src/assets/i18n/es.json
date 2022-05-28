@@ -41,6 +41,8 @@
     },
     "products": {
         "buy_btns":"Comprar",
+        "product_zone": "Cataluña",
+        "product_description": "Descripción del producto",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"

@@ -35,6 +35,8 @@
     },
     "product": {
         "related_products": "Productes relacionats",
+        "product_zone": "Catalunya",
+        "product_description": "Descripció del producte",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
