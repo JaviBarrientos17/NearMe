@@ -21,17 +21,6 @@ export class ShoppingCartComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this._productsService.getProductsById(this.id).subscribe(
-            (resul:any) => {
-                this.products = JSON.parse(resul);
-                console.log('Product');
-                console.log(this.products);
-            },
-            (error) => {
-                console.log('Product error');
-                console.log(error);
-            }
-        );
         this.cartService.getProducts()
         .subscribe(res => {
             this.product = res;

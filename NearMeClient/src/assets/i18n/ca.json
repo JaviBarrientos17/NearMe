@@ -67,7 +67,7 @@
         "name": "Nom",
         "surnames": "Cognoms",
         "email": "Correu electrònic",
-        "telephone": "Telèfon",
+        "phone": "Telèfon",
         "password": "Contrasenya",
         "password_repeat": "Repeteix la contrasenya",
         "register_btn": "Registrar-se",

@@ -11,4 +11,10 @@ export class CategoriesService {
       responseType: 'text',
     });
   }
+
+  getSubCategoryList() {
+    return this.conexHttp.get('/api/category/ListSub', {
+      responseType: 'text',
+    });
+  }
 }
