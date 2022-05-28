@@ -26,8 +26,8 @@ export class ProductsService {
   }
 
   //Carga productos si se busca una categoria en buscador
-  getProductsByCategory(idCategory: Number): Observable<any> {
-    return this.conexHttp.get('/api/product/category/' + idCategory);
+  getProductsByCategory(idCategory: Number, parent: Number): Observable<any> {
+    return this.conexHttp.get('/api/product/category/' + idCategory + '/' + parent);
   }
 
   //Carga los productos que coincidan con los filtros seleccionados

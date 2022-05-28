@@ -4,7 +4,7 @@ import { Product } from 'src/model/product';
 import { ProductsService } from '../services/products.service';
 
 @Component({
-  selector: 'prodcuctos-component',
+  selector: 'productos-component',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
   providers: [ProductsService],
@@ -13,6 +13,7 @@ export class ProductosComponent implements OnInit {
   products: Array<Product> = [];
   objectKeys = Object.keys;
   idCategory: Number = 0;
+  parent: Number = 0;
 
   productName: String = '';
   constructor(
@@ -25,12 +26,14 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     this._activeRoute.paramMap.subscribe((params) => {
       this.idCategory = Number.parseInt(params.get('idCategory') + '');
+      this.parent = Number.parseInt(params.get('parent') + '');
       console.log(this.idCategory);
 
       if (this.idCategory) {
         console.log('productsByCategory');
-        this._productsService.getProductsByCategory(this.idCategory).subscribe(
+        this._productsService.getProductsByCategory(this.idCategory, this.parent).subscribe(
           (resul) => {
+            // this.products = JSON.parse(resul);
             console.log('Products by category');
             console.log(resul);
           },
