@@ -8,53 +8,19 @@
       </div>
     </div>
     <section class="section-categorias">
-      <div class="row">
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="card text-white card-categoria">
-            <img
-              src="/assets/lawn-mower-vectorportal.jpg"
-              class="card-img"
-              alt="..."
-            />
-          </div>
+        <div class="row">
+          <ng-container *ngFor="let categoria of categories">
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+              <div class="card text-white card-categoria">
+                <img
+                  src="{{categoria.imgUrl}}"
+                  class="card-img"
+                  alt="category_img"
+                />
+              </div>
+            </div>
+          </ng-container>
         </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="card text-white card-categoria">
-            <img
-              src="../../assets/controller-vectorportal.jpg"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <div class="card text-white cardLong">
-            <img
-              src="../../assets/chef-hat-vectorportal.jpg"
-              class="card-img-long"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="card text-white card-categoria">
-            <img
-              src="../../assets/controller-vectorportal.jpg"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-          <div class="card text-white card-categoria">
-            <img
-              src="../../assets/controller-vectorportal.jpg"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="section-servicios">
