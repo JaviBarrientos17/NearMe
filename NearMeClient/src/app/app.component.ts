@@ -20,4 +20,8 @@ export class AppComponent implements OnInit {
     this.user = this.authService.currentUserValue;
     console.log(this.user.name);
   }
+
+  logOut(): void {
+    this.user = this.authService.logout();
+  }
 }
