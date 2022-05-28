@@ -30,6 +30,10 @@ export class ProductsService {
     return this.conexHttp.get('/api/product/category/' + idCategory + '/' + parent);
   }
 
+  getSubCategoryList() {
+    return this.conexHttp.get('');
+  }
+
   //Carga los productos que coincidan con los filtros seleccionados
   // getProductByFilter(productFilters: Array<Filtros>): Observable<any> {
   //   return this.conexHttp.get('');

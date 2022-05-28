@@ -34,11 +34,22 @@ export class ProductosComponent implements OnInit {
         this._productsService.getProductsByCategory(this.idCategory, this.parent).subscribe(
           (resul) => {
             // this.products = JSON.parse(resul);
+            this.products = JSON.parse(JSON.stringify(resul));
             console.log('Products by category');
             console.log(resul);
           },
           (error) => {
             console.log('Products by category error');
+            console.log(error);
+          }
+        );
+        this._productsService.getSubCategoryList().subscribe(
+          (resul) => {
+            console.log('Subcategory list');
+            console.log(resul);
+          },
+          (error) => {
+            console.log('Subcategory list error');
             console.log(error);
           }
         );
