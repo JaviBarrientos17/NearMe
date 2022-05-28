@@ -30,6 +30,19 @@ public class ProductDTO {
     String imgUrl;
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        ProductDTO that = (ProductDTO) o;
+        if (that.getIdProduct() == getIdProduct()) {
+            return true;
+        }
+        return idProduct.equals(that.idProduct);
+    }
+
+    @Override
     public String toString() {
         return "ProductDTO [idProduct=" + idProduct + ", idSupplier=" + idSupplier + ", name=" + name + ", description="
                 + description + ", category=" + category + ", subcategory=" + subcategory + ", stock=" + stock

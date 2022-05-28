@@ -1,6 +1,6 @@
-<mat-form-field appearance="outline">
-  <input matInput placeholder="Buscar" name="search" [(ngModel)]="search" />
-  <mat-icon class="iconFind" matPrefix>search</mat-icon>
-</mat-form-field>
-<br />
-{{ search }}
+<div class="search__container ">
+    <input class="search__input " placeholder="Buscar" name="search" ng-change="syncSearch()" [(ngModel)]="search" />
+
+
+    <br />Mostrando resultados para -------> {{ search }}
+</div>

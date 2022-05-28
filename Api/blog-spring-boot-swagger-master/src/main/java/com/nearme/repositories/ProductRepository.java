@@ -4,6 +4,8 @@ import com.nearme.models.entities.ProductEntity;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
@@ -20,4 +22,8 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
 
     Optional<List<ProductEntity>> findByIdSupplier(Integer id_supplier);
 
+    Optional<List<ProductEntity>> findByNameContaining(String productName);
+
+    @Query("select p from nm_product p where p.name like ?#{[0]}")
+    Optional<List<ProductEntity>>  findCategoyByName(String name);
 }

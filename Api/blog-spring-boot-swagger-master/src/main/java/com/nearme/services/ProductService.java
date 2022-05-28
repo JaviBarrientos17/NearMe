@@ -4,10 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale.Category;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.nearme.mappers.ProductMapper;
 import com.nearme.models.dto.ProductDTO;
+import com.nearme.models.entities.CategoryEntity;
 import com.nearme.models.entities.ProductEntity;
+import com.nearme.repositories.CategoryRepository;
 import com.nearme.repositories.ProductRepository;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,6 +35,9 @@ public class ProductService {
 	private String imagesPath;
 	@Value("${spring.images.products.max-size}")
 	private Integer maxSize;
+
+	@Autowired
+	CategoryRepository categoryRepository;
 
 	@Autowired
 	ProductRepository productRepository;
@@ -273,6 +280,54 @@ public class ProductService {
 		}
 
 		return ProductMapper.INSTANCE.mapEntityToDtoList(productsCategory);
+	}
+
+	/**
+	 * 
+	 * Get products by name filter and category
+	 * 
+	 * @param file image file
+	 * @return list
+	 */
+	@Transactional
+	public List<ProductDTO> getProductsBySearch(String SearchString) {
+		log.info("Trying to get products by search");
+		log.warn("Search string: " + SearchString);
+		List<ProductEntity> findedProducts = new ArrayList<>();
+		List<ProductEntity> productsList = new ArrayList<>();
+		List<CategoryEntity> categoryList = new ArrayList<>();
+		try {
+			productsList = productRepository.findByNameContaining(SearchString).get();
+		} catch (Exception e) {
+			log.error("Error getting products by search");
+		}
+		try {
+			categoryList = categoryRepository.findByNameContaining(SearchString).get();
+
+			for (CategoryEntity categoryEntity : categoryList) {
+				List<ProductEntity> productsCategory = productRepository.findByCategory(categoryEntity.getIdCategory())
+						.get();
+				List<ProductEntity> productsSub = productRepository.findBySubCategory(categoryEntity.getIdCategory())
+						.get();
+				findedProducts.addAll(productsCategory);
+				findedProducts.addAll(productsSub);
+
+			}
+		} catch (Exception e) {
+			log.error("Error getting products by search");
+		}
+
+		if (!productsList.isEmpty() && !categoryList.isEmpty()) {
+			findedProducts = this.intersect(productsList, findedProducts);
+		} else if (!productsList.isEmpty()) {
+			findedProducts.addAll(productsList);
+		} else {
+			log.info("No products found with search: " + SearchString);
+			new Exception("No products found with search: " + SearchString);
+		}
+		findedProducts = findedProducts.stream().distinct().collect(Collectors.toList());
+		log.info("list of products with search:" + SearchString + "found");
+		return ProductMapper.INSTANCE.mapEntityToDtoList(findedProducts);
 	}
 
 	/**

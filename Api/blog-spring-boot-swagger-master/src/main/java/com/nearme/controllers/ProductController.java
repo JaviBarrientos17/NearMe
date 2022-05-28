@@ -210,4 +210,11 @@ public class ProductController {
 				HttpStatus.OK);
 	}
 
+	
+	@GetMapping("/search/{name}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<List<ProductDTO>> getProductBySearch(@PathVariable String name) throws Exception {
+		return new ResponseEntity<List<ProductDTO>>(this.productService.getProductsBySearch(name), HttpStatus.OK);
+	}
+
 }
