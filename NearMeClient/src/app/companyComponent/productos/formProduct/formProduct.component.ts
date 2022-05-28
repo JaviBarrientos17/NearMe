@@ -54,12 +54,6 @@ export class FormProductComponent implements OnInit {
       stock: ['', Validators.required],
     });
 
-    this.productForm.patchValue({
-      idProduct: this.idProduct,
-      idSupplier: this.idSupplier,
-      dateAdded: '',
-    });
-
     //PARA EDITAR EL PRODUCTO
     if (!this.isAddMode) {
       console.log('EDITAR');
