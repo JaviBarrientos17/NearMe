@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'tiendas', component: TiendasComponent },
   { path: 'tienda', component: TiendaComponent },
   { path: 'productos', component: ProductosComponent },
+  { path: 'products/category/:idCategory/:parent', component: ProductosComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,

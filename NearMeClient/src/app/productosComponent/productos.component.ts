@@ -4,7 +4,7 @@ import { Product } from 'src/model/product';
 import { ProductsService } from '../services/products.service';
 
 @Component({
-  selector: 'prodcuctos-component',
+  selector: 'productos-component',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
   providers: [ProductsService],
@@ -12,6 +12,8 @@ import { ProductsService } from '../services/products.service';
 export class ProductosComponent implements OnInit {
   products: Array<Product> = [];
   objectKeys = Object.keys;
+  idCategory: Number = 0;
+  parent: Number = 0;
 
   productName: String = '';
   constructor(
@@ -22,36 +24,49 @@ export class ProductosComponent implements OnInit {
   title = 'Productos';
 
   ngOnInit(): void {
-    // this._activeRoute.paramMap.subscribe((params) => {
-    // this.productName = params.get('productName') + '';
-    // console.log(this.productName);
-    // if (this.productName) {
-    //   this._productsService.getProductByName(this.productName).subscribe(
-    //     (resul) => {
-    //       this.products = resul;
-    //       console.log('Producto by name');
-    //       console.log(resul);
-    //       console.log(this.productName);
-    //     },
-    //     (error) => {
-    //       console.log('Product by name error');
-    //       console.log(error);
-    //     }
-    //   );
-    // } else {
-    this._productsService.getAllProducts().subscribe(
-      (resul) => {
-        this.products = JSON.parse(resul);
-        console.log('All products');
-        console.log(resul);
-      },
-      (error) => {
-        console.log('All products error');
+    this._activeRoute.paramMap.subscribe((params) => {
+      this.idCategory = Number.parseInt(params.get('idCategory') + '');
+      this.parent = Number.parseInt(params.get('parent') + '');
+      console.log(this.idCategory);
 
-        console.log(error);
+      if (this.idCategory) {
+        console.log('productsByCategory');
+        this._productsService.getProductsByCategory(this.idCategory, this.parent).subscribe(
+          (resul) => {
+            // this.products = JSON.parse(resul);
+            this.products = JSON.parse(JSON.stringify(resul));
+            console.log('Products by category');
+            console.log(resul);
+          },
+          (error) => {
+            console.log('Products by category error');
+            console.log(error);
+          }
+        );
+        this._productsService.getSubCategoryList().subscribe(
+          (resul) => {
+            console.log('Subcategory list');
+            console.log(resul);
+          },
+          (error) => {
+            console.log('Subcategory list error');
+            console.log(error);
+          }
+        );
+      } else {
+        this._productsService.getAllProducts().subscribe(
+          (resul) => {
+            this.products = JSON.parse(resul);
+            console.log('All products');
+            console.log(resul);
+          },
+          (error) => {
+            console.log('All products error');
+
+            console.log(error);
+          }
+        );
       }
-    );
+    });
   }
-
-  //getProductsByName(productName: String) {}
 }
