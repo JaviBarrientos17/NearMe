@@ -90,7 +90,7 @@
                 >
               </li>
               <li *ngFor="let categoria of categories" [routerLink]="['/products/category/', categoria.parent, categoria.idCategory]">
-                <a class="pointder">
+                <a class="pointer">
                   <span class="icon-location-arrow mr-3"></span>{{categoria.name}}
                 </a>
               </li>
