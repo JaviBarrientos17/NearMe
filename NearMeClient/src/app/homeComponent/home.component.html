@@ -16,6 +16,7 @@
                   src="{{categoria.imgUrl}}"
                   class="card-img"
                   alt="category_img"
+                  [routerLink]="['/products/category', categoria.idCategory, categoria.parent]"
                 />
               </div>
             </div>

@@ -39,17 +39,6 @@ export class ProductComponent implements OnInit {
         console.log(error);
       }
     );
-    this._productsService.getProductsByCategory(this.category).subscribe(
-      (resul) => {
-        this.category = JSON.parse(resul);
-        console.log('Product by category');
-        console.log(this.category);
-      },
-      (error) => {
-        console.log('Product by category error');
-        console.log(error);
-      }
-    );
     // this._cartService.getItem(this.prueba).subscribe(
     //   (resul) => {
     //     console.log(this.prueba);

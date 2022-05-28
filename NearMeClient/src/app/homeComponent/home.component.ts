@@ -12,6 +12,7 @@ import { CategoriesService } from '../services/categories.service';
 export class HomeComponent implements OnInit {
   title = 'Home';
   mobileQuery: MediaQueryList;
+  // idCategory: Number = 0;
   categories: Array<Category> = [];
 
   private _mobileQueryListener: () => void;
