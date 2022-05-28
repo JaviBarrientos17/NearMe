@@ -58,7 +58,7 @@
                     <div class="col">
                         <div class="input-icons mt-2">
                             <i class="fa-solid fa-mobile-screen-button icon"></i>
-                            <input type="text" name="phone" formControlName="phone" required />
+                            <input type="text" class="input-field" name="phone" formControlName="phone" placeholder='{{ "register.phone" | translate }}' required />
                         </div>
                     </div>
                 </div>
@@ -90,14 +90,14 @@
                 <div class="row">
                     <div class="col">
                         <button (click)="clickSubmit()" class="mt-4">
-                            {{ "register.register" | translate }}
+                            {{ "register.register_btn" | translate }}
                         </button>
                     </div>
                 </div>
                 <div class="row">
                     <p>
-                        {{ "register.are_you_registered" | translate }}<b>
-            <a [routerLink]="['../login']" data-hover="Login">{{ "register.register_btn" | translate }}</a></b>
+                        {{ "register.are_you_registered" | translate }} <b>
+                        <a [routerLink]="['../login']" data-hover="Login">{{ "register.register_btn" | translate }}</a></b>
                     </p>
                 </div>
             </form>

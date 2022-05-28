@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid loginContainer">
   <div class="row">
     <div class="col-md-6 colInputs">
       <div class="row">
@@ -55,35 +55,34 @@
       </form>
 
       <p>
-        {{ "login.dont_have_account " | translate }}
+        {{ "login.dont_have_account" | translate }}
         <b>
           <a [routerLink]="['../register']" data-hover="Register ">
-            {{ "login.sign_up_now " | translate }}
+            {{ "login.sign_up_now" | translate }}
           </a>
         </b>
       </p>
 
       <div class="or">
-        <span> {{ "login.or " | translate }}</span>
+        <span> {{ "login.or" | translate }}</span>
       </div>
-      <p>{{ "login.continue_with_social_media " | translate }}</p>
+      <p>{{ "login.continue_with_social_media" | translate }}</p>
       <div class="social-container">
-        <a href="# "
+        <a href="#"
           ><img class="socialNetworkImg" src="../../assets/facebookIcon.png "
         /></a>
-        <a href="# "
+        <a href="#"
           ><img class="socialNetworkImg" src="../../assets/googleIcon.png "
         /></a>
       </div>
     </div>
-
     <div class="col-md-6 backgroundLogin">
       <div class="row text-center">
         <div class="col">
           <img
-            src="assets/NearMe_logo.png "
+            src="assets/NearMe_logo.png"
             class="nearmeLogo"
-            alt="nearmeLogo "
+            alt="nearmeLogo"
           />
         </div>
       </div>
