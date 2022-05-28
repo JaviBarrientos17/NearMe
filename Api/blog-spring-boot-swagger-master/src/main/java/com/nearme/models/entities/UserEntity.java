@@ -38,7 +38,6 @@ public class UserEntity implements UserDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Integer idUser;
-	// the username is the email of the user
 	@Column(unique = true, nullable = false)
 	@Email(message = "Username must be a valid email address")
 	@NotBlank(message = "Username is mandatory")
@@ -83,9 +82,11 @@ public class UserEntity implements UserDetails {
 	public boolean isEnabled() {
 		return this.status.equals(UserStatusType.ENABLED);
 	}
+
 	@Override
 	public String toString() {
-		return "UserEntity [idUser=" + idUser + ", username=" + username + ", name=" + name + ", surname=" + surname + ", phone="
+		return "UserEntity [idUser=" + idUser + ", username=" + username + ", name=" + name + ", surname=" + surname
+				+ ", phone="
 				+ phone + ", status=" + status + ", password=" + password + ", roles=" + roles + "]";
 	}
 }
