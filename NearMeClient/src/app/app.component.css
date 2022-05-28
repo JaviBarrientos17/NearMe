@@ -303,3 +303,7 @@ main .post-content .post-meta {
 .burger:focus {
     outline: none;
 }
+
+.pointer {
+    cursor: pointer;
+}

@@ -43,16 +43,16 @@ export class ProductosComponent implements OnInit {
             console.log(error);
           }
         );
-        this._productsService.getSubCategoryList().subscribe(
-          (resul) => {
-            console.log('Subcategory list');
-            console.log(resul);
-          },
-          (error) => {
-            console.log('Subcategory list error');
-            console.log(error);
-          }
-        );
+        // this._productsService.getSubCategoryList().subscribe(
+        //   (resul) => {
+        //     console.log('Subcategory list');
+        //     console.log(resul);
+        //   },
+        //   (error) => {
+        //     console.log('Subcategory list error');
+        //     console.log(error);
+        //   }
+        // );
       } else {
         this._productsService.getAllProducts().subscribe(
           (resul) => {

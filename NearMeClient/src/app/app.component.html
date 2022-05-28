@@ -1,51 +1,59 @@
-<ng-container *ngIf="
+<ng-container
+  *ngIf="
     router.url != '/dashboard' &&
     router.url != '/login' &&
     router.url != '/register'
-  ">
+  "
+>
+  <body>
+    <div>
+      <aside class="sidebarClient">
+        <div class="toggle">
+          <a
+            id="js-menu-toggle"
+            class="burger js-menu-toggle"
+            data-toggle="collapse"
+            data-target="#main-navbar"
+            onclick="toggleClient()"
+          >
+            <span></span>
+          </a>
+        </div>
+        <div class="side-inner">
+          <div class="profile">
+            <img src="assets/nick.png" alt="Image" class="img-fluid" />
+            <h3 class="name">Marco</h3>
+            <span class="country">Calafell</span>
+          </div>
 
-    <body>
-        <div>
-            <aside class="sidebarClient">
-                <div class="toggle">
-                    <a id="js-menu-toggle" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar" onclick="toggleClient()">
-                        <span></span>
-                    </a>
-                </div>
-                <div class="side-inner">
-                    <div class="profile">
-                        <img src="assets/nick.png" alt="Image" class="img-fluid" />
-                        <h3 class="name">Marco</h3>
-                        <span class="country">Calafell</span>
-                    </div>
+          <div class="counter d-flex justify-content-center">
+            <div class="row justify-content-center">
+              <div class="col">
+                <strong class="number">20</strong>
+                <span class="number-label">Compras</span>
+              </div>
+              <div class="col">
+                <strong class="number">2</strong>
+                <span class="number-label">Carrito</span>
+              </div>
+              <div class="col">
+                <strong class="number">Activo</strong>
+                <span class="number-label">Premium</span>
+              </div>
+            </div>
+          </div>
 
-                    <div class="counter d-flex justify-content-center">
-                        <div class="row justify-content-center">
-                            <div class="col">
-                                <strong class="number">20</strong>
-                                <span class="number-label">Compras</span>
-                            </div>
-                            <div class="col">
-                                <strong class="number">2</strong>
-                                <span class="number-label">Carrito</span>
-                            </div>
-                            <div class="col">
-                                <strong class="number">Activo</strong>
-                                <span class="number-label">Premium</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="nav-menu">
-                        <ul>
-                            <li>
-                                <h3 class="mt-5">Tendencias</h3>
-                            </li>
-                            <li class="active">
-                                <a href="#">Productos Premium</a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="icon-search2 mr-3"></span>Tiendas Premium</a
+          <div class="nav-menu">
+            <ul>
+              <li>
+                <h3 class="mt-5">Tendencias</h3>
+              </li>
+              <li class="active">
+                <a href="#">Productos Premium</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><span class="icon-search2 mr-3"></span>Tiendas Premium</a
                 >
               </li>
               <li>
@@ -60,44 +68,54 @@
               </li>
               <li>
                 <a href="#"
-                  ><span class="icon-pie-chart mr-3"></span>Electrónica</a
+                  ><span class="icon-search2 mr-3"></span>Tendencias</a
+                >
+              </li>
+              <li class="active">
+                <a href="#">Productos Premium</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><span class="icon-search2 mr-3"></span>Tiendas Premium</a
                 >
               </li>
               <li>
                 <a href="#"
-                  ><span class="icon-sign-out mr-3"></span>Informática</a
+                  ><span class="icon-notifications mr-3"></span>Rebajados</a
                 >
               </li>
               <li>
                 <a href="#"
-                  ><span class="icon-sign-out mr-3"></span>Salud y cuidado personal</a
+                  ><span class="icon-search2 mr-3"></span>Departamentos</a
                 >
               </li>
-              <li>
-                <a href="#"
-                  ><span class="icon-sign-out mr-3"></span>Alimentación y
-                  Bebidas</a
-                >
+              <li *ngFor="let categoria of categories" [routerLink]="['/products/category/', categoria.parent, categoria.idCategory]">
+                <a class="pointer">
+                  <span class="icon-location-arrow mr-3"></span>{{categoria.name}}
+                </a>
               </li>
-              <li>
-                <a href="#"
-                  ><span class="icon-sign-out mr-3"></span>Videojuegos</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><span class="icon-sign-out mr-3"></span>Hogar y Jardín</a
-                >
-              </li>
+
               <li>
                 <a href="#"><span class="icon-sign-out mr-3"></span>Deportes</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </aside>
+              </li>
+              <li>
+                <h3 class="mt-5">Ayuda y Ajustes</h3>
+              </li>
+              <li>
+                <a href="#"
+                  ><span class="icon-sign-out mr-3"></span>Mi cuenta</a
+                >
+              </li>
+              <li>
+                <a href=""><span class="icon-sign-out mr-3"></span>Salir</a>
+              </li>
+
+            </ul>
+          </div>
         </div>
-    </body>
+      </aside>
+    </div>
+  </body>
 </ng-container>
 
 <router-outlet></router-outlet>
