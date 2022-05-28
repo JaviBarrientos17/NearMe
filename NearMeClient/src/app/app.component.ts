@@ -40,4 +40,10 @@ export class AppComponent implements OnInit {
       }
     );
   }
+
+
+  logOut(): void {
+    this.user = this.authService.logout();
+  }
 }
+
