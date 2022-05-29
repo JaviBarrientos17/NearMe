@@ -1,144 +1,107 @@
 <app-navbar></app-navbar>
 
 <div class="fondo">
-  <div class="container">
-    <div class="row">
-      <!--<div class="col-md-12">
-        <searchBar></searchBar>
-      </div>-->
-    </div>
+  <div class="container-fluid">
     <section class="section-slider-productos">
-      <div class="row justify-content-center">
-        <div class="col-12">
+      <div class="row">
+        <div class="col-12 rowSlider">
           <slider-component></slider-component>
         </div>
       </div>
     </section>
-    <section class="section-categorias">
-        <div class="row">
-          <ng-container *ngFor="let categoria of categories">
-            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-              <div class="card text-white card-categoria">
-                <img
-                  src="{{categoria.imgUrl}}"
-                  class="card-img"
-                  alt="category_img"
-                  [routerLink]="['/products/category', categoria.idCategory, categoria.parent]"
-                />
+    <section class="section-categorias px-5">
+      <div class="row">
+        <ng-container *ngFor="let categoria of categories">
+          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-4">
+            <div class="card text-white card-categoria">
+              <img
+                src="{{ categoria.imgUrl }}"
+                class="card-img"
+                alt="category_img"
+              />
+              <div
+                class="card-img-overlay d-flex align-items-end justify-content-center pointer"
+                [routerLink]="[
+                  '/products/category',
+                  categoria.idCategory,
+                  categoria.parent
+                ]"
+              >
+                <h5 class="card-title nameCat">{{ categoria.name }}</h5>
               </div>
             </div>
-          </ng-container>
-        </div>
+          </div>
+        </ng-container>
+      </div>
     </section>
 
     <section class="section-servicios">
-      <div class="row my-5">
-        <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
-          <img class="img-servicio" src="../../assets/assistance.png" alt="" />
-        </div>
-        <div
-          class="col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
-        >
+      <div class="row my-5 d-flex justify-content-around">
+        <div class="col-md-3">
+          <img
+            class="img-servicio m-4"
+            src="../../assets/assistance.png"
+            alt=""
+          />
           <span class="texto-servicios">Soporte Online 24h</span>
         </div>
-        <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
+        <div class="col-md-3">
           <img
-            class="img-servicio"
+            class="img-servicio m-4"
             src="../../assets/credit-cards.png"
             alt=""
           />
-        </div>
-        <div
-          class="col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
-        >
           <span class="texto-servicios">Soporte Online 24h</span>
         </div>
-        <div class="col-2 col-sm-2 col-md-2 d-flex justify-content-end">
+        <div class="col-md-3">
           <img
-            class="img-servicio"
+            class="img-servicio m-4"
             src="../../assets/entrega-rapida.png"
             alt=""
           />
-        </div>
-        <div
-          class="col-2 col-sm-2 col-md-2col-2 col-sm-2 col-md-2 d-flex justify-content-center align-self-center"
-        >
           <span class="texto-servicios">Soporte Online 24h</span>
         </div>
       </div>
     </section>
 
-    <section class="section-productos my-5">
+    <section class="section-productos my-5 px-5">
       <h2 class="titulo-mas-vendidos text-center m-5">
         {{ "home.mas_vendidos" | translate }}
       </h2>
       <div class="row my-5">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-producto">
-            <img src="../../assets/nike.png" alt="..." />
-            <div class="card-body body-producto">
-              <h5 class="card-info">Moda</h5>
-              <h2 class="card-title">Nike Jordan High</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a
-                [routerLink]="['../product']"
-                class="btn btn-primary btn-comprar-producto"
-                >{{ "home.comprar_btn" | translate }}</a
-              >
+        <ng-template ngFor let-product [ngForOf]="products" let-i="index">
+          <div
+            *ngIf="i < 6"
+            class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4"
+          >
+            <div class="card card-producto">
+              <img
+                class="card-img imgProduct"
+                src="{{ product.imgUrl }}"
+                alt="..."
+              />
+              <div class="card-body body-producto">
+                <h5 class="card-info">{{ product.idCategory }}</h5>
+                <h2 class="card-title module line-clamp-title">
+                  <b>{{ product.name }}</b>
+                </h2>
+                <p class="card-text module line-clamp-text">
+                  {{ product.description }}
+                </p>
+                <div class="btn-price-holder">
+                  <h2 class="card-price">
+                    <b>{{ product.price }} € </b>
+                  </h2>
+                  <a
+                    [routerLink]="['/product', product.idProduct]"
+                    class="btn btn-primary btn-comprar-producto"
+                    >{{ "products.buy_btns" | translate }}</a
+                  >
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-producto">
-            <img src="../../assets/nike.png" alt="..." />
-            <div class="card-body body-producto">
-              <h5 class="card-info">Moda</h5>
-              <h2 class="card-title">Nike Jordan High</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-comprar-producto">{{
-                "home.comprar_btn" | translate
-              }}</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-producto">
-            <img src="../../assets/nike.png" alt="..." />
-            <div class="card-body body-producto">
-              <h5 class="card-info">Moda</h5>
-              <h2 class="card-title">Nike Jordan High</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-comprar-producto">{{
-                "home.comprar_btn" | translate
-              }}</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-producto">
-            <img src="../../assets/nike.png" alt="..." />
-            <div class="card-body body-producto">
-              <h5 class="card-info">Moda</h5>
-              <h2 class="card-title">Nike Jordan High</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-comprar-producto">{{
-                "home.comprar_btn" | translate
-              }}</a>
-            </div>
-          </div>
-        </div>
+        </ng-template>
       </div>
     </section>
     <!--
@@ -148,75 +111,45 @@
           <slider-component></slider-component>
         </div>
       </div>
-    </section>-->
+    </section> -->
 
-    <section class="section-tiendas my-5">
+    <section class="section-tiendas px-5">
       <h2 class="titulo-mas-vendidos text-center my-5">
         {{ "home.tiendas_destacadas" | translate }}
       </h2>
-      <div class="row pb-5">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-tienda">
-            <img
-              src="../../assets/happy_market.png"
-              class="card-img-top img-tienda"
-              alt="..."
-            />
-            <div class="card-body card-body-tiendas">
-              <i class="bi bi-geo-alt"></i>
-              <h5 class="card-info">C/Balmes 29</h5>
-              <h2 class="card-title">Happy Market</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-visitar-tienda">{{
-                "home.visitar_btn" | translate
-              }}</a>
+      <div class="row relatedProducts">
+        <div class="col-md-12 containerScroll">
+          <ng-template ngFor let-tienda [ngForOf]="tiendas" let-i="index">
+            <div
+              *ngIf="i < 6"
+              class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 px-2 mb-5"
+            >
+              <div class="card card-tienda">
+                <img
+                  src="{{ tienda.imgUrl }}"
+                  class="card-img-top img-tienda"
+                  alt="tienda_img"
+                />
+                <div class="card-body card-body-tiendas">
+                  <i class="bi bi-geo-alt"></i>
+                  <h5 class="card-info">{{ tienda.geo }}</h5>
+                  <h2 class="card-title module line-clamp-title">
+                    {{ tienda.name }}
+                  </h2>
+                  <p class="card-text module line-clamp-text">
+                    {{ tienda.description }}
+                  </p>
+                  <div class="btn-tienda-holder">
+                    <a
+                      [routerLink]="['/tienda', tienda.idSupplier]"
+                      class="btn btn-primary btn-visitar-tienda"
+                      >{{ "home.visitar_btn" | translate }}</a
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-tienda">
-            <img
-              src="../../assets/happy_market.png"
-              class="card-img-top img-tienda"
-              alt="..."
-            />
-            <div class="card-body card-body-tiendas">
-              <i class="bi bi-geo-alt"></i>
-              <h5 class="card-info">C/Balmes 29</h5>
-              <h2 class="card-title">Happy Market</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-visitar-tienda">{{
-                "home.visitar_btn" | translate
-              }}</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="card card-tienda">
-            <img
-              src="../../assets/happy_market.png"
-              class="card-img-top img-tienda"
-              alt="..."
-            />
-            <div class="card-body card-body-tiendas">
-              <i class="bi bi-geo-alt"></i>
-              <h5 class="card-info">C/Balmes 29</h5>
-              <h2 class="card-title">Happy Market</h2>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary btn-visitar-tienda">{{
-                "home.visitar_btn" | translate
-              }}</a>
-            </div>
-          </div>
+          </ng-template>
         </div>
       </div>
     </section>

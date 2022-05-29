@@ -15,13 +15,12 @@ export class ProductosComponent implements OnInit {
   idCategory: Number = 0;
   parent: Number = 0;
 
-
   productName: String = '';
   constructor(
     private _productsService: ProductsService,
     private _activeRoute: ActivatedRoute,
     private _router: Router
-  ) { }
+  ) {}
   title = 'Productos';
 
   ngOnInit(): void {
@@ -32,18 +31,20 @@ export class ProductosComponent implements OnInit {
 
       if (this.idCategory) {
         console.log('productsByCategory');
-        this._productsService.getProductsByCategory(this.idCategory, this.parent).subscribe(
-          (resul) => {
-            // this.products = JSON.parse(resul);
-            this.products = JSON.parse(JSON.stringify(resul));
-            console.log('Products by category');
-            console.log(resul);
-          },
-          (error) => {
-            console.log('Products by category error');
-            console.log(error);
-          }
-        );
+        this._productsService
+          .getProductsByCategory(this.idCategory, this.parent)
+          .subscribe(
+            (resul) => {
+              // this.products = JSON.parse(resul);
+              this.products = JSON.parse(JSON.stringify(resul));
+              console.log('Products by category');
+              console.log(resul);
+            },
+            (error) => {
+              console.log('Products by category error');
+              console.log(error);
+            }
+          );
         // this._productsService.getSubCategoryList().subscribe(
         //   (resul) => {
         //     console.log('Subcategory list');
@@ -87,8 +88,6 @@ export class ProductosComponent implements OnInit {
           console.log(error);
         }
       );
-
     }
-
   }
 }
