@@ -16,6 +16,7 @@ import { FormProductComponent } from './companyComponent/productos/formProduct/f
 import { AboutUsComponent } from './footerComponent/aboutUs/aboutus.component';
 import { PedidosList } from './companyComponent/pedidos/pedidosList/pedidosList.component';
 import { UserRoleType } from 'src/model/enums/user-role-type.enum';
+import { AuthGuard } from './services/authhelp/auth.guard';
 
 const routes: Routes = [
   {
@@ -35,16 +36,36 @@ const routes: Routes = [
     component: DashboardComponent,
     data: {
       roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
-    },
+    },canActivate: [AuthGuard]
   },
   { path: 'premium', component: PremiumComponent },
   { path: 'product/:idProduct', component: ProductComponent },
   { path: 'cart', component: ShoppingCartComponent },
-  { path: 'dashboard/companyProfile', component: ProfileComponent },
-  { path: 'dashboard/newProduct', component: FormProductComponent },
-  { path: 'dashboard/editProduct/:idProduct', component: FormProductComponent },
-  { path: 'dashboard/productList', component: ProductList },
-  { path: 'dashboard/pedidosList', component: PedidosList },
+  { path: 'dashboard/companyProfile', component: ProfileComponent ,
+  data: {
+    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+  },canActivate: [AuthGuard]
+},
+  { path: 'dashboard/newProduct', component: FormProductComponent ,
+  data: {
+    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+  },canActivate: [AuthGuard]
+},
+  { path: 'dashboard/editProduct/:idProduct', component: FormProductComponent ,
+  data: {
+    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+  },canActivate: [AuthGuard]
+},
+  { path: 'dashboard/productList', component: ProductList ,
+  data: {
+    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+  },canActivate: [AuthGuard]
+},
+  { path: 'dashboard/pedidosList', component: PedidosList ,
+  data: {
+    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+  },canActivate: [AuthGuard]
+},
   { path: 'aboutus', component: AboutUsComponent },
 ];
 

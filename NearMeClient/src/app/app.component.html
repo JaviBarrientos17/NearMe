@@ -1,97 +1,94 @@
-<ng-container
-  *ngIf="
+<ng-container *ngIf="
     router.url != '/dashboard' &&
     router.url != '/login' &&
     router.url != '/register'
-  "
->
-  <body>
-    <div>
-      <aside class="sidebarClient">
-        <div class="toggle">
-          <a
-            id="js-menu-toggle"
-            class="burger js-menu-toggle"
-            data-toggle="collapse"
-            data-target="#main-navbar"
-            onclick="toggleClient()"
-          >
-            <span></span>
-          </a>
-        </div>
-        <div class="side-inner">
-          <div class="profile">
-            <img src="assets/nick.png" alt="Image" class="img-fluid" />
-            <h3 class="name">Marco</h3>
-            <span class="country">Calafell</span>
-          </div>
+  ">
 
-          <div class="counter d-flex justify-content-center">
-            <div class="row justify-content-center">
-              <div class="col">
-                <strong class="number">20</strong>
-                <span class="number-label">Compras</span>
-              </div>
-              <div class="col">
-                <strong class="number">2</strong>
-                <span class="number-label">Carrito</span>
-              </div>
-              <div class="col">
-                <strong class="number">Activo</strong>
-                <span class="number-label">Premium</span>
-              </div>
-            </div>
-          </div>
+    <body>
+        <div>
+            <aside class="sidebarClient">
+                <div class="toggle">
+                    <a id="js-menu-toggle" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar" onclick="toggleClient()">
+                        <span></span>
+                    </a>
+                </div>
+                <div class="side-inner">
+                    <div class="profile" *ngIf="isAuthorized(UserRoleType.ADMIN)||isAuthorized(UserRoleType.SUPPLIER)||isAuthorized(UserRoleType.CLIENT)">
+                        <img src="https://random.imagecdn.app/150/150" alt="Image " class="img-fluid " />
+                        <h3 class="name ">{{user.name}} {{user.surname}}</h3>
+                        <span class="country ">{{user.username}}</span>
+                    </div>
+                    <div class="profile" *ngIf="user == null">
+                        <img src="../assets/guest.png" alt="Image " class="img-fluid " />
+                        <h3 class="name ">Guest User</h3>
+                        <span class="country " [routerLink]="['/login']">do you have a account? </span><span style="color: blue;" [routerLink]="['/login']">LOGIN </span>
 
-          <div class="nav-menu">
-            <ul>
-              <li>
-                <a href="#"><b>Tendencias</b></a>
-              </li>
-              <div class="divSub">
-                <li>
-                  <a href="#">Productos Premium</a>
-                </li>
-                <li>
-                  <a href="#">Tiendas Premium</a>
-                </li>
-                <li>
-                  <a href="#">Rebajados</a>
-                </li>
-              </div>
-              <hr />
-              <li>
-                <a><b>Departamentos</b></a>
-              </li>
-              <div class="divSub">
-                <li
-                  *ngFor="let categoria of categories"
-                  [routerLink]="[
+
+                    </div>
+                    <div class="counter d-flex justify-content-center  " *ngIf="isAuthorized(UserRoleType.ADMIN)||isAuthorized(UserRoleType.SUPPLIER)||isAuthorized(UserRoleType.CLIENT)">
+                        <div class="row justify-content-center  ">
+                            <div class="col ">
+                                <strong class="number ">20</strong>
+                                <span class="number-label ">Compras</span>
+                            </div>
+                            <div class="col ">
+                                <strong class="number ">2</strong>
+                                <span class="number-label ">Carrito</span>
+                            </div>
+                            <div class="col ">
+                                <strong class="number ">Activo</strong>
+                                <span class="number-label ">Premium</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="nav-menu">
+                        <ul>
+                            <li>
+                                <a href="#"><b>Tendencias</b></a>
+                            </li>
+                            <div class="divSub">
+                                <li>
+                                    <a href="#">Productos Premium</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tiendas Premium</a>
+                                </li>
+                                <li>
+                                    <a href="#">Rebajados</a>
+                                </li>
+                            </div>
+                            <hr />
+                            <li>
+                                <a><b>Departamentos</b></a>
+                            </li>
+                            <div class="divSub">
+                                <li *ngFor="let categoria of categories" [routerLink]="[
                     '/products/category/',
                     categoria.parent,
                     categoria.idCategory
-                  ]"
-                >
-                  <a class="pointer">
+                  ]">
+                                    <a class="pointer">
                     {{ categoria.name }}
                   </a>
-                </li>
-              </div>
-              <hr />
-              <li>
-                <a> <b>Ayuda y Ajustes</b></a>
-              </li>
-              <div class="divSub">
-                <li (click)="logOut()">
-                  <a>Salir</a>
-                </li>
-              </div>
-            </ul>
-          </div>
+                                </li>
+                            </div>
+                            <hr />
+                            <li>
+                                <a> <b>Ayuda y Ajustes</b></a>
+                            </li>
+                            <div class="divSub">
+                                <li (click)="logOut()">
+                                    <a>Salir</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
         </div>
-      </aside>
-    </div>
-  </body>
+    </body>
 </ng-container>
 
 <router-outlet></router-outlet>
