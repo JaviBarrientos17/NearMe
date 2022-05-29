@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Product } from 'src/model/product';
 import { ProductsService } from '../services/products.service';
 
@@ -8,32 +8,40 @@ import { ProductsService } from '../services/products.service';
   styleUrls: ['./searchBar.component.css'],
 })
 export class SearchBar {
+  @Output() sender = new EventEmitter();
   products: Array<Product> = [];
 
   search: String = '';
-
+  searchString: String;
   constructor(
     private _productsService: ProductsService,
   ) { }
 
 
-  syncSearch(UpdatedValue: string) {
-    this.search = UpdatedValue;
-    console.log(this.search);
+  syncSearch() {
 
-    if (this.search.length > 3) {
-      this._productsService.searchProduct(this.search).subscribe(
+
+
+    if (this.search.length > 1) {
+
+      this.searchString = this.search;
+
+      this._productsService.searchProduct(this.searchString).subscribe(
         (resul) => {
-
           this.products = JSON.parse(JSON.stringify(resul));
           console.log('Products by Search');
           console.log(resul);
+          this.sender.emit(resul);
         },
         (error) => {
           console.log('Products by category error');
           console.log(error);
         });
+      //clean search
+
     }
+
+
   }
 
 }

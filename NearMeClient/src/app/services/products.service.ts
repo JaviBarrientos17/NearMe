@@ -50,6 +50,6 @@ export class ProductsService {
     return this.conexHttp.delete('/api/product/' + idProduct);
   }
   searchProduct(searchString: String) {
-    return this.conexHttp.delete('/api/search/' + searchString);
+    return this.conexHttp.get('/api/product/search/' + searchString);
   }
 }

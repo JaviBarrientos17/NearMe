@@ -15,12 +15,13 @@ export class ProductosComponent implements OnInit {
   idCategory: Number = 0;
   parent: Number = 0;
 
+
   productName: String = '';
   constructor(
     private _productsService: ProductsService,
     private _activeRoute: ActivatedRoute,
     private _router: Router
-  ) {}
+  ) { }
   title = 'Productos';
 
   ngOnInit(): void {
@@ -68,5 +69,26 @@ export class ProductosComponent implements OnInit {
         );
       }
     });
+  }
+
+  receiver(receivedFromChild: any) {
+    if (receivedFromChild.length > 0) {
+      this.products = receivedFromChild;
+    } else {
+      this._productsService.getAllProducts().subscribe(
+        (resul) => {
+          this.products = JSON.parse(resul);
+          console.log('All products');
+          console.log(resul);
+        },
+        (error) => {
+          console.log('All products error');
+
+          console.log(error);
+        }
+      );
+
+    }
+
   }
 }
