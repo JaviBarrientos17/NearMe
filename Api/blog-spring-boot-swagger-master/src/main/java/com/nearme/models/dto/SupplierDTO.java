@@ -12,6 +12,7 @@ import lombok.Setter;
 public class SupplierDTO {
     private Integer idSupplier;
     private Integer idUser;
+    private Integer name;
     private String geo;
     private String description;
     private String imageUrl;
