@@ -21,7 +21,11 @@
             <ng-container *ngFor="let p of products">
               <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
                 <div class="card card-producto">
-                  <img class="card-img" src="{{ p.imgUrl }}" alt="..." />
+                  <img
+                    class="card-img imgProduct"
+                    src="{{ p.imgUrl }}"
+                    alt="..."
+                  />
                   <div class="card-body body-producto">
                     <h5 class="card-info">{{ p.idCategory }}</h5>
                     <h2 class="card-title module line-clamp-title">
