@@ -47,6 +47,13 @@
   cursor: pointer;
 }
 
+.imgProduct {
+  padding: 20px;
+  margin: auto;
+  height: 200px;
+  max-width: 150px;
+}
+
 .titulo-mas-vendidos {
   font-size: 4vh;
   margin-top: 3%;
