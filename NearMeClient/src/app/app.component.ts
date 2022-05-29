@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Category } from 'src/model/category';
+import { UserRoleType } from 'src/model/enums/user-role-type.enum';
 import { User } from 'src/model/user.model';
 import { AuthenticationService } from './services/authentication.service';
 import { CategoriesService } from './services/categories.service';
@@ -16,7 +17,9 @@ export class AppComponent implements OnInit {
   categories:Array<any> = [];
   title = 'NearMe';
   user: User;
+  UserRoleType = UserRoleType;
   
+
   constructor(
     public router: Router,
     private authService: AuthenticationService,
@@ -25,13 +28,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
-    console.log(this.user.name);
+ 
+    // console.log(this.user.name); checke comment
     this._categoriesService.getAllCategories().subscribe(
       (resul) => {
         this.categories = JSON.parse(resul);
         console.log('All Categories');
         console.log(resul);
-        console.log("Username: " + this.user.name);
+        // console.log("Username: " + this.user.name);
       },
       (error) => {
         console.log('All Categories error');
@@ -41,8 +45,17 @@ export class AppComponent implements OnInit {
   }
 
   logOut(): void {
-    alert('logOut');
-    // TODO NO HACE EL LOGOUT
+    
+  
     this.authService.logout();
   }
+    /**
+    *  checks if user is authorized or not depending on the role
+    * @param role UserRoleType
+    * @returns boolean
+    */
+     isAuthorized(role: UserRoleType): boolean {
+      return this.authService.isAuthorized(role);
+    }
+  
 }

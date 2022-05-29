@@ -83,6 +83,7 @@ export class AuthenticationService implements OnDestroy {
    * Sends logout request and removes user from local storage to log user out
    */
   logout(redirect = true): any {
+    console.log('trying to logout');
     this.http.get<any>(`${environment.apiUrl}/auth/logout`)
       .pipe(takeUntil(this.unsubscribe)).subscribe(result => this.removeToken(redirect));
   }
@@ -105,7 +106,10 @@ export class AuthenticationService implements OnDestroy {
     if (allowedRole == null) {
       return true;
     }
-
+ 
+    if(this.currentUserValue == null){
+  
+      return false;}
     // decode token to read the payload details
     const decodeToken: any = jwt_decode(this.currentUserValue.token);
     // check if it was decoded successfully, if not the token is not valid, deny access
@@ -123,7 +127,11 @@ export class AuthenticationService implements OnDestroy {
    */
   getLoggedUser(): any {
     if (this.currentUserIdValue && this.currentUserIdValue !== undefined) {
-      return this.http.get<User>(`${environment.apiUrl}/auth/me`);
+     
+      let response = this.http.get<User>(`${environment.apiUrl}/auth/me`);
+      console.warn("Trying to get user from the server");
+      console.log(response);
+    return response;
     }
     return of();
   }

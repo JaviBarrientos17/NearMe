@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -53,6 +53,8 @@ import { SliderComponent } from './slider/slider.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
+import { ErrorInterceptor } from './services/authhelp/error.interceptor';
+import { JwtInterceptor } from './services/authhelp/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,9 @@ import { ShoppingCartComponent } from './shoppingCart/shoppingCart.component';
     }),
     NgbModule,
   ],
-  providers: [],
+
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
