@@ -25,4 +25,8 @@ export class TiendasService {
   getTiendaByName(tiendaName: String): Observable<any> {
     return this.conexHttp.get('');
   }
+
+  getAllTiendasSupplierId(supplierId: Number): Observable<any> {
+    return this.conexHttp.get('/api/suppliers/supplierId/' + supplierId);
+  }
 }
