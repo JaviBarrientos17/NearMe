@@ -1,55 +1,62 @@
-  <div style="width: 230px">
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <p>Premium</p>
-        <input
-          type="checkbox"
-          name="premium"
-          id="checkPremium"
-        />&nbsp;&nbsp;&nbsp;Premium
-      </li>
-      <br />
-      <li>
-        <p>Categoria</p>
-        <ng-container *ngFor="let subcategoria of subcategories">
-          <ng-container *ngIf="idCategory == subcategoria.parent">
-            <li class="nav-item">
-              <input
-                type="checkbox"
-                name="{{subcategoria.name}}"
-                id="checkPremium"
-              />&nbsp;&nbsp;&nbsp;{{subcategoria.name}}
-            </li>
-          </ng-container>
+<div style="width: 230px">
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <p>Premium</p>
+      <input
+        type="checkbox"
+        name="premium"
+        id="checkPremium"
+      />&nbsp;&nbsp;&nbsp;Premium
+    </li>
+    <br />
+    <li>
+      <p>Categoria</p>
+
+      <ng-container
+        *ngFor="let subcategoria of subcategories; let i; as: index"
+      >
+        <ng-container *ngIf="idCategory == subcategoria.parent">
+          <li class="nav-item">
+            <input
+              type="checkbox"
+              id="checkPremium"
+              [routerLink]="[
+                '/products/category',
+                subcategoria.parent,
+                subcategoria.idCategory
+              ]"
+            />&nbsp;&nbsp;&nbsp;{{ subcategoria.name }}
+          </li>
         </ng-container>
-      </li>
-      <br />
-      <li>
-        <p>Marca</p>
-        <input
-          type="checkbox"
-          name="premium"
-          id="checkPremium"
-        />&nbsp;&nbsp;&nbsp;Premium
-      </li>
-      <br />
-      <li>
-        <p>Material</p>
-        <input
-          type="checkbox"
-          name="premium"
-          id="checkPremium"
-        />&nbsp;&nbsp;&nbsp;Premium
-      </li>
-      <br />
-  
-      <li>
-        <p>Color</p>
-        <input
-          type="checkbox"
-          name="premium"
-          id="checkPremium"
-        />&nbsp;&nbsp;&nbsp;Premium
-      </li>
-    </ul>
-  </div>
+      </ng-container>
+    </li>
+    <br />
+    <li>
+      <p>Marca</p>
+      <input
+        type="checkbox"
+        name="premium"
+        id="checkPremium"
+      />&nbsp;&nbsp;&nbsp;Premium
+    </li>
+    <br />
+    <li>
+      <p>Material</p>
+      <input
+        type="checkbox"
+        name="premium"
+        id="checkPremium"
+      />&nbsp;&nbsp;&nbsp;Premium
+    </li>
+    <br />
+
+    <li>
+      <p>Color</p>
+      <input
+        type="checkbox"
+        name="premium"
+        id="checkPremium"
+      />&nbsp;&nbsp;&nbsp;Premium
+    </li>
+  </ul>
+</div>

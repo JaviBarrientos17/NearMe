@@ -10,11 +10,14 @@ import { CategoriesService } from '../services/categories.service';
   providers: [CategoriesService],
 })
 export class SidebarFiltrosComponent implements OnInit {
-  subcategories:Array<Category> = [];
+  subcategories: Array<Category> = [];
   idCategory: Number = 0;
   parent: Number = 0;
 
-  constructor(private _categoriesService: CategoriesService, private _activeRoute: ActivatedRoute) {}
+  constructor(
+    private _categoriesService: CategoriesService,
+    private _activeRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.callCategories();
@@ -24,12 +27,25 @@ export class SidebarFiltrosComponent implements OnInit {
     this._activeRoute.paramMap.subscribe((params) => {
       this.idCategory = Number.parseInt(params.get('idCategory') + '');
       console.log(this.idCategory);
-
       if (this.idCategory) {
         console.log(this.idCategory);
         this._categoriesService.getSubCategoryList().subscribe(
           (resul) => {
-            this.subcategories = JSON.parse(JSON.stringify(resul));
+            //this.subcategories = JSON.parse(JSON.stringify(resul));
+            this.subcategories = JSON.parse(resul);
+            console.log('Subcategory list');
+            console.log(resul);
+          },
+          (error) => {
+            console.log('Subcategory list error');
+            console.log(error);
+          }
+        );
+      } else {
+        this._categoriesService.getSubCategoryList().subscribe(
+          (resul) => {
+            //this.subcategories = JSON.parse(JSON.stringify(resul));
+            this.subcategories = JSON.parse(resul);
             console.log('Subcategory list');
             console.log(resul);
           },

@@ -1,24 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from 'src/model/category';
 import { Product } from 'src/model/product';
+import { CategoriesService } from '../services/categories.service';
 import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'productos-component',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
-  providers: [ProductsService],
+  providers: [ProductsService, CategoriesService],
 })
 export class ProductosComponent implements OnInit {
   products: Array<Product> = [];
   objectKeys = Object.keys;
   idCategory: Number = 0;
   parent: Number = 0;
+  subcategories: Array<Category> = [];
 
   productName: String = '';
   constructor(
     private _productsService: ProductsService,
     private _activeRoute: ActivatedRoute,
+    private _categoryService: CategoriesService,
     private _router: Router
   ) {}
   title = 'Productos';
@@ -35,7 +39,7 @@ export class ProductosComponent implements OnInit {
           .getProductsByCategory(this.idCategory, this.parent)
           .subscribe(
             (resul) => {
-              // this.products = JSON.parse(resul);
+              //this.products = JSON.parse(resul);
               this.products = JSON.parse(JSON.stringify(resul));
               console.log('Products by category');
               console.log(resul);
@@ -45,8 +49,9 @@ export class ProductosComponent implements OnInit {
               console.log(error);
             }
           );
-        // this._productsService.getSubCategoryList().subscribe(
+        // this._categoryService.getSubCategoryList().subscribe(
         //   (resul) => {
+        //     this.subcategories = JSON.parse(resul);
         //     console.log('Subcategory list');
         //     console.log(resul);
         //   },
