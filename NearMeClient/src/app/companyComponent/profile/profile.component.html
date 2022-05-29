@@ -1,18 +1,17 @@
 <app-navbar></app-navbar>
 <div class="fondo">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="wrapper d-flex align-items-stretch p-0">
-        <nav id="sidebar" class="active bg-white">
-          <div class="profile">
-            <img src="assets/nick.png" alt="Image" class="img-fluid" />
-            <h1 class="name">Hola Zapas</h1>
-          </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="wrapper d-flex align-items-stretch p-0">
+                <nav id="sidebar" class="active bg-white">
+                    <div class="profile">
+                        <img src="https://random.imagecdn.app/150/150" alt="Image" class="img-fluid" />
+                        <h1 class="name">! Hola{{userName}} ¡</h1>
+                    </div>
 
-          <ul class="list-unstyled components mb-5">
-            <li>
-              <a [routerLink]="['/dashboard']"
-                ><span class="fa fa-home"></span>
+                    <ul class="list-unstyled components mb-5">
+                        <li>
+                            <a [routerLink]="['/dashboard']"><span class="fa fa-home"></span>
                 {{ "company.dashboard" | translate }}</a
               >
             </li>

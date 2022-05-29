@@ -3,6 +3,7 @@ import { pedidosDB } from 'src/app/data/pedidos';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Pedido } from 'src/model/pedido';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'pedidosList-component',
@@ -19,11 +20,11 @@ export class PedidosList implements OnInit {
     'actions',
   ];
   dataSource = new MatTableDataSource<Pedido>(pedidosDB.Pedido);
-
+  userName:String = "";
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  constructor() {}
+  constructor(private authService: AuthenticationService) {}
   view = 'list';
   pedidos!: {
     id_pedido: number;
@@ -44,5 +45,7 @@ export class PedidosList implements OnInit {
 
     console.log(this.dataSource);
     console.log(this.pedidos);
+    this.userName = this.authService.currentUserValue.name;
+    console.log(this.userName);
   }
 }

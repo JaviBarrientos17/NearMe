@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   title = 'NearMe';
   user: User;
   UserRoleType = UserRoleType;
-  
+  userName:String = "";
 
   constructor(
     public router: Router,
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
- 
+    console.log(this.user);
     // console.log(this.user.name); checke comment
     this._categoriesService.getAllCategories().subscribe(
       (resul) => {

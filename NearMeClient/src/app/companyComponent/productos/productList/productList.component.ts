@@ -31,6 +31,7 @@ export class ProductList implements OnInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+  userName: string;
 
   constructor(
     private userService: UserService,
@@ -45,6 +46,8 @@ export class ProductList implements OnInit {
   ngOnInit(): void {
     this.authService.currentUserIdValue;
     this.getAllProducts();
+    this.userName = this.authService.currentUserValue.name;
+    console.log(this.userName);
   }
   deleteProduct(idProduct: Number) {
     const product = this.products.find((x) => x.idProduct === idProduct);

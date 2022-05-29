@@ -24,7 +24,7 @@ export class FormProductComponent implements OnInit {
   dateAdded: String;
   product: Product;
   isAddMode!: boolean;
-
+  userName:String = "";
   constructor(
     private formBuilder: FormBuilder,
     protected router: Router,
@@ -53,7 +53,8 @@ export class FormProductComponent implements OnInit {
       active: ['', Validators.required],
       stock: ['', Validators.required],
     });
-
+    this.userName = this.authService.currentUserValue.name;
+    console.log(this.userName);
     //PARA EDITAR EL PRODUCTO
     if (!this.isAddMode) {
       console.log('EDITAR');
