@@ -13,6 +13,27 @@
       <div class="col-10">
         <div class="container">
           <h1>Tiendas</h1>
+          <ng-container *ngFor="let tienda of tiendas">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
+              <div class="card card-producto">
+                <img class="card-img" src="{{ tienda.imgUrl }}" alt="..." />
+                <div class="card-body body-producto">
+                  <h5 class="card-info">{{ tienda.name }}</h5>
+                  <h2 class="card-title module line-clamp-title">
+                    <b>{{ tienda.name }}</b>
+                  </h2>
+                  <p class="card-text module line-clamp-text">
+                    {{ tienda.description }}
+                  </p>
+                  <div class="btn-price-holder">
+                    <h2 class="card-price">
+                      <b>{{ tienda.geo }}</b>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
           <h3>
             <a [routerLink]="['/tienda']">Sabater Hnos. Fábrica de jabones</a>
           </h3>
