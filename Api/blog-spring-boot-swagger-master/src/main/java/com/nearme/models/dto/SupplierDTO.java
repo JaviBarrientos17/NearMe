@@ -1,6 +1,5 @@
 package com.nearme.models.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,5 +14,6 @@ public class SupplierDTO {
     private Integer idUser;
     private String geo;
     private String description;
+    private String imageUrl;
 
 }

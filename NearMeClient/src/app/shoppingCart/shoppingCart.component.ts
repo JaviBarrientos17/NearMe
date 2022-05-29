@@ -39,7 +39,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   increaseQuantity(item: any) {
-    console.log('Works!');
     this.cartService.increaseQuantity(item);
     this.total = this.cartService.getTotalPrice();
     console.log(this.total);

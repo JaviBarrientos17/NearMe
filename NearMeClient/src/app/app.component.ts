@@ -23,8 +23,6 @@ export class AppComponent implements OnInit {
     private _categoriesService: CategoriesService
   ) {}
 
-    prueba: Array<any> = [2,3,4,5,6,7,8,9,10];
-
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
     console.log(this.user.name);
@@ -33,6 +31,7 @@ export class AppComponent implements OnInit {
         this.categories = JSON.parse(resul);
         console.log('All Categories');
         console.log(resul);
+        console.log("Username: " + this.user.name);
       },
       (error) => {
         console.log('All Categories error');
@@ -41,9 +40,9 @@ export class AppComponent implements OnInit {
     );
   }
 
-
   logOut(): void {
-    this.user = this.authService.logout();
+    alert('logOut');
+    // TODO NO HACE EL LOGOUT
+    this.authService.logout();
   }
 }
-

@@ -41,7 +41,7 @@
                           </span>
                         </td>
                         <td>
-                          <b>{{ total }}€</b>
+                          <b>{{ total }} €</b>
                         </td>
                         <td>
                           <button
@@ -68,14 +68,14 @@
             <div class="col-md-4 payment text-white">
               <div class="row mt-4">
                 <div class="col-10">
-                  <h2>Card Details</h2>
+                  <h2>Detalles de la tarjeta</h2>
                 </div>
                 <div class="col-2">
                   <img class="imgProfile" src="../../assets/nick.png" alt="" />
                 </div>
               </div>
               <form action="submit">
-                <span>Card Type</span>
+                <span>Tipo de tarjeta</span>
                 <div class="row">
                   <div class="col-4">
                     <img
@@ -102,7 +102,7 @@
                 <div class="row">
                   <div class="mb-3">
                     <label for="cardName" class="form-label"
-                      >Name on Card</label
+                      >Nombre en la tarjeta</label
                     >
                     <input
                       type="text"
@@ -114,19 +114,19 @@
                 </div>
                 <div class="row">
                   <div class="mb-3">
-                    <label for="cardNumber" class="form-label">Password</label>
+                    <label for="cardNumber" class="form-label">Número de la tarjeta</label>
                     <input
                       type="number"
                       class="form-control"
                       id="cardNumber"
-                      placeholder="Card Number"
+                      placeholder="Número de la tarjeta"
                     />
                   </div>
                 </div>
                 <div class="row">
                   <div class="mb-3 col-md-6">
                     <label for="expirationDate" class="form-label"
-                      >Expiration Date</label
+                      >Fecha de caducidad</label
                     >
                     <input
                       type="date"
@@ -148,21 +148,21 @@
                 <div class="row totals">
                   <div class="col-8">
                     <p>Subtotal</p>
-                    <p>Gastos de envio</p>
+                    <p>Gastos de envío</p>
                     <p>Total (iva incl.)</p>
                   </div>
                   <div class="col-4">
                     <p>
-                      <b>{{ total }}€</b>
+                      <b>{{ total }} €</b>
                     </p>
                     <p><b>20.00€</b></p>
                     <p>
-                      <b>{{ totalShipp }}€</b>
+                      <b>{{ totalShipp }} €</b>
                     </p>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-checkout mb-4">
-                  {{ totalShipp }}€ Checkout
+                  {{ totalShipp }} € Realizar pago
                 </button>
               </form>
             </div>
@@ -183,13 +183,13 @@
               alt="Empty shopping cart"
               class="mb-4 mt-4 imgCarrito"
             />
-            <h3>El carrito està vacío</h3>
+            <h3>El carrito está vacío</h3>
             <h4>Añade productos al carrito</h4>
             <button
               [routerLink]="['/productos']"
               class="btn btn-comprar w-50 mb-4"
             >
-              Compra Aquí
+              Compra aquí
             </button>
           </div>
         </div>

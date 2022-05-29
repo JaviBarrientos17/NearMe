@@ -116,11 +116,34 @@ input {
 }
 
 .loginContainer {
-    /* width: max-content;
-    height: 100vh; */
-    border: 5px solid black;
-    /* display: flex; */
     height:100%;
     height:100vh;
     position:absolute;
+}
+
+.backgroundLogin {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+}
+
+.nearmeLogo {
+    width: 50%;
+    height: 25%;
+    top: 25%;
+    left: 25%;
+    position: absolute;
+}
+
+.lema {
+    margin-top: 45%;
+    height: 25%;
+    left: 25%;
+    color: black;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 20px;
 }
