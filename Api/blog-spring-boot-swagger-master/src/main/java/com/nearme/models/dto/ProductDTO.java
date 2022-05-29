@@ -26,7 +26,7 @@ public class ProductDTO {
     boolean active;
     @Size(min = 0, max = 250)
     String dateAdded;
-    @Size(min = 0, max = 250)
+    @Size(min = 0, max = 500)
     String imgUrl;
 
     @Override

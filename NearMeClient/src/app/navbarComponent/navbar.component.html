@@ -22,13 +22,13 @@
             {{ "navbar.dashboard" | translate }}
           </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item " *ngIf="user == null">
                     <a [routerLink]="['/login']" class="nav-link" data-hover="Login">
             {{ "navbar.login" | translate }}
           </a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="user == null">
                     <a [routerLink]="['/register']" class="nav-link" data-hover="Register">
             {{ "navbar.register" | translate }}
           </a>

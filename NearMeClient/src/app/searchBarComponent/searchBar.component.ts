@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Product } from 'src/model/product';
+import { User } from 'src/model/user.model';
+import { AuthenticationService } from '../services/authentication.service';
 import { ProductsService } from '../services/products.service';
 
 @Component({
@@ -7,15 +9,22 @@ import { ProductsService } from '../services/products.service';
   templateUrl: './searchBar.component.html',
   styleUrls: ['./searchBar.component.css'],
 })
-export class SearchBar {
+export class SearchBar implements OnInit {
   @Output() sender = new EventEmitter();
   products: Array<Product> = [];
-
+  user: User;
   search: String = '';
+  
   searchString: String;
+
   constructor(
     private _productsService: ProductsService,
+    private authService: AuthenticationService,
   ) { }
+  ngOnInit(): void {
+    this.user = this.authService.currentUserValue;
+    console.log(this.user);
+  }
 
 
   syncSearch() {

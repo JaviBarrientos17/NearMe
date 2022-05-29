@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserRoleType } from 'src/model/enums/user-role-type.enum';
+import { User } from 'src/model/user.model';
 import { AuthenticationService } from '../services/authentication.service';
 import { CartService } from '../services/cart.service';
 
@@ -14,6 +15,7 @@ export class NavbarComponent implements OnInit {
   langs: string[] = [];
   isLogged: boolean = true;
   selectedLanguage = 'es';
+  user: User;
   UserRoleType = UserRoleType;
   public totalItem: number = 0;
 
@@ -31,6 +33,10 @@ export class NavbarComponent implements OnInit {
         this.totalItem = res.length;
       });
     this.isLogged = this.authenticationService.currentUserIdValue != null;
+
+
+    this.user = this.authenticationService.currentUserValue;
+    console.log(this.user);
 
 
 

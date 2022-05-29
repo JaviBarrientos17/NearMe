@@ -69,4 +69,20 @@ public class SupplierService {
         }
         return SupplierMapper.INSTANCE.entityToDto(supplier);
     }
+
+    /**
+     * Gets supplier by id Supplier
+     * 
+     * @return
+     * @throws Exception
+     */
+    @Transactional
+    public SupplierDTO getSupplierByIdSupplier(Integer idSupplier) throws Exception {
+        SupplierEntity supplierEntity = supplierRepository.findByIdSupplier(idSupplier);
+        if (supplierEntity == null) {
+            log.info("No supplier found in the database");
+            new Exception("No supplier found");
+        }
+        return SupplierMapper.INSTANCE.entityToDto(supplierEntity);
+    }
 }

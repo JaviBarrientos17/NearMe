@@ -10,4 +10,6 @@ public interface SupplierRepository extends JpaRepository<SupplierEntity, Intege
     Optional<List<SupplierEntity>> findByName(String supplierName);
 
     SupplierEntity findByIdUser(Integer idUser);
+
+    SupplierEntity findByIdSupplier(Integer idSupplier);
 }

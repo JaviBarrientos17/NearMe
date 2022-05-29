@@ -69,4 +69,19 @@ public class SupplierController {
         return new ResponseEntity<SupplierDTO>(this.supplierService.getSupplierByIdUser(idUser), HttpStatus.OK);
     }
 
+    /**
+     * Get supplie by supplierId
+     * *
+     * 
+     * @param SupplierDTO
+     * @return response
+     * @throws Exception
+     * 
+     */
+    @GetMapping("/supplierId/{supplierId}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(security = @SecurityRequirement(name = "JwtToken"))
+    public ResponseEntity<SupplierDTO> getSupplierByIdSupplier(@PathVariable Integer supplierId) throws Exception {
+        return new ResponseEntity<SupplierDTO>(this.supplierService.getSupplierByIdSupplier(supplierId), HttpStatus.OK);
+    }
 }
