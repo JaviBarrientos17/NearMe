@@ -67,9 +67,14 @@
   overflow-x: auto;
 }
 
+.containerScroll::-webkit-scrollbar {
+  display: none;
+}
+
 .textDiv {
   margin-top: 5%;
 }
+
 hr {
   border: 0;
   height: 5px;
@@ -82,12 +87,15 @@ hr {
 .productDescriptionP {
   text-align: justify;
 }
+
 .productDescriptionColorP {
   text-align: justify;
 }
+
 .productButtons {
   margin-top: 5%;
 }
+
 /* TODO AÑADIR ESTILOS PARA LA CLASE containerScroll */
 .btn-visitar-tienda {
   width: 100%;

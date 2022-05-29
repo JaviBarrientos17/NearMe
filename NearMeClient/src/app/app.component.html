@@ -46,48 +46,46 @@
           <div class="nav-menu">
             <ul>
               <li>
-                <a href="#"
-                  ><span class="icon-search2 mr-3"></span>Tendencias</a
+                <a href="#"><b>Tendencias</b></a>
+              </li>
+              <div class="divSub">
+                <li>
+                  <a href="#">Productos Premium</a>
+                </li>
+                <li>
+                  <a href="#">Tiendas Premium</a>
+                </li>
+                <li>
+                  <a href="#">Rebajados</a>
+                </li>
+              </div>
+              <hr />
+              <li>
+                <a><b>Departamentos</b></a>
+              </li>
+              <div class="divSub">
+                <li
+                  *ngFor="let categoria of categories"
+                  [routerLink]="[
+                    '/products/category/',
+                    categoria.parent,
+                    categoria.idCategory
+                  ]"
                 >
-              </li>
-              <li class="active">
-                <a href="#">Productos Premium</a>
-              </li>
+                  <a class="pointer">
+                    {{ categoria.name }}
+                  </a>
+                </li>
+              </div>
+              <hr />
               <li>
-                <a href="#"
-                  ><span class="icon-search2 mr-3"></span>Tiendas Premium</a
-                >
+                <a> <b>Ayuda y Ajustes</b></a>
               </li>
-              <li>
-                <a href="#"
-                  ><span class="icon-notifications mr-3"></span>Rebajados</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><span class="icon-search2 mr-3"></span>Departamentos</a
-                >
-              </li>
-              <li *ngFor="let categoria of categories" [routerLink]="['/products/category/', categoria.parent, categoria.idCategory]">
-                <a class="pointer">
-                  <span class="icon-location-arrow mr-3"></span>{{categoria.name}}
-                </a>
-              </li>
-
-              <li>
-                <a href="#"><span class="icon-sign-out mr-3"></span>Deportes</a>
-              </li>
-              <li>
-                <h3 class="mt-5">Ayuda y Ajustes</h3>
-              </li>
-              <li>
-                <a href="#"
-                  ><span class="icon-sign-out mr-3"></span>Mi cuenta</a
-                >
-              </li>
-              <li (click)="logOut()">
-                <span class="icon-sign-out mr-3"></span>Salir
-              </li>
+              <div class="divSub">
+                <li (click)="logOut()">
+                  <a>Salir</a>
+                </li>
+              </div>
             </ul>
           </div>
         </div>
