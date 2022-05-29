@@ -175,7 +175,40 @@ input {
 	background-image: url('../../assets/barcelonaLogin.png');
 	height: 100%;
 	max-width: 100%;
-	border-radius: 30px 0px 0px 30px;
 	background-size: cover;
 	height: auto;
-  }
+}
+
+.backgroundLogin {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    z-index: -1;
+}
+
+.colInputs {
+	position: absolute;
+	top: 50%;
+	left: 75%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+.nearmeLogo {
+    width: 50%;
+    height: 25%;
+    top: 25%;
+    left: 25%;
+    position: absolute;
+}
+
+.lema {
+    margin-top: 45%;
+    height: 25%;
+    left: 25%;
+    font-weight: 900;
+    font-size: 25px;
+	color: rgba(255, 255, 255, 0.9);
+}
