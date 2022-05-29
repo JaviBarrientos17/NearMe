@@ -27,6 +27,7 @@ public class SupplierEntity {
     private String name;
     private String geo;
     private String description;
+    private String imageUrl;
 
     @Override
     public String toString() {
@@ -36,6 +37,7 @@ public class SupplierEntity {
                 ", name='" + name + '\'' +
                 ", geo='" + geo + '\'' +
                 ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 
