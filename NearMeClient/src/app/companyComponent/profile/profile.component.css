@@ -355,3 +355,8 @@ a[data-toggle="collapse"] {
   margin-bottom: 10px;
   background-color: #E9E9E9;
 }
+
+.colorIcon {
+  color: white;
+  margin-left: 0%;
+}
