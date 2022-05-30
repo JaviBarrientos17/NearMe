@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/model/category';
 import { Product } from 'src/model/product';
 import { CategoriesService } from '../services/categories.service';
 import { ProductsService } from '../services/products.service';
+import { AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'productos-component',
@@ -17,13 +18,15 @@ export class ProductosComponent implements OnInit {
   idCategory: Number = 0;
   parent: Number = 0;
   subcategories: Array<Category> = [];
-
+  @ViewChild('productscontainer') productscontainer: ElementRef;
   productName: String = '';
   constructor(
     private _productsService: ProductsService,
     private _activeRoute: ActivatedRoute,
     private _categoryService: CategoriesService,
-    private _router: Router
+    private _router: Router,
+    public elementRef: ElementRef,
+    private renderer: Renderer2
   ) {}
   title = 'Productos';
 
@@ -75,6 +78,9 @@ export class ProductosComponent implements OnInit {
         );
       }
     });
+  }
+  issetCategory() {
+    return this._router.url == '/productos' ? false : true;
   }
 
   receiver(receivedFromChild: any) {
