@@ -9,6 +9,7 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/users.service';
+import { User } from 'src/model/user.model';
 
 @Component({
   selector: 'productList-component',
@@ -31,8 +32,8 @@ export class ProductList implements OnInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  userName: string;
-
+  user: User;
+  userid: number = parseInt(this.authService.currentUserIdValue);
   constructor(
     private userService: UserService,
     private authService: AuthenticationService,
@@ -40,14 +41,16 @@ export class ProductList implements OnInit {
     private _activeRoute: ActivatedRoute,
     private _router: Router,
     public dialog: MatDialog
-  ) {}
+  ) { }
   view = 'list';
 
   ngOnInit(): void {
-    this.authService.currentUserIdValue;
-    this.getAllProducts();
-    this.userName = this.authService.currentUserValue.name;
-    console.log(this.userName);
+    this.user = this.authService.currentUserValue;
+    console.log("here333");
+    console.log(this.userid);
+    this.getAllProductsById(this.userid);
+
+
   }
   deleteProduct(idProduct: Number) {
     const product = this.products.find((x) => x.idProduct === idProduct);
@@ -58,17 +61,17 @@ export class ProductList implements OnInit {
       .pipe(first())
       .subscribe(
         () =>
-          (this.products = this.products.filter(
-            (x) => x.idProduct !== idProduct
-          ))
+        (this.products = this.products.filter(
+          (x) => x.idProduct !== idProduct
+        ))
       );
-    this.getAllProducts();
+    this.getAllProductsById(this.userid);
   }
-  getAllProducts() {
-    this._productsService.getAllProducts().subscribe(
+  getAllProductsById(id) {
+    this._productsService.getAllProductsByIdUser(id).subscribe(
       (resul) => {
         console.log('OK');
-        this.products = JSON.parse(resul);
+        this.products = JSON.parse(JSON.stringify(resul));
         this.dataSource = new MatTableDataSource<Product>(this.products);
         this.dataSource.paginator = this.paginator;
         console.log(this.products);

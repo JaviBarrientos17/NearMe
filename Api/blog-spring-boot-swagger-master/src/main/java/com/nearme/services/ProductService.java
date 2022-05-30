@@ -10,8 +10,12 @@ import com.nearme.mappers.ProductMapper;
 import com.nearme.models.dto.ProductDTO;
 import com.nearme.models.entities.CategoryEntity;
 import com.nearme.models.entities.ProductEntity;
+import com.nearme.models.entities.SupplierEntity;
 import com.nearme.repositories.CategoryRepository;
 import com.nearme.repositories.ProductRepository;
+import com.nearme.repositories.SupplierRepository;
+import com.nearme.repositories.UserRepository;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +44,12 @@ public class ProductService {
 
 	@Autowired
 	ProductRepository productRepository;
+
+	@Autowired
+	UserRepository userRepository;
+
+	@Autowired
+	SupplierRepository supplierRepository;
 
 	/**
 	 * Gets products list
@@ -82,6 +92,18 @@ public class ProductService {
 		}
 		return ProductMapper.INSTANCE.mapEntityToDtoList(productsList);
 	}
+	@Transactional
+	public List<ProductDTO> getProductsByIdUser(Integer idUser) {
+		SupplierEntity supplier = supplierRepository.findByIdUser(idUser);
+		Integer idSupplier = supplier.getIdSupplier();
+		List<ProductEntity> productsList = productRepository.findByIdSupplier(idSupplier).get();
+		if (productsList.isEmpty()) {
+			log.info("No products found in the database");
+			new Exception("No products found");
+		}
+		return ProductMapper.INSTANCE.mapEntityToDtoList(productsList);
+	}
+
 
 	/**
 	 * Gets product by name
@@ -210,7 +232,6 @@ public class ProductService {
 		if (!checkImageFile(file)) {
 			return false;
 		}
-		// I want a timestamp to name the image
 		String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
 		String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);

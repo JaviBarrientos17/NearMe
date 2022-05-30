@@ -52,4 +52,9 @@ export class ProductsService {
   searchProduct(searchString: String) {
     return this.conexHttp.get('/api/product/search/' + searchString);
   }
+
+  getAllProductsByIdUser(idUser: Number) {
+    console.warn('getAllProductsByIdUser'+ idUser);
+    return this.conexHttp.get<Product>('api/product/user/' + idUser);
+  }
 }

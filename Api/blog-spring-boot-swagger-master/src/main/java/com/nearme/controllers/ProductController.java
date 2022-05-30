@@ -123,6 +123,21 @@ public class ProductController {
 		return new ResponseEntity<List<ProductDTO>>(this.productService.getProductsByIdSupplier(idSupplier),
 				HttpStatus.OK);
 	}
+	
+	/**
+	 * Fet product by idUser
+	 * 
+	 * @param idProduct
+	 * @param data
+	 * @return
+	 */
+	@GetMapping("/user/{idUser}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<List<ProductDTO>> getProductByUser(@PathVariable Integer idUser) throws Exception {
+		log.info("Listing a product by user");
+		return new ResponseEntity<List<ProductDTO>>(this.productService.getProductsByIdUser(idUser),
+				HttpStatus.OK);
+	}
 
 	/**
 	 * Update the stock of a product
