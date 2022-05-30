@@ -135,7 +135,6 @@ public class UserService {
 		UserEntity userEntity = userRepository.findById(manageRoleDTO.getIdUser()).get();
 		List<String> roles = userEntity.getRoles();
 		if (!roles.contains(manageRoleDTO.getRole())) {
-			roles.add(manageRoleDTO.getRole());
 			userEntity.setRoles(roles);
 			this.userRepository.save(userEntity);
 		}
