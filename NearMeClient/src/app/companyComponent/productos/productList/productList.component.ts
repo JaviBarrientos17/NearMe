@@ -41,16 +41,14 @@ export class ProductList implements OnInit {
     private _activeRoute: ActivatedRoute,
     private _router: Router,
     public dialog: MatDialog
-  ) { }
+  ) {}
   view = 'list';
 
   ngOnInit(): void {
     this.user = this.authService.currentUserValue;
-    console.log("here333");
+    console.log('here333');
     console.log(this.userid);
     this.getAllProductsById(this.userid);
-
-
   }
   deleteProduct(idProduct: Number) {
     const product = this.products.find((x) => x.idProduct === idProduct);
@@ -59,13 +57,10 @@ export class ProductList implements OnInit {
     this._productsService
       .deleteProduct(idProduct)
       .pipe(first())
-      .subscribe(
-        () =>
-        (this.products = this.products.filter(
-          (x) => x.idProduct !== idProduct
-        ))
-      );
-    this.getAllProductsById(this.userid);
+      .subscribe(() => {
+        this.products = this.products.filter((x) => x.idProduct !== idProduct);
+        this.getAllProductsById(this.userid);
+      });
   }
   getAllProductsById(id) {
     this._productsService.getAllProductsByIdUser(id).subscribe(
