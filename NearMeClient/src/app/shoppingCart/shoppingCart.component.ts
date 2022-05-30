@@ -14,7 +14,7 @@ export class ShoppingCartComponent implements OnInit {
   id: number = null;
   product: any = [];
   total!: number;
-  shippment: number = 20;
+  shippment: number = 0;
   totalShipp: number = this.total + this.shippment;
   cantidad = 1;
 

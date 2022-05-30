@@ -1,18 +1,23 @@
 <app-navbar></app-navbar>
 <div class="fondo">
-    <div class="container-fluid">
-        <div class="row">
-            <!--SIDEBAR-->
-            <div class="wrapper d-flex align-items-stretch p-0">
-                <nav id="sidebar" class="active bg-white">
-                    <div class="profile">
-                        <img src="https://random.imagecdn.app/150/150" alt="Image" class="img-fluid" />
-                        <h1 class="name">! Hola{{user.name}} ¡</h1>
-                    </div>
+  <div class="container-fluid">
+    <div class="row">
+      <!--SIDEBAR-->
+      <div class="wrapper d-flex align-items-stretch p-0">
+        <nav id="sidebar" class="active bg-white">
+          <div class="profile">
+            <img
+              src="https://random.imagecdn.app/150/150"
+              alt="Image"
+              class="img-fluid"
+            />
+            <h1 class="name">! Hola{{ user.name }} ¡</h1>
+          </div>
 
-                    <ul class="list-unstyled components mb-5">
-                        <li>
-                            <a [routerLink]="['/dashboard']"><span class="fa fa-home"></span>
+          <ul class="list-unstyled components mb-5">
+            <li>
+              <a [routerLink]="['/dashboard']"
+                ><span class="fa fa-home"></span>
                 {{ "company.dashboard" | translate }}</a
               >
             </li>
@@ -188,38 +193,69 @@
                 </mat-paginator>
               </div>
             </div>
-
-            <div class="grid grid-cols-3" *ngIf="view === 'grid'">
-              <div class="col-md-3" *ngFor="let product of products">
-                <mat-card>
-                  <img
-                    class="m-0"
-                    mat-card-image
-                    src="{{ product.imgUrl }}"
-                    alt=""
-                  />
-                  <mat-card-header class="mx-0">
-                    <h3 class="text-[15px] leading-[23px]">
-                      {{ product.name }}
-                    </h3>
-                  </mat-card-header>
-                  <mat-card-actions>
-                    <a
-                      mat-stroked-button
-                      routerLink="/product/{{ product.idProduct }}"
-                      class="px-5"
-                      >Ver</a
-                    >
-                    <a
-                      mat-stroked-button
-                      (click)="deleteProduct(product.idProduct)"
-                      [disabled]="product.isDeleting"
-                      class="px-5"
-                      >Eliminar</a
-                    >
-                  </mat-card-actions>
-                </mat-card>
-              </div>
+            <div class="row">
+              <ng-container *ngIf="view === 'grid'">
+                <ng-container *ngFor="let product of products">
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
+                    <div class="card card-producto">
+                      <img
+                        class="card-img"
+                        src="{{ product.imgUrl }}"
+                        alt="..."
+                      />
+                      <div class="card-body body-producto">
+                        <h5 class="card-info">{{ product.idCategory }}</h5>
+                        <h2 class="card-title module line-clamp-title">
+                          <b>{{ product.name }}</b>
+                        </h2>
+                        <p class="card-text module line-clamp-text">
+                          {{ product.description }}
+                        </p>
+                        <div class="btn-price-holder">
+                          <h2 class="card-price">
+                            <b>{{ product.price }} € </b>
+                          </h2>
+                          <a
+                            [routerLink]="['/product', product.idProduct]"
+                            class="btn btn-primary btn-comprar-producto"
+                            >{{ "home.visitar_btn" | translate }}</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-3">
+                    <mat-card>
+                      <img
+                        class="m-0"
+                        mat-card-image
+                        src="{{ product.imgUrl }}"
+                        alt=""
+                      />
+                      <mat-card-header class="mx-0">
+                        <h3 class="text-[15px] leading-[23px]">
+                          {{ product.name }}
+                        </h3>
+                      </mat-card-header>
+                      <mat-card-actions>
+                        <a
+                          mat-stroked-button
+                          routerLink="/product/{{ product.idProduct }}"
+                          class="px-5"
+                          >Ver</a
+                        >
+                        <a
+                          mat-stroked-button
+                          (click)="deleteProduct(product.idProduct)"
+                          [disabled]="product.isDeleting"
+                          class="px-5"
+                          >Eliminar</a
+                        >
+                      </mat-card-actions>
+                    </mat-card>
+                  </div>-->
+                </ng-container>
+              </ng-container>
             </div>
           </div>
         </div>

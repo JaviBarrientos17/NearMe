@@ -94,8 +94,8 @@
                   *ngFor="let categoria of categories"
                   [routerLink]="[
                     '/products/category/',
-                    categoria.parent,
-                    categoria.idCategory
+                    categoria.idCategory,
+                    categoria.parent
                   ]"
                 >
                   <a class="pointer">

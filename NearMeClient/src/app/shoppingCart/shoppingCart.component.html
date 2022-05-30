@@ -102,19 +102,21 @@
                 <div class="row">
                   <div class="mb-3">
                     <label for="cardName" class="form-label"
-                      >Nombre en la tarjeta</label
+                      >Nombre del titular</label
                     >
                     <input
                       type="text"
                       class="form-control"
                       id="cardName"
-                      placeholder="Name on Card"
+                      placeholder="Nombre del titular"
                     />
                   </div>
                 </div>
                 <div class="row">
                   <div class="mb-3">
-                    <label for="cardNumber" class="form-label">Número de la tarjeta</label>
+                    <label for="cardNumber" class="form-label"
+                      >Número de la tarjeta</label
+                    >
                     <input
                       type="number"
                       class="form-control"
@@ -155,14 +157,16 @@
                     <p>
                       <b>{{ total }} €</b>
                     </p>
-                    <p><b>20.00€</b></p>
                     <p>
-                      <b>{{ totalShipp }} €</b>
+                      <b>{{ shippment }}€</b>
+                    </p>
+                    <p>
+                      <b>{{ total }} €</b>
                     </p>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-checkout mb-4">
-                  {{ totalShipp }} € Realizar pago
+                  {{ total }} € Realizar pago
                 </button>
               </form>
             </div>
