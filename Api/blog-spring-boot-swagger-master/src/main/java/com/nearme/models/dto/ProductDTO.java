@@ -18,7 +18,7 @@ public class ProductDTO {
     @Size(min = 0, max = 10000)
     private String description;
     Integer category;
-    Integer subcategory;
+    Integer subCategory;
     Integer stock;
     Double price;
     @Size(min = 0, max = 250)
@@ -45,7 +45,7 @@ public class ProductDTO {
     @Override
     public String toString() {
         return "ProductDTO [idProduct=" + idProduct + ", idSupplier=" + idSupplier + ", name=" + name + ", description="
-                + description + ", category=" + category + ", subcategory=" + subcategory + ", stock=" + stock
+                + description + ", category=" + category + ", subcategory=" + subCategory + ", stock=" + stock
                 + ", Price=" + price + ", reference=" + reference + ", active=" + active + ", dateAdded=" + dateAdded
                 + ", imgUrl=" + imgUrl + "]";
     }
