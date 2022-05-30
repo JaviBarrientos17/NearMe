@@ -29,43 +29,67 @@ const routes: Routes = [
   { path: 'tiendas', component: TiendasComponent },
   { path: 'tienda', component: TiendaComponent },
   { path: 'productos', component: ProductosComponent },
-  { path: 'products/category/:idCategory/:parent', component: ProductosComponent },
-  { path: 'products/category/:parent/:idCategory', component: ProductosComponent },
+  {
+    path: 'products/category/:idCategory/:parent',
+    component: ProductosComponent,
+  },
+  {
+    path: 'products/category/:parent/:idCategory',
+    component: ProductosComponent,
+  },
+  { path: 'tienda/:idSupplier', component: TiendaComponent },
+
   {
     path: 'dashboard',
     component: DashboardComponent,
     data: {
       roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
-    },canActivate: [AuthGuard]
+    },
+    canActivate: [AuthGuard],
   },
   { path: 'premium', component: PremiumComponent },
   { path: 'product/:idProduct', component: ProductComponent },
   { path: 'cart', component: ShoppingCartComponent },
-  { path: 'dashboard/companyProfile', component: ProfileComponent ,
-  data: {
-    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
-  },canActivate: [AuthGuard]
-},
-  { path: 'dashboard/newProduct', component: FormProductComponent ,
-  data: {
-    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
-  },canActivate: [AuthGuard]
-},
-  { path: 'dashboard/editProduct/:idProduct', component: FormProductComponent ,
-  data: {
-    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
-  },canActivate: [AuthGuard]
-},
-  { path: 'dashboard/productList', component: ProductList ,
-  data: {
-    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
-  },canActivate: [AuthGuard]
-},
-  { path: 'dashboard/pedidosList', component: PedidosList ,
-  data: {
-    roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
-  },canActivate: [AuthGuard]
-},
+  {
+    path: 'dashboard/companyProfile',
+    component: ProfileComponent,
+    data: {
+      roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'dashboard/newProduct',
+    component: FormProductComponent,
+    data: {
+      roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'dashboard/editProduct/:idProduct',
+    component: FormProductComponent,
+    data: {
+      roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'dashboard/productList',
+    component: ProductList,
+    data: {
+      roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'dashboard/pedidosList',
+    component: PedidosList,
+    data: {
+      roles: [UserRoleType.SUPPLIER, UserRoleType.ADMIN],
+    },
+    canActivate: [AuthGuard],
+  },
   { path: 'aboutus', component: AboutUsComponent },
 ];
 

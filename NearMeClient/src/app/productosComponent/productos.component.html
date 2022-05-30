@@ -1,43 +1,41 @@
 <app-navbar></app-navbar>
 <div class="fondo">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 rowSlider">
-        <slider-component></slider-component>
-      </div>
-    </div>
-    <div class="row rowBuscador">
-      <div class="col-md-12">
-        <searchBar (sender)="receiver($event)"></searchBar>
-      </div>
-    </div>
-    <div class="row px-5">
-      <div class="col-2">
-        <sidebarFiltros-component></sidebarFiltros-component>
-      </div>
-      <div class="col-10">
-        <div class="container">
-          <div class="row my-5">
-            <ng-container *ngFor="let p of products">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
-                <div class="card card-producto">
-                  <img class="card-img" src="{{ p.imgUrl }}" alt="..." />
-                  <div class="card-body body-producto">
-                    <h5 class="card-info">{{ p.idCategory }}</h5>
-                    <h2 class="card-title module line-clamp-title">
-                      <b>{{ p.name }}</b>
-                    </h2>
-                    <p class="card-text module line-clamp-text">
-                      {{ p.description }}
-                    </p>
-                    <div class="btn-price-holder">
-                      <h2 class="card-price">
-                        <b>{{ p.price }} € </b>
-                      </h2>
-                      <a
-                        [routerLink]="['/product', p.idProduct]"
-                        class="btn btn-primary btn-comprar-producto"
-                        >{{ "products.buy_btns" | translate }}</a
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 rowSlider">
+                <slider-component></slider-component>
+            </div>
+        </div>
+        <div class="row rowBuscador">
+            <div class="col-md-12">
+                <searchBar (sender)="receiver($event)"></searchBar>
+            </div>
+        </div>
+        <div class="row px-5">
+            <div class="col-2 mt-5">
+                <sidebarFiltros-component></sidebarFiltros-component>
+            </div>
+
+            <div class="col-10">
+                <div class="container">
+                    <div class="row my-5">
+                        <ng-container *ngFor="let p of products">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
+                                <div class="card card-producto">
+                                    <img class="card-img" src="{{ p.imgUrl }}" alt="..." />
+                                    <div class="card-body body-producto">
+                                        <h5 class="card-info">{{ p.idCategory }}</h5>
+                                        <h2 class="card-title module line-clamp-title">
+                                            <b>{{ p.name }}</b>
+                                        </h2>
+                                        <p class="card-text module line-clamp-text">
+                                            {{ p.description }}
+                                        </p>
+                                        <div class="btn-price-holder">
+                                            <h2 class="card-price">
+                                                <b>{{ p.price }} € </b>
+                                            </h2>
+                                            <a [routerLink]="['/product', p.idProduct]" class="btn btn-primary btn-comprar-producto">{{ "home.visitar_btn" | translate }}</a
                       >
                     </div>
                   </div>
@@ -50,4 +48,5 @@
     </div>
   </div>
 </div>
+
 <footer-component></footer-component>

@@ -5,7 +5,6 @@ export class Tienda {
   imgUrl: String;
   geo: String;
   idUser: Number;
-  //create constructor for tienda class
   constructor(
     idSupplier: Number,
     name: String,

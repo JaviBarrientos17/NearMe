@@ -1,58 +1,28 @@
 <app-navbar></app-navbar>
 <div class="fondo">
   <div class="container">
+    <div class="row"></div>
     <div class="row">
-      <div class="col-md-12">
-        <searchBar></searchBar>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2">
-        <sidebarFiltros-component></sidebarFiltros-component>
-      </div>
-      <div class="col-10">
+      <div class="col-12">
         <div class="container">
-          <h1>Tiendas</h1>
-          <ng-container *ngFor="let tienda of tiendas">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
-              <div class="card card-producto">
-                <img class="card-img" src="{{ tienda.imgUrl }}" alt="..." />
-                <div class="card-body body-producto">
-                  <h5 class="card-info">{{ tienda.name }}</h5>
-                  <h2 class="card-title module line-clamp-title">
-                    <b>{{ tienda.name }}</b>
-                  </h2>
-                  <p class="card-text module line-clamp-text">
-                    {{ tienda.description }}
-                  </p>
-                  <div class="btn-price-holder">
-                    <h2 class="card-price">
-                      <b>{{ tienda.geo }}</b>
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-          <h3>
-            <a [routerLink]="['/tienda']">Sabater Hnos. Fábrica de jabones</a>
-          </h3>
-          <div class="row gy-4">
-            <ng-container *ngFor="let t of tiendas">
-              <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <div class="card h-100 card-producto">
-                  <img src="../../assets/nike.png" alt="..." />
+          <div class="row my-5">
+            <ng-container *ngFor="let tienda of tiendas">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+                <div class="card card-producto">
+                  <img class="card-img" src="{{ tienda.imgUrl }}" alt="..." />
                   <div class="card-body body-producto">
-                    <h5 class="card-info">Moda</h5>
-                    <h2 class="card-title">{{ t }}</h2>
-                    <p class="card-text">
-                      {{ t }}
+                    <h5 class="card-info">{{ tienda.geo }}</h5>
+                    <h2 class="card-title module line-clamp-title">
+                      <b>{{ tienda.name }}</b>
+                    </h2>
+                    <p class="card-text module line-clamp-text">
+                      {{ tienda.description }}
                     </p>
-                    <div class="btn-holder">
+                    <div class="btn-price-holder">
                       <a
-                        [routerLink]="['/product', t]"
+                        [routerLink]="['/tienda', tienda.idSupplier]"
                         class="btn btn-primary btn-comprar-producto"
-                        >{{ "products.buy_btns" | translate }}</a
+                        >{{ "home.visitar_btn" | translate }}</a
                       >
                     </div>
                   </div>

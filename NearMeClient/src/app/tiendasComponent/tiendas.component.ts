@@ -9,7 +9,7 @@ import { TiendasService } from '../services/tiendas.service';
   styleUrls: ['./tiendas.component.css'],
   providers: [ProductsService, TiendasService],
 })
-export class TiendasComponent implements OnInit{
+export class TiendasComponent implements OnInit {
   title = 'Tiendas';
   tiendas: Array<Tienda> = [];
 
@@ -19,7 +19,7 @@ export class TiendasComponent implements OnInit{
     this._tiendasServices.getAllTiendas().subscribe(
       (resul) => {
         this.tiendas = JSON.parse(resul);
-        console.log("Tiendas: " + this.tiendas);
+        console.log(this.tiendas);
       },
       (error) => {
         console.log(error);

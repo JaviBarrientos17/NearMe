@@ -2,18 +2,9 @@
   font-family: 'Sora', sans-serif;
 }
 
-
-
 .row .rowSlider {
   padding-left: 0px !important;
   padding-right: 0px !important;
-}
-
-.rowBuscador {
-  position: absolute;
-  width: 100%;
-  left: 100px;
-  top: 300px;
 }
 
 

@@ -1,5 +1,90 @@
-a {
-    text-decoration: underline;
-    color: black;
-    margin-left: 5%;
+* {
+    font-family: 'Sora', sans-serif;
+}
+
+.row .rowSlider {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.rowBuscador {
+    position: absolute;
+    width: 100%;
+    left: 100px;
+    top: 300px;
+}
+
+.card-producto {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    min-height: 510px;
+    min-height: 510px;
+}
+
+.card-img {
+    padding: 20px;
+    margin: auto;
+    height: 200px;
+    max-width: 150px;
+}
+
+.body-producto {
+    background-color: #E9E9E9;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.btn-comprar-producto {
+    background-color: #3D81D2;
+    padding: 0.6em 2em;
+    color: white;
+    border-radius: 20px;
+    border-color: #3D81D2;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.card-price {
+    font-size: 2em;
+}
+
+.btn-price-holder {
+    margin: 4%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.fondo {
+    background-image: url('../../assets/bg_web.png');
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.module {
+    margin: 0 0 1em 0;
+    overflow: hidden;
+}
+
+.line-clamp-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }

@@ -12,9 +12,11 @@ import { ProductsService } from '../services/products.service';
 })
 export class ProductComponent implements OnInit {
   product: Product;
+  productsRelated: Array<Product> = [];
   title = 'Product';
   id: Number = 0;
-  category: String = '';
+  category: Number = 0;
+  subcategory: Number = 0;
 
   constructor(
     private _productsService: ProductsService,
@@ -39,16 +41,21 @@ export class ProductComponent implements OnInit {
         console.log(error);
       }
     );
-    // this._cartService.getItem(this.prueba).subscribe(
-    //   (resul) => {
-    //     console.log(this.prueba);
-    //     console.log(resul);
-    //   },
-    //   (error) => {
-    //     console.log('Product error');
-    //     console.log(error);
-    //   }
-    // );
+    // this.category = this.product.idCategory;
+    // this.subcategory = this.product.idSubcategory;
+    this._productsService
+      .getProductsByCategory(this.category, this.subcategory)
+      .subscribe(
+        (resul) => {
+          this.productsRelated = JSON.parse(JSON.stringify(resul));
+          console.log('Product Related');
+          console.log(this.productsRelated);
+        },
+        (error) => {
+          console.log('Product error');
+          console.log(error);
+        }
+      );
   }
 
   addToCart(product: any) {
